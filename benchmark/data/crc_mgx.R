@@ -39,6 +39,7 @@ tax <- tax[!duplicated(tax$taxon), ]
 rownames(tax) <- tax$taxon
 tax <- tax[colnames(counts), -1, drop = FALSE]
 stopifnot("taxonomy lookup failed" = !anyNA(tax[[ncol(tax)]]))
+tax[is.na(tax)] <- "unclassified"  # MetaDICT compares all higher ranks; NA ranks make its neighbour count NA
 
 w <- function(df, f) write.table(data.frame(sample_id = rownames(df), df, check.names = FALSE),
                                  file.path(outdir, f), sep = "\t", quote = FALSE, row.names = FALSE)
