@@ -9,9 +9,9 @@ from _common import read_input, write_output
 from debiasm import DebiasMClassifier
 
 counts, meta, out = read_input()
-# DEBIAS-M input: first column = integer batch index, then relative abundances
+# DEBIAS-M input: first column = integer batch index (from 0), then read counts
 batch_idx = pd.factorize(meta["batch"])[0]
-X = np.hstack([batch_idx[:, None], (counts.div(counts.sum(1), axis=0)).values])
+X = np.hstack([batch_idx[:, None], counts.values])
 y = meta["phenotype"].astype(int).values
 
 model = DebiasMClassifier(x_val=X)  # transductive: all samples used to align batches

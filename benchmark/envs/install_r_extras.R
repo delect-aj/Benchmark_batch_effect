@@ -7,11 +7,13 @@ need <- function(p) !requireNamespace(p, quietly = TRUE)
 
 cran <- c("cqrReg", "GUniFrac", "MIDASim")
 bioc <- c("MMUPHin", "PLSDAbatch", "MetaDICT", "SparseDOSSA2", "Maaslin2", "ANCOMBC", "phyloseq")
-local <- c(ConQuR = "ConQuR", ruvIIInb = "ruvIIInb", metacal = "metacal")
+local <- c(ConQuR = "ConQuR", ruvIIInb = "ruvIIInb", metacal = "metacal",
+           MetaDICT = "MetaDICT")  # MetaDICT: Bioconductor first, GitHub clone if this R is too old
 
 for (p in cran[sapply(cran, need)]) install.packages(p)
 todo <- bioc[sapply(bioc, need)]
 if (length(todo)) BiocManager::install(todo, update = FALSE, ask = FALSE)
+# BiocManager only warns on failure, so anything still missing falls through to the local clone
 for (p in names(local)[sapply(names(local), need)])
   remotes::install_local(file.path(src, local[[p]]), dependencies = TRUE, upgrade = "never")
 

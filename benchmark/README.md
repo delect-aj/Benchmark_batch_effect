@@ -24,7 +24,9 @@ Rules applied to every wrapper (neutrality):
 - A wrapper exits non-zero on failure. Runtime/memory come from the workflow (Snakemake `benchmark:`), not from the wrapper.
 - Wrappers are **transductive**: they are fitted on the whole input. For the leave-one-study-out prediction track, fit on the training studies only, then transform the held-out study (added later).
 
-Shared helpers: `methods/_common.R` (`read_input`, `write_output`, `clr`, `bio_design`) and `methods/_common.py`.
+Optional side inputs (`taxonomy.tsv`, `tree.nwk`) sit next to `counts.tsv`; wrappers read them with `side_file()`.
+
+Shared helpers: `methods/_common.R` (`read_input`, `write_output`, `side_file`, `clr`, `bio_design`) and `methods/_common.py`.
 
 ## Wrapper status
 
@@ -40,14 +42,19 @@ Shared helpers: `methods/_common.R` (`read_input`, `write_output`, `clr`, `bio_d
 | percentile | A | percentile | Gibbons 2018; controls = `phenotype == 0` |
 | harmony | B | embedding | on the top 20 CLR principal components |
 | fastmnn | B | embedding | `batchelor::fastMNN`, d = 20 |
-| debiasm | A | relabund | Python, `DebiasMClassifier.transform` |
+| debiasm | A | relabund | Python, `DebiasMClassifier.transform` on raw counts |
+| metadict | A | counts | uses `tree.nwk` or `taxonomy.tsv` next to counts.tsv; with neither, falls back to flat taxon distances |
+| cqr | A | counts | **partial reimplementation** of Park 2025 (released code does not run): robust-CV reference batch + ConQuR composite quantile regression, NB step omitted |
+| ruviiinb | A | counts | ZINB; replicate sets = `meta$replicate` or phenotype groups; controls = 20% of taxa least associated with phenotype |
+| scanvi | B | embedding | Python, scvi-tools SCVI → SCANVI with defaults |
 
-Not written yet (confirm their APIs during the pilot): MetaDICT, CQR (Park 2025), RUV-III-NB, scANVI, metacal. Track C methods (MaAsLin2, ANCOM-BC2, BDMMA, SVA) output differential-abundance results rather than tables, so they will get their own contract.
+Not written yet: metacal (only runs on mock-community data). Track C methods (MaAsLin2, ANCOM-BC2, BDMMA, SVA) output differential-abundance results rather than tables, so they will get their own contract.
 
 ## Pilot
 
 ```
-bash pilot/run_pilot.sh
+bash pilot/run_pilot.sh            # local: uses Rscript / python3 on PATH
+RSCRIPT=~/software/miniconda3/envs/bench-r/bin/Rscript PYTHON=~/software/miniconda3/envs/bench-py/bin/python bash pilot/run_pilot.sh
 ```
 This generates a toy dataset (`simulate/toy_sim.R`), runs every wrapper, and records `ok` or `FAIL` for each. `pilot/check.R` then validates the outputs and prints batch/phenotype PERMANOVA R². Outputs go to `results/` (gitignored).
 

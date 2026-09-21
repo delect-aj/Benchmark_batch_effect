@@ -12,7 +12,13 @@ read_input <- function() {
   if (!all(c("batch", "phenotype") %in% names(meta))) stop("meta needs columns: batch, phenotype")
   meta$batch <- factor(meta$batch)
   meta$phenotype <- factor(meta$phenotype)
-  list(counts = counts, meta = meta, out = a[3])
+  list(counts = counts, meta = meta, out = a[3], dir = dirname(a[1]))
+}
+
+# Optional per-dataset side inputs (e.g. taxonomy.tsv, tree.nwk) live next to counts.tsv; NULL if absent
+side_file <- function(d, name) {
+  f <- file.path(d$dir, name)
+  if (file.exists(f)) f else NULL
 }
 
 write_output <- function(x, kind, out) {
