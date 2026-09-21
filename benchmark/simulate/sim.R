@@ -43,7 +43,8 @@ if (p$conf >= 1 && p$n_batch == 1) stop("full confounding needs >= 2 batches")
 # DA taxa among reasonably prevalent ones, random direction
 prev <- fit$taxa.1.prop
 cand <- which(prev >= 0.2)
-da <- sample(cand, min(length(cand), round(p$da_prop * P)))
+# da_prop is relative to taxa that survive the >= 10% prevalence filter below, not to all template taxa
+da <- sample(cand, min(length(cand), round(p$da_prop * sum(prev >= 0.1))))
 fc <- rep(1, P); fc[da] <- 2^(p$da_log2fc * sample(c(-1, 1), length(da), replace = TRUE))
 
 # --- True relative abundances (MIDASim), per phenotype group -------------------------------------

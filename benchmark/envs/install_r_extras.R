@@ -16,7 +16,7 @@ todo <- bioc[sapply(bioc, need)]
 if (length(todo)) BiocManager::install(todo, update = FALSE, ask = FALSE)
 # BiocManager only warns on failure, so anything still missing falls through to the local clone
 for (p in names(local)[sapply(names(local), need)])
-  remotes::install_local(file.path(src, local[[p]]), dependencies = TRUE, upgrade = "never")
+  remotes::install_local(file.path(src, local[[p]]), dependencies = NA, upgrade = "never")  # NA: no Suggests
 
 missing <- c(cran, bioc, names(local))[sapply(c(cran, bioc, names(local)), need)]
 if (length(missing)) stop("still missing: ", paste(missing, collapse = ", "))
