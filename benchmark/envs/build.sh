@@ -10,6 +10,7 @@ source ~/software/miniconda3/etc/profile.d/conda.sh
 CH="--override-channels -c conda-forge -c bioconda"
 
 conda env list | grep -q '^bench-r ' || conda create -y -n bench-r $CH r-base=4.4
+# r-cvxr<1: ANCOMBC 2.8 calls CVXR::solve, which CVXR 1.x no longer exports
 conda install -y -n bench-r $CH \
   compilers make cmake pkg-config libuv libxml2 libcurl nlopt cairo fontconfig freetype harfbuzz fribidi \
   r-biocmanager r-remotes r-jsonlite r-vegan r-harmony r-quantreg r-glmnet r-dplyr r-doparallel r-gplots \
@@ -18,7 +19,7 @@ conda install -y -n bench-r $CH \
   bioconductor-limma bioconductor-sva bioconductor-batchelor bioconductor-singlecellexperiment \
   bioconductor-edger bioconductor-biomformat \
   r-matrix r-lme4 r-tidyverse r-ragg gsl r-gsl r-energy \
-  bioconductor-ancombc \
+  bioconductor-ancombc bioconductor-treesummarizedexperiment "r-cvxr<1" \
   bioconductor-scater bioconductor-singler   # ruvIIInb imports
 # Separate step: bioconda's curatedMetagenomicData 3.14 fails its post-link against current rbiom (unifrac no
 # longer exported), and a failed post-link rolls back the whole install. Only real-data prep needs it.
