@@ -23,7 +23,8 @@ conda install -y -n bench-r $CH \
   bioconductor-scater bioconductor-singler   # ruvIIInb imports
 # Separate step: bioconda's curatedMetagenomicData 3.14 fails its post-link against current rbiom (unifrac no
 # longer exported), and a failed post-link rolls back the whole install. Only real-data prep needs it.
-conda install -y -n bench-r $CH bioconductor-curatedmetagenomicdata "r-rbiom<2" || echo "WARN: curatedMetagenomicData not installed"
+# rbiom 1.x binaries link against pre-2021 TBB (tbb::task), hence the tbb pin.
+conda install -y -n bench-r $CH bioconductor-curatedmetagenomicdata "r-rbiom<2" "tbb<2021" || echo "WARN: curatedMetagenomicData not installed"
 conda run -n bench-r Rscript envs/install_r_extras.R "$src"
 echo R_ENV_DONE
 
