@@ -1,0 +1,71 @@
+# Benchmark workflow: simulate / fetch data -> run every method -> score -> aggregate.
+# Run on the compute node from benchmark/:  snakemake --cores 24 --keep-going
+import os, re
+import pandas as pd
+
+configfile: "config/config.yaml"
+R, PY = os.path.expanduser(config["rscript"]), os.path.expanduser(config["python"])
+SC = pd.read_csv(config["scenarios"], sep="\t").set_index("scenario")
+SC = SC[SC.index.str.contains(config["only"])] if config["only"] else SC
+SIMS = [f"sim/{s}/rep{r}" for s in SC.index for r in range(1, int(config["reps"]) + 1)]
+REAL = [f"real/{d}" for d in config["real"]]
+METHODS = config["methods"]
+SCRIPT = {m: next(f"methods/{m}{e}" for e in (".R", ".py") if os.path.exists(f"methods/{m}{e}")) for m in METHODS}
+
+def methods_for(ds):
+    return METHODS if ds.startswith("sim/") else [m for m in METHODS if m != "oracle"]
+
+wildcard_constraints:
+    ds = r"(sim/[^/]+/rep\d+|real/[^/]+)", m = r"[^/]+", scen = r"[^/]+", rep = r"\d+"
+
+rule all:
+    input: "results/scores.tsv"
+
+rule fit_template:
+    input: "{t}.tsv"
+    output: "{t}.tsv.midasim.rds"
+    shell: "{R} simulate/sim.R {input} --fit"
+
+rule sim:
+    input: lambda w: config["templates"][SC.loc[w.scen, "template"]] + ".midasim.rds"
+    output: multiext("results/data/sim/{scen}/rep{rep}/", "counts.tsv", "meta.tsv", "oracle.tsv", "truth_da.txt", "params.json")
+    params:
+        template = lambda w: config["templates"][SC.loc[w.scen, "template"]],
+        kv = lambda w: " ".join(f"{k}={v}" for k, v in SC.loc[w.scen].items() if k != "template"),
+        seed = lambda w: 1000 * list(SC.index).index(w.scen) + int(w.rep)
+    shell: "{R} simulate/sim.R {params.template} results/data/sim/{wildcards.scen}/rep{wildcards.rep} {params.kv} seed={params.seed}"
+
+rule crc_mgx:
+    output: multiext("results/data/real/crc_mgx/", "counts.tsv", "meta.tsv", "taxonomy.tsv")
+    shell: "{R} data/crc_mgx.R results/data/real/crc_mgx"
+
+rule run:
+    input: "results/data/{ds}/counts.tsv", "results/data/{ds}/meta.tsv"
+    output: "results/out/{ds}/{m}.status"
+    benchmark: "results/bench/{ds}/{m}.txt"
+    log: "results/logs/{ds}/{m}.log"
+    threads: lambda w: config["threads"].get(w.m, 1)
+    params:
+        exe = lambda w: R if SCRIPT[w.m].endswith(".R") else PY,
+        script = lambda w: SCRIPT[w.m], out = "results/out/{ds}/{m}.tsv", t = config["timeout"]
+    shell:
+        """
+        export OMP_NUM_THREADS={threads} MKL_NUM_THREADS={threads}
+        if timeout {params.t} {params.exe} {params.script} {input} {params.out} > {log} 2>&1; then echo ok > {output}
+        else echo "fail $?" > {output}; rm -f {params.out} {params.out}.json; fi
+        """
+
+rule score:
+    input: "results/out/{ds}/{m}.status"
+    output: "results/out/{ds}/{m}.score"
+    log: "results/logs/{ds}/{m}.score.log"
+    shell:
+        """
+        if grep -q '^ok' {input} && {R} metrics/compute.R results/data/{wildcards.ds} results/out/{wildcards.ds}/{wildcards.m}.tsv {output} 2> {log}; then :
+        else printf 'method\\n{wildcards.m}\\n' > {output}; fi
+        """
+
+rule aggregate:
+    input: [f"results/out/{ds}/{m}.score" for ds in SIMS + REAL for m in methods_for(ds)]
+    output: "results/scores.tsv"
+    shell: "{R} report/aggregate.R results {output}"

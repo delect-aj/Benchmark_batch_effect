@@ -18,8 +18,6 @@ for w in methods/[!_]*.R methods/[!_]*.py; do
   fi
 done
 
-# Oracle (batch-free truth) is scored like a method: it bounds what correction can achieve
-cp "$data/oracle.tsv" "$out/oracle.tsv" && echo '{"kind": "counts"}' > "$out/oracle.tsv.json"
 scores=results/pilot/scores.tsv; rm -f "$scores"
 for f in "$out"/*.tsv; do
   m=$(basename "${f%.tsv}")
