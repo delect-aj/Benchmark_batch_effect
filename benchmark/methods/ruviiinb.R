@@ -8,6 +8,9 @@ pv <- apply(clr(d$counts), 2, function(x) wilcox.test(x ~ d$meta$phenotype, exac
 b <- as.numeric(d$meta$batch)
 fit <- ruvIIInb::ruvIII.nb(Y = t(d$counts), M = M, ctl = pv >= quantile(pv, 0.8), k = 2, batch = b,
                            zeroinf = rep(TRUE, nrow(d$counts)))  # authors recommend ZINB for non-UMI data
-x <- t(as.matrix(ruvIIInb::get.res(fit, type = "quantile", batch = b)))  # percentile-adjusted counts
+# ruvIII.nb returns Mb per replicate group, but get.res slices it per sample; expand it the way ruvIII.nb does
+# internally (Mb[, apply(M, 1, which)]) before asking for percentile-adjusted counts
+fit$Mb <- fit$Mb[, apply(fit$M, 1, which), drop = FALSE]
+x <- t(as.matrix(ruvIIInb::get.res(fit, type = "quantile", batch = b)))
 dimnames(x) <- dimnames(d$counts)
 write_output(x, "counts", d$out)
