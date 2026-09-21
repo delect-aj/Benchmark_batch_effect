@@ -1,5 +1,6 @@
 source(file.path(dirname(sub("^--file=", "", grep("^--file=", commandArgs(FALSE), value = TRUE))), "_common.R"))
 d <- read_input()
+suppressMessages(library(doParallel))  # ConQuR uses foreach %do% without importing it; its vignette attaches doParallel
 # Park & Park 2025 (Front Microbiol 16:1484183). The released code does not run as-is: the NB step reads a
 # non-existent "Intercept" coefficient and the quantile step relies on undefined globals (batchid, standard_name).
 # Reimplemented from the paper: reference batch = lowest robust CV (MAD/median) of library size, then composite

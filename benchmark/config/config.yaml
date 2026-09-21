@@ -10,5 +10,5 @@ templates:
   mgx: data/templates/mgx.tsv
 real: [crc_mgx]
 methods: [raw, oracle, limma, combat, combatseq, mmuphin, conqur, cqr, plsdabatch, wplsdabatch,
-          percentile, metadict, ruviiinb, debiasm, harmony, fastmnn, scanvi]
-threads: {conqur: 2, cqr: 2, ruviiinb: 2, debiasm: 4, scanvi: 4}
+          percentile, metadict, ruviiinb, debias_m, harmony, fastmnn, scanvi]
+threads: {conqur: 2, cqr: 2, ruviiinb: 2, debias_m: 4, scanvi: 4}

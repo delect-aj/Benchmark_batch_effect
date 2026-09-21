@@ -42,7 +42,7 @@ Shared helpers: `methods/_common.R` (`read_input`, `write_output`, `side_file`, 
 | percentile | A | percentile | Gibbons 2018; controls = `phenotype == 0` |
 | harmony | B | embedding | on the top 20 CLR principal components |
 | fastmnn | B | embedding | `batchelor::fastMNN`, d = 20 |
-| debiasm | A | relabund | Python, `DebiasMClassifier.transform` on raw counts |
+| debias_m | A | relabund | Python, `DebiasMClassifier.transform` on raw counts (file is not `debiasm.py`: that name would shadow the package) |
 | metadict | A | counts | uses `tree.nwk` or `taxonomy.tsv` next to counts.tsv; with neither, falls back to flat taxon distances |
 | cqr | A | counts | **partial reimplementation** of Park 2025 (released code does not run): robust-CV reference batch + ConQuR composite quantile regression, NB step omitted |
 | ruviiinb | A | counts | ZINB; replicate sets = `meta$replicate` or phenotype groups; controls = 20% of taxa least associated with phenotype |

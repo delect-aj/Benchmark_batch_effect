@@ -1,5 +1,6 @@
 source(file.path(dirname(sub("^--file=", "", grep("^--file=", commandArgs(FALSE), value = TRUE))), "_common.R"))
 d <- read_input()
+suppressMessages(library(doParallel))  # ConQuR uses foreach %do% without importing it; its vignette attaches doParallel
 # ponytail: reference batch = first level; authors suggest picking one deliberately, revisit per dataset
 x <- ConQuR::ConQuR(tax_tab = d$counts, batchid = d$meta$batch,
                     covariates = d$meta[, "phenotype", drop = FALSE],

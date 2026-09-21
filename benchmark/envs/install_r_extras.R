@@ -17,6 +17,9 @@ if (length(todo)) BiocManager::install(todo, update = FALSE, ask = FALSE)
 for (p in names(local)[sapply(names(local), need)])
   remotes::install_local(file.path(src, local[[p]]), dependencies = NA, upgrade = "never")  # NA: no Suggests
 
+# ruvIII.nb calls DescTools::Winsorize(probs = ...), an argument removed in DescTools 0.99.50
+if (packageVersion("DescTools") >= "0.99.50") remotes::install_version("DescTools", "0.99.49", upgrade = "never")
+
 missing <- c(cran, bioc, names(local))[sapply(c(cran, bioc, names(local)), need)]
 if (length(missing)) stop("still missing: ", paste(missing, collapse = ", "))
 cat("all R packages installed\n")
