@@ -19,7 +19,7 @@ conda install -y -n bench-r $CH \
   bioconductor-edger bioconductor-biomformat \
   r-matrix r-lme4 r-tidyverse r-ragg gsl r-gsl r-energy \
   bioconductor-treesummarizedexperiment \
-  bioconductor-scater bioconductor-singler   # ruvIIInb imports
+  bioconductor-scater bioconductor-singler bioconductor-hdf5array   # ruvIIInb imports + its realization backend
 conda run -n bench-r Rscript envs/install_r_extras.R "$src"
 echo R_ENV_DONE
 
