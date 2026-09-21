@@ -58,4 +58,4 @@ RSCRIPT=~/software/miniconda3/envs/bench-r/bin/Rscript PYTHON=~/software/minicon
 ```
 This generates a toy dataset (`simulate/toy_sim.R`), runs every wrapper, and records `ok` or `FAIL` for each. `pilot/check.R` then validates the outputs and prints batch/phenotype PERMANOVA R². Outputs go to `results/` (gitignored).
 
-Environments: `envs/r.yaml` and `envs/py.yaml` (a single env per language; split one out only when dependencies conflict).
+Environments: `bash envs/build.sh <dir with GitHub clones>` builds `bench-r` and `bench-py` (one env per language). The GitHub-only packages are cloned on the login node, because compute nodes cannot reach GitHub.

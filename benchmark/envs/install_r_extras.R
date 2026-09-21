@@ -1,5 +1,5 @@
 # Install R packages not provided by envs/r.yaml. Idempotent: skips what is already installed.
-# Usage (inside bench-r): Rscript envs/install_r_extras.R <dir with GitHub clones>
+# Called by envs/build.sh. Usage (inside bench-r): Rscript envs/install_r_extras.R <dir with GitHub clones>
 # GitHub is not reachable from compute nodes, so GitHub packages are cloned elsewhere and installed from disk.
 src <- commandArgs(TRUE)[1]
 options(repos = c(CRAN = "https://cloud.r-project.org"), Ncpus = 8)
