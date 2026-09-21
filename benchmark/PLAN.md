@@ -86,3 +86,17 @@ benchmark/
 ## 待定/风险
 - 部分方法（Park 2025 CQR、MetaDICT）实现成熟度未知 → pilot阶段确认能否运行，不能则记为"不可用"并报告。
 - BDMMA等贝叶斯方法在大网格上可能过慢 → 只在子网格上跑并注明。
+
+## Pilot 记录（2026-09-22，cu01）
+实施中与原方案不同之处（均已写入代码/README）：
+- **模拟器**：仅用 MIDASim（parametric 模式）。SparseDOSSA2 不在 bioconda，且 CentOS 7 无法源码编译，放弃。
+- **复合分位数回归 (Park 2025)**：官方代码无法运行（NB 步骤引用不存在的系数、分位数步骤依赖未定义全局变量），按论文部分重实现：robust-CV 选参考批次 + ConQuR composite 分位数回归，省略 NB 步骤。结果需标注为"部分重实现"。
+- **RUV-III-NB**：在当前 Bioconductor 下两个入口（ruvIII.nb / fastruvIII.nb + get.res）均有包内部错误，记为"不可用"，保留 wrapper。
+- **ANCOM-BC2（轨道 C）**：需 CVXR < 1.0，conda-forge 无此版本，推迟到轨道 C 启动时从 CRAN archive 安装。
+- **curatedMetagenomicData**：与主 R 环境 TBB 版本冲突，单独放在 bench-data 环境，仅用于下载真实数据。
+
+Pilot（1 次重复；16S 混杂梯度 5 个 + null 3 个 + CRC 真实数据）初步观察，**待多重复确认，不作结论**：
+- 完全混杂（conf=1）时 ComBat、ComBat-seq、MMUPHin、MetaDICT、Percentile 直接拒绝运行，这本身是结果。
+- null 场景中 limma 在 conf=1 时产生 140 个假 DA；ConQuR/CQR 在平衡 null（conf=0）也产生 15/26 个假 DA，需核查是方法特性还是 wrapper/检验问题。
+- CRC 上 ConQuR/CQR 使批次 R² 高于未校正数据，需核查参考批次选择。
+- 嵌入类方法（scANVI、fastMNN、Harmony）的 oracle Mantel 值偏低，Aitchison 距离对非线性嵌入可能不公平，指标需再议。
