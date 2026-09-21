@@ -1,0 +1,9 @@
+name: bench-py
+channels: [conda-forge]
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - pip
+  - pip:
+      - git+https://github.com/korem-lab/DEBIAS-M.git
