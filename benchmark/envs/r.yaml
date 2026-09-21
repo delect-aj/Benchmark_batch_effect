@@ -1,16 +1,29 @@
 name: bench-r
 channels: [conda-forge, bioconda]
 dependencies:
-  - r-base=4.3
-  - r-vegan
-  - r-jsonlite
+  - r-base=4.4
+  - compilers
+  - make
+  - r-biocmanager
   - r-remotes
+  - r-jsonlite
+  - r-vegan
   - r-harmony
+  - r-quantreg
+  - r-glmnet
+  - r-dplyr
+  - r-doparallel
+  - r-gplots
+  - r-ade4
+  - r-compositions
+  - r-randomforest
+  - r-rocr
+  - r-ape
+  - r-fastdummies
+  - r-mass
+  - r-pscl
   - bioconductor-limma
   - bioconductor-sva
-  - bioconductor-mmuphin
-  - bioconductor-plsdabatch
   - bioconductor-batchelor
   - bioconductor-singlecellexperiment
-# ConQuR is GitHub-only. After creating the env:
-#   Rscript -e 'remotes::install_github("wdl2459/ConQuR")'
+# Everything else (Bioconductor/CRAN packages missing from conda + GitHub-only packages): envs/install_r_extras.R

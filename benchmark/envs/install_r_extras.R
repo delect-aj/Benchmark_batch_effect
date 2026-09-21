@@ -1,0 +1,20 @@
+# Install R packages not provided by envs/r.yaml. Idempotent: skips what is already installed.
+# Usage (inside bench-r): Rscript envs/install_r_extras.R <dir with GitHub clones>
+# GitHub is not reachable from compute nodes, so GitHub packages are cloned elsewhere and installed from disk.
+src <- commandArgs(TRUE)[1]
+options(repos = c(CRAN = "https://cloud.r-project.org"), Ncpus = 8)
+need <- function(p) !requireNamespace(p, quietly = TRUE)
+
+cran <- c("cqrReg", "GUniFrac", "MIDASim")
+bioc <- c("MMUPHin", "PLSDAbatch", "MetaDICT", "SparseDOSSA2", "Maaslin2", "ANCOMBC", "phyloseq")
+local <- c(ConQuR = "ConQuR", ruvIIInb = "ruvIIInb", metacal = "metacal")
+
+for (p in cran[sapply(cran, need)]) install.packages(p)
+todo <- bioc[sapply(bioc, need)]
+if (length(todo)) BiocManager::install(todo, update = FALSE, ask = FALSE)
+for (p in names(local)[sapply(names(local), need)])
+  remotes::install_local(file.path(src, local[[p]]), dependencies = TRUE, upgrade = "never")
+
+missing <- c(cran, bioc, names(local))[sapply(c(cran, bioc, names(local)), need)]
+if (length(missing)) stop("still missing: ", paste(missing, collapse = ", "))
+cat("all R packages installed\n")
