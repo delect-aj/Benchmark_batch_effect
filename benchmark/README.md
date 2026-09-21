@@ -48,7 +48,7 @@ Shared helpers: `methods/_common.R` (`read_input`, `write_output`, `side_file`, 
 | ruviiinb | A | counts | ZINB; replicate sets = `meta$replicate` or phenotype groups; controls = 20% of taxa least associated with phenotype |
 | scanvi | B | embedding | Python, scvi-tools SCVI → SCANVI with defaults |
 
-Not written yet: metacal (only runs on mock-community data). Track C methods (MaAsLin2, ANCOM-BC2, BDMMA, SVA) output differential-abundance results rather than tables, so they will get their own contract.
+Not written yet: metacal (only runs on mock-community data). Track C methods (MaAsLin2, ANCOM-BC2, BDMMA, SVA) output differential-abundance results rather than tables, so they will get their own contract. ANCOM-BC2 is not installed yet: version 2.8 needs CVXR < 1.0, which conda-forge does not provide; install it from the CRAN archive when Track C starts.
 
 ## Pilot
 

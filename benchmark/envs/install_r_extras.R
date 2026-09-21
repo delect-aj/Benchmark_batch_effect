@@ -6,7 +6,7 @@ options(repos = c(CRAN = "https://cloud.r-project.org"), Ncpus = 8)
 need <- function(p) !requireNamespace(p, quietly = TRUE)
 
 cran <- c("cqrReg", "GUniFrac", "MIDASim")
-bioc <- c("MMUPHin", "PLSDAbatch", "MetaDICT", "Maaslin2", "ANCOMBC", "phyloseq")
+bioc <- c("MMUPHin", "PLSDAbatch", "MetaDICT", "Maaslin2", "phyloseq")
 local <- c(ConQuR = "ConQuR", ruvIIInb = "ruvIIInb", metacal = "metacal",
            MetaDICT = "MetaDICT")  # MetaDICT: Bioconductor first, GitHub clone if this R is too old
 
