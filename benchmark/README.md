@@ -40,12 +40,12 @@ Shared helpers: `methods/_common.R` (`read_input`, `write_output`, `side_file`, 
 | conqur | A | counts | reference batch = first level (author default is user-chosen) |
 | plsdabatch / wplsdabatch | A | clr | `balance = TRUE / FALSE` |
 | percentile | A | percentile | Gibbons 2018; controls = `phenotype == 0` |
-| harmony | B | embedding | on the top 20 CLR principal components |
+| harmony | B | embedding | on the top 20 CLR principal components. Pilot note: returns its input unchanged when batches share no neighbours (toy data); verified it corrects a synthetic shift, so this is method behaviour, not a wrapper bug |
 | fastmnn | B | embedding | `batchelor::fastMNN`, d = 20 |
 | debias_m | A | relabund | Python, `DebiasMClassifier.transform` on raw counts (file is not `debiasm.py`: that name would shadow the package) |
 | metadict | A | counts | uses `tree.nwk` or `taxonomy.tsv` next to counts.tsv; with neither, falls back to flat taxon distances |
 | cqr | A | counts | **partial reimplementation** of Park 2025 (released code does not run): robust-CV reference batch + ConQuR composite quantile regression, NB step omitted |
-| ruviiinb | A | counts | ZINB; replicate sets = `meta$replicate` or phenotype groups; controls = 20% of taxa least associated with phenotype |
+| ruviiinb | A | counts | **unavailable** (pilot, 2026-09): `ruvIII.nb` returns `Mb` per replicate group but `get.res` indexes it per sample, and after expanding it `get.res` still fails; `fastruvIII.nb` + `get.res` fails inside HDF5Array (`makeCappedVolumeBox`). Also needs DescTools 0.99.49 (`Winsorize(probs=)`). Wrapper kept; excluded in config |
 | scanvi | B | embedding | Python, scvi-tools SCVI → SCANVI with defaults |
 
 Not written yet: metacal (only runs on mock-community data). Track C methods (MaAsLin2, ANCOM-BC2, BDMMA, SVA) output differential-abundance results rather than tables, so they will get their own contract. ANCOM-BC2 is not installed yet: version 2.8 needs CVXR < 1.0, which conda-forge does not provide; install it from the CRAN archive when Track C starts.
