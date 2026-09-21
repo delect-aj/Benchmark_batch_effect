@@ -4,7 +4,7 @@ import os, re
 import pandas as pd
 
 configfile: "config/config.yaml"
-R, PY = os.path.expanduser(config["rscript"]), os.path.expanduser(config["python"])
+R, PY, RDATA = (os.path.expanduser(config[k]) for k in ("rscript", "python", "rscript_data"))
 SC = pd.read_csv(config["scenarios"], sep="\t").set_index("scenario")
 SC = SC[SC.index.str.contains(config["only"])] if config["only"] else SC
 SIMS = [f"sim/{s}/rep{r}" for s in SC.index for r in range(1, int(config["reps"]) + 1)]
@@ -46,7 +46,7 @@ rule template_mgx:
 
 rule crc_mgx:
     output: multiext("results/data/real/crc_mgx/", "counts.tsv", "meta.tsv", "taxonomy.tsv")
-    shell: "{R} data/crc_mgx.R results/data/real/crc_mgx"
+    shell: "{RDATA} data/crc_mgx.R results/data/real/crc_mgx"
 
 rule run:
     input: "results/data/{ds}/counts.tsv", "results/data/{ds}/meta.tsv"

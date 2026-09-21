@@ -1,6 +1,7 @@
 # Workflow config. Override on the command line, e.g. --config reps=1 only=sweep_16s
 rscript: ~/software/miniconda3/envs/bench-r/bin/Rscript
 python: ~/software/miniconda3/envs/bench-py/bin/python
+rscript_data: ~/software/miniconda3/envs/bench-data/bin/Rscript   # curatedMetagenomicData only
 scenarios: config/scenarios.tsv   # frozen design (simulate/design.R); do not regenerate after results exist
 only: ""                          # regex filter on scenario ids ("" = all)
 reps: 20

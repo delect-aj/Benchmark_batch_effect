@@ -20,12 +20,14 @@ conda install -y -n bench-r $CH \
   r-matrix r-lme4 r-tidyverse r-ragg gsl r-gsl r-energy \
   bioconductor-treesummarizedexperiment \
   bioconductor-scater bioconductor-singler   # ruvIIInb imports
-# Separate step: bioconda's curatedMetagenomicData 3.14 fails its post-link against current rbiom (unifrac no
-# longer exported), and a failed post-link rolls back the whole install. Only real-data prep needs it.
-# rbiom 1.x binaries link against pre-2021 TBB (tbb::task), hence the tbb pin.
-conda install -y -n bench-r $CH bioconductor-curatedmetagenomicdata "r-rbiom<2" "tbb<2021" || echo "WARN: curatedMetagenomicData not installed"
 conda run -n bench-r Rscript envs/install_r_extras.R "$src"
 echo R_ENV_DONE
+
+# Real-data download only. Own env: bioconda's curatedMetagenomicData needs rbiom 1.x, whose binary links against
+# pre-2021 TBB (tbb::task), while bench-r packages (Rfast, RcppParallel) need current TBB (libtbb.so.12).
+conda env list | grep -q '^bench-data ' || conda create -y -n bench-data $CH r-base=4.4 \
+  bioconductor-curatedmetagenomicdata "r-rbiom<2" "tbb<2021"
+echo DATA_ENV_DONE
 
 conda env list | grep -q '^bench-py ' && conda env remove -y -n bench-py
 conda create -y -n bench-py $CH python=3.11 numpy=1.26.4 pandas scikit-learn h5py anndata scvi-tools \
