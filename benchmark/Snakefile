@@ -35,6 +35,15 @@ rule sim:
         seed = lambda w: 1000 * list(SC.index).index(w.scen) + int(w.rep)
     shell: "{R} simulate/sim.R {params.template} results/data/sim/{wildcards.scen}/rep{wildcards.rep} {params.kv} seed={params.seed}"
 
+rule template_16s:
+    output: "data/templates/16s.tsv"
+    shell: "{R} simulate/make_templates.R 16s {output}"
+
+rule template_mgx:
+    input: "results/data/real/crc_mgx/counts.tsv"
+    output: "data/templates/mgx.tsv"
+    shell: "{R} simulate/make_templates.R mgx {output} results/data/real/crc_mgx"
+
 rule crc_mgx:
     output: multiext("results/data/real/crc_mgx/", "counts.tsv", "meta.tsv", "taxonomy.tsv")
     shell: "{R} data/crc_mgx.R results/data/real/crc_mgx"

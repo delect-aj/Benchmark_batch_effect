@@ -29,7 +29,7 @@ fit <- if (file.exists(cache)) readRDS(cache) else {
 }
 if (outdir == "--fit") quit(save = "no")
 dir.create(outdir, recursive = TRUE, showWarnings = FALSE)
-taxa <- names(fit$mean.rel.abund); if (is.null(taxa)) taxa <- sprintf("t%04d", seq_along(fit$mean.rel.abund))
+taxa <- fit$taxa.names
 P <- length(taxa)
 
 # --- Design: batch sizes, phenotype with controlled confounding --------------------------------
@@ -41,7 +41,7 @@ pheno <- rbinom(N, 1, 0.5 + p$conf / 2 * sgn[batch])
 if (p$conf >= 1 && p$n_batch == 1) stop("full confounding needs >= 2 batches")
 
 # DA taxa among reasonably prevalent ones, random direction
-prev <- fit$taxa.1.prop; if (is.null(prev)) prev <- rep(1, P)
+prev <- fit$taxa.1.prop
 cand <- which(prev >= 0.2)
 da <- sample(cand, min(length(cand), round(p$da_prop * P)))
 fc <- rep(1, P); fc[da] <- 2^(p$da_log2fc * sample(c(-1, 1), length(da), replace = TRUE))
@@ -49,7 +49,7 @@ fc <- rep(1, P); fc[da] <- 2^(p$da_log2fc * sample(c(-1, 1), length(da), replace
 # --- True relative abundances (MIDASim), per phenotype group -------------------------------------
 sim_rel <- function(n, mult) {
   mra <- fit$mean.rel.abund * mult
-  m <- MIDASim.modify(fit, n.sample = n, lib.size = rep(1e5, n), mean.rel.abund = mra / sum(mra))
+  m <- MIDASim.modify(fit, lib.size = rep(1e5, n), mean.rel.abund = mra / sum(mra))  # n samples = length(lib.size)
   MIDASim(m, only.rel = TRUE)$sim_rel
 }
 rel <- matrix(0, N, P)
