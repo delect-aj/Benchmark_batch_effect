@@ -8,8 +8,11 @@ suppressMessages(library(doParallel))  # ConQuR uses foreach %do% without import
 # The NB mean-adjustment step is omitted. Report this as a partial reimplementation.
 lib <- rowSums(d$counts)
 rcv <- tapply(lib, d$meta$batch, function(x) mad(x, constant = 1) / median(x))
+ref <- names(which.min(rcv))
+# ConQuR bug: its fallback for sparse taxa (simple_QQ) reads a global `batchid` it never defines; reference level first
+batchid <- relevel(d$meta$batch, ref = ref)
 x <- ConQuR::ConQuR(tax_tab = d$counts, batchid = d$meta$batch,
                     covariates = d$meta[, "phenotype", drop = FALSE],
-                    batch_ref = names(which.min(rcv)),
+                    batch_ref = ref,
                     quantile_type = "composite", taus = seq(0.05, 0.95, by = 0.05))
 write_output(x, "counts", d$out)

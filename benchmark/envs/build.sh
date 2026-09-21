@@ -30,6 +30,8 @@ echo R_ENV_DONE
 conda env list | grep -q '^bench-py ' && conda env remove -y -n bench-py
 conda create -y -n bench-py $CH python=3.11 numpy=1.26.4 pandas scikit-learn h5py anndata scvi-tools \
   'pytorch=*=cpu*' lightning pip snakemake-minimal
+# DEBIAS-M uses pytorch_lightning 1.x hooks (validation_epoch_end, removed in 2.0); scVI uses the separate `lightning` package
+conda run -n bench-py pip install "pytorch-lightning==1.9.5"
 conda run -n bench-py pip install --no-deps lightning-bolts "$src/DEBIAS-M"
 conda run -n bench-py python -c "import debiasm, scvi, anndata; print('python imports ok')"
 echo PY_ENV_DONE
