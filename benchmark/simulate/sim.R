@@ -1,5 +1,5 @@
 # Simulated dataset with full ground truth (PLAN.md 2.1).
-# Biology: MIDASim fitted to a real template; DA taxa planted by shifting their mean relative abundance in cases.
+# Biology: MIDASim (parametric mode) fitted to a real template; DA taxa planted by shifting their mean relative abundance in cases.
 # Batch: injected on top of the true relative abundances, so the batch-free truth (oracle.tsv) is known exactly.
 # Usage: Rscript simulate/sim.R <template_counts.tsv> <outdir> [key=value ...]   (keys: see `p` below)
 #        Rscript simulate/sim.R <template_counts.tsv> --fit     (fit + cache the template only; run once before a grid)
@@ -24,7 +24,7 @@ set.seed(p$seed)
 cache <- paste0(template, ".midasim.rds")
 fit <- if (file.exists(cache)) readRDS(cache) else {
   tab <- as.matrix(read.delim(template, row.names = 1, check.names = FALSE))
-  f <- MIDASim.setup(tab[, colSums(tab > 0) > 0], mode = "nonparametric")
+  f <- MIDASim.setup(tab[, colSums(tab > 0) > 0], mode = "parametric")  # parametric: n and mean abundances can change freely
   saveRDS(f, cache); f
 }
 if (outdir == "--fit") quit(save = "no")
