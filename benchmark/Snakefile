@@ -79,4 +79,9 @@ rule score:
 rule aggregate:
     input: [f"results/out/{ds}/{m}.score" for ds in SIMS + REAL for m in methods_for(ds)]
     output: "results/scores.tsv"
-    shell: "{R} report/aggregate.R results {output}"
+    run:
+        # Pass exactly the workflow's inputs (a file list: ~68k paths exceed the shell's argument limit),
+        # so stray score files from manual runs never leak into results
+        with open(output[0] + ".inputs", "w") as f:
+            f.write("\n".join(input) + "\n")
+        shell("{R} report/aggregate.R results {output}.inputs {output}")
