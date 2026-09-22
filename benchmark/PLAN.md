@@ -126,3 +126,24 @@ Tune_ConQuR 依赖已被移除的 vegan::adonis，需兼容 shim（pilot/conqur_
 2. DA 维度预注册：主指标为 AP；FDR 与 power 只在 Oracle power ≥ 0.2 的场景中报告。
 3. ConQuR 主结果用 Tune_ConQuR（参考批次池 = 最大的 3 个批次）；默认 ConQuR 和"打乱表型协变量"版本作为敏感性分析，只跑 sweep/null 场景。
 4. MGX 模板沿用同一 bias_sd {1,2,3}（用户确认）：复查后 16S 未校正 batch R² 覆盖 0.037–0.203，MGX 仅 0.018–0.045，低于真实 CRC 宏基因组（0.077）。论文中需注明：MGX 场景代表偏弱的批次效应。
+
+## 数据准备情况（2026-09-22）
+所有数据由 `snakemake data` 一键重建（脚本在 data/，原始下载在 results/raw/，gitignored）。
+
+| 数据集 | 来源 | 样本 × 特征 | 批次（研究） | 表型 | 状态 |
+|---|---|---|---|---|---|
+| crc_mgx | curatedMetagenomicData（Wirbel 2019 队列） | 1255 × 224 种 | 9 | CRC vs 对照 | ✅ |
+| ibd_mgx | curatedMetagenomicData | 669 × 195 种 | 5 | IBD vs 对照 | ✅ |
+| ici_mgx | curatedMetagenomicData（免疫治疗应答 ORR） | 224 × 232 种 | 3 | 应答 vs 无应答 | ✅ |
+| crc_16s | MicrobiomeHD（Zenodo 569601） | 610 × 147 属 | 5 | CRC vs 健康 | ✅ |
+| ibd_16s | MicrobiomeHD | 580 × 86 属 | 4 | CD/UC vs 健康/nonIBD | ✅ |
+| hiv_16s | MicrobiomeHD | 312 × 137 属 | 3 | HIV vs 健康 | ✅（HIVRC 17 研究的替代） |
+| seed_16s | Foxx & Rivers 2025（Mendeley） | 320 × 721 ASV | 7 | 宿主植物（5 类，多分类） | ✅ 混杂案例 |
+| brooks mock | Brooks 2015（metacal 自带） | 80 × 7 种 | 6 板 | 已知组成 | ✅ 仅用于校准 |
+
+处理说明：16S 按 RDP 谱系聚合到属（各研究 OTU 为 de novo，不可跨研究比较），并沿用原作者每样本 ≥100 reads 的下限；ibd_gevers_2014 在 Zenodo 表中只有 162 个粪便样本（作者配置 sample_location=stool），与原文清洗结果一致。seed 数据的流行度过滤改为"至少在一个研究中 ≥10%"（不同 16S 区域的 ASV 互不重叠，统一规则只剩 2/9 个研究）；Barret 2015、Liu 2019 不在已发表的计数表中。
+
+未能准备（需决定）：
+- **HIVRC 17 个 HIV 研究**：Synapse syn18406854，需要 Synapse 账号（服务器访问 403）。目前用 MicrobiomeHD 的 3 个 HIV 研究代替。
+- **MBQC**：整合 OTU 表所在服务器（downloads.ihmpdcc.org）已下线，只剩约 16,500 个样本的原始测序数据。
+- **Salim 2022 猪粪技术重复（ENA PRJEB31650）、Tourlousse 2021 JMBC**：只有原始宏基因组 reads，需下载后用 MetaPhlAn/sylph 重新定量。
