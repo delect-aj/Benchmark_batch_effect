@@ -15,8 +15,10 @@ ids <- intersect(rownames(x), m$SampleID)
 counts <- x[ids, ]; m <- m[match(ids, m$SampleID), ]
 meta <- data.frame(batch = m$study_id, phenotype = m$host_plant, region = m$gene_region, row.names = ids)
 
-# Same filter for every dataset (PLAN.md 2.3): prevalence >= 10%, drop empty samples
-counts <- counts[, colMeans(counts > 0) >= 0.10, drop = FALSE]
+# Exception to the shared rule (PLAN.md 2.3): prevalence >= 10% in AT LEAST ONE study, not overall. ASVs from
+# different 16S regions never overlap, so the overall rule keeps only 2 of 9 studies (39 ASVs).
+prev <- apply(counts > 0, 2, function(v) tapply(v, meta$batch, mean))
+counts <- counts[, apply(prev, 2, max) >= 0.10, drop = FALSE]
 ok <- rowSums(counts) > 0
 counts <- counts[ok, ]; meta <- meta[ok, ]
 w <- function(df, f) write.table(data.frame(sample_id = rownames(df), df, check.names = FALSE),

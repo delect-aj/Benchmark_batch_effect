@@ -23,7 +23,7 @@ read_study <- function(st) {
     download.file(sprintf("https://zenodo.org/records/569601/files/%s_results.tar.gz?download=1", st), tgz, mode = "wb")
   untar(tgz, exdir = raw)
   d <- file.path(raw, paste0(st, "_results"))
-  otu <- read.delim(list.files(file.path(d, "RDP"), "rdp_assigned$", full.names = TRUE), row.names = 1,
+  otu <- read.delim(file.path(d, "RDP", paste0(st, ".otu_table.100.denovo.rdp_assigned")), row.names = 1,  # some studies also ship a dbOTU table
                     check.names = FALSE)                       # OTUs x samples, row names = RDP lineage
   m <- read.delim(list.files(d, "metadata.txt$", full.names = TRUE), row.names = 1, colClasses = "character",
                   check.names = FALSE)  # no re-encoding: latin1 conversion truncates some files in a C locale
