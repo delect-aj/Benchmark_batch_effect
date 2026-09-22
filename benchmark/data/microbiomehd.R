@@ -26,7 +26,7 @@ read_study <- function(st) {
   otu <- read.delim(list.files(file.path(d, "RDP"), "rdp_assigned$", full.names = TRUE), row.names = 1,
                     check.names = FALSE)                       # OTUs x samples, row names = RDP lineage
   m <- read.delim(list.files(d, "metadata.txt$", full.names = TRUE), row.names = 1, colClasses = "character",
-                  check.names = FALSE, fileEncoding = "latin1")
+                  check.names = FALSE)  # no re-encoding: latin1 conversion truncates some files in a C locale
   lab <- "DiseaseState"
   for (col in names(filters[[st]])) m <- m[m[[col]] %in% filters[[st]][[col]], , drop = FALSE]
   st_lab <- trimws(m[[lab]])
