@@ -14,7 +14,10 @@ sets <- list(crc_16s = list(studies = c("crc_baxter", "crc_xiang", "crc_zackular
                             case = "HIV", control = "H"))
 s <- sets[[name]]; if (is.null(s)) stop("unknown dataset ", name)
 yf <- file.path(repo, "db", "dataset_info.yaml")
-info <- yaml::yaml.load(readChar(yf, file.size(yf), useBytes = TRUE))  # raw bytes: UTF-8 text breaks readLines in a C locale
+# Raw bytes (UTF-8 text breaks readLines in a C locale). Drop dna_extraction* lines: unused here, and duplicated
+# keys there make R's yaml parser refuse the file (Python's tolerates them)
+y_lines <- strsplit(readChar(yf, file.size(yf), useBytes = TRUE), "\n", fixed = TRUE)[[1]]
+info <- yaml::yaml.load(paste(y_lines[!grepl("^\\s+dna_extraction", y_lines, useBytes = TRUE)], collapse = "\n"))
 
 read_study <- function(st) {
   tgz <- file.path(raw, paste0(st, "_results.tar.gz"))
