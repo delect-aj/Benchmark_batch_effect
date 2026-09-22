@@ -7,7 +7,7 @@ a <- commandArgs(TRUE); n <- as.integer(a[1]); set.seed(2026)
 
 levels <- list(template = c("16s", "mgx"), n_batch = c(2, 5, 10), n_per = c(20, 50, 200), imbalance = c(1, 3),
                conf = c(0, 0.3, 0.6, 0.9, 1), da_prop = c(0.05, 0.1), da_log2fc = c(1, 2, 3),
-               bias_sd = c(0.5, 1, 2), affected = c(0.1, 0.5, 1), scale_sd = c(0, 0.5),
+               bias_sd = c(1, 2, 3), affected = c(0.1, 0.5, 1), scale_sd = c(0, 0.5),  # was 0.5,1,2: too weak vs real data (PLAN.md)
                dropout = c(0, 0.2), depth_fold = c(1, 4))
 default <- list(template = "16s", n_batch = 5, n_per = 50, imbalance = 1, conf = 0, da_prop = 0.1,
                 da_log2fc = 2, bias_sd = 1, affected = 1, scale_sd = 0, dropout = 0, depth_fold = 1)

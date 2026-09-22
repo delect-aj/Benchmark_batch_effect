@@ -1,7 +1,7 @@
-# Diagnostic A1(b): ConQuR as in methods/conqur.R, but the covariate is a PERMUTED phenotype (ConQuR requires a
+# Sensitivity variant: ConQuR default (methods/conqur_default.R), but the covariate is a PERMUTED phenotype (ConQuR requires a
 # covariate). Same distribution, no link to the real phenotype: isolates the effect of conditioning on phenotype.
 # If false DA calls in the null scenario disappear, the inflation comes from that conditioning.
-source(file.path(dirname(sub("^--file=", "", grep("^--file=", commandArgs(FALSE), value = TRUE))), "../methods/_common.R"))
+source(file.path(dirname(sub("^--file=", "", grep("^--file=", commandArgs(FALSE), value = TRUE))), "_common.R"))
 d <- read_input()
 suppressMessages(library(doParallel))
 set.seed(1)

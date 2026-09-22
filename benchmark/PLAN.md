@@ -120,3 +120,8 @@ Pilot（1 次重复；16S 混杂梯度 5 个 + null 3 个 + CRC 真实数据）�
 2. CRC 上 Aitchison/Jaccard 反升来自零值处理：零值对应一段分位数，ConQuR 取参考分位数均值并取整；非参考批次零比例远高于参考批次时几乎所有零都变成正数（HanniganGD 零比例 82% → 2.3%）。BC 被高丰度 taxa 主导看不出，零敏感距离暴露出大量人为批次结构——这正是文献中"不同距离下排名翻转"的一个具体机制。
 3. 参考批次选择影响巨大；Tune_ConQuR 选 YuJ_2015 + lasso 后各批次零比例均衡（46–57%）。
 Tune_ConQuR 依赖已被移除的 vegan::adonis，需兼容 shim（pilot/conqur_tuned.R）。
+
+## 冻结前的决定（2026-09-22，用户确认）
+1. bias_sd 取值改为 {1, 2, 3}（只改这一列，其余场景参数不变）。
+2. DA 维度预注册：主指标为 AP；FDR 与 power 只在 Oracle power ≥ 0.2 的场景中报告。
+3. ConQuR 主结果用 Tune_ConQuR（参考批次池 = 最大的 3 个批次）；默认 ConQuR 和"打乱表型协变量"版本作为敏感性分析，只跑 sweep/null 场景。

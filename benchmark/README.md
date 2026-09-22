@@ -37,7 +37,9 @@ Shared helpers: `methods/_common.R` (`read_input`, `write_output`, `side_file`, 
 | combat | A | clr | `sva::ComBat` on CLR |
 | combatseq | A | counts | `sva::ComBat_seq` |
 | mmuphin | A | relabund | `MMUPHin::adjust_batch` |
-| conqur | A | counts | reference batch = first level (author default is user-chosen) |
+| conqur | A | counts | **Tune_ConQuR** (authors' tuning, vignette pools; reference pool = 3 largest batches). Includes an `adonis` shim: Tune_ConQuR calls `vegan::adonis`, removed in vegan 2.7 |
+| conqur_default | sensitivity | counts | untuned ConQuR, reference = first batch level; sweep/null scenarios only |
+| conqur_permcov | sensitivity | counts | untuned ConQuR with a permuted phenotype as covariate; isolates the DA inflation from conditioning on phenotype |
 | plsdabatch / wplsdabatch | A | clr | `balance = TRUE / FALSE` |
 | percentile | A | percentile | Gibbons 2018; controls = `phenotype == 0` |
 | harmony | B | embedding | on the top 20 CLR principal components. Pilot note: returns its input unchanged when batches share no neighbours (toy data); verified it corrects a synthetic shift, so this is method behaviour, not a wrapper bug |

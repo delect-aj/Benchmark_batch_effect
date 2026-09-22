@@ -13,4 +13,7 @@ real: [crc_mgx]
 methods: [raw, oracle, limma, combat, combatseq, mmuphin, conqur, cqr, plsdabatch, wplsdabatch,
           percentile, metadict, debias_m, harmony, fastmnn, scanvi]
 # ruviiinb: unavailable with current Bioconductor (see README); wrapper kept
-threads: {conqur: 2, cqr: 2, debias_m: 4, scanvi: 4}
+# Sensitivity variants, only on scenarios matching sensitivity_only (PLAN.md, pre-run check A1)
+sensitivity_methods: [conqur_default, conqur_permcov]
+sensitivity_only: "^(sweep|null)_"
+threads: {conqur: 2, conqur_default: 2, conqur_permcov: 2, cqr: 2, debias_m: 4, scanvi: 4}
