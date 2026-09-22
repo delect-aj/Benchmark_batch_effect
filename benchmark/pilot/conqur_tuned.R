@@ -9,7 +9,9 @@ batchid <- d$meta$batch
 # Tune_ConQuR calls vegan::adonis (removed in vegan 2.7) and only reads the batch-term R2 ($aov.tab[1, 5]).
 # Shim: same R2 from adonis2, returned in the old shape, installed where ConQuR looks up its vegan imports.
 shim <- function(formula, ...) {
-  r <- vegan::adonis2(formula, ..., permutations = 0)
+  e <- environment(formula)  # adonis2 does not look up the LHS here, so evaluate both sides ourselves
+  Y <- eval(formula[[2]], e); g <- eval(formula[[3]], e)
+  r <- vegan::adonis2(vegan::vegdist(Y, "bray") ~ g, permutations = 0)  # bray = old adonis default
   list(aov.tab = data.frame(Df = r$Df, SumsOfSqs = r$SumOfSqs, MeanSqs = NA, F.Model = NA, R2 = r$R2))
 }
 imp <- parent.env(asNamespace("ConQuR")); unlockBinding("adonis", imp); assign("adonis", shim, envir = imp)

@@ -7,7 +7,7 @@ run() {
     $R metrics/compute.R results/data/$1 $o/$2.tsv $o/$2.score || echo "FAIL $1 $2"
 }
 export -f run
-{ for r in $(seq 1 10); do for v in conqur_permcov conqur_tuned; do echo "sim/null_16s_conf0/rep$r $v"; done; done
-  echo "real/crc_mgx conqur_permcov"; echo "real/crc_mgx conqur_tuned"; } | xargs -P 12 -n 2 bash -c 'run "$0" "$1"'
+{ for r in $(seq 1 10); do for v in ${VARIANTS:-conqur_permcov conqur_tuned}; do echo "sim/null_16s_conf0/rep$r $v"; done; done
+  for v in ${VARIANTS:-conqur_permcov conqur_tuned}; do echo "real/crc_mgx $v"; done; } | xargs -P 12 -n 2 bash -c 'run "$0" "$1"'
 $R pilot/conqur_diag.R results/out > results/conqur_diag.txt 2>&1
 echo VARIANTS_END
