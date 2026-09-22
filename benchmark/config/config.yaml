@@ -9,7 +9,8 @@ timeout: 6h                       # a method hitting this is recorded as failed,
 templates:
   16s: data/templates/16s.tsv
   mgx: data/templates/mgx.tsv
-real: [crc_mgx]
+real: [crc_mgx, ibd_mgx, ici_mgx, crc_16s, ibd_16s, hiv_16s, seed_16s]
+microbiomehd_repo: ~/software/src/microbiomeHD   # authors' repo: per-study label config (cloned on the login node)
 methods: [raw, oracle, limma, combat, combatseq, mmuphin, conqur, cqr, plsdabatch, wplsdabatch,
           percentile, metadict, debias_m, harmony, fastmnn, scanvi]
 # ruviiinb: unavailable with current Bioconductor (see README); wrapper kept

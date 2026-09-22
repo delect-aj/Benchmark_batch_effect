@@ -46,9 +46,27 @@ rule template_mgx:
     output: "data/templates/mgx.tsv"
     shell: "{R} simulate/make_templates.R mgx {output} results/data/real/crc_mgx"
 
-rule crc_mgx:
-    output: multiext("results/data/real/crc_mgx/", "counts.tsv", "meta.tsv", "taxonomy.tsv")
-    shell: "{RDATA} data/crc_mgx.R results/data/real/crc_mgx"
+rule cmd:  # curatedMetagenomicData cohorts (bench-data env)
+    output: multiext("results/data/real/{name}/", "counts.tsv", "meta.tsv", "taxonomy.tsv")
+    wildcard_constraints: name = "crc_mgx|ibd_mgx|ici_mgx"
+    shell: "{RDATA} data/cmd.R {wildcards.name} results/data/real/{wildcards.name}"
+
+rule microbiomehd:  # 16S case-control studies from MicrobiomeHD (Zenodo 569601), genus level
+    output: multiext("results/data/real/{name}/", "counts.tsv", "meta.tsv", "taxonomy.tsv")
+    wildcard_constraints: name = "crc_16s|ibd_16s|hiv_16s"
+    params: repo = os.path.expanduser(config["microbiomehd_repo"])
+    shell: "{R} data/microbiomehd.R {wildcards.name} results/data/real/{wildcards.name} results/raw/microbiomehd {params.repo}"
+
+rule seed_16s:  # seed microbiome (Foxx & Rivers 2025, Mendeley Data)
+    output: multiext("results/data/real/seed_16s/", "counts.tsv", "meta.tsv")
+    shell: "{R} data/seed_16s.R results/data/real/seed_16s results/raw/seed"
+
+rule brooks_mock:  # mock communities for calibration (metacal); not in the method run list
+    output: multiext("results/data/mock/brooks/", "counts.tsv", "truth.tsv", "meta.tsv")
+    shell: "{R} data/brooks_mock.R results/data/mock/brooks"
+
+rule data:  # every dataset, without running methods
+    input: [f"results/data/{ds}/counts.tsv" for ds in REAL] + ["results/data/mock/brooks/counts.tsv"]
 
 rule run:
     input: "results/data/{ds}/counts.tsv", "results/data/{ds}/meta.tsv"
