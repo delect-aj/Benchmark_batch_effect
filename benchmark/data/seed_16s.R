@@ -9,7 +9,8 @@ get <- function(id, f) { p <- file.path(raw, f); if (!file.exists(p)) download.f
 x <- read.csv(get("7b71e396-90aa-45a6-9e38-c768778e1ab6", "count.csv"), check.names = FALSE)[, -1]
 m <- read.csv(get("91155828-5f29-45ad-8c71-aa531f169f08", "metadata.csv"), check.names = FALSE)[, -1]
 m <- m[!duplicated(m$SampleID), ]
-rownames(x) <- x$SampleID; x <- as.matrix(x[, -1])
+rownames(x) <- x$SampleID
+x <- as.matrix(x[, sapply(x, is.numeric)])  # the count file also carries SampleID/study_id/host_plant columns
 ids <- intersect(rownames(x), m$SampleID)
 counts <- x[ids, ]; m <- m[match(ids, m$SampleID), ]
 meta <- data.frame(batch = m$study_id, phenotype = m$host_plant, region = m$gene_region, row.names = ids)
