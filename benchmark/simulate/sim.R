@@ -95,6 +95,10 @@ save_tab(oracle, "oracle.tsv")
 meta <- data.frame(sample_id = ids, batch = paste0("B", batch[keep_s]), phenotype = pheno[keep_s])
 write.table(meta, file.path(outdir, "meta.tsv"), sep = "\t", quote = FALSE, row.names = FALSE)
 writeLines(intersect(taxa[da], taxa[keep_t]), file.path(outdir, "truth_da.txt"))
+# True per-taxon effect, so DA truth can be redefined on the tested scale later (e.g. CLR, where renormalisation
+# shifts non-DA taxa too). Written after all random draws: adding it does not change the simulated data.
+write.table(data.frame(taxon = taxa[keep_t], log2fc = log2(fc[keep_t]), mean_rel_abund = fit$mean.rel.abund[keep_t]),
+            file.path(outdir, "truth_fc.tsv"), sep = "\t", quote = FALSE, row.names = FALSE)
 
 tb <- table(meta$batch, meta$phenotype)
 p$cramers_v <- if (min(dim(tb)) > 1) sqrt(suppressWarnings(chisq.test(tb, correct = FALSE))$statistic / sum(tb)) else 1

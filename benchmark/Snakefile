@@ -28,7 +28,7 @@ rule fit_template:
 
 rule sim:
     input: lambda w: config["templates"][SC.loc[w.scen, "template"]] + ".midasim.rds"
-    output: multiext("results/data/sim/{scen}/rep{rep}/", "counts.tsv", "meta.tsv", "oracle.tsv", "truth_da.txt", "params.json")
+    output: multiext("results/data/sim/{scen}/rep{rep}/", "counts.tsv", "meta.tsv", "oracle.tsv", "truth_da.txt", "truth_fc.tsv", "params.json")
     params:
         template = lambda w: config["templates"][SC.loc[w.scen, "template"]],
         kv = lambda w: " ".join(f"{k}={v}" for k, v in SC.loc[w.scen].items() if k != "template"),
