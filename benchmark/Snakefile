@@ -54,8 +54,7 @@ rule cmd:  # curatedMetagenomicData cohorts (bench-data env)
 rule microbiomehd:  # 16S case-control studies from MicrobiomeHD (Zenodo 569601), genus level
     output: multiext("results/data/real/{name}/", "counts.tsv", "meta.tsv", "taxonomy.tsv")
     wildcard_constraints: name = "crc_16s|ibd_16s|hiv_16s"
-    params: repo = os.path.expanduser(config["microbiomehd_repo"])
-    shell: "{R} data/microbiomehd.R {wildcards.name} results/data/real/{wildcards.name} results/raw/microbiomehd {params.repo}"
+    shell: "{R} data/microbiomehd.R {wildcards.name} results/data/real/{wildcards.name} results/raw/microbiomehd"
 
 rule seed_16s:  # seed microbiome (Foxx & Rivers 2025, Mendeley Data)
     output: multiext("results/data/real/seed_16s/", "counts.tsv", "meta.tsv")

@@ -1,8 +1,8 @@
 # Real 16S datasets from MicrobiomeHD (Duvallet et al. 2017, Zenodo record 569601), one batch per study.
 # OTUs are called de novo per study, so they are not comparable across studies: aggregate to genus via the RDP
-# lineage (PLAN.md 2.3). Study-level filters and disease-label columns come from the authors' db/dataset_info.yaml.
-# Usage: Rscript data/microbiomehd.R <crc_16s|ibd_16s|hiv_16s> <outdir> <raw download dir> <microbiomeHD repo clone>
-a <- commandArgs(TRUE); name <- a[1]; outdir <- a[2]; raw <- a[3]; repo <- a[4]
+# lineage (PLAN.md 2.3). Study-level sample filters follow the authors' db/dataset_info.yaml.
+# Usage: Rscript data/microbiomehd.R <crc_16s|ibd_16s|hiv_16s> <outdir> <raw download dir>
+a <- commandArgs(TRUE); name <- a[1]; outdir <- a[2]; raw <- a[3]
 dir.create(outdir, recursive = TRUE, showWarnings = FALSE); dir.create(raw, recursive = TRUE, showWarnings = FALSE)
 
 # Case/control labels follow the MicrobiomeHD conventions; anything else (e.g. adenoma "nonCRC") is dropped
@@ -13,11 +13,9 @@ sets <- list(crc_16s = list(studies = c("crc_baxter", "crc_xiang", "crc_zackular
              hiv_16s = list(studies = c("hiv_dinh", "hiv_lozupone", "hiv_noguerajulian"),
                             case = "HIV", control = "H"))
 s <- sets[[name]]; if (is.null(s)) stop("unknown dataset ", name)
-yf <- file.path(repo, "db", "dataset_info.yaml")
-# Raw bytes (UTF-8 text breaks readLines in a C locale). Drop dna_extraction* lines: unused here, and duplicated
-# keys there make R's yaml parser refuse the file (Python's tolerates them)
-y_lines <- strsplit(readChar(yf, file.size(yf), useBytes = TRUE), "\n", fixed = TRUE)[[1]]
-info <- yaml::yaml.load(paste(y_lines[!grepl("^\\s+dna_extraction", y_lines, useBytes = TRUE)], collapse = "\n"))
+# Per-study sample filters, copied from the authors' db/dataset_info.yaml (microbiomeHD repo); for these 12
+# studies the disease label column is always DiseaseState. (That yaml has duplicate keys R's parser rejects.)
+filters <- list(hiv_lozupone = list(time_point = "1"), hiv_noguerajulian = list(cohort = c("BCN0", "STK")))
 
 read_study <- function(st) {
   tgz <- file.path(raw, paste0(st, "_results.tar.gz"))
@@ -29,9 +27,8 @@ read_study <- function(st) {
                     check.names = FALSE)                       # OTUs x samples, row names = RDP lineage
   m <- read.delim(list.files(d, "metadata.txt$", full.names = TRUE), row.names = 1, colClasses = "character",
                   check.names = FALSE, fileEncoding = "latin1")
-  y <- if (is.null(info[[st]])) list() else info[[st]]          # studies added after the paper have no entry
-  lab <- if (is.null(y$disease_label)) "DiseaseState" else y$disease_label
-  for (col in names(y$condition)) m <- m[m[[col]] %in% as.character(y$condition[[col]]), , drop = FALSE]
+  lab <- "DiseaseState"
+  for (col in names(filters[[st]])) m <- m[m[[col]] %in% filters[[st]][[col]], , drop = FALSE]
   st_lab <- trimws(m[[lab]])
   m <- m[st_lab %in% c(s$case, s$control), , drop = FALSE]
   ids <- intersect(colnames(otu), rownames(m))
