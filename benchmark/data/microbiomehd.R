@@ -13,7 +13,8 @@ sets <- list(crc_16s = list(studies = c("crc_baxter", "crc_xiang", "crc_zackular
              hiv_16s = list(studies = c("hiv_dinh", "hiv_lozupone", "hiv_noguerajulian"),
                             case = "HIV", control = "H"))
 s <- sets[[name]]; if (is.null(s)) stop("unknown dataset ", name)
-info <- yaml::read_yaml(file.path(repo, "db", "dataset_info.yaml"), fileEncoding = "UTF-8")  # has non-ASCII text; C locale truncates it
+yf <- file.path(repo, "db", "dataset_info.yaml")
+info <- yaml::yaml.load(readChar(yf, file.size(yf), useBytes = TRUE))  # raw bytes: UTF-8 text breaks readLines in a C locale
 
 read_study <- function(st) {
   tgz <- file.path(raw, paste0(st, "_results.tar.gz"))
