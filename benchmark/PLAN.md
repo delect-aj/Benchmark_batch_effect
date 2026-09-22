@@ -100,3 +100,23 @@ Pilot（1 次重复；16S 混杂梯度 5 个 + null 3 个 + CRC 真实数据）�
 - null 场景中 limma 在 conf=1 时产生 140 个假 DA；ConQuR/CQR 在平衡 null（conf=0）也产生 15/26 个假 DA，需核查是方法特性还是 wrapper/检验问题。
 - CRC 上 ConQuR/CQR 使批次 R² 高于未校正数据，需核查参考批次选择。
 - 嵌入类方法（scANVI、fastMNN、Harmony）的 oracle Mantel 值偏低，Aitchison 距离对非线性嵌入可能不公平，指标需再议。
+
+## 跑前检查结果（2026-09-22）
+**A2 批次强度**：未校正 batch R²（Aitchison）中位数 0.029、90% 分位 0.096、最大 0.256；Bray-Curtis 中位 0.082、最大 0.435。真实数据 CRC 为 0.077（Aitchison）/ 0.095（BC），文献 HIVRC BC ≈ 0.12。设计整体偏弱，MGX 模板尤甚（bias_sd=2 时仅 0.029）。建议 bias_sd 由 {0.5,1,2} 改为 {1,2,3}（待确认）。
+
+**A3 DA 效应**：不是天花板而是地板——无批次的 Oracle 在 57% 场景中 power < 0.2，总样本量 ≤150 时 power ≈ 0。建议预注册：DA 主指标用 AP；FDR/power 只在 Oracle power ≥ 0.2 的场景报告（待确认）。
+
+**B1 DA 真值**：Oracle 在所有混杂水平下平均 FDR ≈ 0.15（名义 0.05），来自组成性重归一化使非 DA taxa 的 CLR 也移动。sim.R 已额外输出每个 taxon 的真实 log2FC（truth_fc.tsv，不改变模拟数据），指标可在跑完后修正。
+
+**A1 ConQuR**（null 场景 ×10 重复 + CRC）：
+| 设置 | null 假 DA（均值） | null batch R² | CRC batch R² BC / Aitchison / Jaccard |
+|---|---|---|---|
+| 未校正 | 0 | 0.074 | 0.095 / 0.077 / 0.103 |
+| ConQuR 默认（参考批次=字母序第一，保护真实表型） | 9.7 | 0.026 | 0.008 / 0.182 / 0.503 |
+| ConQuR，协变量=打乱的表型 | 0.0 | 0.026 | 0.008 / 0.183 / 0.505 |
+| Tune_ConQuR（作者推荐调参） | 2.2 | 0.016 | 0.010 / 0.090 / 0.198 |
+结论（方法特性，非 wrapper 错误）：
+1. 假 DA 完全来自以真实表型为条件：ConQuR 把每个值替换为"该批次+该表型"的拟合分位数，噪声中的偶然表型差异被系统化，之后用同一表型检验是循环论证。
+2. CRC 上 Aitchison/Jaccard 反升来自零值处理：零值对应一段分位数，ConQuR 取参考分位数均值并取整；非参考批次零比例远高于参考批次时几乎所有零都变成正数（HanniganGD 零比例 82% → 2.3%）。BC 被高丰度 taxa 主导看不出，零敏感距离暴露出大量人为批次结构——这正是文献中"不同距离下排名翻转"的一个具体机制。
+3. 参考批次选择影响巨大；Tune_ConQuR 选 YuJ_2015 + lasso 后各批次零比例均衡（46–57%）。
+Tune_ConQuR 依赖已被移除的 vegan::adonis，需兼容 shim（pilot/conqur_tuned.R）。
