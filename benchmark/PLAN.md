@@ -125,3 +125,4 @@ Tune_ConQuR 依赖已被移除的 vegan::adonis，需兼容 shim（pilot/conqur_
 1. bias_sd 取值改为 {1, 2, 3}（只改这一列，其余场景参数不变）。
 2. DA 维度预注册：主指标为 AP；FDR 与 power 只在 Oracle power ≥ 0.2 的场景中报告。
 3. ConQuR 主结果用 Tune_ConQuR（参考批次池 = 最大的 3 个批次）；默认 ConQuR 和"打乱表型协变量"版本作为敏感性分析，只跑 sweep/null 场景。
+4. MGX 模板沿用同一 bias_sd {1,2,3}（用户确认）：复查后 16S 未校正 batch R² 覆盖 0.037–0.203，MGX 仅 0.018–0.045，低于真实 CRC 宏基因组（0.077）。论文中需注明：MGX 场景代表偏弱的批次效应。
