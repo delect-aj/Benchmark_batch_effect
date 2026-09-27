@@ -39,9 +39,10 @@ counts <- do.call(rbind, lapply(tse, function(x) {
 }))
 cd_all <- do.call(rbind, lapply(tse, function(x) {
   cd <- as.data.frame(SummarizedExperiment::colData(x))
+  col <- function(n) if (is.null(cd[[n]])) rep(NA_character_, nrow(cd)) else as.character(cd[[n]])  # absent in some cohorts
   data.frame(phenotype = as.integer(s$pheno(cd)),
              # processing covariates: DEBIAS-M found the extraction kit explains most of the learned bias
-             platform = cd$sequencing_platform, extraction_kit = cd$DNA_extraction_kit, row.names = NULL)
+             platform = col("sequencing_platform"), extraction_kit = col("DNA_extraction_kit"), row.names = NULL)
 }))
 meta <- data.frame(batch = rep(s$studies, sapply(tse, ncol)), cd_all, row.names = rownames(counts))
 
