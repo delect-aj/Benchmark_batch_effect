@@ -37,9 +37,13 @@ counts <- do.call(rbind, lapply(tse, function(x) {
   m[, rownames(x)] <- t(as.matrix(SummarizedExperiment::assay(x)))
   m
 }))
-meta <- data.frame(batch = rep(s$studies, sapply(tse, ncol)),
-                   phenotype = as.integer(unlist(lapply(tse, function(x) s$pheno(as.data.frame(SummarizedExperiment::colData(x)))))),
-                   row.names = rownames(counts))
+cd_all <- do.call(rbind, lapply(tse, function(x) {
+  cd <- as.data.frame(SummarizedExperiment::colData(x))
+  data.frame(phenotype = as.integer(s$pheno(cd)),
+             # processing covariates: DEBIAS-M found the extraction kit explains most of the learned bias
+             platform = cd$sequencing_platform, extraction_kit = cd$DNA_extraction_kit, row.names = NULL)
+}))
+meta <- data.frame(batch = rep(s$studies, sapply(tse, ncol)), cd_all, row.names = rownames(counts))
 
 # Same filter for every dataset (PLAN.md 2.3): prevalence >= 10%, drop empty samples
 counts <- counts[, colMeans(counts > 0) >= 0.10]
