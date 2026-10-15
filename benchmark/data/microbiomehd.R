@@ -4,6 +4,7 @@
 # Usage: Rscript data/microbiomehd.R <crc_16s|ibd_16s|hiv_16s> <outdir> <raw download dir>
 a <- commandArgs(TRUE); name <- a[1]; outdir <- a[2]; raw <- a[3]
 dir.create(outdir, recursive = TRUE, showWarnings = FALSE); dir.create(raw, recursive = TRUE, showWarnings = FALSE)
+options(timeout = 3600)  # cluster downloads run at tens of KB/s; R's 60s default aborts them mid-file
 
 # Case/control labels follow the MicrobiomeHD conventions; anything else (e.g. adenoma "nonCRC") is dropped
 sets <- list(crc_16s = list(studies = c("crc_baxter", "crc_xiang", "crc_zackular", "crc_zeller", "crc_zhao"),

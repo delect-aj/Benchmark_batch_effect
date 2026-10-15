@@ -9,6 +9,7 @@
 # Usage: Rscript data/salim_pig.R <outdir> <raw download dir>
 a <- commandArgs(TRUE); outdir <- a[1]; raw <- a[2]
 dir.create(outdir, recursive = TRUE, showWarnings = FALSE); dir.create(raw, recursive = TRUE, showWarnings = FALSE)
+options(timeout = 3600)  # cluster downloads run at tens of KB/s; R's 60s default aborts them mid-file
 get <- function(url, f) { p <- file.path(raw, f); if (!file.exists(p)) download.file(url, p, mode = "wb"); p }
 
 # Mock community as mixed into each matrix: Table S3, "added cells to samples" (cells/mL), keyed by the genus
@@ -24,10 +25,13 @@ names(tax) <- c("kingdom", "phylum", "class", "order", "family", "genus")
 tax <- tax[match(rownames(cnt), tax$genus), ]; rownames(tax) <- tax$genus
 stopifnot("genus names do not line up between the count and feature tables" = !anyNA(tax$genus))
 
-s1 <- "spectrum.01387-21-s0001.xlsx"
-unzip(get("https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8510183/supplementaryFiles", "pmc_suppl.zip"),
-      files = s1, exdir = raw, overwrite = FALSE)
-m <- as.data.frame(readxl::read_excel(file.path(raw, s1), sheet = 2, col_types = "text"))  # sheet 1 is the caption
+# Europe PMC serves all supplementary files as one zip (6 MB, nearly all of it a PDF we do not need), so skip
+# the download once the sheet is in place -- it can equally well be dropped into the raw directory by hand.
+s1 <- file.path(raw, "spectrum.01387-21-s0001.xlsx")
+if (!file.exists(s1))
+  unzip(get("https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8510183/supplementaryFiles", "pmc_suppl.zip"),
+        files = basename(s1), exdir = raw)
+m <- as.data.frame(readxl::read_excel(s1, sheet = 2, col_types = "text"))  # sheet 1 is just the table caption
 m <- m[!is.na(m$Sample) & m$SpikedUnspiked != "EC", ]   # drop the 30 DNA-extraction blanks and 2 footnote rows
 
 # Keep the microbial domains, plus the two eukaryotes of the mock community (yeast and Cryptosporidium);

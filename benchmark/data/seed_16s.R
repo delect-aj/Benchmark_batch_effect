@@ -5,6 +5,7 @@
 a <- commandArgs(TRUE); outdir <- a[1]; raw <- a[2]
 dir.create(outdir, recursive = TRUE, showWarnings = FALSE); dir.create(raw, recursive = TRUE, showWarnings = FALSE)
 base <- "https://data.mendeley.com/public-files/datasets/5xrfg5dym6/files/"
+options(timeout = 3600)  # cluster downloads run at tens of KB/s; R's 60s default aborts them mid-file
 get <- function(id, f) { p <- file.path(raw, f); if (!file.exists(p)) download.file(paste0(base, id, "/file_downloaded"), p, mode = "wb"); p }
 x <- read.csv(get("7b71e396-90aa-45a6-9e38-c768778e1ab6", "count.csv"), check.names = FALSE)[, -1]
 m <- read.csv(get("91155828-5f29-45ad-8c71-aa531f169f08", "metadata.csv"), check.names = FALSE)[, -1]
