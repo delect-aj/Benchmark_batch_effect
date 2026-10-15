@@ -153,5 +153,5 @@ Tune_ConQuR 依赖已被移除的 vegan::adonis，需兼容 shim（pilot/conqur_
 详见 data/DATA_PROVENANCE.md。
 
 未能准备（需决定）：
-- **MBQC**：整合 OTU 表所在服务器（downloads.ihmpdcc.org）已下线，只剩约 16,500 个样本的原始测序数据。
+- **MBQC**（**16S 扩增子**）：整合 OTU 表确实没了，但**原先判断的"不可行"是错的**。ENA 上 SRP047083 只有 **2117 run / 28.2 GB**（不是 16,500 个样本那种规模），已按样本拆分，且 `library_name` 直接编码了"标本.处理实验室"，可还原 **13 个处理实验室 × 22 个标本**的近似全交叉设计。全量下载约 33 小时 + 一条 DADA2/SILVA 流程即可，是三者中最容易拿下的。
 - **Tourlousse 2021 JMBC**：已复核，确实没有处理好的表（附件只有一个 PDF，MOSAIC 平台已下线）。但**不必下 721 GB**：543 个 run 里 274 个是 mock，ENA 支持 HTTP Range，每个 run 只取前 ~2%（约 20 万 read pair）就够，合计约 9 GB / 10 小时；18 个菌株的组装号在 Table S1，自建小参考即可定量。成本在于 run↔方案的对应表只在 PDF 的 Table S8 里。**这是唯一能提供"DNA 提取方案"作为批次变量的数据**（salim_pig 只有储存条件和建库），要不要做需要决定。

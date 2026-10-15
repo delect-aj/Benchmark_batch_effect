@@ -58,13 +58,26 @@
 - 价值：这是唯一能提供 **DNA 提取方案**作为批次变量的数据（9 提取 × 11 建库，人粪 + 已知真值）。`salim_pig` 覆盖了储存条件和建库，但**没有提取方案**，而提取恰恰是文献公认最主要的偏倚来源（Costea 2017、DEBIAS-M）。
 - 输出（若实施）：`results/data/mock/jmbc/`，`batch` = 提取方案（或 提取 × 建库），`phenotype` = 样本类型，`truth.tsv` = Table S1 的已知比例。
 
-## 4. MBQC：多实验室 16S 质量控制
-- 整合 OTU 表所在服务器（downloads.ihmpdcc.org）已下线。
-- 原始数据：SRA **SRP047083**（约 16,500 个样本，15 个处理实验室）。
-- 样本信息（仍可下载）：
+## 4. MBQC：多实验室 16S 质量控制 ⚠️ **原判断"不可行"是错的**（2026-10-15 复核）
+整合 OTU 表确实没了（downloads.ihmpdcc.org 下线，Wayback 也没存档），但**原始数据完全可用，而且很小**。
+
+- 数据类型：**16S 扩增子**（ENA：`library_strategy = AMPLICON`，`library_selection = PCR`），不是宏基因组。
+- 原始数据：SRA **SRP047083** —— ENA 实际查询（2026-10-15）：**2,117 个 run / 28.2 GB / 1.54 亿 reads**，平均 13.3 MB、3.3 万 reads/run。不是之前以为的"约 16,500 个样本"那种规模（那是标本×分装的网格数）。按实测 242 KB/s 全量下载约 **33 小时**。
+- **已按样本拆分好**（median 3.3 万 reads/run，不是多重混样），不需要自己拆 barcode。
+- **批次变量直接编码在 `library_name` 里**：格式为 `<标本>.<处理实验室>.<id>`，例如 `sample10.agoodman.6874060577`。
+- 设计（从 ENA 元数据还原）：**13 个处理实验室 × 22 个标本**，接近全交叉：
+
+  | 实验室 | run 数 | | 实验室 | run 数 |
+  |---|---|---|---|---|
+  | jpetrosino | 470 | | dmills | 176 |
+  | pschloss | 282 | | rburk / pturnbaugh / dlittman | 各 94 |
+  | rknight | 276 | | ggloor | 92 |
+  | rflores / kjones | 各 188 | | agoodman 78 / jravel 66 / dgevers 19 | |
+
+- 还可下载的样本信息（补充协议细节与 mock 真值）：
   - 样本清单 https://www.hmpdacc.org/data/MBQC/mbqc_specimens.xls
   - 分装 https://www.hmpdacc.org/data/MBQC/mbqc_aliquots.xls
   - 处理实验室协议 https://www.hmpdacc.org/data/MBQC/mbqc_handling_protocols.xls
   - mock 群落组成 https://www.hmpdacc.org/data/MBQC/mbqc_artificial.xls
-- 建议：不必全部重做。用一条流程（如 DADA2 + SILVA）处理**所有处理实验室**的一个子集，这样批次只来自湿实验差异。
-- 输出：`results/data/mock/mbqc/`，`batch` = 处理实验室，`phenotype` = 标本编号（或 粪便 vs 人工群落），`replicate` = 标本编号；mock 标本的真实组成存 `truth.tsv`。
+- 做法：DADA2 + SILVA 一条流程跑全部 run，聚合到属。批次只来自湿实验差异（同一标本送到 13 个实验室处理）。
+- 输出：`results/data/mock/mbqc/`，`batch` = 处理实验室，`phenotype` = 标本编号，`replicate` = 标本×实验室；mock 标本的真实组成存 `truth.tsv`。

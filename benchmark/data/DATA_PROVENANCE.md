@@ -132,6 +132,6 @@
 | 数据集 | 是否有处理好的表 | 原因 |
 |---|---|---|
 | Tourlousse 2021 JMBC | 无（已复核） | 全文只有 1 个 PDF 附件，含设计与 mock 真值但无逐样本丰度；数据另一个去处 MOSAIC 平台已下线。原始数据 SRA PRJNA650228（543 run / 721 GB，其中 274 个是 mock）。**但只取 mock run 的前 ~2% reads（ENA 支持 Range）约 9 GB / 10 小时即可自行定量**，见 data/MANUAL_DATASETS.md |
-| MBQC | **已失效** | 整合 OTU 表所在服务器下线，Wayback 也没有存档（只存了 5 个 xlsx 元数据表）；只剩原始数据 SRP047083 |
+| MBQC | 处理好的表没了，但**原始数据可行**（已复核） | 整合 OTU 表所在服务器下线、Wayback 无存档。但 SRP047083 是 **16S 扩增子**，ENA 上只有 **2117 run / 28.2 GB**，已按样本拆分，且 `library_name` 直接编码了"标本.处理实验室"（13 实验室 × 22 标本）。全量下载约 33 小时 + DADA2/SILVA 即可，见 data/MANUAL_DATASETS.md |
 
 **带宽实测**（从计算节点，2026-09-27）：ENA FTP ≈ 153 KB/s，ENA https ≈ 242 KB/s，NCBI S3 ≈ 27 KB/s，Zenodo ≈ 80 KB/s。按最快的 242 KB/s 计算，461 GB 需要约 22 天——因此**在本集群上重新处理原始数据不可行**，除非换用国内镜像或在其它网络环境下载后拷贝进来。
