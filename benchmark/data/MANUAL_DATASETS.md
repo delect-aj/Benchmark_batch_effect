@@ -18,12 +18,14 @@
 
 ---
 
-## 1. HIVRC：17 个 HIV 16S 研究（DEBIAS-M 的主基准）
-- 位置：Synapse [syn18406854](https://www.synapse.org/#!Synapse:syn18406854)（DEBIAS-M 论文引用）；项目 wiki [syn18406803](https://www.synapse.org/Synapse:syn18406803/wiki/589668)（Park 2025 引用，名为 HIVRC）。需要免费注册 Synapse 账号，可能要接受数据使用条款。
-- 需要的文件：合并后的 taxa 计数表（OTU 或属水平）+ 样本元数据（研究 ID、HIV 状态；如有，16S 区域、DNA 提取试剂盒）。
-- 参考规模：DEBIAS-M 使用 17 个研究、1,032 名受试者。
-- 输出：`results/data/real/hivrc_16s/`，`batch` = 研究，`phenotype` = HIV 阳性为 1。每名受试者保留一个样本。建议在元数据中额外保留 `region` 和提取试剂盒列（DEBIAS-M 用它们解释偏倚）。
-- 下载（python）：`pip install synapseclient`，然后 `synapse get -r syn18406854`（需要 Personal Access Token）。
+## 1. HIVRC：17 个 HIV 16S 研究 ✅ 已完成（2026-10-15）
+- 来源：Synapse [syn18406854](https://www.synapse.org/#!Synapse:syn18406854)（由用户下载）
+- 原始文件已上传到服务器 `benchmark/results/raw/hivrc/`：
+  - `insight.merged_genus.txt` — 属水平计数，已抽平到每样本 20,000 reads（1026 属 × 1032 样本）
+  - `insight.merged_otus.txt` — Resphera Insight 原始计数，行是物种名（38,124 行），备用
+  - `SupplementaryMaterial.xlsx` — 样本清单（Study、SeqID、hivstatus 及年龄/性别/ART/CD4 等）+ 各研究的 NCBI accession
+- 构建脚本 `data/hivrc_16s.R`，输出 `results/data/real/hivrc_16s/`，已加入 `config/config.yaml` 的 `real:` 列表
+- 结果：**1032 样本 × 160 属 × 17 个研究**，与 DEBIAS-M 基准规模一致
 
 ## 2. Salim 2022：猪粪宏基因组技术重复
 - 论文：Sci Rep 2022, [doi:10.1038/s41598-022-26141-x](https://www.nature.com/articles/s41598-022-26141-x)

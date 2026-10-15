@@ -45,6 +45,28 @@
 
 ---
 
+## hivrc_16s（HIV，17 个研究）
+
+**上游** — HIV Re-analysis Consortium（HIVRC，Tuddenham et al. 2020 CID；Synapse syn18406854）：22 个 HIV 肠道微生物组研究中的 **17 个**用**同一条流程**重新处理。
+1. 各研究原始 16S reads（accession 见 `SupplementaryMaterial.xlsx` 的 "Raw Data Accession Numbers" 页）
+2. **Resphera Insight** 统一做物种级分类注释
+3. 发布两张表：物种级**原始计数**（`insight.merged_otus.txt`，行是物种名或无法区分的物种组）和属级表（`insight.merged_genus.txt`）
+4. 属级表**每个样本抽平到 20,000 reads**（各列合计恰为 20000），行名是完整谱系
+
+**本项目**（`data/hivrc_16s.R`）
+1. 用**属级抽平计数表**（与 crc_16s/ibd_16s/hiv_16s 的属水平一致），按 `SeqID` 与样本清单合并（1032 个样本全部匹配）
+2. `batch` = 研究（17 个），`phenotype` = `hivstatus`（1 = HIV 阳性），并保留 Age / gender / msm / ARTuse / vl / cd4 等临床协变量
+3. 过滤：属流行度 ≥ 10%，去掉全零样本 → **1032 样本 × 160 属**
+4. 分类表由谱系拆分为 kingdom…genus
+
+> 📌 **天然部分混杂**：Perez-Santiago（0/13）和 Villar-Garcia（0/24）两个研究**没有 HIV 阴性对照**，Serrano-Villar 2017 只有 2 个对照。因此 Percentile Normalization 这类要求每批次都有对照的方法会在此数据上失败——这正是文献中"混杂设计"问题的真实案例。
+>
+> ⚠️ 属级表已抽平到 20,000 reads，样本间测序深度差异被移除；假设原始计数的方法（ComBat-seq、ConQuR）拿到的是抽平后的计数。物种级原始计数表（未抽平）也已上传，如需保留深度信息可改用它。
+>
+> 📊 未校正时批次效应很强：batch R²（Aitchison）= **0.305**，与文献中 HIVRC 的 0.12–0.30 一致，是目前所有真实数据集里最强的。
+
+---
+
 ## seed_16s（混杂案例）
 
 **上游** — Foxx & Rivers 2025（Mendeley Data 10.17632/5xrfg5dym6.1）
@@ -69,11 +91,10 @@
 
 ---
 
-## 未能获取的数据（2026-09-27 复核）
+## 未能获取的数据（2026-10-15 复核；HIVRC 已于 2026-10-15 由用户下载并入库）
 
 | 数据集 | 是否有处理好的表 | 原因 |
 |---|---|---|
-| HIVRC（17 个 HIV 研究） | **有**（Resphera Insight 统一注释） | 在 Synapse syn18406854，需登录账号；服务器直接访问返回 403 |
 | Salim 2022 猪粪 | 无 | 论文补充材料只有样本元数据和 spike-in 汇总表；需从 ENA 下载 184 个 run（461 GB）自行定量 |
 | Tourlousse 2021 JMBC | 无 | 补充材料只有一个 PDF；原始数据 SRA PRJNA650228（543 run，721 GB） |
 | MBQC | **已失效** | 整合 OTU 表所在服务器下线，Wayback 也没有存档（只存了 5 个 xlsx 元数据表）；只剩原始数据 SRP047083 |
