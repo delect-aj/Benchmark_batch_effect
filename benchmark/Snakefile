@@ -5,6 +5,7 @@ import pandas as pd
 
 configfile: "config/config.yaml"
 R, PY, RDATA = (os.path.expanduser(config[k]) for k in ("rscript", "python", "rscript_data"))
+RDADA, SILVA = os.path.expanduser(config["rscript_dada2"]), config["silva"]
 SC = pd.read_csv(config["scenarios"], sep="\t").set_index("scenario")
 SC = SC[SC.index.str.contains(config["only"])] if config["only"] else SC
 SIMS = [f"sim/{s}/rep{r}" for s in SC.index for r in range(1, int(config["reps"]) + 1)]
@@ -68,6 +69,11 @@ rule seed_16s:  # seed microbiome (Foxx & Rivers 2025, Mendeley Data)
 rule brooks_mock:  # mock communities for calibration (metacal); not in the method run list
     output: multiext("results/data/mock/brooks/", "counts.tsv", "truth.tsv", "meta.tsv")
     shell: "{R} data/brooks_mock.R results/data/mock/brooks"
+
+rule mbqc:  # 13 handling labs x 22 specimens, 16S V4; needs the reads fetched first (data/mbqc_download.sh)
+    input: multiext("results/raw/mbqc/", "mbqc_manifest.tsv", "mbqc_samples.tsv"), "results/raw/mbqc/fastq/.complete"
+    output: multiext("results/data/mock/mbqc/", "counts.tsv", "meta.tsv", "taxonomy.tsv")
+    shell: "{RDADA} -f data/mbqc.R --args results/data/mock/mbqc results/raw/mbqc {SILVA}"
 
 rule salim_pig:  # storage/handling experiment (PRJEB31650): published count tables, calibration only
     output: multiext("results/data/mock/salim_pig/", "counts.tsv", "meta.tsv", "truth.tsv", "taxonomy.tsv")

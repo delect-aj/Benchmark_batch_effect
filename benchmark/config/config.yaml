@@ -2,6 +2,8 @@
 rscript: ~/software/miniconda3/envs/bench-r/bin/Rscript
 python: ~/software/miniconda3/envs/bench-py/bin/python
 rscript_data: ~/software/miniconda3/envs/bench-data/bin/Rscript   # curatedMetagenomicData only
+rscript_dada2: ~/software/R-4.1.3/bin/R --no-echo --vanilla   # DADA2 (MBQC only); Rscript has the old prefix compiled in
+silva: /beegfs/dongbiao/silva_138.2/silva_138.2_dada2_genus.fa.gz
 scenarios: config/scenarios.tsv   # frozen design (simulate/design.R); do not regenerate after results exist
 only: ""                          # regex filter on scenario ids ("" = all)
 reps: 20
