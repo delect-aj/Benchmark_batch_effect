@@ -32,7 +32,7 @@
 - 规模：全因子网格用拉丁超立方抽样约200个参数组合 × 20重复 ≈ 4000数据集/方法，集群跑。
 
 ### 2.2 带实验性ground truth的真实数据
-- Mock community / 技术重复：Tourlousse 2021 JMBC（9种提取协议）、MBQC、Brooks 2015 mock、Salim 2022猪粪便（184样本/21种技术组合）。真值=已知组成或同一样本的重复应一致。
+- Mock community / 技术重复：Tourlousse 2021 JMBC（9种提取协议）、MBQC、Brooks 2015 mock、Salim/Poulsen 猪粪+污水储存实验（438样本/21种储存条件/3种建库，含纯 mock）。真值=已知组成或同一样本的重复应一致。
 - 用途：验证乘性偏倚模型是否成立，校准模拟参数（让模拟的批次强度落在真实范围）。
 
 ### 2.3 真实meta分析数据（无真值，用代理指标）
@@ -141,11 +141,17 @@ Tune_ConQuR 依赖已被移除的 vegan::adonis，需兼容 shim（pilot/conqur_
 | hivrc_16s | HIVRC / Synapse（手动下载） | 1032 × 160 属 | 17 | HIV vs 阴性 | ✅ DEBIAS-M 同款基准；2 个研究无对照 |
 | seed_16s | Foxx & Rivers 2025（Mendeley） | 320 × 721 ASV | 7 | 宿主植物（5 类，多分类） | ✅ 混杂案例 |
 | brooks mock | Brooks 2015（metacal 自带） | 80 × 7 种 | 6 板 | 已知组成 | ✅ 仅用于校准 |
+| salim_pig mock | Poulsen 2021 / figshare（Fachrul 2022 复用） | 408 × 1537 属 | 19 种储存条件 | 4 种基质 + 已知 mock 组成 | ✅ 仅用于校准；125 组技术重复 |
 
 处理说明：16S 按 RDP 谱系聚合到属（各研究 OTU 为 de novo，不可跨研究比较），并沿用原作者每样本 ≥100 reads 的下限；ibd_gevers_2014 在 Zenodo 表中只有 162 个粪便样本（作者配置 sample_location=stool），与原文清洗结果一致。seed 数据的流行度过滤改为"至少在一个研究中 ≥10%"（不同 16S 区域的 ASV 互不重叠，统一规则只剩 2/9 个研究）；Barret 2015、Liu 2019 不在已发表的计数表中。
 
-已于 2026-10-15 补齐：**HIVRC 17 个 HIV 研究**（Synapse syn18406854，用户下载后上传，见 data/DATA_PROVENANCE.md）。
+已于 2026-10-15 补齐：
+- **HIVRC 17 个 HIV 研究**（Synapse syn18406854，用户下载后上传）。
+- **salim_pig**（原记为"Salim 2022 猪粪"）：**不需要自己处理原始 reads** —— 作者已把 MGmapper 属级计数表发布在 figshare（2.6 MB），逐样本条件在论文 Table S1。这同时补上了两块空缺：唯一一个带**技术重复**的数据集（125 组，RUV 类方法需要），以及**宏基因组**的已知组成 mock（此前只有 16S 的 brooks）。
+  实测结果直接支持模拟的批次模型：纯 mock 样本的 per-taxon log2 偏倚跨 −6.2 到 +2.3（约 360 倍），且在 3 种建库方式间高度一致（r = 0.992–0.993）——即"每 taxon 一个乘性因子"成立，且主要由提取/裂解而非建库决定。
+
+详见 data/DATA_PROVENANCE.md。
 
 未能准备（需决定）：
 - **MBQC**：整合 OTU 表所在服务器（downloads.ihmpdcc.org）已下线，只剩约 16,500 个样本的原始测序数据。
-- **Salim 2022 猪粪技术重复（ENA PRJEB31650）、Tourlousse 2021 JMBC**：只有原始宏基因组 reads，需下载后用 MetaPhlAn/sylph 重新定量。
+- **Tourlousse 2021 JMBC**：只有原始宏基因组 reads（543 run / 721 GB），需下载后用 MetaPhlAn/sylph 重新定量；集群带宽下不可行。

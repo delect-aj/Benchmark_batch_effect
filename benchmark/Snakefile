@@ -69,8 +69,12 @@ rule brooks_mock:  # mock communities for calibration (metacal); not in the meth
     output: multiext("results/data/mock/brooks/", "counts.tsv", "truth.tsv", "meta.tsv")
     shell: "{R} data/brooks_mock.R results/data/mock/brooks"
 
+rule salim_pig:  # storage/handling experiment (PRJEB31650): published count tables, calibration only
+    output: multiext("results/data/mock/salim_pig/", "counts.tsv", "meta.tsv", "truth.tsv", "taxonomy.tsv")
+    shell: "{R} data/salim_pig.R results/data/mock/salim_pig results/raw/salim"
+
 rule data:  # every dataset, without running methods
-    input: [f"results/data/{ds}/counts.tsv" for ds in REAL] + ["results/data/mock/brooks/counts.tsv"]
+    input: [f"results/data/{ds}/counts.tsv" for ds in REAL] + [f"results/data/mock/{d}/counts.tsv" for d in ("brooks", "salim_pig")]
 
 rule run:
     input: "results/data/{ds}/counts.tsv", "results/data/{ds}/meta.tsv"

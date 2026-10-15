@@ -83,6 +83,38 @@
 
 ---
 
+## salim_pig（猪粪 + 污水储存实验，仅用于校准）
+
+**上游** — Poulsen et al. 2021 *Microbiol Spectr* 9:e01387-21（丹麦 DTU，Pamp 组；ENA PRJEB31650）。Fachrul et al. 2022 *Sci Rep*（"Salim 2022"）复用的就是这批数据。
+1. 4 种基质（猪粪 ×2、污水 ×2）分装后按 19 种时间×温度组合储存（0h–8640h，−80/−20/5/22 °C），冻融 0–4 次，每种条件 2–3 个技术重复；一半分装加入 8 个菌株的合成 mock 群落，另有 24 个纯 mock 和 30 个提取空白
+2. 测序：Illumina HiSeq 4000，**3 种建库试剂盒**（Nextflex / Kappa / Nextera），12 个 flow-cell lane
+3. BBduk2 质量剪切 → **MGmapper**（BWA-MEM，best mode，比对 11 个参考库：bacteria / bacteria_draft / archaea / fungi / virus / human / HumanMicrobiome / 动植物 / 寄生虫等）
+4. 计数**除以 2**（按 proper pair 计数），**聚合到属**，发布在 figshare 10.6084/m9.figshare.12010989
+
+**本项目**（`data/salim_pig.R`，规则 `salim_pig`）
+1. 用 figshare 的**原始整数计数表** `Item_A`（2640 属 × 438 样本），分类谱系用 `Item_C`（两张表属的排序不同，按属名 join，1:1 对上 2640 个）
+2. 逐样本条件取论文 **Table S1**（从 Europe PMC 的 supplementaryFiles zip 里取；PMC 本体对 curl 返回 proof-of-work 页，ASM 返回 403），按 `Sample` 列 join
+3. 去掉 30 个提取空白（`SpikedUnspiked == "EC"`）；计数表里还有 1 个来自后续批次（`DTU2018_…`）、Table S1 中没有的样本，一并丢弃
+4. 只保留 **Bacteria + Archaea**，外加 mock 的两个真核成员（*Saccharomyces*、*Cryptosporidium*）—— MGmapper 还会比对人、动植物参考库，那些不属于群落
+5. `batch` = 储存条件（`时间h_温度`），`phenotype` = 基质（4 类），`replicate` = `Replicate_Groups`；另存 `spiked`、`library_prep`、`lane`、`time_h`、`temp_c`、`freeze_thaw`
+6. 过滤：属流行度 ≥ 10%，去掉全零样本 → **408 样本 × 1537 属，19 种储存条件，125 组技术重复**
+7. `truth.tsv` = 24 个纯 mock 样本的已知**细胞比例**（Table S3 的 "added cells to samples"；Pig_feces_1 的 *Propionibacterium* 和 *Staphylococcus* 只加了其它三种基质的一半）。与 brooks mock 一致，基因组大小的影响留在被测的偏倚里 —— 这正是 McLaren 乘性模型要刻画的东西
+
+> 📊 **直接验证了模拟用的批次模型**。纯 mock 样本里 per-taxon 的 log2（观测/真值）偏倚：
+>
+> | 属 | log2 偏倚 | 基因组 (Mb) | | 属 | log2 偏倚 | 基因组 (Mb) |
+> |---|---|---|---|---|---|---|
+> | *Salmonella* | +2.34 | 4.96 | | *Cryptosporidium* | −3.41 | 9.10 |
+> | *Bacteroides* | +1.95 | 5.24 | | *Staphylococcus* | −4.00 | 2.82 |
+> | *Escherichia* | +1.61 | 5.20 | | *Saccharomyces* | −5.88 | 12.16 |
+> | *Fusobacterium* | +1.58 | 2.17 | | *Propionibacterium* | −6.19 | 2.65 |
+>
+> 跨度约 **360 倍**，方向符合裂解难易（革兰阳性的 *Propionibacterium*/*Staphylococcus* 和带厚壁的真核严重低估，易裂解的革兰阴性高估）。关键是：**这个偏倚向量在 3 种建库方式之间高度一致（r = 0.992–0.993）**，说明"每 taxon 一个乘性因子"的假设成立，且偏倚主要由提取/裂解决定、与建库方式基本无关（DEBIAS-M 的核心论点）。基因组大小只解释其中约 1 个 log2 单位（细菌内部大基因组确实偏高），真核成员基因组最大却最低估，说明裂解效应远大于基因组大小效应。
+
+> ⚠️ 这是 MGmapper 的参考库比对计数，不是 MetaPhlAn 标记基因丰度，与 crc_mgx 等 cMD 数据集不可直接比较；只用于校准，不进方法评测列表。作者另提供按基因组大小归一化并总和标度的表（figshare `Item_B`），本项目不用。
+
+---
+
 ## brooks mock（仅用于校准）
 
 **上游** — Brooks et al. 2015 的细胞 mock 群落，由 McLaren et al. 2019 (eLife) 整理进 `metacal` 包：7 种阴道菌种按**已知比例**混合，分 6 块板测序。
@@ -91,11 +123,12 @@
 
 ---
 
-## 未能获取的数据（2026-10-15 复核；HIVRC 已于 2026-10-15 由用户下载并入库）
+## 未能获取的数据（2026-10-15 复核；HIVRC 与 salim_pig 已于 2026-10-15 入库）
+
+> ✅ **Salim 2022 猪粪已不在此列**：之前判断"只有样本元数据和 spike-in 汇总表"是看错了论文 —— 我们引的 *Sci Rep* 2022 是复用这批数据的方法学论文，真正的数据论文 Poulsen 2021 把属级计数表发在了 figshare（2.6 MB）。**不需要下载 461 GB 原始 reads。**
 
 | 数据集 | 是否有处理好的表 | 原因 |
 |---|---|---|
-| Salim 2022 猪粪 | 无 | 论文补充材料只有样本元数据和 spike-in 汇总表；需从 ENA 下载 184 个 run（461 GB）自行定量 |
 | Tourlousse 2021 JMBC | 无 | 补充材料只有一个 PDF；原始数据 SRA PRJNA650228（543 run，721 GB） |
 | MBQC | **已失效** | 整合 OTU 表所在服务器下线，Wayback 也没有存档（只存了 5 个 xlsx 元数据表）；只剩原始数据 SRP047083 |
 

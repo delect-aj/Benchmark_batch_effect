@@ -27,13 +27,19 @@
 - 构建脚本 `data/hivrc_16s.R`，输出 `results/data/real/hivrc_16s/`，已加入 `config/config.yaml` 的 `real:` 列表
 - 结果：**1032 样本 × 160 属 × 17 个研究**，与 DEBIAS-M 基准规模一致
 
-## 2. Salim 2022：猪粪宏基因组技术重复
-- 论文：Sci Rep 2022, [doi:10.1038/s41598-022-26141-x](https://www.nature.com/articles/s41598-022-26141-x)
-- 原始数据：ENA [PRJEB31650](https://www.ebi.ac.uk/ena/browser/view/PRJEB31650)（184 个宏基因组）
-- 样本信息（储存温度/时长、冻融次数、建库试剂盒、测序平台、猪编号、重复组）：论文的补充表。
-- 设计：2 头猪（P1/P2），21 种技术条件组合，每种 2–3 个技术重复；一半样本加了 8 种 spike-in。
-- 定量：MetaPhlAn4 或 sylph，输出种水平 reads 计数。
-- 输出：`results/data/mock/salim_pig/`。建议 `batch` = 技术条件（如储存条件），`phenotype` = 猪（P1 = 0，P2 = 1，这是真实生物信号），`replicate` = 重复组。另存一列 spike-in 与否。
+## 2. ~~Salim 2022：猪粪宏基因组技术重复~~ ✅ 已自动化（2026-10-15，**无需自己处理原始 reads**）
+原来以为必须从 ENA 下 184 个 run 自己定量，实际不用：**作者已发布 MGmapper 属级计数表**。
+
+- 数据论文：Poulsen, Kaas, Aarestrup, Pamp. *Microbiol Spectr* 2021;9:e01387-21, [doi:10.1128/Spectrum.01387-21](https://doi.org/10.1128/Spectrum.01387-21)（PMC8510183）。我们原先引的 [doi:10.1038/s41598-022-26141-x](https://doi.org/10.1038/s41598-022-26141-x) 是 Fachrul/Méric/Inouye/Pamp/Salim *Sci Rep* 2022 的**方法学论文**，复用的就是这批数据（同一 ENA accession）。
+- 三个来源都是小文件，`data/salim_pig.R` 会自动下载（规则 `salim_pig`，原始文件进 `results/raw/salim/`）：
+  | 来源 | 文件 | 大小 | 内容 |
+  |---|---|---|---|
+  | figshare [10.6084/m9.figshare.12010989](https://doi.org/10.6084/m9.figshare.12010989) | `Item_A_TaxonomyRaw.txt` | 2.6 MB | 属级**原始整数计数**，2640 属 × 438 样本 |
+  | 同上 | `Item_C_FeatureShort.txt` | 229 KB | 属的 Domain…Genus 谱系 |
+  | Europe PMC `PMC8510183/supplementaryFiles` | `spectrum.01387-21-s0001.xlsx`（Table S1） | 6.2 MB（zip） | 逐样本条件：基质、时间、温度、冻融次数、重复组、spike、建库、lane、reads 数 |
+- Table S1 只能从 **Europe PMC** 取：PMC 本体给 curl 返回 proof-of-work 挑战页，ASM 返回 403。
+- 设计比原先记录的更丰富：**4 种基质**（Pig_feces_1/2、Sewage_1/2，而非 2 头猪）、19 种时间×温度组合（0h 到 8640h ≈ 1 年；−80/−20/5/22 °C）、冻融 0–4 次、**3 种建库**（Nextflex 306 / Kappa 94 / Nextera 38）、12 个 flow-cell lane、**125 组技术重复**、151 spiked + 233 unspiked + 24 纯 mock + 30 提取空白。
+- 输出：`results/data/mock/salim_pig/`，`batch` = 储存条件（时间_温度），`phenotype` = 基质，`replicate` = `Replicate_Groups`；另存 `spiked`、`library_prep`、`lane`、`time_h`、`temp_c`、`freeze_thaw`，任一列都可当批次用。`truth.tsv` = 24 个纯 mock 样本的已知细胞比例（Table S3）。
 
 ## 3. Tourlousse 2021：日本微生物组联盟（JMBC）提取/建库方法比较
 - 论文：Microbiome 9:95, [doi:10.1186/s40168-021-01048-3](https://doi.org/10.1186/s40168-021-01048-3)（全文 [PMC8082873](https://pmc.ncbi.nlm.nih.gov/articles/PMC8082873/)）
