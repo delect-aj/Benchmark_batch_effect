@@ -79,5 +79,22 @@
   - 分装 https://www.hmpdacc.org/data/MBQC/mbqc_aliquots.xls
   - 处理实验室协议 https://www.hmpdacc.org/data/MBQC/mbqc_handling_protocols.xls
   - mock 群落组成 https://www.hmpdacc.org/data/MBQC/mbqc_artificial.xls
-- 做法：DADA2 + SILVA 一条流程跑全部 run，聚合到属。批次只来自湿实验差异（同一标本送到 13 个实验室处理）。
-- 输出：`results/data/mock/mbqc/`，`batch` = 处理实验室，`phenotype` = 标本编号，`replicate` = 标本×实验室；mock 标本的真实组成存 `truth.tsv`。
+
+### 实施（2026-10-15，脚本已入库）
+全部样本都是 **Illumina、16S V4 区**（2023 MiSeq + 94 HiSeq2500，无 454），所以一条流程即可。22 个标本中：11 Fresh、7 冻干、2 Robogut、**2 个人工菌群**（sample103 口腔、sample104 粪便），并带健康状态/性别/年龄。
+
+| 步骤 | 脚本 | 说明 |
+|---|---|---|
+| 1. 元数据 | `data/mbqc_manifest.sh` | 从 ENA 生成 `mbqc_manifest.tsv`（run→标本/实验室/URL）和 `mbqc_samples.tsv`（22 个标本属性）。实验室来自 `library_name` 的 `<标本>.<实验室>.<id>` |
+| 2. 下载 | `data/mbqc_download.sh` | 只取 forward，2117 个文件 **13.1 GB**，4 条流、可断点续传、按字节数校验 |
+| 3. 建库 | `data/mbqc.R`（规则 `mbqc`） | DADA2 + SILVA 138.2 → 属水平 |
+
+**关键设计：按实验室分别去噪。** 各实验室读长差别很大（126 / 151 / 174 / 243 / 251 / 294 bp），统一 truncLen 会把短读长的实验室整个过滤掉（`filterAndTrim` 会丢弃短于 truncLen 的 read）。因此每个实验室各自：
+- truncLen 由质量曲线自动决定（抽 3 个文件，取每 cycle 中位 Q ≥ 25 的最后一个 cycle，下限 100）
+- 各自 `learnErrors` / `dada` / 去嵌合（这本就是 DADA2 对不同测序批次的规范做法）
+
+代价是跨实验室 ASV 序列长度不同、不可按序列合并，所以**统一聚合到属**（与 MicrobiomeHD 几个数据集一致）；分类只做一次（在全部 ASV 的并集上，加载 45 万条参考是最贵的一步）。每个实验室的 seqtab 和分类结果都存 RDS 断点，中断可续跑。
+
+- 输出：`results/data/mock/mbqc/`，`batch` = 处理实验室，`phenotype` = 标本编号，`replicate` = 标本编号（同一材料被重复测量，RUV 类方法需要），另存 `specimen_type`、`health_status`、`sex`、`age`、`artificial`。
+- **不写 `truth.tsv`**：两个人工菌群的已发表组成只有"大致接种环数"（`mbqc_artificial.xls` 的 approx. loopfuls），不是定量比例；而且公开元数据里没有标本编号与 MBQC 内部 ID 的对应，无法可靠匹配。所以本数据集当作**带技术重复的批次效应数据**用，不当已知组成的 mock。
+- 该规则**不在 `snakemake data` 的默认目标里**，避免误触发 13 GB 下载。
