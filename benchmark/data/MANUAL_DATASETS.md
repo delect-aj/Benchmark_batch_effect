@@ -41,12 +41,22 @@
 - 设计比原先记录的更丰富：**4 种基质**（Pig_feces_1/2、Sewage_1/2，而非 2 头猪）、19 种时间×温度组合（0h 到 8640h ≈ 1 年；−80/−20/5/22 °C）、冻融 0–4 次、**3 种建库**（Nextflex 306 / Kappa 94 / Nextera 38）、12 个 flow-cell lane、**125 组技术重复**、151 spiked + 233 unspiked + 24 纯 mock + 30 提取空白。
 - 输出：`results/data/mock/salim_pig/`，`batch` = 储存条件（时间_温度），`phenotype` = 基质，`replicate` = `Replicate_Groups`；另存 `spiked`、`library_prep`、`lane`、`time_h`、`temp_c`、`freeze_thaw`，任一列都可当批次用。`truth.tsv` = 24 个纯 mock 样本的已知细胞比例（Table S3）。
 
-## 3. Tourlousse 2021：日本微生物组联盟（JMBC）提取/建库方法比较
-- 论文：Microbiome 9:95, [doi:10.1186/s40168-021-01048-3](https://doi.org/10.1186/s40168-021-01048-3)（全文 [PMC8082873](https://pmc.ncbi.nlm.nih.gov/articles/PMC8082873/)）
-- 原始数据：NCBI SRA BioProject [PRJNA650228](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA650228)；样本与 run 的对应关系在论文补充表 **Table S8**，mock 群落组成在 **Table S1**。
-- 设计：同一粪便样本和 mock 群落，用多种 DNA 提取方法和建库方法处理（宏基因组）。
-- 定量：同上（MetaPhlAn4 / sylph），种水平计数。
-- 输出：`results/data/mock/jmbc/`，`batch` = 提取方法（或 提取 × 建库组合），`phenotype` = 样本（粪便 = 0，mock = 1，或按具体样本编号），mock 样本的真实组成另存 `truth.tsv`（行 = mock 样本，列 = 种，值 = 真实比例）。
+## 3. Tourlousse 2021：日本微生物组联盟（JMBC）提取/建库方法比较 ⚠️ 确认**没有**处理好的表，但可行性比原先估计的好
+- 论文：Tourlousse et al.，*Microbiome* 9:95，"Validation and standardization of DNA extraction and library construction methods for metagenomics-based human fecal microbiome measurements"，[doi:10.1186/s40168-021-01048-3](https://doi.org/10.1186/s40168-021-01048-3)（全文 [PMC8082873](https://pmc.ncbi.nlm.nih.gov/articles/PMC8082873/)）
+- **2026-10-15 复核**：全文只有 **1 个附件**（`40168_2021_1048_MOESM1_ESM.pdf`，54 页：方法 p2–7、图 p8–37、表 p38–53），**没有任何逐样本丰度表**。Data availability 只给 SRA PRJNA650228；文中提到数据也上传到 MOSAIC Standards Challenge 平台（platform.mosaicbiome.com），但该域名现在**解析不了**，平台似已下线。
+  （PDF 可从 Springer 的 CDN 直接取，不走 Springer 本站的 cookie 墙：`https://static-content.springer.com/esm/art%3A10.1186%2Fs40168-021-01048-3/MediaObjects/40168_2021_1048_MOESM1_ESM.pdf`）
+- 附件 PDF 里**有的是设计和真值**：
+  - **Table S1**（p38）= **18 个菌株的 mock 群落真实组成** —— DNA mock 每株 5.0%，cell mock 不等量（0–19.1%），并给出每株的 GenBank 组装号、基因组大小、GC、革兰染色
+  - **Table S2**（p39）= 11 种**建库**试剂盒（代号 A–K）
+  - **Table S4**（p41）= 9 种**DNA 提取**方案（代号 L–T，含 IHMS 协议 Q）
+  - **Table S8** = run 与样本/方案的对应关系（ENA 的 `library_name` 是随机码如 `FLYVT2013F`，**对应关系只在这张表里**）
+- 实际规模（ENA 查询，2026-10-15）：**543 个 run / 721 GB**，其中 205 粪便、**163 DNA mock**、**111 cell mock**、64 个 MOSAIC 挑战赛样本。
+- **如果要做，可行的做法**（只针对 274 个 mock run，粪便样本没有真值）：
+  1. ENA 支持 **HTTP Range**（实测返回 206），mock run 平均 8.8M reads / 1.46 GB；18 个菌株的群落取 ~20 万 read pair 就足够稳定，即每个 run 只需前 ~2%（约 33 MB）→ **合计约 9 GB，按实测 242 KB/s 约 10 小时**，而不是 401 GB
+  2. 不需要 MetaPhlAn/GTDB 大数据库：Table S1 给了 18 个菌株的组装号，自建 ~65 Mb 的小参考用 bwa/bowtie2 比对计数即可
+  3. 成本在于：**Table S8 得从 PDF 里抠出来**（该 PDF 用子集字体，简单文本抽取失败，需要 pdftotext/OCR）
+- 价值：这是唯一能提供 **DNA 提取方案**作为批次变量的数据（9 提取 × 11 建库，人粪 + 已知真值）。`salim_pig` 覆盖了储存条件和建库，但**没有提取方案**，而提取恰恰是文献公认最主要的偏倚来源（Costea 2017、DEBIAS-M）。
+- 输出（若实施）：`results/data/mock/jmbc/`，`batch` = 提取方案（或 提取 × 建库），`phenotype` = 样本类型，`truth.tsv` = Table S1 的已知比例。
 
 ## 4. MBQC：多实验室 16S 质量控制
 - 整合 OTU 表所在服务器（downloads.ihmpdcc.org）已下线。
