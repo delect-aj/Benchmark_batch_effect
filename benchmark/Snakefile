@@ -56,6 +56,11 @@ rule microbiomehd:  # 16S case-control studies from MicrobiomeHD (Zenodo 569601)
     wildcard_constraints: name = "crc_16s|ibd_16s|hiv_16s"
     shell: "{R} data/microbiomehd.R {wildcards.name} results/data/real/{wildcards.name} results/raw/microbiomehd"
 
+rule hivrc_16s:  # HIVRC 17 HIV studies; source files come from Synapse by hand (data/MANUAL_DATASETS.md)
+    input: multiext("results/raw/hivrc/", "insight.merged_genus.txt", "SupplementaryMaterial.xlsx")
+    output: multiext("results/data/real/hivrc_16s/", "counts.tsv", "meta.tsv", "taxonomy.tsv")
+    shell: "{R} data/hivrc_16s.R results/data/real/hivrc_16s results/raw/hivrc"
+
 rule seed_16s:  # seed microbiome (Foxx & Rivers 2025, Mendeley Data)
     output: multiext("results/data/real/seed_16s/", "counts.tsv", "meta.tsv")
     shell: "{R} data/seed_16s.R results/data/real/seed_16s results/raw/seed"
