@@ -18,6 +18,15 @@ dir.create(outdir, recursive = TRUE, showWarnings = FALSE)
 ck <- file.path(raw, "checkpoints"); dir.create(ck, recursive = TRUE, showWarnings = FALSE)
 say <- function(...) cat(format(Sys.time(), "%H:%M:%S"), "|", ..., "\n")
 
+# The checkpoints are on shared storage and this is launched by hand on whichever node is free, so guard
+# against two builds racing on the same RDS files. The lock is refreshed as each lab finishes; one older than
+# three hours is assumed stale and overridden.
+lock <- file.path(ck, ".lock")
+if (file.exists(lock) && difftime(Sys.time(), file.mtime(lock), units = "hours") < 3)
+  stop("another build holds the lock (", readLines(lock, warn = FALSE)[1], "); delete ", lock, " to override")
+hold <- function() writeLines(paste(Sys.info()[["nodename"]], Sys.getpid(), format(Sys.time())), lock)
+hold(); on.exit(unlink(lock), add = TRUE)
+
 man <- read.delim(file.path(raw, "mbqc_manifest.tsv"), colClasses = "character")
 man$fq <- file.path(raw, "fastq", paste0(man$run, ".fastq.gz"))
 man <- man[file.exists(man$fq) & file.size(man$fq) > 5000, ]       # skip empty/failed downloads
@@ -62,7 +71,7 @@ for (lab in labs) {
   names(dd) <- names(filt)
   tab <- removeBimeraDenovo(makeSequenceTable(dd), method = "consensus", multithread = FALSE, verbose = FALSE)
   say("  ", ncol(tab), "ASVs after chimera removal,", sum(tab), "reads")
-  saveRDS(tab, f_rds)
+  saveRDS(tab, f_rds); hold()
 }
 
 tabs <- lapply(labs, function(l) { f <- file.path(ck, paste0("seqtab_", l, ".rds")); if (file.exists(f)) readRDS(f) })
