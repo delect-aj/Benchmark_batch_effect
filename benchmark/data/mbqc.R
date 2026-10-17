@@ -32,19 +32,23 @@ man$fq <- file.path(raw, "fastq", paste0(man$run, ".fastq.gz"))
 man <- man[file.exists(man$fq) & file.size(man$fq) > 5000, ]       # skip empty/failed downloads
 say(nrow(man), "runs across", length(unique(man$lab)), "labs")
 
-# Truncate where the per-cycle median quality drops below 25, judged from a few files per lab: the labs used
-# different read lengths, so one global truncLen would throw away whole labs (filterAndTrim drops any read
-# shorter than truncLen).
+# Truncate where the per-cycle median quality drops below 25, but never past the length the reads actually
+# have: filterAndTrim discards every read shorter than truncLen, and the labs ran anything from 126 to 294 bp.
+# The quality matrix pads short reads with NA, so the trailing cycles' medians come from the few long reads
+# and would otherwise pull truncLen past the bulk of the data -- cap it at the 10th percentile of read length.
 trunc_for <- function(files) {
-  q <- lapply(head(files, 3), function(f) {
-    fq <- yield(FastqSampler(f, 2000)); if (length(fq) == 0) return(NULL)
-    m <- as(quality(fq), "matrix"); apply(m, 2, median, na.rm = TRUE)
-  })
-  q <- q[!vapply(q, is.null, TRUE)]
-  if (!length(q)) return(100L)
-  n <- min(lengths(q)); med <- rowMeans(vapply(q, function(x) x[seq_len(n)], numeric(n)))
+  qs <- list(); lens <- integer()
+  for (f in head(files, 4)) {
+    fq <- tryCatch(yield(FastqSampler(f, 2000)), error = function(e) NULL)
+    if (is.null(fq) || length(fq) == 0) next
+    qs[[length(qs) + 1L]] <- apply(as(quality(fq), "matrix"), 2, median, na.rm = TRUE)
+    lens <- c(lens, width(fq))
+  }
+  if (!length(qs)) return(c(trunc = 100L, p10 = NA_integer_, med = NA_integer_))
+  n <- min(lengths(qs)); med <- rowMeans(vapply(qs, function(x) x[seq_len(n)], numeric(n)))
   ok <- which(med >= 25)
-  max(100L, if (length(ok)) max(ok) else n)
+  p10 <- as.integer(quantile(lens, 0.10, names = FALSE))
+  c(trunc = max(100L, min(if (length(ok)) max(ok) else n, p10)), p10 = p10, med = as.integer(median(lens)))
 }
 
 labs <- sort(unique(man$lab))
@@ -53,16 +57,23 @@ for (lab in labs) {
   if (file.exists(f_rds)) { say("lab", lab, "already done, skipping"); next }
   sub <- man[man$lab == lab, ]
   tl <- trunc_for(sub$fq)
-  say("lab", lab, ":", nrow(sub), "samples, truncLen =", tl)
+  say("lab", lab, ":", nrow(sub), "samples, read length median", tl[["med"]], "p10", tl[["p10"]],
+      "-> truncLen", tl[["trunc"]])
 
   filt <- file.path(raw, "filtered", lab, paste0(sub$run, ".fastq.gz"))
   dir.create(dirname(filt[1]), recursive = TRUE, showWarnings = FALSE)
-  st <- filterAndTrim(sub$fq, filt, truncLen = tl, maxN = 0, maxEE = 2, truncQ = 2,
-                      rm.phix = TRUE, compress = TRUE, multithread = FALSE, verbose = FALSE)
+  # One malformed FastQ would otherwise abort the whole build, so filter file by file and skip the bad ones
+  st <- do.call(rbind, lapply(seq_len(nrow(sub)), function(i)
+    tryCatch(filterAndTrim(sub$fq[i], filt[i], truncLen = tl[["trunc"]], maxN = 0, maxEE = 2, truncQ = 2,
+                           rm.phix = TRUE, compress = TRUE, multithread = FALSE, verbose = FALSE),
+             error = function(e) { say("   unreadable, skipped:", sub$run[i], "-", conditionMessage(e))
+                                   matrix(0L, 1, 2, dimnames = list(sub$run[i], c("reads.in", "reads.out"))) })))
   keep <- file.exists(filt) & file.size(filt) > 100
-  say("  kept", sum(keep), "of", nrow(sub), "samples;",
-      round(100 * sum(st[, "reads.out"]) / max(1, sum(st[, "reads.in"]))), "% of reads passed the filter")
+  rate <- sum(st[, "reads.out"]) / max(1, sum(st[, "reads.in"]))
+  say("  kept", sum(keep), "of", nrow(sub), "samples;", round(100 * rate), "% of reads passed the filter")
   if (sum(keep) < 2) { say("  too few samples, skipping lab"); next }
+  # A lab that loses nearly everything means truncLen is wrong for it; fail loudly instead of checkpointing junk
+  if (rate < 0.20) { say("  pass rate too low -- not checkpointing", lab, "; check truncLen"); next }
   filt <- filt[keep]; names(filt) <- sub$run[keep]
 
   err <- learnErrors(filt, nbases = 5e7, multithread = FALSE, randomize = TRUE, verbose = FALSE)
