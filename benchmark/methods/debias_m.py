@@ -12,7 +12,8 @@ counts, meta, out = read_input()
 # DEBIAS-M input: first column = integer batch index (from 0), then read counts
 batch_idx = pd.factorize(meta["batch"])[0]
 X = np.hstack([batch_idx[:, None], counts.values])
-y = meta["phenotype"].astype(int).values
+# factorize, not astype(int): phenotypes are labels, and some datasets use names rather than 0/1
+y = pd.factorize(meta["phenotype"])[0]
 
 model = DebiasMClassifier(x_val=X)  # transductive: all samples used to align batches
 model.fit(X, y)

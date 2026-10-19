@@ -72,8 +72,8 @@ rule brooks_mock:  # mock communities for calibration (metacal); not in the meth
 
 rule mbqc:  # 13 handling labs x 22 specimens, 16S V4; needs the reads fetched first (data/mbqc_download.sh)
     input: multiext("results/raw/mbqc/", "mbqc_manifest.tsv", "mbqc_samples.tsv"), "results/raw/mbqc/fastq/.complete"
-    output: multiext("results/data/mock/mbqc/", "counts.tsv", "meta.tsv", "taxonomy.tsv")
-    shell: "{RDADA} -f data/mbqc.R --args results/data/mock/mbqc results/raw/mbqc {SILVA}"
+    output: multiext("results/data/real/mbqc/", "counts.tsv", "meta.tsv", "taxonomy.tsv")
+    shell: "{RDADA} -f data/mbqc.R --args results/data/real/mbqc results/raw/mbqc {SILVA}"
 
 rule salim_pig:  # storage/handling experiment (PRJEB31650): published count tables, calibration only
     output: multiext("results/data/mock/salim_pig/", "counts.tsv", "meta.tsv", "truth.tsv", "taxonomy.tsv")
