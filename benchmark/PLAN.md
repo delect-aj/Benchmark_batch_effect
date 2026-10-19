@@ -142,8 +142,12 @@ Tune_ConQuR 依赖已被移除的 vegan::adonis，需兼容 shim（pilot/conqur_
 | seed_16s | Foxx & Rivers 2025（Mendeley） | 320 × 721 ASV | 7 | 宿主植物（5 类，多分类） | ✅ 混杂案例 |
 | brooks mock | Brooks 2015（metacal 自带） | 80 × 7 种 | 6 板 | 已知组成 | ✅ 仅用于校准 |
 | salim_pig mock | Poulsen 2021 / figshare（Fachrul 2022 复用） | 408 × 1537 属 | 19 种储存条件 | 4 种基质 + 已知 mock 组成 | ✅ 仅用于校准；125 组技术重复 |
+| mbqc mock | MBQC SRP047083（自行重建） | 2034 × 181 属 | 13 个处理实验室 | 22 个标本 | ✅ 完全交叉（零混杂）；10 万组同标本重复 |
 
 处理说明：16S 按 RDP 谱系聚合到属（各研究 OTU 为 de novo，不可跨研究比较），并沿用原作者每样本 ≥100 reads 的下限；ibd_gevers_2014 在 Zenodo 表中只有 162 个粪便样本（作者配置 sample_location=stool），与原文清洗结果一致。seed 数据的流行度过滤改为"至少在一个研究中 ≥10%"（不同 16S 区域的 ASV 互不重叠，统一规则只剩 2/9 个研究）；Barret 2015、Liu 2019 不在已发表的计数表中。
+
+已于 2026-10-19 自行重建：**MBQC**（16S 扩增子，SRP047083）——整合 OTU 表已下线，我们下载 2117 个 run 的 forward reads（13 GB），用 SILVA 138.2 跑统一 DADA2 流程重建为 **2034 样本 × 181 属 / 13 实验室 × 22 标本**。**完全交叉、零混杂**，批次 R² = 0.099、标本 R² = 0.481，含 10 万组同标本重复。详见 data/MANUAL_DATASETS.md。
+> 📌 它比现在 `real:` 里的 seed_16s 更适合进方法评测（零混杂参照点 + 重复真值），**是否纳入待定**：只需把产物移到 `results/data/real/mbqc/` 并加进 `real:` 列表。
 
 已于 2026-10-15 补齐：
 - **HIVRC 17 个 HIV 研究**（Synapse syn18406854，用户下载后上传）。
@@ -153,5 +157,4 @@ Tune_ConQuR 依赖已被移除的 vegan::adonis，需兼容 shim（pilot/conqur_
 详见 data/DATA_PROVENANCE.md。
 
 未能准备（需决定）：
-- **MBQC**（**16S 扩增子**）：整合 OTU 表确实没了，但**原先判断的"不可行"是错的**。ENA 上 SRP047083 只有 **2117 run / 28.2 GB**（不是 16,500 个样本那种规模），已按样本拆分，且 `library_name` 直接编码了"标本.处理实验室"，可还原 **13 个处理实验室 × 22 个标本**的近似全交叉设计。全量下载约 33 小时 + 一条 DADA2/SILVA 流程即可，是三者中最容易拿下的。
 - **Tourlousse 2021 JMBC**：已复核，确实没有处理好的表（附件只有一个 PDF，MOSAIC 平台已下线）。但**不必下 721 GB**：543 个 run 里 274 个是 mock，ENA 支持 HTTP Range，每个 run 只取前 ~2%（约 20 万 read pair）就够，合计约 9 GB / 10 小时；18 个菌株的组装号在 Table S1，自建小参考即可定量。成本在于 run↔方案的对应表只在 PDF 的 Table S8 里。**这是唯一能提供"DNA 提取方案"作为批次变量的数据**（salim_pig 只有储存条件和建库），要不要做需要决定。
