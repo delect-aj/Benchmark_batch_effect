@@ -71,8 +71,22 @@ for (lab in labs) {
   keep <- file.exists(filt) & file.size(filt) > 100
   rate <- sum(st[, "reads.out"]) / max(1, sum(st[, "reads.in"]))
   say("  kept", sum(keep), "of", nrow(sub), "samples;", round(100 * rate), "% of reads passed the filter")
+  # Median quality can sit just above 25 for the whole read and still blow the maxEE budget over 250 cycles,
+  # which costs a lab most of its data. Keep maxEE the same everywhere and shorten that lab's reads instead.
+  for (try in 1:2) {
+    if (rate >= 0.50 || tl[["trunc"]] <= 100L) break
+    tl[["trunc"]] <- max(100L, as.integer(tl[["trunc"]] * 0.8))
+    say("  retrying", lab, "with truncLen", tl[["trunc"]])
+    st <- do.call(rbind, lapply(seq_len(nrow(sub)), function(i)
+      tryCatch(filterAndTrim(sub$fq[i], filt[i], truncLen = tl[["trunc"]], maxN = 0, maxEE = 2, truncQ = 2,
+                             rm.phix = TRUE, compress = TRUE, multithread = FALSE, verbose = FALSE),
+               error = function(e) matrix(0L, 1, 2, dimnames = list(sub$run[i], c("reads.in", "reads.out"))))))
+    keep <- file.exists(filt) & file.size(filt) > 100
+    rate <- sum(st[, "reads.out"]) / max(1, sum(st[, "reads.in"]))
+    say("  kept", sum(keep), "of", nrow(sub), "samples;", round(100 * rate), "% of reads passed the filter")
+  }
   if (sum(keep) < 2) { say("  too few samples, skipping lab"); next }
-  # A lab that loses nearly everything means truncLen is wrong for it; fail loudly instead of checkpointing junk
+  # A lab that still loses nearly everything is broken; fail loudly instead of checkpointing junk
   if (rate < 0.20) { say("  pass rate too low -- not checkpointing", lab, "; check truncLen"); next }
   filt <- filt[keep]; names(filt) <- sub$run[keep]
 
@@ -93,9 +107,10 @@ stopifnot("no lab produced a sequence table" = length(tabs) > 0)
 tax_rds <- file.path(ck, "taxonomy.rds")
 seqs <- unique(unlist(lapply(tabs, colnames), use.names = FALSE))
 say("assigning taxonomy to", length(seqs), "unique ASVs (this is the slow step)")
-tx <- if (file.exists(tax_rds)) readRDS(tax_rds) else {
+cached <- if (file.exists(tax_rds)) readRDS(tax_rds) else NULL
+tx <- if (!is.null(cached) && all(seqs %in% rownames(cached))) cached[seqs, , drop = FALSE] else {
   t <- assignTaxonomy(seqs, silva, minBoot = 50, multithread = FALSE, verbose = FALSE)
-  saveRDS(t, tax_rds); t
+  saveRDS(t, tax_rds); t          # a lab added later brings new ASVs, so the cache is only good if it covers them
 }
 ranks <- c("kingdom", "phylum", "class", "order", "family", "genus")
 colnames(tx) <- ranks
