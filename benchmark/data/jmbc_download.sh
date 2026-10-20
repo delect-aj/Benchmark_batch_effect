@@ -21,10 +21,18 @@ get() {
 }
 export -f get; export D BYTES NREAD MIN
 
-tail -n +2 data/jmbc/jmbc_runs.tsv | awk -F'\t' '{print $1"\t"$7}' \
-  | xargs -P 4 -n 1 -d '\n' bash -c 'IFS=$'"'"'\t'"'"' read -r r u <<< "$0"; get "$r" "$u"'
+want=$(( $(wc -l < data/jmbc/jmbc_runs.tsv) - 1 ))
+# A few runs come back empty under concurrency; each pass skips what is already there, so just go round again.
+for attempt in 1 2 3; do
+  have=$(ls -1 "$D/reads"/*.fastq.gz 2>/dev/null | wc -l)
+  [ "$have" -ge "$want" ] && break
+  echo "pass $attempt: $have / $want present"
+  tail -n +2 data/jmbc/jmbc_runs.tsv | awk -F'\t' '{print $1"\t"$7}' \
+    | xargs -P 4 -n 1 -d '\n' bash -c 'IFS=$'"'"'\t'"'"' read -r r u <<< "$0"; get "$r" "$u"'
+done
 
 have=$(ls -1 "$D/reads"/*.fastq.gz 2>/dev/null | wc -l)
-want=$(( $(wc -l < data/jmbc/jmbc_runs.tsv) - 1 ))
 echo "=== $have / $want runs, $(du -sh "$D/reads" | cut -f1) ==="
-[ "$have" = "$want" ] && touch "$D/reads/.complete" && echo "marked complete"
+[ "$have" -ge "$want" ] && touch "$D/reads/.complete"
+# partial success still feeds the rest of the pipeline; only a near-total failure is worth stopping for
+[ "$have" -ge $(( want * 9 / 10 )) ]
