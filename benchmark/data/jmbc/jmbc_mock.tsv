@@ -1,0 +1,21 @@
+species	strain	assembly	genome_size	gc	gram	pct_dna_mock	pct_cell_mock
+Collinsella aerofaciens	JCM 10188T	GCA_010509075.1	2455328	60.6	positive	5.0	5.3
+Blautia producta	JCM 1471T	GCA_010669205.1	6197116	45.7	positive	5.0	4.2
+Megamonas funiformis	JCM 14723T	GCA_010669225.1	2568766	31.5	-	5.0	0.0
+Flavonifractor plautii	JCM 32125T	GCA_010508875.1	3985392	60.9	positive	5.0	2.8
+Escherichia coli	NBRC 3301	GCA_010509415.1	4755096	50.8	negative	5.0	1.7
+Akkermansia muciniphila	JCM 30893	GCA_010509235.1	2878261	55.6	negative	5.0	2.7
+Faecalibacterium prausnitzii	JCM 31915	GCA_010509575.1	3102523	56.4	positive	5.0	6.2
+Staphylococcus epidermidis	NBRC 100911T	GCA_006742205.1	2427041	32.3	positive	5.0	5.3
+Cutibacterium acnes subsp. acnes	NBRC 107605T	GCA_006739385.1	2494738	60.0	positive	5.0	7.9
+Bacteroides uniformis	NBRC 113350	GCA_006742345.1	4989532	46.2	negative	5.0	2.8
+Enterocloster clostridioforme	NBRC 113352	GCA_006538465.1	5687315	48.9	positive	5.0	3.1
+Bacillus subtilis subsp. subtilis	NBRC 13719T	GCA_006741845.1	4295305	43.3	positive	5.0	3.0
+Streptococcus mutans	NBRC 13955T	GCA_006739205.1	2018796	36.9	positive	5.0	6.2
+Lactobacillus delbrueckii subsp. delbrueckii	NBRC 3202T	GCA_006740305.1	1910306	50.1	positive	5.0	11.9
+Pseudomonas putida	NBRC 14164T	GCA_000412675.1	6156701	62.3	negative	5.0	3.5
+Bifidobacterium longum subsp. longum	JCM 1217 T	GCA_000196555.1	2385164	60.3	positive	5.0	19.1
+Agathobacter rectalis	JCM 17463T	GCA_000020605.1	3449685	41.5	positive	5.0	2.7
+Megasphaera elsdenii	JCM 1772T	GCA_003010495.1	2478942	52.8	-	5.0	0.0
+Parabacteroides distasonis	JCM 5825T	GCA_000012845.1	4811379	45.1	negative	5.0	2.1
+Bifidobacterium longum subsp. infantis	JCM 1222T	GCA_000269965.1	2828958	59.9	positive	5.0	9.6
