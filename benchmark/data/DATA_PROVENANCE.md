@@ -119,9 +119,11 @@
 
 ## brooks mock（仅用于校准）
 
-**上游** — Brooks et al. 2015 的细胞 mock 群落，由 McLaren et al. 2019 (eLife) 整理进 `metacal` 包：7 种阴道菌种按**已知比例**混合，分 6 块板测序。
+**上游** — Brooks et al. 2015 的细胞 mock 群落，由 McLaren et al. 2019 (eLife) 整理进 `metacal` 包：7 种阴道菌种按**已知比例**混合。
 
-**本项目**（`data/brooks_mock.R`）：`counts.tsv` = 观测 reads，`truth.tsv` = 真实比例，`meta.tsv` 中 `batch` = 板号。用于检验"每批次乘性偏倚"这一模拟假设是否符合真实协议效应。
+**本项目**（`data/brooks_mock.R`）：`counts.tsv` = 观测 reads，`truth.tsv` = 真实比例，`meta.tsv` 中 `batch` = 板号，`phenotype` = 混入的菌种数（1/2/3/4/7），另存 `species_list`。用于检验"每批次乘性偏倚"这一模拟假设是否符合真实协议效应。
+
+> ⚠️ **只有 2 块板、80 个样本**（此前文档写的"6 块板"有误）：metacal 打包的是细胞混合子集，不是 Brooks 2015 的全部数据。`Mixture_type` 在这个子集里恒为 "Cells"，因此不保留。批次数少意味着"每批次偏倚"只能在两块板之间比较，结论强度有限 —— 宏基因组一侧的同类检验用 salim_pig（3 种建库 × 24 个纯 mock）更有力。
 
 ---
 

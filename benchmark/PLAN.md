@@ -140,7 +140,7 @@ Tune_ConQuR 依赖已被移除的 vegan::adonis，需兼容 shim（pilot/conqur_
 | hiv_16s | MicrobiomeHD | 312 × 137 属 | 3 | HIV vs 健康 | ✅ |
 | hivrc_16s | HIVRC / Synapse（手动下载） | 1032 × 160 属 | 17 | HIV vs 阴性 | ✅ DEBIAS-M 同款基准；2 个研究无对照 |
 | seed_16s | Foxx & Rivers 2025（Mendeley） | 320 × 721 ASV | 7 | 宿主植物（5 类，多分类） | ✅ 混杂案例 |
-| brooks mock | Brooks 2015（metacal 自带） | 80 × 7 种 | 6 板 | 已知组成 | ✅ 仅用于校准 |
+| brooks mock | Brooks 2015（metacal 自带） | 80 × 7 种 | 2 板 | 已知组成 | ✅ 仅用于校准 |
 | salim_pig mock | Poulsen 2021 / figshare（Fachrul 2022 复用） | 408 × 1537 属 | 19 种储存条件 | 4 种基质 + 已知 mock 组成 | ✅ 仅用于校准；125 组技术重复 |
 | mbqc mock | MBQC SRP047083（自行重建） | 2034 × 181 属 | 13 个处理实验室 | 22 个标本 | ✅ 完全交叉（零混杂）；10 万组同标本重复 |
 
