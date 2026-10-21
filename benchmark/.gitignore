@@ -1,2 +1,10 @@
-results/
+# Everything the workflow writes is ignored, with one exception: the prepared real and mock datasets are
+# kept in the repo. They are small (tens of MB) and expensive to rebuild -- MBQC alone is a 13 GB download
+# and eleven hours of DADA2 -- so the repo stays self-contained instead of depending on one directory on
+# the cluster. Simulated datasets stay out: they regenerate from a seed in minutes.
+results/*
+!results/data/
+results/data/*
+!results/data/real/
+!results/data/mock/
 data/templates/
