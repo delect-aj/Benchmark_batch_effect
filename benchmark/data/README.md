@@ -343,6 +343,34 @@ be resumed and cannot race a second copy of itself on another node.
 
 ---
 
+## What is kept on the cluster
+
+The prepared datasets are committed to this repository (`results/data/real/` and `results/data/mock/`,
+6.4 MB), so the cluster no longer holds the only copy. Its `results/raw/` was cut from 25 GB to 113 MB on
+2026-10-21; everything removed is reproducible from the scripts here.
+
+| Kept | Size | Why it is not deleted |
+|---|---|---|
+| `raw/hivrc/` | 94 MB | Synapse needs an account and these were downloaded by hand; re-fetching needs a person, not a script |
+| `raw/seed/` | 11 MB | Small enough that deleting it buys nothing |
+| `raw/mbqc/checkpoints/` + manifests | 4.3 MB | **Rebuilds MBQC in 17 seconds instead of a 13 GB download and eleven hours of DADA2** |
+| `raw/salim/` (3 source files) | 3.0 MB | Table S1 was uploaded by hand because Europe PMC is slow and flaky |
+| `raw/jmbc/counts_long.tsv` | 104 KB | Rebuilds both JMBC datasets without re-downloading 2.5 GB |
+
+Deleted: `raw/mbqc/fastq` (12 GB), `raw/mbqc/filtered` (8.3 GB, a DADA2 intermediate), `raw/jmbc/reads`
+(2.5 GB), `raw/microbiomehd` (1.4 GB, re-downloads from Zenodo), `raw/jmbc/ref` (245 MB, rebuilt by
+`jmbc_ref.sh`), and assorted leftovers from abandoned attempts.
+
+The trade is the point: **4.4 MB of intermediates replaces 23 GB of raw reads and still rebuilds in
+seconds.** Both paths were tested after the deletion — MBQC and both JMBC datasets rebuild byte-identical
+from what remains.
+
+> The MBQC build holds `results/raw/mbqc/checkpoints/.lock` while it runs and releases it on completion. A
+> build killed partway leaves the lock behind — R has no reliable at-exit hook for a script stopped by an
+> error — so it is ignored once three hours old, or delete it by hand.
+
+---
+
 ## What we could not get
 
 Nothing outstanding. Two entries that were open for a long time are closed:
