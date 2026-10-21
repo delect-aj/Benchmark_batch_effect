@@ -1,6 +1,7 @@
 # Microbiome batch-correction benchmark
 
-Full design: [PLAN.md](PLAN.md).
+Full design: [PLAN.md](PLAN.md). Datasets: [data/README.md](data/README.md) for how each one was built,
+[data/DATASETS.tsv](data/DATASETS.tsv) for the structured index.
 
 ## Method wrapper contract
 

@@ -128,40 +128,28 @@ Tune_ConQuR 依赖已被移除的 vegan::adonis，需兼容 shim（pilot/conqur_
 4. MGX 模板沿用同一 bias_sd {1,2,3}（用户确认）：复查后 16S 未校正 batch R² 覆盖 0.037–0.203，MGX 仅 0.018–0.045，低于真实 CRC 宏基因组（0.077）。论文中需注明：MGX 场景代表偏弱的批次效应。
 
 ## 数据准备情况（2026-10-21）
-所有数据由 `snakemake data` 一键重建（脚本在 data/，原始下载在 results/raw/，gitignored）。
 
-> 📋 **机器可读的总清单：[`data/DATASETS.tsv`](data/DATASETS.tsv)** —— 每个数据集一行，含路径、上游来源、生成脚本与规则、样本×特征、批次/表型变量及层级数、中位深度、有无真值与分类表、协变量列、注意事项。由 `data/inventory.sh` 扫描实际文件重新生成（形态实测、来源固化），数据一旦重建就重跑它，表不会失真。下面的表格是便于阅读的摘要。
+**全部就绪，无待决项。** 逐数据集的来源、处理流程与注意事项见 **[`data/README.md`](data/README.md)**；
+结构化清单（路径、规模、批次/表型变量、协变量、真值）见 **[`data/DATASETS.tsv`](data/DATASETS.tsv)**，
+由 `data/inventory.sh` 扫描实际文件生成，数据重建后重跑即可。
 
-| 数据集 | 来源 | 样本 × 特征 | 批次（研究） | 表型 | 状态 |
-|---|---|---|---|---|---|
-| crc_mgx | curatedMetagenomicData（Wirbel 2019 队列） | 1255 × 224 种 | 9 | CRC vs 对照 | ✅ |
-| ibd_mgx | curatedMetagenomicData | 669 × 195 种 | 5 | IBD vs 对照 | ✅ |
-| ici_mgx | curatedMetagenomicData（免疫治疗应答 ORR） | 224 × 232 种 | 3 | 应答 vs 无应答 | ✅ |
-| crc_16s | MicrobiomeHD（Zenodo 569601） | 610 × 147 属 | 5 | CRC vs 健康 | ✅ |
-| ibd_16s | MicrobiomeHD | 580 × 86 属 | 4 | CD/UC vs 健康/nonIBD | ✅ |
-| hiv_16s | MicrobiomeHD | 312 × 137 属 | 3 | HIV vs 健康 | ✅ |
-| hivrc_16s | HIVRC / Synapse（手动下载） | 1032 × 160 属 | 17 | HIV vs 阴性 | ✅ DEBIAS-M 同款基准；2 个研究无对照 |
-| seed_16s | Foxx & Rivers 2025（Mendeley） | 320 × 721 ASV | 7 | 宿主植物（5 类，多分类） | ✅ 混杂案例 |
-| brooks mock | Brooks 2015（metacal 自带） | 80 × 7 种 | 2 板 | 已知组成 | ✅ 仅用于校准 |
-| salim_pig mock | Poulsen 2021 / figshare（Fachrul 2022 复用） | 408 × 1537 属 | 19 种储存条件 | 4 种基质 + 已知 mock 组成 | ✅ 仅用于校准；125 组技术重复 |
-| mbqc | MBQC SRP047083（自行重建） | 2034 × 181 属 | 13 个处理实验室 | 22 个标本 | ✅ 完全交叉（零混杂）；10 万组重复；**已进评测** |
-| jmbc_extraction | Tourlousse 2021（自行重建） | 79 × 20 菌株 | **9 种 DNA 提取方案** | mock vs 粪便 | ✅ **已进评测**；唯一以提取方案为批次 |
-| jmbc_library mock | 同上 | 84 × 20 菌株 | 28 种建库方案 | 无（同一份 mock） | ✅ 纯 null 场景，仅校准 |
+| 轨道 | 数据集 | 规模 |
+|---|---|---|
+| 评测（10 个） | crc_mgx、ibd_mgx、ici_mgx、crc_16s、ibd_16s、hiv_16s、hivrc_16s、seed_16s、mbqc、jmbc_extraction | 7,115 样本 |
+| 校准（3 个） | brooks、salim_pig、jmbc_library | 572 样本 |
+| 模拟 | 16S / MGX 两个 MIDASim 模板 + 213 个场景 | 213 × reps |
 
-处理说明：16S 按 RDP 谱系聚合到属（各研究 OTU 为 de novo，不可跨研究比较），并沿用原作者每样本 ≥100 reads 的下限；ibd_gevers_2014 在 Zenodo 表中只有 162 个粪便样本（作者配置 sample_location=stool），与原文清洗结果一致。seed 数据的流行度过滤改为"至少在一个研究中 ≥10%"（不同 16S 区域的 ASV 互不重叠，统一规则只剩 2/9 个研究）；Barret 2015、Liu 2019 不在已发表的计数表中。
+覆盖面（相对 2.2/2.3 节的要求）：
 
-已于 2026-10-19 自行重建：**MBQC**（16S 扩增子，SRP047083）——整合 OTU 表已下线，我们下载 2117 个 run 的 forward reads（13 GB），用 SILVA 138.2 跑统一 DADA2 流程重建为 **2034 样本 × 181 属 / 13 实验室 × 22 标本**。**完全交叉、零混杂**，批次 R² = 0.099、标本 R² = 0.481，含 10 万组同标本重复。详见 data/MANUAL_DATASETS.md。
-> 📌 它比现在 `real:` 里的 seed_16s 更适合进方法评测（零混杂参照点 + 重复真值），**是否纳入待定**：只需把产物移到 `results/data/real/mbqc/` 并加进 `real:` 列表。
+- **两种数据类型**：16S 六个（属水平）、宏基因组四个（种或菌株水平）。
+- **四类批次变量**：研究/队列、**湿实验室**（mbqc，13 个）、**DNA 提取方案**（jmbc_extraction，9 种）、储存与建库条件（salim_pig、jmbc_library）。文献公认提取是最主要的偏倚来源，这条轴此前是空的。
+- **混杂梯度两端都有实例**：mbqc 完全交叉（Cramér's V = 0，零点参照）；hivrc_16s 有两个研究完全没有对照、seed_16s 多数宿主植物只出现在部分研究（天然混杂）。
+- **四个数据集带 ground truth**：brooks、salim_pig、jmbc_library（已知组成）与 mbqc（10 万组同标本重复）。
+- **一个纯 null 场景**：jmbc_library，同一份 DNA mock 过 28 种建库方案，生物信号完全不变。
 
-已于 2026-10-15 补齐：
-- **HIVRC 17 个 HIV 研究**（Synapse syn18406854，用户下载后上传）。
-- **salim_pig**（原记为"Salim 2022 猪粪"）：**不需要自己处理原始 reads** —— 作者已把 MGmapper 属级计数表发布在 figshare（2.6 MB），逐样本条件在论文 Table S1。这同时补上了两块空缺：唯一一个带**技术重复**的数据集（125 组，RUV 类方法需要），以及**宏基因组**的已知组成 mock（此前只有 16S 的 brooks）。
-  实测结果直接支持模拟的批次模型：纯 mock 样本的 per-taxon log2 偏倚跨 −6.2 到 +2.3（约 360 倍），且在 3 种建库方式间高度一致（r = 0.992–0.993）——即"每 taxon 一个乘性因子"成立，且主要由提取/裂解而非建库决定。
+### 两个直接影响模拟设计的实测结果
 
-详见 data/DATA_PROVENANCE.md。
+1. **乘性偏倚模型成立，但只在建库层面稳固。** salim_pig 的 per-taxon 偏倚向量在 3 种建库方式间 r = 0.992–0.993；jmbc_extraction 的 9 种提取方案里有 7 种 r ≈ 0.92–0.98，但方案 O 和 R 偏离到 r ≈ 0.56–0.84。因此 2.1 节同时保留"系统性"与"非系统性"批次效应是必要的，不是保险起见。
+2. **偏倚幅度有了实测范围**：salim_pig 跨度约 360 倍（log2 −6.2 至 +2.3），jmbc_extraction 约 12 倍（log2 −2.09 至 +1.50），方向均符合细胞壁裂解难易。模拟的 `bias_sd` 应落在这个区间内。
 
-已于 2026-10-20 自行重建：**Tourlousse JMBC**（宏基因组）。论文只发布了一个 54 页 PDF，故用 `pdftotext` 从中抠出设计表（Table S1 的 20 个菌株真值 + Table S8 的 run↔方案对应），只下载每个 run 的前 20 万条 read（**2.3 GB 而非 100 GB**，ENA 支持 HTTP Range），对 20 个已知菌株建 75 Mb bowtie2 参考定量。产出 `jmbc_extraction`（9 种提取方案，已进评测）与 `jmbc_library`（28 种建库方案，纯 null）。
-
-> 📌 **一个对模拟设计有直接影响的结果**：偏倚向量在 9 种提取方案中有 7 种高度一致（r ≈ 0.92–0.98），但方案 **O 和 R 明显偏离**（r ≈ 0.56–0.84）；而 salim_pig 只改建库方式时 r = 0.992–0.993。即"每 taxon 一个乘性因子"在建库层面很稳，在提取层面**多数成立但并非普适** —— 这是 2.1 节里同时保留"系统性"与"非系统性"批次效应两种情形的实证依据。
-
-**所有计划内数据集均已就绪**，无待决项。
+> ⚠️ 仍需在论文中说明的已知近似：cMD 三个宏基因组数据集是由相对丰度反推的**估计计数**；hivrc_16s 的属表已抽平到每样本 20,000 reads，深度差异被移除；crc_mgx 的提取试剂盒完全嵌套在研究内，无法分离两者效应。

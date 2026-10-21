@@ -1,6 +1,6 @@
 # HIVRC: 17 HIV gut 16S studies (HIV Re-analysis Consortium; the DEBIAS-M HIV benchmark).
 # Source files are downloaded manually from Synapse (needs an account) into results/raw/hivrc/ — see
-# data/MANUAL_DATASETS.md. Upstream processing is the consortium's: one common Resphera Insight pipeline.
+# data/README.md. Upstream processing is the consortium's: one common Resphera Insight pipeline.
 # Usage: Rscript data/hivrc_16s.R <outdir> <raw dir with the Synapse files>
 a <- commandArgs(TRUE); outdir <- a[1]; raw <- a[2]
 dir.create(outdir, recursive = TRUE, showWarnings = FALSE)
