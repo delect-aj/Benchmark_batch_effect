@@ -27,10 +27,14 @@ if (file.exists(lock) && difftime(Sys.time(), file.mtime(lock), units = "hours")
 hold <- function() writeLines(paste(Sys.info()[["nodename"]], Sys.getpid(), format(Sys.time())), lock)
 hold(); on.exit(unlink(lock), add = TRUE)
 
+# Keep the whole manifest: the sample metadata at the end is built from it, and a lab that already has a
+# checkpoint needs no reads on disk at all -- which is what lets the 13 GB of FastQ be deleted once the
+# per-lab sequence tables exist.
 man <- read.delim(file.path(raw, "mbqc_manifest.tsv"), colClasses = "character")
 man$fq <- file.path(raw, "fastq", paste0(man$run, ".fastq.gz"))
-man <- man[file.exists(man$fq) & file.size(man$fq) > 5000, ]       # skip empty/failed downloads
-say(nrow(man), "runs across", length(unique(man$lab)), "labs")
+man$have <- file.exists(man$fq) & file.size(man$fq) > 5000         # empty/failed downloads count as absent
+say(sum(man$have), "of", nrow(man), "runs have reads on disk, across",
+    length(unique(man$lab)), "labs")
 
 # Truncate where the per-cycle median quality drops below 25, but never past the length the reads actually
 # have: filterAndTrim discards every read shorter than truncLen, and the labs ran anything from 126 to 294 bp.
@@ -55,7 +59,8 @@ labs <- sort(unique(man$lab))
 for (lab in labs) {
   f_rds <- file.path(ck, paste0("seqtab_", lab, ".rds"))
   if (file.exists(f_rds)) { say("lab", lab, "already done, skipping"); next }
-  sub <- man[man$lab == lab, ]
+  sub <- man[man$lab == lab & man$have, ]
+  if (!nrow(sub)) { say("lab", lab, ": no checkpoint and no reads on disk, skipping"); next }
   tl <- trunc_for(sub$fq)
   say("lab", lab, ":", nrow(sub), "samples, read length median", tl[["med"]], "p10", tl[["p10"]],
       "-> truncLen", tl[["trunc"]])
