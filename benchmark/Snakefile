@@ -75,6 +75,16 @@ rule mbqc:  # 13 handling labs x 22 specimens, 16S V4; needs the reads fetched f
     output: multiext("results/data/real/mbqc/", "counts.tsv", "meta.tsv", "taxonomy.tsv")
     shell: "{RDADA} -f data/mbqc.R --args results/data/real/mbqc results/raw/mbqc {SILVA}"
 
+rule jmbc_extraction:  # 9 DNA extraction protocols on a 20-strain mock and on feces -- the only dataset here
+    input: "results/raw/jmbc/counts_long.tsv"   # whose batch variable is the extraction method itself
+    output: multiext("results/data/real/jmbc_extraction/", "counts.tsv", "meta.tsv", "taxonomy.tsv", "truth.tsv")
+    shell: "{R} data/jmbc.R extraction results/data/real/jmbc_extraction results/raw/jmbc"
+
+rule jmbc_library:  # 28 library preparations of one DNA mock: nothing biological varies, so it is a null set
+    input: "results/raw/jmbc/counts_long.tsv"
+    output: multiext("results/data/mock/jmbc_library/", "counts.tsv", "meta.tsv", "taxonomy.tsv", "truth.tsv")
+    shell: "{R} data/jmbc.R library results/data/mock/jmbc_library results/raw/jmbc"
+
 rule salim_pig:  # storage/handling experiment (PRJEB31650): published count tables, calibration only
     output: multiext("results/data/mock/salim_pig/", "counts.tsv", "meta.tsv", "truth.tsv", "taxonomy.tsv")
     shell: "{R} data/salim_pig.R results/data/mock/salim_pig results/raw/salim"

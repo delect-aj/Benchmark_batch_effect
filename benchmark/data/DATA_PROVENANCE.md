@@ -147,7 +147,31 @@
 
 ---
 
-## 未能获取的数据（2026-10-19 复核）
+## jmbc_extraction / jmbc_library（提取与建库方案对比）
+
+**上游** — Tourlousse et al. 2021 *Microbiome* 9:95（日本微生物组联盟，SRA PRJNA650228）。论文**只发布了一个 54 页 PDF**，没有任何特征表；ENA 的元数据也没有方案信息（`library_name` 是随机码，BioSample 属性全是占位值）。因此全部自行重建。
+
+**本项目**（`data/jmbc_tables.py` → `jmbc_ref.sh` → `jmbc_download.sh` → `jmbc_quantify.sh` → `jmbc.R`）
+1. 用 `pdftotext -layout` 从补充 PDF 抠出两张表并入库（集群上无需 poppler 即可复现）：
+   - **Table S1** → 20 个菌株的 GenBank 组装号、基因组大小、革兰型、**真值比例**（DNA mock 均等 5%；cell mock 不等量，其中 *Megamonas funiformis* 为 0）
+   - **Table S8** → 每个 run 属于哪个实验、哪种方案。注：pdftotext 偶尔把两字符方案码拆开（`C protocol L` = CL），已在解析时归一
+2. 只取 phase I 的两个方案对比实验（164 run），其余是 phase II 的操作员/批次/实验室变化
+3. **参考基因组**：按 GCA 号从 ENA 直接取完整组装（含质粒），20 个共约 75 Mb，建 bowtie2 索引 —— 群落成员已知，不需要 MetaPhlAn/GTDB 大库
+4. **只下载每个 run 的前 20 万条 read**（ENA 支持 HTTP Range）：对 20 菌株 mock 绰绰有余，下载量从 100 GB 降到 **2.3 GB**
+5. 比对后只计 **MAPQ ≥ 10** 的 read：两个 *B. longum* 亚种会产生无法区分的比对，丢弃比让 bowtie2 随机断连更干净
+6. 按实验拆成两个数据集（批次轴不同，见下）
+
+> 📊 **观测 vs 真值（cell mock）**：per-taxon log2 偏倚 **−2.09 到 +1.50（约 12 倍）**，方向符合裂解难易 —— *Bifidobacterium*（两亚种）、*Lactobacillus*、*Staphylococcus* 严重低估，*Blautia*、*Bacillus*、*Parabacteroides* 高估。批次（提取方案）R² = **0.143**，材料（mock vs 粪便）R² = **0.976**。
+>
+> 📌 **一个与 salim_pig 对照的重要结果**：偏倚向量在 9 种提取方案中有 7 种高度一致（r ≈ 0.92–0.98），但**方案 O 和 R 明显偏离**（r ≈ 0.56–0.84）。而 salim_pig 只改变建库方式时 r = 0.992–0.993。也就是说，"每 taxon 一个乘性因子"的 McLaren 模型在建库层面很稳，在提取层面**多数成立但并非普适** —— 这正是模拟里需要同时保留"系统性"与"非系统性"批次效应两种情形的实证依据。
+
+> ⚠️ `jmbc_library` 的 84 个样本是**同一份 DNA mock**，生物信号完全不变，因此是纯 null 场景，只用于检测过校正与假信号，不进方法评测列表。
+>
+> ⚠️ 163/164 个 run 成功；SRR12996048 多次重试后仍返回空，已跳过。
+
+---
+
+## 未能获取的数据（2026-10-20 复核）
 
 > ✅ **Salim 2022 猪粪已不在此列**：之前判断"只有样本元数据和 spike-in 汇总表"是看错了论文 —— 我们引的 *Sci Rep* 2022 是复用这批数据的方法学论文，真正的数据论文 Poulsen 2021 把属级计数表发在了 figshare（2.6 MB）。**不需要下载 461 GB 原始 reads。**
 

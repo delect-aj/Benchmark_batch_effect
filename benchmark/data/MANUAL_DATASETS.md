@@ -41,7 +41,24 @@
 - 设计比原先记录的更丰富：**4 种基质**（Pig_feces_1/2、Sewage_1/2，而非 2 头猪）、19 种时间×温度组合（0h 到 8640h ≈ 1 年；−80/−20/5/22 °C）、冻融 0–4 次、**3 种建库**（Nextflex 306 / Kappa 94 / Nextera 38）、12 个 flow-cell lane、**125 组技术重复**、151 spiked + 233 unspiked + 24 纯 mock + 30 提取空白。
 - 输出：`results/data/mock/salim_pig/`，`batch` = 储存条件（时间_温度），`phenotype` = 基质，`replicate` = `Replicate_Groups`；另存 `spiked`、`library_prep`、`lane`、`time_h`、`temp_c`、`freeze_thaw`，任一列都可当批次用。`truth.tsv` = 24 个纯 mock 样本的已知细胞比例（Table S3）。
 
-## 3. Tourlousse 2021：日本微生物组联盟（JMBC）提取/建库方法比较 ⚠️ 确认**没有**处理好的表，但可行性比原先估计的好
+## 3. Tourlousse 2021：日本微生物组联盟（JMBC）提取/建库方法比较 ✅ 已自行重建（2026-10-20）
+
+### 结果
+| 数据集 | 规模 | 批次 | 用途 |
+|---|---|---|---|
+| `results/data/real/jmbc_extraction` | **79 样本 × 20 菌株**（54 cell mock + 25 粪便） | **9 种 DNA 提取方案 L–T** | 进方法评测 |
+| `results/data/mock/jmbc_library` | **84 样本 × 20 菌株** | 28 种建库方案（11 试剂盒 × 3 投入量） | 仅校准（纯 null） |
+
+**为什么分成两个**：两者的批次轴不是一回事。提取实验有真实对比（mock vs 粪便，材料 R² = 0.976），建库实验则是同一份 DNA mock 过 28 种方案 —— **生物信号完全不变**，因此是纯 null 场景：方法留下的任何结构都是批次，造出的任何差异都是假信号。
+
+**实测**（cell mock 对 Table S1 真值）：
+- per-taxon log2 偏倚跨度 **−2.09 到 +1.50，约 12 倍**，方向符合裂解难易：*Bifidobacterium*（两个亚种）、*Lactobacillus*、*Staphylococcus* 严重低估；*Blautia*、*Bacillus*、*Parabacteroides* 高估
+- 批次（提取方案）R²（Aitchison）= **0.143**
+- **偏倚向量在 7 种方案之间高度一致（r ≈ 0.92–0.98），但方案 O 和 R 明显偏离（r ≈ 0.56–0.84）** —— 即"每 taxon 一个乘性因子"的 McLaren 模型在多数提取方案上成立，但并非普适。这与 salim_pig（只变建库方式，r = 0.992–0.993）形成对照：**提取方案的差异不仅更大，而且结构也不完全相同**
+
+> ⚠️ 163/164 个 run 成功，缺 SRR12996048（并发下载多次重试后仍为空）。
+
+### 原先的调研记录
 - 论文：Tourlousse et al.，*Microbiome* 9:95，"Validation and standardization of DNA extraction and library construction methods for metagenomics-based human fecal microbiome measurements"，[doi:10.1186/s40168-021-01048-3](https://doi.org/10.1186/s40168-021-01048-3)（全文 [PMC8082873](https://pmc.ncbi.nlm.nih.gov/articles/PMC8082873/)）
 - **2026-10-15 复核**：全文只有 **1 个附件**（`40168_2021_1048_MOESM1_ESM.pdf`，54 页：方法 p2–7、图 p8–37、表 p38–53），**没有任何逐样本丰度表**。Data availability 只给 SRA PRJNA650228；文中提到数据也上传到 MOSAIC Standards Challenge 平台（platform.mosaicbiome.com），但该域名现在**解析不了**，平台似已下线。
   （PDF 可从 Springer 的 CDN 直接取，不走 Springer 本站的 cookie 墙：`https://static-content.springer.com/esm/art%3A10.1186%2Fs40168-021-01048-3/MediaObjects/40168_2021_1048_MOESM1_ESM.pdf`）
