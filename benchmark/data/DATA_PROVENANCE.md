@@ -2,6 +2,8 @@
 
 每个数据集分两段：**上游**（原作者从测序数据到特征表做了什么）和**本项目**（`data/` 下脚本做了什么）。所有数据可用 `snakemake data` 重建。
 
+> 📋 本文件讲**怎么来的**；一行一个数据集的结构化清单（路径、规模、批次/表型、真值、协变量、注意事项）在 **[`data/DATASETS.tsv`](DATASETS.tsv)**，由 `data/inventory.sh` 生成。
+
 ---
 
 ## 宏基因组：crc_mgx / ibd_mgx / ici_mgx
