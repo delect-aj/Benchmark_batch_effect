@@ -142,7 +142,9 @@ Tune_ConQuR 依赖已被移除的 vegan::adonis，需兼容 shim（pilot/conqur_
 | seed_16s | Foxx & Rivers 2025（Mendeley） | 320 × 721 ASV | 7 | 宿主植物（5 类，多分类） | ✅ 混杂案例 |
 | brooks mock | Brooks 2015（metacal 自带） | 80 × 7 种 | 2 板 | 已知组成 | ✅ 仅用于校准 |
 | salim_pig mock | Poulsen 2021 / figshare（Fachrul 2022 复用） | 408 × 1537 属 | 19 种储存条件 | 4 种基质 + 已知 mock 组成 | ✅ 仅用于校准；125 组技术重复 |
-| mbqc mock | MBQC SRP047083（自行重建） | 2034 × 181 属 | 13 个处理实验室 | 22 个标本 | ✅ 完全交叉（零混杂）；10 万组同标本重复 |
+| mbqc | MBQC SRP047083（自行重建） | 2034 × 181 属 | 13 个处理实验室 | 22 个标本 | ✅ 完全交叉（零混杂）；10 万组重复；**已进评测** |
+| jmbc_extraction | Tourlousse 2021（自行重建） | 79 × 20 菌株 | **9 种 DNA 提取方案** | mock vs 粪便 | ✅ **已进评测**；唯一以提取方案为批次 |
+| jmbc_library mock | 同上 | 84 × 20 菌株 | 28 种建库方案 | 无（同一份 mock） | ✅ 纯 null 场景，仅校准 |
 
 处理说明：16S 按 RDP 谱系聚合到属（各研究 OTU 为 de novo，不可跨研究比较），并沿用原作者每样本 ≥100 reads 的下限；ibd_gevers_2014 在 Zenodo 表中只有 162 个粪便样本（作者配置 sample_location=stool），与原文清洗结果一致。seed 数据的流行度过滤改为"至少在一个研究中 ≥10%"（不同 16S 区域的 ASV 互不重叠，统一规则只剩 2/9 个研究）；Barret 2015、Liu 2019 不在已发表的计数表中。
 
@@ -156,5 +158,8 @@ Tune_ConQuR 依赖已被移除的 vegan::adonis，需兼容 shim（pilot/conqur_
 
 详见 data/DATA_PROVENANCE.md。
 
-未能准备（需决定）：
-- **Tourlousse 2021 JMBC**：已复核，确实没有处理好的表（附件只有一个 PDF，MOSAIC 平台已下线）。但**不必下 721 GB**：543 个 run 里 274 个是 mock，ENA 支持 HTTP Range，每个 run 只取前 ~2%（约 20 万 read pair）就够，合计约 9 GB / 10 小时；18 个菌株的组装号在 Table S1，自建小参考即可定量。成本在于 run↔方案的对应表只在 PDF 的 Table S8 里。**这是唯一能提供"DNA 提取方案"作为批次变量的数据**（salim_pig 只有储存条件和建库），要不要做需要决定。
+已于 2026-10-20 自行重建：**Tourlousse JMBC**（宏基因组）。论文只发布了一个 54 页 PDF，故用 `pdftotext` 从中抠出设计表（Table S1 的 20 个菌株真值 + Table S8 的 run↔方案对应），只下载每个 run 的前 20 万条 read（**2.3 GB 而非 100 GB**，ENA 支持 HTTP Range），对 20 个已知菌株建 75 Mb bowtie2 参考定量。产出 `jmbc_extraction`（9 种提取方案，已进评测）与 `jmbc_library`（28 种建库方案，纯 null）。
+
+> 📌 **一个对模拟设计有直接影响的结果**：偏倚向量在 9 种提取方案中有 7 种高度一致（r ≈ 0.92–0.98），但方案 **O 和 R 明显偏离**（r ≈ 0.56–0.84）；而 salim_pig 只改建库方式时 r = 0.992–0.993。即"每 taxon 一个乘性因子"在建库层面很稳，在提取层面**多数成立但并非普适** —— 这是 2.1 节里同时保留"系统性"与"非系统性"批次效应两种情形的实证依据。
+
+**所有计划内数据集均已就绪**，无待决项。
