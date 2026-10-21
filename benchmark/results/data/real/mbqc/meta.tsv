@@ -1,0 +1,2035 @@
+sample_id	batch	phenotype	replicate	run	specimen_type	health_status	sex	age	artificial
+agoodman_SRR1589771	agoodman	sample101	sample101	SRR1589771	Robogut (time 1)	Healthy	male	25	0
+agoodman_SRR1589772	agoodman	sample101	sample101	SRR1589772	Robogut (time 1)	Healthy	male	25	0
+agoodman_SRR1589889	agoodman	sample102	sample102	SRR1589889	Robogut (time 2)	Healthy	male	25	0
+agoodman_SRR1590003	agoodman	sample103	sample103	SRR1590003	Oral artificial colony	Healthy	NA	NA	1
+agoodman_SRR1590005	agoodman	sample103	sample103	SRR1590005	Oral artificial colony	Healthy	NA	NA	1
+agoodman_SRR1590138	agoodman	sample104	sample104	SRR1590138	Fecal artificial colony	Healthy	NA	NA	1
+agoodman_SRR1590139	agoodman	sample104	sample104	SRR1590139	Fecal artificial colony	Healthy	NA	NA	1
+agoodman_SRR1590384	agoodman	sample12	sample12	SRR1590384	Fresh	Sick	NA	NA	0
+agoodman_SRR1590385	agoodman	sample12	sample12	SRR1590385	Fresh	Sick	NA	NA	0
+agoodman_SRR1590386	agoodman	sample12	sample12	SRR1590386	Fresh	Sick	NA	NA	0
+agoodman_SRR1590471	agoodman	sample13	sample13	SRR1590471	Fresh	Healthy	female	2	0
+agoodman_SRR1590558	agoodman	sample14	sample14	SRR1590558	Fresh	Healthy	female	2	0
+agoodman_SRR1590872	agoodman	sample55	sample55	SRR1590872	Freeze-dried	Sick	male	70	0
+agoodman_SRR1590875	agoodman	sample55	sample55	SRR1590875	Freeze-dried	Sick	male	70	0
+agoodman_SRR1590985	agoodman	sample56	sample56	SRR1590985	Freeze-dried	Sick	male	65	0
+agoodman_SRR1590988	agoodman	sample56	sample56	SRR1590988	Freeze-dried	Sick	male	65	0
+agoodman_SRR1591256	agoodman	sample6	sample6	SRR1591256	Fresh	Healthy	male	37	0
+agoodman_SRR1591346	agoodman	sample61	sample61	SRR1591346	Freeze-dried	Sick	male	67	0
+agoodman_SRR1591347	agoodman	sample61	sample61	SRR1591347	Freeze-dried	Sick	male	67	0
+agoodman_SRR1591549	agoodman	sample64	sample64	SRR1591549	Freeze-dried	Sick	male	56	0
+agoodman_SRR1591551	agoodman	sample64	sample64	SRR1591551	Freeze-dried	Sick	male	56	0
+agoodman_SRR1591552	agoodman	sample64	sample64	SRR1591552	Freeze-dried	Sick	male	56	0
+agoodman_SRR1589770	agoodman	sample101	sample101	SRR1589770	Robogut (time 1)	Healthy	male	25	0
+agoodman_SRR1589890	agoodman	sample102	sample102	SRR1589890	Robogut (time 2)	Healthy	male	25	0
+agoodman_SRR1589891	agoodman	sample102	sample102	SRR1589891	Robogut (time 2)	Healthy	male	25	0
+agoodman_SRR1589892	agoodman	sample102	sample102	SRR1589892	Robogut (time 2)	Healthy	male	25	0
+agoodman_SRR1590001	agoodman	sample103	sample103	SRR1590001	Oral artificial colony	Healthy	NA	NA	1
+agoodman_SRR1590006	agoodman	sample103	sample103	SRR1590006	Oral artificial colony	Healthy	NA	NA	1
+agoodman_SRR1590603	agoodman	sample2	sample2	SRR1590603	Fresh	Sick	NA	NA	0
+agoodman_SRR1590758	agoodman	sample4	sample4	SRR1590758	Fresh	Healthy	male	36	0
+agoodman_SRR1590871	agoodman	sample55	sample55	SRR1590871	Freeze-dried	Sick	male	70	0
+agoodman_SRR1590874	agoodman	sample55	sample55	SRR1590874	Freeze-dried	Sick	male	70	0
+agoodman_SRR1591100	agoodman	sample57	sample57	SRR1591100	Freeze-dried	Sick	male	64	0
+agoodman_SRR1591101	agoodman	sample57	sample57	SRR1591101	Freeze-dried	Sick	male	64	0
+agoodman_SRR1591147	agoodman	sample59	sample59	SRR1591147	Freeze-dried	Sick	male	50	0
+agoodman_SRR1591436	agoodman	sample63	sample63	SRR1591436	Freeze-dried	Sick	male	30	0
+agoodman_SRR1591641	agoodman	sample8	sample8	SRR1591641	Fresh	Sick	NA	NA	0
+agoodman_SRR1591642	agoodman	sample8	sample8	SRR1591642	Fresh	Sick	NA	NA	0
+agoodman_SRR1589725	agoodman	sample10	sample10	SRR1589725	Fresh	Sick	female	40	0
+agoodman_SRR1589888	agoodman	sample102	sample102	SRR1589888	Robogut (time 2)	Healthy	male	25	0
+agoodman_SRR1590276	agoodman	sample11	sample11	SRR1590276	Fresh	Sick	female	25	0
+agoodman_SRR1590470	agoodman	sample13	sample13	SRR1590470	Fresh	Healthy	female	2	0
+agoodman_SRR1590759	agoodman	sample4	sample4	SRR1590759	Fresh	Healthy	male	36	0
+agoodman_SRR1590873	agoodman	sample55	sample55	SRR1590873	Freeze-dried	Sick	male	70	0
+agoodman_SRR1591148	agoodman	sample59	sample59	SRR1591148	Freeze-dried	Sick	male	50	0
+agoodman_SRR1591149	agoodman	sample59	sample59	SRR1591149	Freeze-dried	Sick	male	50	0
+agoodman_SRR1591259	agoodman	sample6	sample6	SRR1591259	Fresh	Healthy	male	37	0
+agoodman_SRR1591437	agoodman	sample63	sample63	SRR1591437	Freeze-dried	Sick	male	30	0
+agoodman_SRR1589773	agoodman	sample101	sample101	SRR1589773	Robogut (time 1)	Healthy	male	25	0
+agoodman_SRR1589774	agoodman	sample101	sample101	SRR1589774	Robogut (time 1)	Healthy	male	25	0
+agoodman_SRR1590002	agoodman	sample103	sample103	SRR1590002	Oral artificial colony	Healthy	NA	NA	1
+agoodman_SRR1590004	agoodman	sample103	sample103	SRR1590004	Oral artificial colony	Healthy	NA	NA	1
+agoodman_SRR1590140	agoodman	sample104	sample104	SRR1590140	Fecal artificial colony	Healthy	NA	NA	1
+agoodman_SRR1590141	agoodman	sample104	sample104	SRR1590141	Fecal artificial colony	Healthy	NA	NA	1
+agoodman_SRR1590142	agoodman	sample104	sample104	SRR1590142	Fecal artificial colony	Healthy	NA	NA	1
+agoodman_SRR1590143	agoodman	sample104	sample104	SRR1590143	Fecal artificial colony	Healthy	NA	NA	1
+agoodman_SRR1590275	agoodman	sample11	sample11	SRR1590275	Fresh	Sick	female	25	0
+agoodman_SRR1590469	agoodman	sample13	sample13	SRR1590469	Fresh	Healthy	female	2	0
+agoodman_SRR1590606	agoodman	sample2	sample2	SRR1590606	Fresh	Sick	NA	NA	0
+agoodman_SRR1590986	agoodman	sample56	sample56	SRR1590986	Freeze-dried	Sick	male	65	0
+agoodman_SRR1590987	agoodman	sample56	sample56	SRR1590987	Freeze-dried	Sick	male	65	0
+agoodman_SRR1591146	agoodman	sample59	sample59	SRR1591146	Freeze-dried	Sick	male	50	0
+agoodman_SRR1591257	agoodman	sample6	sample6	SRR1591257	Fresh	Healthy	male	37	0
+agoodman_SRR1591550	agoodman	sample64	sample64	SRR1591550	Freeze-dried	Sick	male	56	0
+agoodman_SRR1591643	agoodman	sample8	sample8	SRR1591643	Fresh	Sick	NA	NA	0
+agoodman_SRR1591752	agoodman	sample9	sample9	SRR1591752	Fresh	Sick	NA	NA	0
+agoodman_SRR1591753	agoodman	sample9	sample9	SRR1591753	Fresh	Sick	NA	NA	0
+agoodman_SRR1590278	agoodman	sample11	sample11	SRR1590278	Fresh	Sick	female	25	0
+agoodman_SRR1590559	agoodman	sample14	sample14	SRR1590559	Fresh	Healthy	female	2	0
+agoodman_SRR1590605	agoodman	sample2	sample2	SRR1590605	Fresh	Sick	NA	NA	0
+agoodman_SRR1590716	agoodman	sample3	sample3	SRR1590716	Fresh	Sick	female	25	0
+agoodman_SRR1590760	agoodman	sample4	sample4	SRR1590760	Fresh	Healthy	male	36	0
+agoodman_SRR1591258	agoodman	sample6	sample6	SRR1591258	Fresh	Healthy	male	37	0
+agoodman_SRR1591345	agoodman	sample61	sample61	SRR1591345	Freeze-dried	Sick	male	67	0
+agoodman_SRR1591438	agoodman	sample63	sample63	SRR1591438	Freeze-dried	Sick	male	30	0
+agoodman_SRR1591640	agoodman	sample8	sample8	SRR1591640	Fresh	Sick	NA	NA	0
+dgevers_SRR1589893	dgevers	sample102	sample102	SRR1589893	Robogut (time 2)	Healthy	male	25	0
+dgevers_SRR1590607	dgevers	sample2	sample2	SRR1590607	Fresh	Sick	NA	NA	0
+dgevers_SRR1591644	dgevers	sample8	sample8	SRR1591644	Fresh	Sick	NA	NA	0
+dgevers_SRR1590144	dgevers	sample104	sample104	SRR1590144	Fecal artificial colony	Healthy	NA	NA	1
+dgevers_SRR1591102	dgevers	sample57	sample57	SRR1591102	Freeze-dried	Sick	male	64	0
+dgevers_SRR1591439	dgevers	sample63	sample63	SRR1591439	Freeze-dried	Sick	male	30	0
+dgevers_SRR1591754	dgevers	sample9	sample9	SRR1591754	Fresh	Sick	NA	NA	0
+dgevers_SRR1589775	dgevers	sample101	sample101	SRR1589775	Robogut (time 1)	Healthy	male	25	0
+dgevers_SRR1591440	dgevers	sample63	sample63	SRR1591440	Freeze-dried	Sick	male	30	0
+dgevers_SRR1590007	dgevers	sample103	sample103	SRR1590007	Oral artificial colony	Healthy	NA	NA	1
+dgevers_SRR1590989	dgevers	sample56	sample56	SRR1590989	Freeze-dried	Sick	male	65	0
+dgevers_SRR1590990	dgevers	sample56	sample56	SRR1590990	Freeze-dried	Sick	male	65	0
+dgevers_SRR1590991	dgevers	sample56	sample56	SRR1590991	Freeze-dried	Sick	male	65	0
+dgevers_SRR1589776	dgevers	sample101	sample101	SRR1589776	Robogut (time 1)	Healthy	male	25	0
+dgevers_SRR1589777	dgevers	sample101	sample101	SRR1589777	Robogut (time 1)	Healthy	male	25	0
+dgevers_SRR1590008	dgevers	sample103	sample103	SRR1590008	Oral artificial colony	Healthy	NA	NA	1
+dgevers_SRR1590472	dgevers	sample13	sample13	SRR1590472	Fresh	Healthy	female	2	0
+dgevers_SRR1590761	dgevers	sample4	sample4	SRR1590761	Fresh	Healthy	male	36	0
+dgevers_SRR1590762	dgevers	sample4	sample4	SRR1590762	Fresh	Healthy	male	36	0
+dlittman_SRR1589779	dlittman	sample101	sample101	SRR1589779	Robogut (time 1)	Healthy	male	25	0
+dlittman_SRR1590010	dlittman	sample103	sample103	SRR1590010	Oral artificial colony	Healthy	NA	NA	1
+dlittman_SRR1590146	dlittman	sample104	sample104	SRR1590146	Fecal artificial colony	Healthy	NA	NA	1
+dlittman_SRR1590389	dlittman	sample12	sample12	SRR1590389	Fresh	Sick	NA	NA	0
+dlittman_SRR1590475	dlittman	sample13	sample13	SRR1590475	Fresh	Healthy	female	2	0
+dlittman_SRR1590608	dlittman	sample2	sample2	SRR1590608	Fresh	Sick	NA	NA	0
+dlittman_SRR1590610	dlittman	sample2	sample2	SRR1590610	Fresh	Sick	NA	NA	0
+dlittman_SRR1590878	dlittman	sample55	sample55	SRR1590878	Freeze-dried	Sick	male	70	0
+dlittman_SRR1591104	dlittman	sample57	sample57	SRR1591104	Freeze-dried	Sick	male	64	0
+dlittman_SRR1591260	dlittman	sample6	sample6	SRR1591260	Fresh	Healthy	male	37	0
+dlittman_SRR1591443	dlittman	sample63	sample63	SRR1591443	Freeze-dried	Sick	male	30	0
+dlittman_SRR1591648	dlittman	sample8	sample8	SRR1591648	Fresh	Sick	NA	NA	0
+dlittman_SRR1589726	dlittman	sample10	sample10	SRR1589726	Fresh	Sick	female	40	0
+dlittman_SRR1589778	dlittman	sample101	sample101	SRR1589778	Robogut (time 1)	Healthy	male	25	0
+dlittman_SRR1589780	dlittman	sample101	sample101	SRR1589780	Robogut (time 1)	Healthy	male	25	0
+dlittman_SRR1589781	dlittman	sample101	sample101	SRR1589781	Robogut (time 1)	Healthy	male	25	0
+dlittman_SRR1589896	dlittman	sample102	sample102	SRR1589896	Robogut (time 2)	Healthy	male	25	0
+dlittman_SRR1590012	dlittman	sample103	sample103	SRR1590012	Oral artificial colony	Healthy	NA	NA	1
+dlittman_SRR1590013	dlittman	sample103	sample103	SRR1590013	Oral artificial colony	Healthy	NA	NA	1
+dlittman_SRR1590279	dlittman	sample11	sample11	SRR1590279	Fresh	Sick	female	25	0
+dlittman_SRR1590282	dlittman	sample11	sample11	SRR1590282	Fresh	Sick	female	25	0
+dlittman_SRR1590609	dlittman	sample2	sample2	SRR1590609	Fresh	Sick	NA	NA	0
+dlittman_SRR1590718	dlittman	sample3	sample3	SRR1590718	Fresh	Sick	female	25	0
+dlittman_SRR1590763	dlittman	sample4	sample4	SRR1590763	Fresh	Healthy	male	36	0
+dlittman_SRR1590764	dlittman	sample4	sample4	SRR1590764	Fresh	Healthy	male	36	0
+dlittman_SRR1590879	dlittman	sample55	sample55	SRR1590879	Freeze-dried	Sick	male	70	0
+dlittman_SRR1590880	dlittman	sample55	sample55	SRR1590880	Freeze-dried	Sick	male	70	0
+dlittman_SRR1590994	dlittman	sample56	sample56	SRR1590994	Freeze-dried	Sick	male	65	0
+dlittman_SRR1591103	dlittman	sample57	sample57	SRR1591103	Freeze-dried	Sick	male	64	0
+dlittman_SRR1591153	dlittman	sample59	sample59	SRR1591153	Freeze-dried	Sick	male	50	0
+dlittman_SRR1591154	dlittman	sample59	sample59	SRR1591154	Freeze-dried	Sick	male	50	0
+dlittman_SRR1591348	dlittman	sample61	sample61	SRR1591348	Freeze-dried	Sick	male	67	0
+dlittman_SRR1591349	dlittman	sample61	sample61	SRR1591349	Freeze-dried	Sick	male	67	0
+dlittman_SRR1591351	dlittman	sample61	sample61	SRR1591351	Freeze-dried	Sick	male	67	0
+dlittman_SRR1591554	dlittman	sample64	sample64	SRR1591554	Freeze-dried	Sick	male	56	0
+dlittman_SRR1591555	dlittman	sample64	sample64	SRR1591555	Freeze-dried	Sick	male	56	0
+dlittman_SRR1591556	dlittman	sample64	sample64	SRR1591556	Freeze-dried	Sick	male	56	0
+dlittman_SRR1591645	dlittman	sample8	sample8	SRR1591645	Fresh	Sick	NA	NA	0
+dlittman_SRR1589727	dlittman	sample10	sample10	SRR1589727	Fresh	Sick	female	40	0
+dlittman_SRR1589782	dlittman	sample101	sample101	SRR1589782	Robogut (time 1)	Healthy	male	25	0
+dlittman_SRR1589894	dlittman	sample102	sample102	SRR1589894	Robogut (time 2)	Healthy	male	25	0
+dlittman_SRR1589897	dlittman	sample102	sample102	SRR1589897	Robogut (time 2)	Healthy	male	25	0
+dlittman_SRR1589898	dlittman	sample102	sample102	SRR1589898	Robogut (time 2)	Healthy	male	25	0
+dlittman_SRR1590014	dlittman	sample103	sample103	SRR1590014	Oral artificial colony	Healthy	NA	NA	1
+dlittman_SRR1590145	dlittman	sample104	sample104	SRR1590145	Fecal artificial colony	Healthy	NA	NA	1
+dlittman_SRR1590147	dlittman	sample104	sample104	SRR1590147	Fecal artificial colony	Healthy	NA	NA	1
+dlittman_SRR1590148	dlittman	sample104	sample104	SRR1590148	Fecal artificial colony	Healthy	NA	NA	1
+dlittman_SRR1590150	dlittman	sample104	sample104	SRR1590150	Fecal artificial colony	Healthy	NA	NA	1
+dlittman_SRR1590390	dlittman	sample12	sample12	SRR1590390	Fresh	Sick	NA	NA	0
+dlittman_SRR1590767	dlittman	sample4	sample4	SRR1590767	Fresh	Healthy	male	36	0
+dlittman_SRR1590992	dlittman	sample56	sample56	SRR1590992	Freeze-dried	Sick	male	65	0
+dlittman_SRR1590993	dlittman	sample56	sample56	SRR1590993	Freeze-dried	Sick	male	65	0
+dlittman_SRR1590996	dlittman	sample56	sample56	SRR1590996	Freeze-dried	Sick	male	65	0
+dlittman_SRR1591150	dlittman	sample59	sample59	SRR1591150	Freeze-dried	Sick	male	50	0
+dlittman_SRR1591151	dlittman	sample59	sample59	SRR1591151	Freeze-dried	Sick	male	50	0
+dlittman_SRR1591350	dlittman	sample61	sample61	SRR1591350	Freeze-dried	Sick	male	67	0
+dlittman_SRR1591757	dlittman	sample9	sample9	SRR1591757	Fresh	Sick	NA	NA	0
+dlittman_SRR1590011	dlittman	sample103	sample103	SRR1590011	Oral artificial colony	Healthy	NA	NA	1
+dlittman_SRR1590387	dlittman	sample12	sample12	SRR1590387	Fresh	Sick	NA	NA	0
+dlittman_SRR1590476	dlittman	sample13	sample13	SRR1590476	Fresh	Healthy	female	2	0
+dlittman_SRR1590612	dlittman	sample2	sample2	SRR1590612	Fresh	Sick	NA	NA	0
+dlittman_SRR1590877	dlittman	sample55	sample55	SRR1590877	Freeze-dried	Sick	male	70	0
+dlittman_SRR1590995	dlittman	sample56	sample56	SRR1590995	Freeze-dried	Sick	male	65	0
+dlittman_SRR1591152	dlittman	sample59	sample59	SRR1591152	Freeze-dried	Sick	male	50	0
+dlittman_SRR1591261	dlittman	sample6	sample6	SRR1591261	Fresh	Healthy	male	37	0
+dlittman_SRR1591263	dlittman	sample6	sample6	SRR1591263	Fresh	Healthy	male	37	0
+dlittman_SRR1591553	dlittman	sample64	sample64	SRR1591553	Freeze-dried	Sick	male	56	0
+dlittman_SRR1591646	dlittman	sample8	sample8	SRR1591646	Fresh	Sick	NA	NA	0
+dlittman_SRR1591649	dlittman	sample8	sample8	SRR1591649	Fresh	Sick	NA	NA	0
+dlittman_SRR1591755	dlittman	sample9	sample9	SRR1591755	Fresh	Sick	NA	NA	0
+dlittman_SRR1591756	dlittman	sample9	sample9	SRR1591756	Fresh	Sick	NA	NA	0
+dlittman_SRR1589895	dlittman	sample102	sample102	SRR1589895	Robogut (time 2)	Healthy	male	25	0
+dlittman_SRR1590009	dlittman	sample103	sample103	SRR1590009	Oral artificial colony	Healthy	NA	NA	1
+dlittman_SRR1590149	dlittman	sample104	sample104	SRR1590149	Fecal artificial colony	Healthy	NA	NA	1
+dlittman_SRR1590280	dlittman	sample11	sample11	SRR1590280	Fresh	Sick	female	25	0
+dlittman_SRR1590281	dlittman	sample11	sample11	SRR1590281	Fresh	Sick	female	25	0
+dlittman_SRR1590283	dlittman	sample11	sample11	SRR1590283	Fresh	Sick	female	25	0
+dlittman_SRR1590388	dlittman	sample12	sample12	SRR1590388	Fresh	Sick	NA	NA	0
+dlittman_SRR1590473	dlittman	sample13	sample13	SRR1590473	Fresh	Healthy	female	2	0
+dlittman_SRR1590474	dlittman	sample13	sample13	SRR1590474	Fresh	Healthy	female	2	0
+dlittman_SRR1590560	dlittman	sample14	sample14	SRR1590560	Fresh	Healthy	female	2	0
+dlittman_SRR1590561	dlittman	sample14	sample14	SRR1590561	Fresh	Healthy	female	2	0
+dlittman_SRR1590611	dlittman	sample2	sample2	SRR1590611	Fresh	Sick	NA	NA	0
+dlittman_SRR1590765	dlittman	sample4	sample4	SRR1590765	Fresh	Healthy	male	36	0
+dlittman_SRR1590876	dlittman	sample55	sample55	SRR1590876	Freeze-dried	Sick	male	70	0
+dlittman_SRR1591441	dlittman	sample63	sample63	SRR1591441	Freeze-dried	Sick	male	30	0
+dlittman_SRR1591444	dlittman	sample63	sample63	SRR1591444	Freeze-dried	Sick	male	30	0
+dlittman_SRR1591445	dlittman	sample63	sample63	SRR1591445	Freeze-dried	Sick	male	30	0
+dlittman_SRR1591647	dlittman	sample8	sample8	SRR1591647	Fresh	Sick	NA	NA	0
+dlittman_SRR1591758	dlittman	sample9	sample9	SRR1591758	Fresh	Sick	NA	NA	0
+dmills_SRR1589731	dmills	sample10	sample10	SRR1589731	Fresh	Sick	female	40	0
+dmills_SRR1589786	dmills	sample101	sample101	SRR1589786	Robogut (time 1)	Healthy	male	25	0
+dmills_SRR1589788	dmills	sample101	sample101	SRR1589788	Robogut (time 1)	Healthy	male	25	0
+dmills_SRR1589790	dmills	sample101	sample101	SRR1589790	Robogut (time 1)	Healthy	male	25	0
+dmills_SRR1590017	dmills	sample103	sample103	SRR1590017	Oral artificial colony	Healthy	NA	NA	1
+dmills_SRR1590025	dmills	sample103	sample103	SRR1590025	Oral artificial colony	Healthy	NA	NA	1
+dmills_SRR1590155	dmills	sample104	sample104	SRR1590155	Fecal artificial colony	Healthy	NA	NA	1
+dmills_SRR1590157	dmills	sample104	sample104	SRR1590157	Fecal artificial colony	Healthy	NA	NA	1
+dmills_SRR1590160	dmills	sample104	sample104	SRR1590160	Fecal artificial colony	Healthy	NA	NA	1
+dmills_SRR1590161	dmills	sample104	sample104	SRR1590161	Fecal artificial colony	Healthy	NA	NA	1
+dmills_SRR1590285	dmills	sample11	sample11	SRR1590285	Fresh	Sick	female	25	0
+dmills_SRR1590480	dmills	sample13	sample13	SRR1590480	Fresh	Healthy	female	2	0
+dmills_SRR1590613	dmills	sample2	sample2	SRR1590613	Fresh	Sick	NA	NA	0
+dmills_SRR1590620	dmills	sample2	sample2	SRR1590620	Fresh	Sick	NA	NA	0
+dmills_SRR1590622	dmills	sample2	sample2	SRR1590622	Fresh	Sick	NA	NA	0
+dmills_SRR1590720	dmills	sample3	sample3	SRR1590720	Fresh	Sick	female	25	0
+dmills_SRR1590769	dmills	sample4	sample4	SRR1590769	Fresh	Healthy	male	36	0
+dmills_SRR1590771	dmills	sample4	sample4	SRR1590771	Fresh	Healthy	male	36	0
+dmills_SRR1590773	dmills	sample4	sample4	SRR1590773	Fresh	Healthy	male	36	0
+dmills_SRR1591003	dmills	sample56	sample56	SRR1591003	Freeze-dried	Sick	male	65	0
+dmills_SRR1591107	dmills	sample57	sample57	SRR1591107	Freeze-dried	Sick	male	64	0
+dmills_SRR1591164	dmills	sample59	sample59	SRR1591164	Freeze-dried	Sick	male	50	0
+dmills_SRR1591446	dmills	sample63	sample63	SRR1591446	Freeze-dried	Sick	male	30	0
+dmills_SRR1591448	dmills	sample63	sample63	SRR1591448	Freeze-dried	Sick	male	30	0
+dmills_SRR1591559	dmills	sample64	sample64	SRR1591559	Freeze-dried	Sick	male	56	0
+dmills_SRR1591658	dmills	sample8	sample8	SRR1591658	Fresh	Sick	NA	NA	0
+dmills_SRR1591760	dmills	sample9	sample9	SRR1591760	Fresh	Sick	NA	NA	0
+dmills_SRR1591761	dmills	sample9	sample9	SRR1591761	Fresh	Sick	NA	NA	0
+dmills_SRR1591765	dmills	sample9	sample9	SRR1591765	Fresh	Sick	NA	NA	0
+dmills_SRR1589729	dmills	sample10	sample10	SRR1589729	Fresh	Sick	female	40	0
+dmills_SRR1589787	dmills	sample101	sample101	SRR1589787	Robogut (time 1)	Healthy	male	25	0
+dmills_SRR1589789	dmills	sample101	sample101	SRR1589789	Robogut (time 1)	Healthy	male	25	0
+dmills_SRR1589791	dmills	sample101	sample101	SRR1589791	Robogut (time 1)	Healthy	male	25	0
+dmills_SRR1589901	dmills	sample102	sample102	SRR1589901	Robogut (time 2)	Healthy	male	25	0
+dmills_SRR1590019	dmills	sample103	sample103	SRR1590019	Oral artificial colony	Healthy	NA	NA	1
+dmills_SRR1590020	dmills	sample103	sample103	SRR1590020	Oral artificial colony	Healthy	NA	NA	1
+dmills_SRR1590154	dmills	sample104	sample104	SRR1590154	Fecal artificial colony	Healthy	NA	NA	1
+dmills_SRR1590290	dmills	sample11	sample11	SRR1590290	Fresh	Sick	female	25	0
+dmills_SRR1590481	dmills	sample13	sample13	SRR1590481	Fresh	Healthy	female	2	0
+dmills_SRR1590482	dmills	sample13	sample13	SRR1590482	Fresh	Healthy	female	2	0
+dmills_SRR1590483	dmills	sample13	sample13	SRR1590483	Fresh	Healthy	female	2	0
+dmills_SRR1590615	dmills	sample2	sample2	SRR1590615	Fresh	Sick	NA	NA	0
+dmills_SRR1590621	dmills	sample2	sample2	SRR1590621	Fresh	Sick	NA	NA	0
+dmills_SRR1590719	dmills	sample3	sample3	SRR1590719	Fresh	Sick	female	25	0
+dmills_SRR1590770	dmills	sample4	sample4	SRR1590770	Fresh	Healthy	male	36	0
+dmills_SRR1590775	dmills	sample4	sample4	SRR1590775	Fresh	Healthy	male	36	0
+dmills_SRR1590883	dmills	sample55	sample55	SRR1590883	Freeze-dried	Sick	male	70	0
+dmills_SRR1590884	dmills	sample55	sample55	SRR1590884	Freeze-dried	Sick	male	70	0
+dmills_SRR1590998	dmills	sample56	sample56	SRR1590998	Freeze-dried	Sick	male	65	0
+dmills_SRR1591156	dmills	sample59	sample59	SRR1591156	Freeze-dried	Sick	male	50	0
+dmills_SRR1591162	dmills	sample59	sample59	SRR1591162	Freeze-dried	Sick	male	50	0
+dmills_SRR1591163	dmills	sample59	sample59	SRR1591163	Freeze-dried	Sick	male	50	0
+dmills_SRR1591267	dmills	sample6	sample6	SRR1591267	Fresh	Healthy	male	37	0
+dmills_SRR1591269	dmills	sample6	sample6	SRR1591269	Fresh	Healthy	male	37	0
+dmills_SRR1591353	dmills	sample61	sample61	SRR1591353	Freeze-dried	Sick	male	67	0
+dmills_SRR1591356	dmills	sample61	sample61	SRR1591356	Freeze-dried	Sick	male	67	0
+dmills_SRR1591557	dmills	sample64	sample64	SRR1591557	Freeze-dried	Sick	male	56	0
+dmills_SRR1591558	dmills	sample64	sample64	SRR1591558	Freeze-dried	Sick	male	56	0
+dmills_SRR1591652	dmills	sample8	sample8	SRR1591652	Fresh	Sick	NA	NA	0
+dmills_SRR1591655	dmills	sample8	sample8	SRR1591655	Fresh	Sick	NA	NA	0
+dmills_SRR1589900	dmills	sample102	sample102	SRR1589900	Robogut (time 2)	Healthy	male	25	0
+dmills_SRR1589904	dmills	sample102	sample102	SRR1589904	Robogut (time 2)	Healthy	male	25	0
+dmills_SRR1589906	dmills	sample102	sample102	SRR1589906	Robogut (time 2)	Healthy	male	25	0
+dmills_SRR1589907	dmills	sample102	sample102	SRR1589907	Robogut (time 2)	Healthy	male	25	0
+dmills_SRR1590021	dmills	sample103	sample103	SRR1590021	Oral artificial colony	Healthy	NA	NA	1
+dmills_SRR1590156	dmills	sample104	sample104	SRR1590156	Fecal artificial colony	Healthy	NA	NA	1
+dmills_SRR1590159	dmills	sample104	sample104	SRR1590159	Fecal artificial colony	Healthy	NA	NA	1
+dmills_SRR1590162	dmills	sample104	sample104	SRR1590162	Fecal artificial colony	Healthy	NA	NA	1
+dmills_SRR1590392	dmills	sample12	sample12	SRR1590392	Fresh	Sick	NA	NA	0
+dmills_SRR1590562	dmills	sample14	sample14	SRR1590562	Fresh	Healthy	female	2	0
+dmills_SRR1590616	dmills	sample2	sample2	SRR1590616	Fresh	Sick	NA	NA	0
+dmills_SRR1590617	dmills	sample2	sample2	SRR1590617	Fresh	Sick	NA	NA	0
+dmills_SRR1590721	dmills	sample3	sample3	SRR1590721	Fresh	Sick	female	25	0
+dmills_SRR1590772	dmills	sample4	sample4	SRR1590772	Fresh	Healthy	male	36	0
+dmills_SRR1590881	dmills	sample55	sample55	SRR1590881	Freeze-dried	Sick	male	70	0
+dmills_SRR1590882	dmills	sample55	sample55	SRR1590882	Freeze-dried	Sick	male	70	0
+dmills_SRR1590997	dmills	sample56	sample56	SRR1590997	Freeze-dried	Sick	male	65	0
+dmills_SRR1590999	dmills	sample56	sample56	SRR1590999	Freeze-dried	Sick	male	65	0
+dmills_SRR1591106	dmills	sample57	sample57	SRR1591106	Freeze-dried	Sick	male	64	0
+dmills_SRR1591108	dmills	sample57	sample57	SRR1591108	Freeze-dried	Sick	male	64	0
+dmills_SRR1591155	dmills	sample59	sample59	SRR1591155	Freeze-dried	Sick	male	50	0
+dmills_SRR1591265	dmills	sample6	sample6	SRR1591265	Fresh	Healthy	male	37	0
+dmills_SRR1591268	dmills	sample6	sample6	SRR1591268	Fresh	Healthy	male	37	0
+dmills_SRR1591359	dmills	sample61	sample61	SRR1591359	Freeze-dried	Sick	male	67	0
+dmills_SRR1591453	dmills	sample63	sample63	SRR1591453	Freeze-dried	Sick	male	30	0
+dmills_SRR1591561	dmills	sample64	sample64	SRR1591561	Freeze-dried	Sick	male	56	0
+dmills_SRR1591562	dmills	sample64	sample64	SRR1591562	Freeze-dried	Sick	male	56	0
+dmills_SRR1591656	dmills	sample8	sample8	SRR1591656	Fresh	Sick	NA	NA	0
+dmills_SRR1591762	dmills	sample9	sample9	SRR1591762	Fresh	Sick	NA	NA	0
+dmills_SRR1591763	dmills	sample9	sample9	SRR1591763	Fresh	Sick	NA	NA	0
+dmills_SRR1589728	dmills	sample10	sample10	SRR1589728	Fresh	Sick	female	40	0
+dmills_SRR1589730	dmills	sample10	sample10	SRR1589730	Fresh	Sick	female	40	0
+dmills_SRR1589783	dmills	sample101	sample101	SRR1589783	Robogut (time 1)	Healthy	male	25	0
+dmills_SRR1589792	dmills	sample101	sample101	SRR1589792	Robogut (time 1)	Healthy	male	25	0
+dmills_SRR1589902	dmills	sample102	sample102	SRR1589902	Robogut (time 2)	Healthy	male	25	0
+dmills_SRR1589905	dmills	sample102	sample102	SRR1589905	Robogut (time 2)	Healthy	male	25	0
+dmills_SRR1590016	dmills	sample103	sample103	SRR1590016	Oral artificial colony	Healthy	NA	NA	1
+dmills_SRR1590018	dmills	sample103	sample103	SRR1590018	Oral artificial colony	Healthy	NA	NA	1
+dmills_SRR1590022	dmills	sample103	sample103	SRR1590022	Oral artificial colony	Healthy	NA	NA	1
+dmills_SRR1590026	dmills	sample103	sample103	SRR1590026	Oral artificial colony	Healthy	NA	NA	1
+dmills_SRR1590151	dmills	sample104	sample104	SRR1590151	Fecal artificial colony	Healthy	NA	NA	1
+dmills_SRR1590287	dmills	sample11	sample11	SRR1590287	Fresh	Sick	female	25	0
+dmills_SRR1590393	dmills	sample12	sample12	SRR1590393	Fresh	Sick	NA	NA	0
+dmills_SRR1590477	dmills	sample13	sample13	SRR1590477	Fresh	Healthy	female	2	0
+dmills_SRR1590479	dmills	sample13	sample13	SRR1590479	Fresh	Healthy	female	2	0
+dmills_SRR1590563	dmills	sample14	sample14	SRR1590563	Fresh	Healthy	female	2	0
+dmills_SRR1590565	dmills	sample14	sample14	SRR1590565	Fresh	Healthy	female	2	0
+dmills_SRR1590768	dmills	sample4	sample4	SRR1590768	Fresh	Healthy	male	36	0
+dmills_SRR1590774	dmills	sample4	sample4	SRR1590774	Fresh	Healthy	male	36	0
+dmills_SRR1590885	dmills	sample55	sample55	SRR1590885	Freeze-dried	Sick	male	70	0
+dmills_SRR1590889	dmills	sample55	sample55	SRR1590889	Freeze-dried	Sick	male	70	0
+dmills_SRR1591000	dmills	sample56	sample56	SRR1591000	Freeze-dried	Sick	male	65	0
+dmills_SRR1591001	dmills	sample56	sample56	SRR1591001	Freeze-dried	Sick	male	65	0
+dmills_SRR1591004	dmills	sample56	sample56	SRR1591004	Freeze-dried	Sick	male	65	0
+dmills_SRR1591105	dmills	sample57	sample57	SRR1591105	Freeze-dried	Sick	male	64	0
+dmills_SRR1591264	dmills	sample6	sample6	SRR1591264	Fresh	Healthy	male	37	0
+dmills_SRR1591266	dmills	sample6	sample6	SRR1591266	Fresh	Healthy	male	37	0
+dmills_SRR1591270	dmills	sample6	sample6	SRR1591270	Fresh	Healthy	male	37	0
+dmills_SRR1591357	dmills	sample61	sample61	SRR1591357	Freeze-dried	Sick	male	67	0
+dmills_SRR1591358	dmills	sample61	sample61	SRR1591358	Freeze-dried	Sick	male	67	0
+dmills_SRR1591450	dmills	sample63	sample63	SRR1591450	Freeze-dried	Sick	male	30	0
+dmills_SRR1591451	dmills	sample63	sample63	SRR1591451	Freeze-dried	Sick	male	30	0
+dmills_SRR1591560	dmills	sample64	sample64	SRR1591560	Freeze-dried	Sick	male	56	0
+dmills_SRR1591563	dmills	sample64	sample64	SRR1591563	Freeze-dried	Sick	male	56	0
+dmills_SRR1591650	dmills	sample8	sample8	SRR1591650	Fresh	Sick	NA	NA	0
+dmills_SRR1591653	dmills	sample8	sample8	SRR1591653	Fresh	Sick	NA	NA	0
+dmills_SRR1591659	dmills	sample8	sample8	SRR1591659	Fresh	Sick	NA	NA	0
+dmills_SRR1591764	dmills	sample9	sample9	SRR1591764	Fresh	Sick	NA	NA	0
+dmills_SRR1591766	dmills	sample9	sample9	SRR1591766	Fresh	Sick	NA	NA	0
+dmills_SRR1589784	dmills	sample101	sample101	SRR1589784	Robogut (time 1)	Healthy	male	25	0
+dmills_SRR1589785	dmills	sample101	sample101	SRR1589785	Robogut (time 1)	Healthy	male	25	0
+dmills_SRR1589899	dmills	sample102	sample102	SRR1589899	Robogut (time 2)	Healthy	male	25	0
+dmills_SRR1589903	dmills	sample102	sample102	SRR1589903	Robogut (time 2)	Healthy	male	25	0
+dmills_SRR1589908	dmills	sample102	sample102	SRR1589908	Robogut (time 2)	Healthy	male	25	0
+dmills_SRR1590015	dmills	sample103	sample103	SRR1590015	Oral artificial colony	Healthy	NA	NA	1
+dmills_SRR1590023	dmills	sample103	sample103	SRR1590023	Oral artificial colony	Healthy	NA	NA	1
+dmills_SRR1590024	dmills	sample103	sample103	SRR1590024	Oral artificial colony	Healthy	NA	NA	1
+dmills_SRR1590152	dmills	sample104	sample104	SRR1590152	Fecal artificial colony	Healthy	NA	NA	1
+dmills_SRR1590153	dmills	sample104	sample104	SRR1590153	Fecal artificial colony	Healthy	NA	NA	1
+dmills_SRR1590158	dmills	sample104	sample104	SRR1590158	Fecal artificial colony	Healthy	NA	NA	1
+dmills_SRR1590284	dmills	sample11	sample11	SRR1590284	Fresh	Sick	female	25	0
+dmills_SRR1590286	dmills	sample11	sample11	SRR1590286	Fresh	Sick	female	25	0
+dmills_SRR1590288	dmills	sample11	sample11	SRR1590288	Fresh	Sick	female	25	0
+dmills_SRR1590289	dmills	sample11	sample11	SRR1590289	Fresh	Sick	female	25	0
+dmills_SRR1590291	dmills	sample11	sample11	SRR1590291	Fresh	Sick	female	25	0
+dmills_SRR1590391	dmills	sample12	sample12	SRR1590391	Fresh	Sick	NA	NA	0
+dmills_SRR1590478	dmills	sample13	sample13	SRR1590478	Fresh	Healthy	female	2	0
+dmills_SRR1590564	dmills	sample14	sample14	SRR1590564	Fresh	Healthy	female	2	0
+dmills_SRR1590614	dmills	sample2	sample2	SRR1590614	Fresh	Sick	NA	NA	0
+dmills_SRR1590618	dmills	sample2	sample2	SRR1590618	Fresh	Sick	NA	NA	0
+dmills_SRR1590619	dmills	sample2	sample2	SRR1590619	Fresh	Sick	NA	NA	0
+dmills_SRR1590776	dmills	sample4	sample4	SRR1590776	Fresh	Healthy	male	36	0
+dmills_SRR1590886	dmills	sample55	sample55	SRR1590886	Freeze-dried	Sick	male	70	0
+dmills_SRR1590887	dmills	sample55	sample55	SRR1590887	Freeze-dried	Sick	male	70	0
+dmills_SRR1590888	dmills	sample55	sample55	SRR1590888	Freeze-dried	Sick	male	70	0
+dmills_SRR1590890	dmills	sample55	sample55	SRR1590890	Freeze-dried	Sick	male	70	0
+dmills_SRR1591002	dmills	sample56	sample56	SRR1591002	Freeze-dried	Sick	male	65	0
+dmills_SRR1591005	dmills	sample56	sample56	SRR1591005	Freeze-dried	Sick	male	65	0
+dmills_SRR1591006	dmills	sample56	sample56	SRR1591006	Freeze-dried	Sick	male	65	0
+dmills_SRR1591158	dmills	sample59	sample59	SRR1591158	Freeze-dried	Sick	male	50	0
+dmills_SRR1591160	dmills	sample59	sample59	SRR1591160	Freeze-dried	Sick	male	50	0
+dmills_SRR1591161	dmills	sample59	sample59	SRR1591161	Freeze-dried	Sick	male	50	0
+dmills_SRR1591352	dmills	sample61	sample61	SRR1591352	Freeze-dried	Sick	male	67	0
+dmills_SRR1591354	dmills	sample61	sample61	SRR1591354	Freeze-dried	Sick	male	67	0
+dmills_SRR1591355	dmills	sample61	sample61	SRR1591355	Freeze-dried	Sick	male	67	0
+dmills_SRR1591447	dmills	sample63	sample63	SRR1591447	Freeze-dried	Sick	male	30	0
+dmills_SRR1591454	dmills	sample63	sample63	SRR1591454	Freeze-dried	Sick	male	30	0
+dmills_SRR1591455	dmills	sample63	sample63	SRR1591455	Freeze-dried	Sick	male	30	0
+dmills_SRR1591651	dmills	sample8	sample8	SRR1591651	Fresh	Sick	NA	NA	0
+dmills_SRR1591654	dmills	sample8	sample8	SRR1591654	Fresh	Sick	NA	NA	0
+dmills_SRR1591657	dmills	sample8	sample8	SRR1591657	Fresh	Sick	NA	NA	0
+dmills_SRR1591759	dmills	sample9	sample9	SRR1591759	Fresh	Sick	NA	NA	0
+ggloor_SRR1589909	ggloor	sample102	sample102	SRR1589909	Robogut (time 2)	Healthy	male	25	0
+ggloor_SRR1590027	ggloor	sample103	sample103	SRR1590027	Oral artificial colony	Healthy	NA	NA	1
+ggloor_SRR1590030	ggloor	sample103	sample103	SRR1590030	Oral artificial colony	Healthy	NA	NA	1
+ggloor_SRR1590778	ggloor	sample4	sample4	SRR1590778	Fresh	Healthy	male	36	0
+ggloor_SRR1590781	ggloor	sample4	sample4	SRR1590781	Fresh	Healthy	male	36	0
+ggloor_SRR1590891	ggloor	sample55	sample55	SRR1590891	Freeze-dried	Sick	male	70	0
+ggloor_SRR1591008	ggloor	sample56	sample56	SRR1591008	Freeze-dried	Sick	male	65	0
+ggloor_SRR1591011	ggloor	sample56	sample56	SRR1591011	Freeze-dried	Sick	male	65	0
+ggloor_SRR1591110	ggloor	sample57	sample57	SRR1591110	Freeze-dried	Sick	male	64	0
+ggloor_SRR1591165	ggloor	sample59	sample59	SRR1591165	Freeze-dried	Sick	male	50	0
+ggloor_SRR1591361	ggloor	sample61	sample61	SRR1591361	Freeze-dried	Sick	male	67	0
+ggloor_SRR1591661	ggloor	sample8	sample8	SRR1591661	Fresh	Sick	NA	NA	0
+ggloor_SRR1591664	ggloor	sample8	sample8	SRR1591664	Fresh	Sick	NA	NA	0
+ggloor_SRR1589797	ggloor	sample101	sample101	SRR1589797	Robogut (time 1)	Healthy	male	25	0
+ggloor_SRR1590028	ggloor	sample103	sample103	SRR1590028	Oral artificial colony	Healthy	NA	NA	1
+ggloor_SRR1590163	ggloor	sample104	sample104	SRR1590163	Fecal artificial colony	Healthy	NA	NA	1
+ggloor_SRR1590166	ggloor	sample104	sample104	SRR1590166	Fecal artificial colony	Healthy	NA	NA	1
+ggloor_SRR1590484	ggloor	sample13	sample13	SRR1590484	Fresh	Healthy	female	2	0
+ggloor_SRR1590485	ggloor	sample13	sample13	SRR1590485	Fresh	Healthy	female	2	0
+ggloor_SRR1590487	ggloor	sample13	sample13	SRR1590487	Fresh	Healthy	female	2	0
+ggloor_SRR1590566	ggloor	sample14	sample14	SRR1590566	Fresh	Healthy	female	2	0
+ggloor_SRR1590625	ggloor	sample2	sample2	SRR1590625	Fresh	Sick	NA	NA	0
+ggloor_SRR1590780	ggloor	sample4	sample4	SRR1590780	Fresh	Healthy	male	36	0
+ggloor_SRR1590895	ggloor	sample55	sample55	SRR1590895	Freeze-dried	Sick	male	70	0
+ggloor_SRR1591271	ggloor	sample6	sample6	SRR1591271	Fresh	Healthy	male	37	0
+ggloor_SRR1591457	ggloor	sample63	sample63	SRR1591457	Freeze-dried	Sick	male	30	0
+ggloor_SRR1591660	ggloor	sample8	sample8	SRR1591660	Fresh	Sick	NA	NA	0
+ggloor_SRR1589732	ggloor	sample10	sample10	SRR1589732	Fresh	Sick	female	40	0
+ggloor_SRR1589794	ggloor	sample101	sample101	SRR1589794	Robogut (time 1)	Healthy	male	25	0
+ggloor_SRR1590032	ggloor	sample103	sample103	SRR1590032	Oral artificial colony	Healthy	NA	NA	1
+ggloor_SRR1590165	ggloor	sample104	sample104	SRR1590165	Fecal artificial colony	Healthy	NA	NA	1
+ggloor_SRR1590168	ggloor	sample104	sample104	SRR1590168	Fecal artificial colony	Healthy	NA	NA	1
+ggloor_SRR1590394	ggloor	sample12	sample12	SRR1590394	Fresh	Sick	NA	NA	0
+ggloor_SRR1590397	ggloor	sample12	sample12	SRR1590397	Fresh	Sick	NA	NA	0
+ggloor_SRR1590623	ggloor	sample2	sample2	SRR1590623	Fresh	Sick	NA	NA	0
+ggloor_SRR1590626	ggloor	sample2	sample2	SRR1590626	Fresh	Sick	NA	NA	0
+ggloor_SRR1590627	ggloor	sample2	sample2	SRR1590627	Fresh	Sick	NA	NA	0
+ggloor_SRR1590777	ggloor	sample4	sample4	SRR1590777	Fresh	Healthy	male	36	0
+ggloor_SRR1591007	ggloor	sample56	sample56	SRR1591007	Freeze-dried	Sick	male	65	0
+ggloor_SRR1591009	ggloor	sample56	sample56	SRR1591009	Freeze-dried	Sick	male	65	0
+ggloor_SRR1591565	ggloor	sample64	sample64	SRR1591565	Freeze-dried	Sick	male	56	0
+ggloor_SRR1591767	ggloor	sample9	sample9	SRR1591767	Fresh	Sick	NA	NA	0
+ggloor_SRR1591769	ggloor	sample9	sample9	SRR1591769	Fresh	Sick	NA	NA	0
+ggloor_SRR1591770	ggloor	sample9	sample9	SRR1591770	Fresh	Sick	NA	NA	0
+ggloor_SRR1589793	ggloor	sample101	sample101	SRR1589793	Robogut (time 1)	Healthy	male	25	0
+ggloor_SRR1590031	ggloor	sample103	sample103	SRR1590031	Oral artificial colony	Healthy	NA	NA	1
+ggloor_SRR1590164	ggloor	sample104	sample104	SRR1590164	Fecal artificial colony	Healthy	NA	NA	1
+ggloor_SRR1590167	ggloor	sample104	sample104	SRR1590167	Fecal artificial colony	Healthy	NA	NA	1
+ggloor_SRR1590295	ggloor	sample11	sample11	SRR1590295	Fresh	Sick	female	25	0
+ggloor_SRR1590624	ggloor	sample2	sample2	SRR1590624	Fresh	Sick	NA	NA	0
+ggloor_SRR1590722	ggloor	sample3	sample3	SRR1590722	Fresh	Sick	female	25	0
+ggloor_SRR1590723	ggloor	sample3	sample3	SRR1590723	Fresh	Sick	female	25	0
+ggloor_SRR1590894	ggloor	sample55	sample55	SRR1590894	Freeze-dried	Sick	male	70	0
+ggloor_SRR1591109	ggloor	sample57	sample57	SRR1591109	Freeze-dried	Sick	male	64	0
+ggloor_SRR1591169	ggloor	sample59	sample59	SRR1591169	Freeze-dried	Sick	male	50	0
+ggloor_SRR1591272	ggloor	sample6	sample6	SRR1591272	Fresh	Healthy	male	37	0
+ggloor_SRR1591273	ggloor	sample6	sample6	SRR1591273	Fresh	Healthy	male	37	0
+ggloor_SRR1591360	ggloor	sample61	sample61	SRR1591360	Freeze-dried	Sick	male	67	0
+ggloor_SRR1591362	ggloor	sample61	sample61	SRR1591362	Freeze-dried	Sick	male	67	0
+ggloor_SRR1591363	ggloor	sample61	sample61	SRR1591363	Freeze-dried	Sick	male	67	0
+ggloor_SRR1591458	ggloor	sample63	sample63	SRR1591458	Freeze-dried	Sick	male	30	0
+ggloor_SRR1591459	ggloor	sample63	sample63	SRR1591459	Freeze-dried	Sick	male	30	0
+ggloor_SRR1591566	ggloor	sample64	sample64	SRR1591566	Freeze-dried	Sick	male	56	0
+ggloor_SRR1591662	ggloor	sample8	sample8	SRR1591662	Fresh	Sick	NA	NA	0
+ggloor_SRR1591663	ggloor	sample8	sample8	SRR1591663	Fresh	Sick	NA	NA	0
+ggloor_SRR1589733	ggloor	sample10	sample10	SRR1589733	Fresh	Sick	female	40	0
+ggloor_SRR1589795	ggloor	sample101	sample101	SRR1589795	Robogut (time 1)	Healthy	male	25	0
+ggloor_SRR1589796	ggloor	sample101	sample101	SRR1589796	Robogut (time 1)	Healthy	male	25	0
+ggloor_SRR1589910	ggloor	sample102	sample102	SRR1589910	Robogut (time 2)	Healthy	male	25	0
+ggloor_SRR1589911	ggloor	sample102	sample102	SRR1589911	Robogut (time 2)	Healthy	male	25	0
+ggloor_SRR1589912	ggloor	sample102	sample102	SRR1589912	Robogut (time 2)	Healthy	male	25	0
+ggloor_SRR1590029	ggloor	sample103	sample103	SRR1590029	Oral artificial colony	Healthy	NA	NA	1
+ggloor_SRR1590292	ggloor	sample11	sample11	SRR1590292	Fresh	Sick	female	25	0
+ggloor_SRR1590296	ggloor	sample11	sample11	SRR1590296	Fresh	Sick	female	25	0
+ggloor_SRR1590395	ggloor	sample12	sample12	SRR1590395	Fresh	Sick	NA	NA	0
+ggloor_SRR1590396	ggloor	sample12	sample12	SRR1590396	Fresh	Sick	NA	NA	0
+ggloor_SRR1590486	ggloor	sample13	sample13	SRR1590486	Fresh	Healthy	female	2	0
+ggloor_SRR1590567	ggloor	sample14	sample14	SRR1590567	Fresh	Healthy	female	2	0
+ggloor_SRR1590779	ggloor	sample4	sample4	SRR1590779	Fresh	Healthy	male	36	0
+ggloor_SRR1590892	ggloor	sample55	sample55	SRR1590892	Freeze-dried	Sick	male	70	0
+ggloor_SRR1590893	ggloor	sample55	sample55	SRR1590893	Freeze-dried	Sick	male	70	0
+ggloor_SRR1591010	ggloor	sample56	sample56	SRR1591010	Freeze-dried	Sick	male	65	0
+ggloor_SRR1591168	ggloor	sample59	sample59	SRR1591168	Freeze-dried	Sick	male	50	0
+ggloor_SRR1591460	ggloor	sample63	sample63	SRR1591460	Freeze-dried	Sick	male	30	0
+ggloor_SRR1591564	ggloor	sample64	sample64	SRR1591564	Freeze-dried	Sick	male	56	0
+ggloor_SRR1591567	ggloor	sample64	sample64	SRR1591567	Freeze-dried	Sick	male	56	0
+ggloor_SRR1591768	ggloor	sample9	sample9	SRR1591768	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1589737	jpetrosino	sample10	sample10	SRR1589737	Fresh	Sick	female	40	0
+jpetrosino_SRR1589738	jpetrosino	sample10	sample10	SRR1589738	Fresh	Sick	female	40	0
+jpetrosino_SRR1589743	jpetrosino	sample10	sample10	SRR1589743	Fresh	Sick	female	40	0
+jpetrosino_SRR1589801	jpetrosino	sample101	sample101	SRR1589801	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589806	jpetrosino	sample101	sample101	SRR1589806	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589809	jpetrosino	sample101	sample101	SRR1589809	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589817	jpetrosino	sample101	sample101	SRR1589817	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589821	jpetrosino	sample101	sample101	SRR1589821	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589914	jpetrosino	sample102	sample102	SRR1589914	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589917	jpetrosino	sample102	sample102	SRR1589917	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589918	jpetrosino	sample102	sample102	SRR1589918	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589921	jpetrosino	sample102	sample102	SRR1589921	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589923	jpetrosino	sample102	sample102	SRR1589923	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589925	jpetrosino	sample102	sample102	SRR1589925	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589928	jpetrosino	sample102	sample102	SRR1589928	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1590042	jpetrosino	sample103	sample103	SRR1590042	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590047	jpetrosino	sample103	sample103	SRR1590047	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590051	jpetrosino	sample103	sample103	SRR1590051	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590054	jpetrosino	sample103	sample103	SRR1590054	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590058	jpetrosino	sample103	sample103	SRR1590058	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590059	jpetrosino	sample103	sample103	SRR1590059	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590182	jpetrosino	sample104	sample104	SRR1590182	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590192	jpetrosino	sample104	sample104	SRR1590192	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590302	jpetrosino	sample11	sample11	SRR1590302	Fresh	Sick	female	25	0
+jpetrosino_SRR1590310	jpetrosino	sample11	sample11	SRR1590310	Fresh	Sick	female	25	0
+jpetrosino_SRR1590311	jpetrosino	sample11	sample11	SRR1590311	Fresh	Sick	female	25	0
+jpetrosino_SRR1590317	jpetrosino	sample11	sample11	SRR1590317	Fresh	Sick	female	25	0
+jpetrosino_SRR1590398	jpetrosino	sample12	sample12	SRR1590398	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590399	jpetrosino	sample12	sample12	SRR1590399	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590400	jpetrosino	sample12	sample12	SRR1590400	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590405	jpetrosino	sample12	sample12	SRR1590405	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590406	jpetrosino	sample12	sample12	SRR1590406	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590414	jpetrosino	sample12	sample12	SRR1590414	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590489	jpetrosino	sample13	sample13	SRR1590489	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590490	jpetrosino	sample13	sample13	SRR1590490	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590495	jpetrosino	sample13	sample13	SRR1590495	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590570	jpetrosino	sample14	sample14	SRR1590570	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590571	jpetrosino	sample14	sample14	SRR1590571	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590576	jpetrosino	sample14	sample14	SRR1590576	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590629	jpetrosino	sample2	sample2	SRR1590629	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590636	jpetrosino	sample2	sample2	SRR1590636	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590641	jpetrosino	sample2	sample2	SRR1590641	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590646	jpetrosino	sample2	sample2	SRR1590646	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590652	jpetrosino	sample2	sample2	SRR1590652	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590725	jpetrosino	sample3	sample3	SRR1590725	Fresh	Sick	female	25	0
+jpetrosino_SRR1590782	jpetrosino	sample4	sample4	SRR1590782	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590793	jpetrosino	sample4	sample4	SRR1590793	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590796	jpetrosino	sample4	sample4	SRR1590796	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590800	jpetrosino	sample4	sample4	SRR1590800	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590900	jpetrosino	sample55	sample55	SRR1590900	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590902	jpetrosino	sample55	sample55	SRR1590902	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590905	jpetrosino	sample55	sample55	SRR1590905	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590909	jpetrosino	sample55	sample55	SRR1590909	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590911	jpetrosino	sample55	sample55	SRR1590911	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590913	jpetrosino	sample55	sample55	SRR1590913	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590915	jpetrosino	sample55	sample55	SRR1590915	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590917	jpetrosino	sample55	sample55	SRR1590917	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1591014	jpetrosino	sample56	sample56	SRR1591014	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591023	jpetrosino	sample56	sample56	SRR1591023	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591024	jpetrosino	sample56	sample56	SRR1591024	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591027	jpetrosino	sample56	sample56	SRR1591027	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591028	jpetrosino	sample56	sample56	SRR1591028	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591112	jpetrosino	sample57	sample57	SRR1591112	Freeze-dried	Sick	male	64	0
+jpetrosino_SRR1591173	jpetrosino	sample59	sample59	SRR1591173	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591178	jpetrosino	sample59	sample59	SRR1591178	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591180	jpetrosino	sample59	sample59	SRR1591180	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591181	jpetrosino	sample59	sample59	SRR1591181	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591188	jpetrosino	sample59	sample59	SRR1591188	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591193	jpetrosino	sample59	sample59	SRR1591193	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591275	jpetrosino	sample6	sample6	SRR1591275	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591286	jpetrosino	sample6	sample6	SRR1591286	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591287	jpetrosino	sample6	sample6	SRR1591287	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591288	jpetrosino	sample6	sample6	SRR1591288	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591291	jpetrosino	sample6	sample6	SRR1591291	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591368	jpetrosino	sample61	sample61	SRR1591368	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591376	jpetrosino	sample61	sample61	SRR1591376	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591465	jpetrosino	sample63	sample63	SRR1591465	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591474	jpetrosino	sample63	sample63	SRR1591474	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591475	jpetrosino	sample63	sample63	SRR1591475	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591573	jpetrosino	sample64	sample64	SRR1591573	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591581	jpetrosino	sample64	sample64	SRR1591581	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591586	jpetrosino	sample64	sample64	SRR1591586	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591673	jpetrosino	sample8	sample8	SRR1591673	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591688	jpetrosino	sample8	sample8	SRR1591688	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591774	jpetrosino	sample9	sample9	SRR1591774	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591781	jpetrosino	sample9	sample9	SRR1591781	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591783	jpetrosino	sample9	sample9	SRR1591783	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1589734	jpetrosino	sample10	sample10	SRR1589734	Fresh	Sick	female	40	0
+jpetrosino_SRR1589736	jpetrosino	sample10	sample10	SRR1589736	Fresh	Sick	female	40	0
+jpetrosino_SRR1589741	jpetrosino	sample10	sample10	SRR1589741	Fresh	Sick	female	40	0
+jpetrosino_SRR1589803	jpetrosino	sample101	sample101	SRR1589803	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589810	jpetrosino	sample101	sample101	SRR1589810	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589811	jpetrosino	sample101	sample101	SRR1589811	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589816	jpetrosino	sample101	sample101	SRR1589816	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589822	jpetrosino	sample101	sample101	SRR1589822	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589920	jpetrosino	sample102	sample102	SRR1589920	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589932	jpetrosino	sample102	sample102	SRR1589932	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589934	jpetrosino	sample102	sample102	SRR1589934	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1590033	jpetrosino	sample103	sample103	SRR1590033	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590035	jpetrosino	sample103	sample103	SRR1590035	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590038	jpetrosino	sample103	sample103	SRR1590038	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590043	jpetrosino	sample103	sample103	SRR1590043	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590055	jpetrosino	sample103	sample103	SRR1590055	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590057	jpetrosino	sample103	sample103	SRR1590057	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590061	jpetrosino	sample103	sample103	SRR1590061	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590170	jpetrosino	sample104	sample104	SRR1590170	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590171	jpetrosino	sample104	sample104	SRR1590171	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590177	jpetrosino	sample104	sample104	SRR1590177	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590184	jpetrosino	sample104	sample104	SRR1590184	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590190	jpetrosino	sample104	sample104	SRR1590190	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590193	jpetrosino	sample104	sample104	SRR1590193	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590196	jpetrosino	sample104	sample104	SRR1590196	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590297	jpetrosino	sample11	sample11	SRR1590297	Fresh	Sick	female	25	0
+jpetrosino_SRR1590307	jpetrosino	sample11	sample11	SRR1590307	Fresh	Sick	female	25	0
+jpetrosino_SRR1590309	jpetrosino	sample11	sample11	SRR1590309	Fresh	Sick	female	25	0
+jpetrosino_SRR1590320	jpetrosino	sample11	sample11	SRR1590320	Fresh	Sick	female	25	0
+jpetrosino_SRR1590402	jpetrosino	sample12	sample12	SRR1590402	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590412	jpetrosino	sample12	sample12	SRR1590412	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590415	jpetrosino	sample12	sample12	SRR1590415	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590492	jpetrosino	sample13	sample13	SRR1590492	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590496	jpetrosino	sample13	sample13	SRR1590496	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590500	jpetrosino	sample13	sample13	SRR1590500	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590572	jpetrosino	sample14	sample14	SRR1590572	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590573	jpetrosino	sample14	sample14	SRR1590573	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590574	jpetrosino	sample14	sample14	SRR1590574	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590631	jpetrosino	sample2	sample2	SRR1590631	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590634	jpetrosino	sample2	sample2	SRR1590634	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590637	jpetrosino	sample2	sample2	SRR1590637	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590642	jpetrosino	sample2	sample2	SRR1590642	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590647	jpetrosino	sample2	sample2	SRR1590647	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590648	jpetrosino	sample2	sample2	SRR1590648	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590651	jpetrosino	sample2	sample2	SRR1590651	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590731	jpetrosino	sample3	sample3	SRR1590731	Fresh	Sick	female	25	0
+jpetrosino_SRR1590789	jpetrosino	sample4	sample4	SRR1590789	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590792	jpetrosino	sample4	sample4	SRR1590792	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590795	jpetrosino	sample4	sample4	SRR1590795	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590802	jpetrosino	sample4	sample4	SRR1590802	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590806	jpetrosino	sample4	sample4	SRR1590806	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590898	jpetrosino	sample55	sample55	SRR1590898	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590901	jpetrosino	sample55	sample55	SRR1590901	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590903	jpetrosino	sample55	sample55	SRR1590903	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1591019	jpetrosino	sample56	sample56	SRR1591019	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591021	jpetrosino	sample56	sample56	SRR1591021	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591029	jpetrosino	sample56	sample56	SRR1591029	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591031	jpetrosino	sample56	sample56	SRR1591031	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591035	jpetrosino	sample56	sample56	SRR1591035	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591116	jpetrosino	sample57	sample57	SRR1591116	Freeze-dried	Sick	male	64	0
+jpetrosino_SRR1591117	jpetrosino	sample57	sample57	SRR1591117	Freeze-dried	Sick	male	64	0
+jpetrosino_SRR1591172	jpetrosino	sample59	sample59	SRR1591172	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591176	jpetrosino	sample59	sample59	SRR1591176	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591182	jpetrosino	sample59	sample59	SRR1591182	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591189	jpetrosino	sample59	sample59	SRR1591189	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591190	jpetrosino	sample59	sample59	SRR1591190	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591191	jpetrosino	sample59	sample59	SRR1591191	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591279	jpetrosino	sample6	sample6	SRR1591279	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591281	jpetrosino	sample6	sample6	SRR1591281	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591292	jpetrosino	sample6	sample6	SRR1591292	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591366	jpetrosino	sample61	sample61	SRR1591366	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591369	jpetrosino	sample61	sample61	SRR1591369	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591372	jpetrosino	sample61	sample61	SRR1591372	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591375	jpetrosino	sample61	sample61	SRR1591375	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591464	jpetrosino	sample63	sample63	SRR1591464	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591468	jpetrosino	sample63	sample63	SRR1591468	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591469	jpetrosino	sample63	sample63	SRR1591469	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591477	jpetrosino	sample63	sample63	SRR1591477	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591478	jpetrosino	sample63	sample63	SRR1591478	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591569	jpetrosino	sample64	sample64	SRR1591569	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591575	jpetrosino	sample64	sample64	SRR1591575	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591578	jpetrosino	sample64	sample64	SRR1591578	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591584	jpetrosino	sample64	sample64	SRR1591584	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591585	jpetrosino	sample64	sample64	SRR1591585	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591669	jpetrosino	sample8	sample8	SRR1591669	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591671	jpetrosino	sample8	sample8	SRR1591671	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591678	jpetrosino	sample8	sample8	SRR1591678	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591686	jpetrosino	sample8	sample8	SRR1591686	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591771	jpetrosino	sample9	sample9	SRR1591771	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591775	jpetrosino	sample9	sample9	SRR1591775	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591776	jpetrosino	sample9	sample9	SRR1591776	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591787	jpetrosino	sample9	sample9	SRR1591787	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591788	jpetrosino	sample9	sample9	SRR1591788	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591789	jpetrosino	sample9	sample9	SRR1591789	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591790	jpetrosino	sample9	sample9	SRR1591790	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1589735	jpetrosino	sample10	sample10	SRR1589735	Fresh	Sick	female	40	0
+jpetrosino_SRR1589808	jpetrosino	sample101	sample101	SRR1589808	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589820	jpetrosino	sample101	sample101	SRR1589820	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589916	jpetrosino	sample102	sample102	SRR1589916	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589922	jpetrosino	sample102	sample102	SRR1589922	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589931	jpetrosino	sample102	sample102	SRR1589931	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589933	jpetrosino	sample102	sample102	SRR1589933	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589936	jpetrosino	sample102	sample102	SRR1589936	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1590034	jpetrosino	sample103	sample103	SRR1590034	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590041	jpetrosino	sample103	sample103	SRR1590041	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590174	jpetrosino	sample104	sample104	SRR1590174	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590176	jpetrosino	sample104	sample104	SRR1590176	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590178	jpetrosino	sample104	sample104	SRR1590178	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590179	jpetrosino	sample104	sample104	SRR1590179	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590181	jpetrosino	sample104	sample104	SRR1590181	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590189	jpetrosino	sample104	sample104	SRR1590189	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590300	jpetrosino	sample11	sample11	SRR1590300	Fresh	Sick	female	25	0
+jpetrosino_SRR1590301	jpetrosino	sample11	sample11	SRR1590301	Fresh	Sick	female	25	0
+jpetrosino_SRR1590304	jpetrosino	sample11	sample11	SRR1590304	Fresh	Sick	female	25	0
+jpetrosino_SRR1590305	jpetrosino	sample11	sample11	SRR1590305	Fresh	Sick	female	25	0
+jpetrosino_SRR1590308	jpetrosino	sample11	sample11	SRR1590308	Fresh	Sick	female	25	0
+jpetrosino_SRR1590314	jpetrosino	sample11	sample11	SRR1590314	Fresh	Sick	female	25	0
+jpetrosino_SRR1590315	jpetrosino	sample11	sample11	SRR1590315	Fresh	Sick	female	25	0
+jpetrosino_SRR1590318	jpetrosino	sample11	sample11	SRR1590318	Fresh	Sick	female	25	0
+jpetrosino_SRR1590407	jpetrosino	sample12	sample12	SRR1590407	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590410	jpetrosino	sample12	sample12	SRR1590410	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590411	jpetrosino	sample12	sample12	SRR1590411	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590416	jpetrosino	sample12	sample12	SRR1590416	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590491	jpetrosino	sample13	sample13	SRR1590491	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590494	jpetrosino	sample13	sample13	SRR1590494	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590497	jpetrosino	sample13	sample13	SRR1590497	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590498	jpetrosino	sample13	sample13	SRR1590498	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590499	jpetrosino	sample13	sample13	SRR1590499	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590502	jpetrosino	sample13	sample13	SRR1590502	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590506	jpetrosino	sample13	sample13	SRR1590506	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590507	jpetrosino	sample13	sample13	SRR1590507	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590568	jpetrosino	sample14	sample14	SRR1590568	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590577	jpetrosino	sample14	sample14	SRR1590577	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590729	jpetrosino	sample3	sample3	SRR1590729	Fresh	Sick	female	25	0
+jpetrosino_SRR1590733	jpetrosino	sample3	sample3	SRR1590733	Fresh	Sick	female	25	0
+jpetrosino_SRR1590783	jpetrosino	sample4	sample4	SRR1590783	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590786	jpetrosino	sample4	sample4	SRR1590786	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590790	jpetrosino	sample4	sample4	SRR1590790	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590791	jpetrosino	sample4	sample4	SRR1590791	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590794	jpetrosino	sample4	sample4	SRR1590794	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590797	jpetrosino	sample4	sample4	SRR1590797	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590896	jpetrosino	sample55	sample55	SRR1590896	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590904	jpetrosino	sample55	sample55	SRR1590904	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590907	jpetrosino	sample55	sample55	SRR1590907	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590910	jpetrosino	sample55	sample55	SRR1590910	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590912	jpetrosino	sample55	sample55	SRR1590912	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590914	jpetrosino	sample55	sample55	SRR1590914	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590916	jpetrosino	sample55	sample55	SRR1590916	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590920	jpetrosino	sample55	sample55	SRR1590920	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1591012	jpetrosino	sample56	sample56	SRR1591012	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591020	jpetrosino	sample56	sample56	SRR1591020	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591022	jpetrosino	sample56	sample56	SRR1591022	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591113	jpetrosino	sample57	sample57	SRR1591113	Freeze-dried	Sick	male	64	0
+jpetrosino_SRR1591114	jpetrosino	sample57	sample57	SRR1591114	Freeze-dried	Sick	male	64	0
+jpetrosino_SRR1591118	jpetrosino	sample57	sample57	SRR1591118	Freeze-dried	Sick	male	64	0
+jpetrosino_SRR1591171	jpetrosino	sample59	sample59	SRR1591171	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591179	jpetrosino	sample59	sample59	SRR1591179	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591184	jpetrosino	sample59	sample59	SRR1591184	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591185	jpetrosino	sample59	sample59	SRR1591185	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591192	jpetrosino	sample59	sample59	SRR1591192	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591274	jpetrosino	sample6	sample6	SRR1591274	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591277	jpetrosino	sample6	sample6	SRR1591277	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591278	jpetrosino	sample6	sample6	SRR1591278	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591282	jpetrosino	sample6	sample6	SRR1591282	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591283	jpetrosino	sample6	sample6	SRR1591283	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591284	jpetrosino	sample6	sample6	SRR1591284	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591293	jpetrosino	sample6	sample6	SRR1591293	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591373	jpetrosino	sample61	sample61	SRR1591373	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591380	jpetrosino	sample61	sample61	SRR1591380	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591467	jpetrosino	sample63	sample63	SRR1591467	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591472	jpetrosino	sample63	sample63	SRR1591472	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591473	jpetrosino	sample63	sample63	SRR1591473	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591480	jpetrosino	sample63	sample63	SRR1591480	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591484	jpetrosino	sample63	sample63	SRR1591484	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591577	jpetrosino	sample64	sample64	SRR1591577	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591670	jpetrosino	sample8	sample8	SRR1591670	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591675	jpetrosino	sample8	sample8	SRR1591675	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591683	jpetrosino	sample8	sample8	SRR1591683	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591685	jpetrosino	sample8	sample8	SRR1591685	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591687	jpetrosino	sample8	sample8	SRR1591687	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591689	jpetrosino	sample8	sample8	SRR1591689	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591773	jpetrosino	sample9	sample9	SRR1591773	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591778	jpetrosino	sample9	sample9	SRR1591778	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1589742	jpetrosino	sample10	sample10	SRR1589742	Fresh	Sick	female	40	0
+jpetrosino_SRR1589799	jpetrosino	sample101	sample101	SRR1589799	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589800	jpetrosino	sample101	sample101	SRR1589800	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589802	jpetrosino	sample101	sample101	SRR1589802	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589804	jpetrosino	sample101	sample101	SRR1589804	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589805	jpetrosino	sample101	sample101	SRR1589805	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589812	jpetrosino	sample101	sample101	SRR1589812	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589813	jpetrosino	sample101	sample101	SRR1589813	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589818	jpetrosino	sample101	sample101	SRR1589818	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589915	jpetrosino	sample102	sample102	SRR1589915	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589919	jpetrosino	sample102	sample102	SRR1589919	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589924	jpetrosino	sample102	sample102	SRR1589924	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589926	jpetrosino	sample102	sample102	SRR1589926	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589930	jpetrosino	sample102	sample102	SRR1589930	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589935	jpetrosino	sample102	sample102	SRR1589935	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1590036	jpetrosino	sample103	sample103	SRR1590036	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590046	jpetrosino	sample103	sample103	SRR1590046	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590049	jpetrosino	sample103	sample103	SRR1590049	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590052	jpetrosino	sample103	sample103	SRR1590052	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590056	jpetrosino	sample103	sample103	SRR1590056	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590060	jpetrosino	sample103	sample103	SRR1590060	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590169	jpetrosino	sample104	sample104	SRR1590169	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590172	jpetrosino	sample104	sample104	SRR1590172	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590173	jpetrosino	sample104	sample104	SRR1590173	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590180	jpetrosino	sample104	sample104	SRR1590180	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590191	jpetrosino	sample104	sample104	SRR1590191	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590198	jpetrosino	sample104	sample104	SRR1590198	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590312	jpetrosino	sample11	sample11	SRR1590312	Fresh	Sick	female	25	0
+jpetrosino_SRR1590313	jpetrosino	sample11	sample11	SRR1590313	Fresh	Sick	female	25	0
+jpetrosino_SRR1590316	jpetrosino	sample11	sample11	SRR1590316	Fresh	Sick	female	25	0
+jpetrosino_SRR1590321	jpetrosino	sample11	sample11	SRR1590321	Fresh	Sick	female	25	0
+jpetrosino_SRR1590401	jpetrosino	sample12	sample12	SRR1590401	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590403	jpetrosino	sample12	sample12	SRR1590403	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590404	jpetrosino	sample12	sample12	SRR1590404	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590409	jpetrosino	sample12	sample12	SRR1590409	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590413	jpetrosino	sample12	sample12	SRR1590413	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590417	jpetrosino	sample12	sample12	SRR1590417	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590493	jpetrosino	sample13	sample13	SRR1590493	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590501	jpetrosino	sample13	sample13	SRR1590501	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590503	jpetrosino	sample13	sample13	SRR1590503	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590504	jpetrosino	sample13	sample13	SRR1590504	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590505	jpetrosino	sample13	sample13	SRR1590505	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590628	jpetrosino	sample2	sample2	SRR1590628	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590630	jpetrosino	sample2	sample2	SRR1590630	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590632	jpetrosino	sample2	sample2	SRR1590632	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590635	jpetrosino	sample2	sample2	SRR1590635	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590638	jpetrosino	sample2	sample2	SRR1590638	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590640	jpetrosino	sample2	sample2	SRR1590640	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590643	jpetrosino	sample2	sample2	SRR1590643	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590644	jpetrosino	sample2	sample2	SRR1590644	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590645	jpetrosino	sample2	sample2	SRR1590645	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590649	jpetrosino	sample2	sample2	SRR1590649	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590650	jpetrosino	sample2	sample2	SRR1590650	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590726	jpetrosino	sample3	sample3	SRR1590726	Fresh	Sick	female	25	0
+jpetrosino_SRR1590732	jpetrosino	sample3	sample3	SRR1590732	Fresh	Sick	female	25	0
+jpetrosino_SRR1590785	jpetrosino	sample4	sample4	SRR1590785	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590788	jpetrosino	sample4	sample4	SRR1590788	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590799	jpetrosino	sample4	sample4	SRR1590799	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590804	jpetrosino	sample4	sample4	SRR1590804	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590899	jpetrosino	sample55	sample55	SRR1590899	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1591015	jpetrosino	sample56	sample56	SRR1591015	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591016	jpetrosino	sample56	sample56	SRR1591016	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591018	jpetrosino	sample56	sample56	SRR1591018	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591030	jpetrosino	sample56	sample56	SRR1591030	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591032	jpetrosino	sample56	sample56	SRR1591032	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591034	jpetrosino	sample56	sample56	SRR1591034	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591036	jpetrosino	sample56	sample56	SRR1591036	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591119	jpetrosino	sample57	sample57	SRR1591119	Freeze-dried	Sick	male	64	0
+jpetrosino_SRR1591120	jpetrosino	sample57	sample57	SRR1591120	Freeze-dried	Sick	male	64	0
+jpetrosino_SRR1591186	jpetrosino	sample59	sample59	SRR1591186	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591194	jpetrosino	sample59	sample59	SRR1591194	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591276	jpetrosino	sample6	sample6	SRR1591276	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591364	jpetrosino	sample61	sample61	SRR1591364	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591367	jpetrosino	sample61	sample61	SRR1591367	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591379	jpetrosino	sample61	sample61	SRR1591379	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591461	jpetrosino	sample63	sample63	SRR1591461	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591463	jpetrosino	sample63	sample63	SRR1591463	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591466	jpetrosino	sample63	sample63	SRR1591466	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591470	jpetrosino	sample63	sample63	SRR1591470	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591476	jpetrosino	sample63	sample63	SRR1591476	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591481	jpetrosino	sample63	sample63	SRR1591481	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591482	jpetrosino	sample63	sample63	SRR1591482	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591572	jpetrosino	sample64	sample64	SRR1591572	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591576	jpetrosino	sample64	sample64	SRR1591576	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591579	jpetrosino	sample64	sample64	SRR1591579	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591580	jpetrosino	sample64	sample64	SRR1591580	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591587	jpetrosino	sample64	sample64	SRR1591587	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591665	jpetrosino	sample8	sample8	SRR1591665	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591666	jpetrosino	sample8	sample8	SRR1591666	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591667	jpetrosino	sample8	sample8	SRR1591667	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591672	jpetrosino	sample8	sample8	SRR1591672	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591674	jpetrosino	sample8	sample8	SRR1591674	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591677	jpetrosino	sample8	sample8	SRR1591677	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591679	jpetrosino	sample8	sample8	SRR1591679	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591680	jpetrosino	sample8	sample8	SRR1591680	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591681	jpetrosino	sample8	sample8	SRR1591681	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591682	jpetrosino	sample8	sample8	SRR1591682	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591779	jpetrosino	sample9	sample9	SRR1591779	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591782	jpetrosino	sample9	sample9	SRR1591782	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1589739	jpetrosino	sample10	sample10	SRR1589739	Fresh	Sick	female	40	0
+jpetrosino_SRR1589740	jpetrosino	sample10	sample10	SRR1589740	Fresh	Sick	female	40	0
+jpetrosino_SRR1589798	jpetrosino	sample101	sample101	SRR1589798	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589807	jpetrosino	sample101	sample101	SRR1589807	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589814	jpetrosino	sample101	sample101	SRR1589814	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589815	jpetrosino	sample101	sample101	SRR1589815	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589819	jpetrosino	sample101	sample101	SRR1589819	Robogut (time 1)	Healthy	male	25	0
+jpetrosino_SRR1589913	jpetrosino	sample102	sample102	SRR1589913	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589927	jpetrosino	sample102	sample102	SRR1589927	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589929	jpetrosino	sample102	sample102	SRR1589929	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1589937	jpetrosino	sample102	sample102	SRR1589937	Robogut (time 2)	Healthy	male	25	0
+jpetrosino_SRR1590037	jpetrosino	sample103	sample103	SRR1590037	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590039	jpetrosino	sample103	sample103	SRR1590039	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590040	jpetrosino	sample103	sample103	SRR1590040	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590044	jpetrosino	sample103	sample103	SRR1590044	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590045	jpetrosino	sample103	sample103	SRR1590045	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590048	jpetrosino	sample103	sample103	SRR1590048	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590050	jpetrosino	sample103	sample103	SRR1590050	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590062	jpetrosino	sample103	sample103	SRR1590062	Oral artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590175	jpetrosino	sample104	sample104	SRR1590175	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590183	jpetrosino	sample104	sample104	SRR1590183	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590185	jpetrosino	sample104	sample104	SRR1590185	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590186	jpetrosino	sample104	sample104	SRR1590186	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590187	jpetrosino	sample104	sample104	SRR1590187	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590188	jpetrosino	sample104	sample104	SRR1590188	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590194	jpetrosino	sample104	sample104	SRR1590194	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590195	jpetrosino	sample104	sample104	SRR1590195	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590197	jpetrosino	sample104	sample104	SRR1590197	Fecal artificial colony	Healthy	NA	NA	1
+jpetrosino_SRR1590298	jpetrosino	sample11	sample11	SRR1590298	Fresh	Sick	female	25	0
+jpetrosino_SRR1590299	jpetrosino	sample11	sample11	SRR1590299	Fresh	Sick	female	25	0
+jpetrosino_SRR1590303	jpetrosino	sample11	sample11	SRR1590303	Fresh	Sick	female	25	0
+jpetrosino_SRR1590306	jpetrosino	sample11	sample11	SRR1590306	Fresh	Sick	female	25	0
+jpetrosino_SRR1590319	jpetrosino	sample11	sample11	SRR1590319	Fresh	Sick	female	25	0
+jpetrosino_SRR1590408	jpetrosino	sample12	sample12	SRR1590408	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590488	jpetrosino	sample13	sample13	SRR1590488	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590569	jpetrosino	sample14	sample14	SRR1590569	Fresh	Healthy	female	2	0
+jpetrosino_SRR1590633	jpetrosino	sample2	sample2	SRR1590633	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1590724	jpetrosino	sample3	sample3	SRR1590724	Fresh	Sick	female	25	0
+jpetrosino_SRR1590727	jpetrosino	sample3	sample3	SRR1590727	Fresh	Sick	female	25	0
+jpetrosino_SRR1590728	jpetrosino	sample3	sample3	SRR1590728	Fresh	Sick	female	25	0
+jpetrosino_SRR1590730	jpetrosino	sample3	sample3	SRR1590730	Fresh	Sick	female	25	0
+jpetrosino_SRR1590784	jpetrosino	sample4	sample4	SRR1590784	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590787	jpetrosino	sample4	sample4	SRR1590787	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590798	jpetrosino	sample4	sample4	SRR1590798	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590801	jpetrosino	sample4	sample4	SRR1590801	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590803	jpetrosino	sample4	sample4	SRR1590803	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590805	jpetrosino	sample4	sample4	SRR1590805	Fresh	Healthy	male	36	0
+jpetrosino_SRR1590897	jpetrosino	sample55	sample55	SRR1590897	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590906	jpetrosino	sample55	sample55	SRR1590906	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590908	jpetrosino	sample55	sample55	SRR1590908	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590918	jpetrosino	sample55	sample55	SRR1590918	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1590919	jpetrosino	sample55	sample55	SRR1590919	Freeze-dried	Sick	male	70	0
+jpetrosino_SRR1591017	jpetrosino	sample56	sample56	SRR1591017	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591025	jpetrosino	sample56	sample56	SRR1591025	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591026	jpetrosino	sample56	sample56	SRR1591026	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591033	jpetrosino	sample56	sample56	SRR1591033	Freeze-dried	Sick	male	65	0
+jpetrosino_SRR1591111	jpetrosino	sample57	sample57	SRR1591111	Freeze-dried	Sick	male	64	0
+jpetrosino_SRR1591115	jpetrosino	sample57	sample57	SRR1591115	Freeze-dried	Sick	male	64	0
+jpetrosino_SRR1591170	jpetrosino	sample59	sample59	SRR1591170	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591174	jpetrosino	sample59	sample59	SRR1591174	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591175	jpetrosino	sample59	sample59	SRR1591175	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591177	jpetrosino	sample59	sample59	SRR1591177	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591183	jpetrosino	sample59	sample59	SRR1591183	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591187	jpetrosino	sample59	sample59	SRR1591187	Freeze-dried	Sick	male	50	0
+jpetrosino_SRR1591280	jpetrosino	sample6	sample6	SRR1591280	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591285	jpetrosino	sample6	sample6	SRR1591285	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591289	jpetrosino	sample6	sample6	SRR1591289	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591290	jpetrosino	sample6	sample6	SRR1591290	Fresh	Healthy	male	37	0
+jpetrosino_SRR1591365	jpetrosino	sample61	sample61	SRR1591365	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591371	jpetrosino	sample61	sample61	SRR1591371	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591374	jpetrosino	sample61	sample61	SRR1591374	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591377	jpetrosino	sample61	sample61	SRR1591377	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591378	jpetrosino	sample61	sample61	SRR1591378	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591381	jpetrosino	sample61	sample61	SRR1591381	Freeze-dried	Sick	male	67	0
+jpetrosino_SRR1591462	jpetrosino	sample63	sample63	SRR1591462	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591471	jpetrosino	sample63	sample63	SRR1591471	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591479	jpetrosino	sample63	sample63	SRR1591479	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591485	jpetrosino	sample63	sample63	SRR1591485	Freeze-dried	Sick	male	30	0
+jpetrosino_SRR1591568	jpetrosino	sample64	sample64	SRR1591568	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591570	jpetrosino	sample64	sample64	SRR1591570	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591571	jpetrosino	sample64	sample64	SRR1591571	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591574	jpetrosino	sample64	sample64	SRR1591574	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591582	jpetrosino	sample64	sample64	SRR1591582	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591583	jpetrosino	sample64	sample64	SRR1591583	Freeze-dried	Sick	male	56	0
+jpetrosino_SRR1591668	jpetrosino	sample8	sample8	SRR1591668	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591676	jpetrosino	sample8	sample8	SRR1591676	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591684	jpetrosino	sample8	sample8	SRR1591684	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591772	jpetrosino	sample9	sample9	SRR1591772	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591777	jpetrosino	sample9	sample9	SRR1591777	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591780	jpetrosino	sample9	sample9	SRR1591780	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591784	jpetrosino	sample9	sample9	SRR1591784	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591785	jpetrosino	sample9	sample9	SRR1591785	Fresh	Sick	NA	NA	0
+jpetrosino_SRR1591786	jpetrosino	sample9	sample9	SRR1591786	Fresh	Sick	NA	NA	0
+jravel_SRR1589824	jravel	sample101	sample101	SRR1589824	Robogut (time 1)	Healthy	male	25	0
+jravel_SRR1590065	jravel	sample103	sample103	SRR1590065	Oral artificial colony	Healthy	NA	NA	1
+jravel_SRR1590201	jravel	sample104	sample104	SRR1590201	Fecal artificial colony	Healthy	NA	NA	1
+jravel_SRR1590420	jravel	sample12	sample12	SRR1590420	Fresh	Sick	NA	NA	0
+jravel_SRR1590808	jravel	sample4	sample4	SRR1590808	Fresh	Healthy	male	36	0
+jravel_SRR1590921	jravel	sample55	sample55	SRR1590921	Freeze-dried	Sick	male	70	0
+jravel_SRR1590924	jravel	sample55	sample55	SRR1590924	Freeze-dried	Sick	male	70	0
+jravel_SRR1591294	jravel	sample6	sample6	SRR1591294	Fresh	Healthy	male	37	0
+jravel_SRR1591296	jravel	sample6	sample6	SRR1591296	Fresh	Healthy	male	37	0
+jravel_SRR1591386	jravel	sample61	sample61	SRR1591386	Freeze-dried	Sick	male	67	0
+jravel_SRR1591486	jravel	sample63	sample63	SRR1591486	Freeze-dried	Sick	male	30	0
+jravel_SRR1591588	jravel	sample64	sample64	SRR1591588	Freeze-dried	Sick	male	56	0
+jravel_SRR1589823	jravel	sample101	sample101	SRR1589823	Robogut (time 1)	Healthy	male	25	0
+jravel_SRR1589940	jravel	sample102	sample102	SRR1589940	Robogut (time 2)	Healthy	male	25	0
+jravel_SRR1590064	jravel	sample103	sample103	SRR1590064	Oral artificial colony	Healthy	NA	NA	1
+jravel_SRR1590199	jravel	sample104	sample104	SRR1590199	Fecal artificial colony	Healthy	NA	NA	1
+jravel_SRR1590202	jravel	sample104	sample104	SRR1590202	Fecal artificial colony	Healthy	NA	NA	1
+jravel_SRR1590324	jravel	sample11	sample11	SRR1590324	Fresh	Sick	female	25	0
+jravel_SRR1590654	jravel	sample2	sample2	SRR1590654	Fresh	Sick	NA	NA	0
+jravel_SRR1590655	jravel	sample2	sample2	SRR1590655	Fresh	Sick	NA	NA	0
+jravel_SRR1590807	jravel	sample4	sample4	SRR1590807	Fresh	Healthy	male	36	0
+jravel_SRR1591038	jravel	sample56	sample56	SRR1591038	Freeze-dried	Sick	male	65	0
+jravel_SRR1591121	jravel	sample57	sample57	SRR1591121	Freeze-dried	Sick	male	64	0
+jravel_SRR1591122	jravel	sample57	sample57	SRR1591122	Freeze-dried	Sick	male	64	0
+jravel_SRR1591488	jravel	sample63	sample63	SRR1591488	Freeze-dried	Sick	male	30	0
+jravel_SRR1591691	jravel	sample8	sample8	SRR1591691	Fresh	Sick	NA	NA	0
+jravel_SRR1589744	jravel	sample10	sample10	SRR1589744	Fresh	Sick	female	40	0
+jravel_SRR1589825	jravel	sample101	sample101	SRR1589825	Robogut (time 1)	Healthy	male	25	0
+jravel_SRR1589827	jravel	sample101	sample101	SRR1589827	Robogut (time 1)	Healthy	male	25	0
+jravel_SRR1590063	jravel	sample103	sample103	SRR1590063	Oral artificial colony	Healthy	NA	NA	1
+jravel_SRR1590200	jravel	sample104	sample104	SRR1590200	Fecal artificial colony	Healthy	NA	NA	1
+jravel_SRR1590509	jravel	sample13	sample13	SRR1590509	Fresh	Healthy	female	2	0
+jravel_SRR1590653	jravel	sample2	sample2	SRR1590653	Fresh	Sick	NA	NA	0
+jravel_SRR1590734	jravel	sample3	sample3	SRR1590734	Fresh	Sick	female	25	0
+jravel_SRR1590922	jravel	sample55	sample55	SRR1590922	Freeze-dried	Sick	male	70	0
+jravel_SRR1591195	jravel	sample59	sample59	SRR1591195	Freeze-dried	Sick	male	50	0
+jravel_SRR1591295	jravel	sample6	sample6	SRR1591295	Fresh	Healthy	male	37	0
+jravel_SRR1591385	jravel	sample61	sample61	SRR1591385	Freeze-dried	Sick	male	67	0
+jravel_SRR1591487	jravel	sample63	sample63	SRR1591487	Freeze-dried	Sick	male	30	0
+jravel_SRR1589938	jravel	sample102	sample102	SRR1589938	Robogut (time 2)	Healthy	male	25	0
+jravel_SRR1590323	jravel	sample11	sample11	SRR1590323	Fresh	Sick	female	25	0
+jravel_SRR1590418	jravel	sample12	sample12	SRR1590418	Fresh	Sick	NA	NA	0
+jravel_SRR1590421	jravel	sample12	sample12	SRR1590421	Fresh	Sick	NA	NA	0
+jravel_SRR1590508	jravel	sample13	sample13	SRR1590508	Fresh	Healthy	female	2	0
+jravel_SRR1590809	jravel	sample4	sample4	SRR1590809	Fresh	Healthy	male	36	0
+jravel_SRR1590810	jravel	sample4	sample4	SRR1590810	Fresh	Healthy	male	36	0
+jravel_SRR1590923	jravel	sample55	sample55	SRR1590923	Freeze-dried	Sick	male	70	0
+jravel_SRR1591037	jravel	sample56	sample56	SRR1591037	Freeze-dried	Sick	male	65	0
+jravel_SRR1591384	jravel	sample61	sample61	SRR1591384	Freeze-dried	Sick	male	67	0
+jravel_SRR1591387	jravel	sample61	sample61	SRR1591387	Freeze-dried	Sick	male	67	0
+jravel_SRR1591591	jravel	sample64	sample64	SRR1591591	Freeze-dried	Sick	male	56	0
+jravel_SRR1591692	jravel	sample8	sample8	SRR1591692	Fresh	Sick	NA	NA	0
+jravel_SRR1591693	jravel	sample8	sample8	SRR1591693	Fresh	Sick	NA	NA	0
+jravel_SRR1591793	jravel	sample9	sample9	SRR1591793	Fresh	Sick	NA	NA	0
+jravel_SRR1589745	jravel	sample10	sample10	SRR1589745	Fresh	Sick	female	40	0
+jravel_SRR1589826	jravel	sample101	sample101	SRR1589826	Robogut (time 1)	Healthy	male	25	0
+jravel_SRR1589939	jravel	sample102	sample102	SRR1589939	Robogut (time 2)	Healthy	male	25	0
+jravel_SRR1590322	jravel	sample11	sample11	SRR1590322	Fresh	Sick	female	25	0
+jravel_SRR1590419	jravel	sample12	sample12	SRR1590419	Fresh	Sick	NA	NA	0
+jravel_SRR1590578	jravel	sample14	sample14	SRR1590578	Fresh	Healthy	female	2	0
+jravel_SRR1591039	jravel	sample56	sample56	SRR1591039	Freeze-dried	Sick	male	65	0
+jravel_SRR1591589	jravel	sample64	sample64	SRR1591589	Freeze-dried	Sick	male	56	0
+jravel_SRR1591590	jravel	sample64	sample64	SRR1591590	Freeze-dried	Sick	male	56	0
+jravel_SRR1591690	jravel	sample8	sample8	SRR1591690	Fresh	Sick	NA	NA	0
+jravel_SRR1591791	jravel	sample9	sample9	SRR1591791	Fresh	Sick	NA	NA	0
+jravel_SRR1591792	jravel	sample9	sample9	SRR1591792	Fresh	Sick	NA	NA	0
+kjones_SRR1589831	kjones	sample101	sample101	SRR1589831	Robogut (time 1)	Healthy	male	25	0
+kjones_SRR1589833	kjones	sample101	sample101	SRR1589833	Robogut (time 1)	Healthy	male	25	0
+kjones_SRR1589836	kjones	sample101	sample101	SRR1589836	Robogut (time 1)	Healthy	male	25	0
+kjones_SRR1589945	kjones	sample102	sample102	SRR1589945	Robogut (time 2)	Healthy	male	25	0
+kjones_SRR1589949	kjones	sample102	sample102	SRR1589949	Robogut (time 2)	Healthy	male	25	0
+kjones_SRR1589950	kjones	sample102	sample102	SRR1589950	Robogut (time 2)	Healthy	male	25	0
+kjones_SRR1590067	kjones	sample103	sample103	SRR1590067	Oral artificial colony	Healthy	NA	NA	1
+kjones_SRR1590070	kjones	sample103	sample103	SRR1590070	Oral artificial colony	Healthy	NA	NA	1
+kjones_SRR1590072	kjones	sample103	sample103	SRR1590072	Oral artificial colony	Healthy	NA	NA	1
+kjones_SRR1590424	kjones	sample12	sample12	SRR1590424	Fresh	Sick	NA	NA	0
+kjones_SRR1590515	kjones	sample13	sample13	SRR1590515	Fresh	Healthy	female	2	0
+kjones_SRR1590516	kjones	sample13	sample13	SRR1590516	Fresh	Healthy	female	2	0
+kjones_SRR1590581	kjones	sample14	sample14	SRR1590581	Fresh	Healthy	female	2	0
+kjones_SRR1590658	kjones	sample2	sample2	SRR1590658	Fresh	Sick	NA	NA	0
+kjones_SRR1590659	kjones	sample2	sample2	SRR1590659	Fresh	Sick	NA	NA	0
+kjones_SRR1590663	kjones	sample2	sample2	SRR1590663	Fresh	Sick	NA	NA	0
+kjones_SRR1590737	kjones	sample3	sample3	SRR1590737	Fresh	Sick	female	25	0
+kjones_SRR1590738	kjones	sample3	sample3	SRR1590738	Fresh	Sick	female	25	0
+kjones_SRR1590817	kjones	sample4	sample4	SRR1590817	Fresh	Healthy	male	36	0
+kjones_SRR1590818	kjones	sample4	sample4	SRR1590818	Fresh	Healthy	male	36	0
+kjones_SRR1590819	kjones	sample4	sample4	SRR1590819	Fresh	Healthy	male	36	0
+kjones_SRR1590926	kjones	sample55	sample55	SRR1590926	Freeze-dried	Sick	male	70	0
+kjones_SRR1590930	kjones	sample55	sample55	SRR1590930	Freeze-dried	Sick	male	70	0
+kjones_SRR1590932	kjones	sample55	sample55	SRR1590932	Freeze-dried	Sick	male	70	0
+kjones_SRR1591124	kjones	sample57	sample57	SRR1591124	Freeze-dried	Sick	male	64	0
+kjones_SRR1591203	kjones	sample59	sample59	SRR1591203	Freeze-dried	Sick	male	50	0
+kjones_SRR1591297	kjones	sample6	sample6	SRR1591297	Fresh	Healthy	male	37	0
+kjones_SRR1591300	kjones	sample6	sample6	SRR1591300	Fresh	Healthy	male	37	0
+kjones_SRR1591303	kjones	sample6	sample6	SRR1591303	Fresh	Healthy	male	37	0
+kjones_SRR1591389	kjones	sample61	sample61	SRR1591389	Freeze-dried	Sick	male	67	0
+kjones_SRR1591491	kjones	sample63	sample63	SRR1591491	Freeze-dried	Sick	male	30	0
+kjones_SRR1591495	kjones	sample63	sample63	SRR1591495	Freeze-dried	Sick	male	30	0
+kjones_SRR1591594	kjones	sample64	sample64	SRR1591594	Freeze-dried	Sick	male	56	0
+kjones_SRR1591794	kjones	sample9	sample9	SRR1591794	Fresh	Sick	NA	NA	0
+kjones_SRR1591800	kjones	sample9	sample9	SRR1591800	Fresh	Sick	NA	NA	0
+kjones_SRR1591801	kjones	sample9	sample9	SRR1591801	Fresh	Sick	NA	NA	0
+kjones_SRR1589749	kjones	sample10	sample10	SRR1589749	Fresh	Sick	female	40	0
+kjones_SRR1589942	kjones	sample102	sample102	SRR1589942	Robogut (time 2)	Healthy	male	25	0
+kjones_SRR1590075	kjones	sample103	sample103	SRR1590075	Oral artificial colony	Healthy	NA	NA	1
+kjones_SRR1590077	kjones	sample103	sample103	SRR1590077	Oral artificial colony	Healthy	NA	NA	1
+kjones_SRR1590206	kjones	sample104	sample104	SRR1590206	Fecal artificial colony	Healthy	NA	NA	1
+kjones_SRR1590208	kjones	sample104	sample104	SRR1590208	Fecal artificial colony	Healthy	NA	NA	1
+kjones_SRR1590211	kjones	sample104	sample104	SRR1590211	Fecal artificial colony	Healthy	NA	NA	1
+kjones_SRR1590213	kjones	sample104	sample104	SRR1590213	Fecal artificial colony	Healthy	NA	NA	1
+kjones_SRR1590331	kjones	sample11	sample11	SRR1590331	Fresh	Sick	female	25	0
+kjones_SRR1590517	kjones	sample13	sample13	SRR1590517	Fresh	Healthy	female	2	0
+kjones_SRR1590582	kjones	sample14	sample14	SRR1590582	Fresh	Healthy	female	2	0
+kjones_SRR1590656	kjones	sample2	sample2	SRR1590656	Fresh	Sick	NA	NA	0
+kjones_SRR1590664	kjones	sample2	sample2	SRR1590664	Fresh	Sick	NA	NA	0
+kjones_SRR1590814	kjones	sample4	sample4	SRR1590814	Fresh	Healthy	male	36	0
+kjones_SRR1590816	kjones	sample4	sample4	SRR1590816	Fresh	Healthy	male	36	0
+kjones_SRR1590928	kjones	sample55	sample55	SRR1590928	Freeze-dried	Sick	male	70	0
+kjones_SRR1590929	kjones	sample55	sample55	SRR1590929	Freeze-dried	Sick	male	70	0
+kjones_SRR1591040	kjones	sample56	sample56	SRR1591040	Freeze-dried	Sick	male	65	0
+kjones_SRR1591042	kjones	sample56	sample56	SRR1591042	Freeze-dried	Sick	male	65	0
+kjones_SRR1591049	kjones	sample56	sample56	SRR1591049	Freeze-dried	Sick	male	65	0
+kjones_SRR1591125	kjones	sample57	sample57	SRR1591125	Freeze-dried	Sick	male	64	0
+kjones_SRR1591196	kjones	sample59	sample59	SRR1591196	Freeze-dried	Sick	male	50	0
+kjones_SRR1591199	kjones	sample59	sample59	SRR1591199	Freeze-dried	Sick	male	50	0
+kjones_SRR1591299	kjones	sample6	sample6	SRR1591299	Fresh	Healthy	male	37	0
+kjones_SRR1591391	kjones	sample61	sample61	SRR1591391	Freeze-dried	Sick	male	67	0
+kjones_SRR1591592	kjones	sample64	sample64	SRR1591592	Freeze-dried	Sick	male	56	0
+kjones_SRR1591593	kjones	sample64	sample64	SRR1591593	Freeze-dried	Sick	male	56	0
+kjones_SRR1591597	kjones	sample64	sample64	SRR1591597	Freeze-dried	Sick	male	56	0
+kjones_SRR1591695	kjones	sample8	sample8	SRR1591695	Fresh	Sick	NA	NA	0
+kjones_SRR1591701	kjones	sample8	sample8	SRR1591701	Fresh	Sick	NA	NA	0
+kjones_SRR1591702	kjones	sample8	sample8	SRR1591702	Fresh	Sick	NA	NA	0
+kjones_SRR1591703	kjones	sample8	sample8	SRR1591703	Fresh	Sick	NA	NA	0
+kjones_SRR1591795	kjones	sample9	sample9	SRR1591795	Fresh	Sick	NA	NA	0
+kjones_SRR1589746	kjones	sample10	sample10	SRR1589746	Fresh	Sick	female	40	0
+kjones_SRR1589829	kjones	sample101	sample101	SRR1589829	Robogut (time 1)	Healthy	male	25	0
+kjones_SRR1589944	kjones	sample102	sample102	SRR1589944	Robogut (time 2)	Healthy	male	25	0
+kjones_SRR1589946	kjones	sample102	sample102	SRR1589946	Robogut (time 2)	Healthy	male	25	0
+kjones_SRR1589947	kjones	sample102	sample102	SRR1589947	Robogut (time 2)	Healthy	male	25	0
+kjones_SRR1590068	kjones	sample103	sample103	SRR1590068	Oral artificial colony	Healthy	NA	NA	1
+kjones_SRR1590071	kjones	sample103	sample103	SRR1590071	Oral artificial colony	Healthy	NA	NA	1
+kjones_SRR1590074	kjones	sample103	sample103	SRR1590074	Oral artificial colony	Healthy	NA	NA	1
+kjones_SRR1590203	kjones	sample104	sample104	SRR1590203	Fecal artificial colony	Healthy	NA	NA	1
+kjones_SRR1590205	kjones	sample104	sample104	SRR1590205	Fecal artificial colony	Healthy	NA	NA	1
+kjones_SRR1590207	kjones	sample104	sample104	SRR1590207	Fecal artificial colony	Healthy	NA	NA	1
+kjones_SRR1590210	kjones	sample104	sample104	SRR1590210	Fecal artificial colony	Healthy	NA	NA	1
+kjones_SRR1590212	kjones	sample104	sample104	SRR1590212	Fecal artificial colony	Healthy	NA	NA	1
+kjones_SRR1590326	kjones	sample11	sample11	SRR1590326	Fresh	Sick	female	25	0
+kjones_SRR1590328	kjones	sample11	sample11	SRR1590328	Fresh	Sick	female	25	0
+kjones_SRR1590330	kjones	sample11	sample11	SRR1590330	Fresh	Sick	female	25	0
+kjones_SRR1590425	kjones	sample12	sample12	SRR1590425	Fresh	Sick	NA	NA	0
+kjones_SRR1590429	kjones	sample12	sample12	SRR1590429	Fresh	Sick	NA	NA	0
+kjones_SRR1590511	kjones	sample13	sample13	SRR1590511	Fresh	Healthy	female	2	0
+kjones_SRR1590514	kjones	sample13	sample13	SRR1590514	Fresh	Healthy	female	2	0
+kjones_SRR1590579	kjones	sample14	sample14	SRR1590579	Fresh	Healthy	female	2	0
+kjones_SRR1590657	kjones	sample2	sample2	SRR1590657	Fresh	Sick	NA	NA	0
+kjones_SRR1590811	kjones	sample4	sample4	SRR1590811	Fresh	Healthy	male	36	0
+kjones_SRR1590815	kjones	sample4	sample4	SRR1590815	Fresh	Healthy	male	36	0
+kjones_SRR1590933	kjones	sample55	sample55	SRR1590933	Freeze-dried	Sick	male	70	0
+kjones_SRR1591043	kjones	sample56	sample56	SRR1591043	Freeze-dried	Sick	male	65	0
+kjones_SRR1591126	kjones	sample57	sample57	SRR1591126	Freeze-dried	Sick	male	64	0
+kjones_SRR1591298	kjones	sample6	sample6	SRR1591298	Fresh	Healthy	male	37	0
+kjones_SRR1591392	kjones	sample61	sample61	SRR1591392	Freeze-dried	Sick	male	67	0
+kjones_SRR1591393	kjones	sample61	sample61	SRR1591393	Freeze-dried	Sick	male	67	0
+kjones_SRR1591492	kjones	sample63	sample63	SRR1591492	Freeze-dried	Sick	male	30	0
+kjones_SRR1591493	kjones	sample63	sample63	SRR1591493	Freeze-dried	Sick	male	30	0
+kjones_SRR1591496	kjones	sample63	sample63	SRR1591496	Freeze-dried	Sick	male	30	0
+kjones_SRR1591497	kjones	sample63	sample63	SRR1591497	Freeze-dried	Sick	male	30	0
+kjones_SRR1591598	kjones	sample64	sample64	SRR1591598	Freeze-dried	Sick	male	56	0
+kjones_SRR1591694	kjones	sample8	sample8	SRR1591694	Fresh	Sick	NA	NA	0
+kjones_SRR1591796	kjones	sample9	sample9	SRR1591796	Fresh	Sick	NA	NA	0
+kjones_SRR1591798	kjones	sample9	sample9	SRR1591798	Fresh	Sick	NA	NA	0
+kjones_SRR1589748	kjones	sample10	sample10	SRR1589748	Fresh	Sick	female	40	0
+kjones_SRR1589830	kjones	sample101	sample101	SRR1589830	Robogut (time 1)	Healthy	male	25	0
+kjones_SRR1589835	kjones	sample101	sample101	SRR1589835	Robogut (time 1)	Healthy	male	25	0
+kjones_SRR1589837	kjones	sample101	sample101	SRR1589837	Robogut (time 1)	Healthy	male	25	0
+kjones_SRR1589941	kjones	sample102	sample102	SRR1589941	Robogut (time 2)	Healthy	male	25	0
+kjones_SRR1590069	kjones	sample103	sample103	SRR1590069	Oral artificial colony	Healthy	NA	NA	1
+kjones_SRR1590076	kjones	sample103	sample103	SRR1590076	Oral artificial colony	Healthy	NA	NA	1
+kjones_SRR1590214	kjones	sample104	sample104	SRR1590214	Fecal artificial colony	Healthy	NA	NA	1
+kjones_SRR1590327	kjones	sample11	sample11	SRR1590327	Fresh	Sick	female	25	0
+kjones_SRR1590422	kjones	sample12	sample12	SRR1590422	Fresh	Sick	NA	NA	0
+kjones_SRR1590427	kjones	sample12	sample12	SRR1590427	Fresh	Sick	NA	NA	0
+kjones_SRR1590428	kjones	sample12	sample12	SRR1590428	Fresh	Sick	NA	NA	0
+kjones_SRR1590510	kjones	sample13	sample13	SRR1590510	Fresh	Healthy	female	2	0
+kjones_SRR1590580	kjones	sample14	sample14	SRR1590580	Fresh	Healthy	female	2	0
+kjones_SRR1590660	kjones	sample2	sample2	SRR1590660	Fresh	Sick	NA	NA	0
+kjones_SRR1590661	kjones	sample2	sample2	SRR1590661	Fresh	Sick	NA	NA	0
+kjones_SRR1590735	kjones	sample3	sample3	SRR1590735	Fresh	Sick	female	25	0
+kjones_SRR1590812	kjones	sample4	sample4	SRR1590812	Fresh	Healthy	male	36	0
+kjones_SRR1590813	kjones	sample4	sample4	SRR1590813	Fresh	Healthy	male	36	0
+kjones_SRR1590925	kjones	sample55	sample55	SRR1590925	Freeze-dried	Sick	male	70	0
+kjones_SRR1590927	kjones	sample55	sample55	SRR1590927	Freeze-dried	Sick	male	70	0
+kjones_SRR1590934	kjones	sample55	sample55	SRR1590934	Freeze-dried	Sick	male	70	0
+kjones_SRR1591045	kjones	sample56	sample56	SRR1591045	Freeze-dried	Sick	male	65	0
+kjones_SRR1591048	kjones	sample56	sample56	SRR1591048	Freeze-dried	Sick	male	65	0
+kjones_SRR1591123	kjones	sample57	sample57	SRR1591123	Freeze-dried	Sick	male	64	0
+kjones_SRR1591197	kjones	sample59	sample59	SRR1591197	Freeze-dried	Sick	male	50	0
+kjones_SRR1591200	kjones	sample59	sample59	SRR1591200	Freeze-dried	Sick	male	50	0
+kjones_SRR1591204	kjones	sample59	sample59	SRR1591204	Freeze-dried	Sick	male	50	0
+kjones_SRR1591301	kjones	sample6	sample6	SRR1591301	Fresh	Healthy	male	37	0
+kjones_SRR1591395	kjones	sample61	sample61	SRR1591395	Freeze-dried	Sick	male	67	0
+kjones_SRR1591489	kjones	sample63	sample63	SRR1591489	Freeze-dried	Sick	male	30	0
+kjones_SRR1591490	kjones	sample63	sample63	SRR1591490	Freeze-dried	Sick	male	30	0
+kjones_SRR1591494	kjones	sample63	sample63	SRR1591494	Freeze-dried	Sick	male	30	0
+kjones_SRR1591595	kjones	sample64	sample64	SRR1591595	Freeze-dried	Sick	male	56	0
+kjones_SRR1591596	kjones	sample64	sample64	SRR1591596	Freeze-dried	Sick	male	56	0
+kjones_SRR1591599	kjones	sample64	sample64	SRR1591599	Freeze-dried	Sick	male	56	0
+kjones_SRR1591696	kjones	sample8	sample8	SRR1591696	Fresh	Sick	NA	NA	0
+kjones_SRR1591697	kjones	sample8	sample8	SRR1591697	Fresh	Sick	NA	NA	0
+kjones_SRR1591698	kjones	sample8	sample8	SRR1591698	Fresh	Sick	NA	NA	0
+kjones_SRR1591699	kjones	sample8	sample8	SRR1591699	Fresh	Sick	NA	NA	0
+kjones_SRR1591700	kjones	sample8	sample8	SRR1591700	Fresh	Sick	NA	NA	0
+kjones_SRR1591797	kjones	sample9	sample9	SRR1591797	Fresh	Sick	NA	NA	0
+kjones_SRR1589747	kjones	sample10	sample10	SRR1589747	Fresh	Sick	female	40	0
+kjones_SRR1589828	kjones	sample101	sample101	SRR1589828	Robogut (time 1)	Healthy	male	25	0
+kjones_SRR1589832	kjones	sample101	sample101	SRR1589832	Robogut (time 1)	Healthy	male	25	0
+kjones_SRR1589834	kjones	sample101	sample101	SRR1589834	Robogut (time 1)	Healthy	male	25	0
+kjones_SRR1589943	kjones	sample102	sample102	SRR1589943	Robogut (time 2)	Healthy	male	25	0
+kjones_SRR1589948	kjones	sample102	sample102	SRR1589948	Robogut (time 2)	Healthy	male	25	0
+kjones_SRR1590066	kjones	sample103	sample103	SRR1590066	Oral artificial colony	Healthy	NA	NA	1
+kjones_SRR1590073	kjones	sample103	sample103	SRR1590073	Oral artificial colony	Healthy	NA	NA	1
+kjones_SRR1590209	kjones	sample104	sample104	SRR1590209	Fecal artificial colony	Healthy	NA	NA	1
+kjones_SRR1590325	kjones	sample11	sample11	SRR1590325	Fresh	Sick	female	25	0
+kjones_SRR1590329	kjones	sample11	sample11	SRR1590329	Fresh	Sick	female	25	0
+kjones_SRR1590332	kjones	sample11	sample11	SRR1590332	Fresh	Sick	female	25	0
+kjones_SRR1590333	kjones	sample11	sample11	SRR1590333	Fresh	Sick	female	25	0
+kjones_SRR1590334	kjones	sample11	sample11	SRR1590334	Fresh	Sick	female	25	0
+kjones_SRR1590423	kjones	sample12	sample12	SRR1590423	Fresh	Sick	NA	NA	0
+kjones_SRR1590426	kjones	sample12	sample12	SRR1590426	Fresh	Sick	NA	NA	0
+kjones_SRR1590512	kjones	sample13	sample13	SRR1590512	Fresh	Healthy	female	2	0
+kjones_SRR1590513	kjones	sample13	sample13	SRR1590513	Fresh	Healthy	female	2	0
+kjones_SRR1590662	kjones	sample2	sample2	SRR1590662	Fresh	Sick	NA	NA	0
+kjones_SRR1590665	kjones	sample2	sample2	SRR1590665	Fresh	Sick	NA	NA	0
+kjones_SRR1590736	kjones	sample3	sample3	SRR1590736	Fresh	Sick	female	25	0
+kjones_SRR1590820	kjones	sample4	sample4	SRR1590820	Fresh	Healthy	male	36	0
+kjones_SRR1590931	kjones	sample55	sample55	SRR1590931	Freeze-dried	Sick	male	70	0
+kjones_SRR1591041	kjones	sample56	sample56	SRR1591041	Freeze-dried	Sick	male	65	0
+kjones_SRR1591044	kjones	sample56	sample56	SRR1591044	Freeze-dried	Sick	male	65	0
+kjones_SRR1591047	kjones	sample56	sample56	SRR1591047	Freeze-dried	Sick	male	65	0
+kjones_SRR1591201	kjones	sample59	sample59	SRR1591201	Freeze-dried	Sick	male	50	0
+kjones_SRR1591202	kjones	sample59	sample59	SRR1591202	Freeze-dried	Sick	male	50	0
+kjones_SRR1591205	kjones	sample59	sample59	SRR1591205	Freeze-dried	Sick	male	50	0
+kjones_SRR1591302	kjones	sample6	sample6	SRR1591302	Fresh	Healthy	male	37	0
+kjones_SRR1591304	kjones	sample6	sample6	SRR1591304	Fresh	Healthy	male	37	0
+kjones_SRR1591390	kjones	sample61	sample61	SRR1591390	Freeze-dried	Sick	male	67	0
+kjones_SRR1591394	kjones	sample61	sample61	SRR1591394	Freeze-dried	Sick	male	67	0
+kjones_SRR1591498	kjones	sample63	sample63	SRR1591498	Freeze-dried	Sick	male	30	0
+kjones_SRR1591799	kjones	sample9	sample9	SRR1591799	Fresh	Sick	NA	NA	0
+pschloss_SRR1589751	pschloss	sample10	sample10	SRR1589751	Fresh	Sick	female	40	0
+pschloss_SRR1589846	pschloss	sample101	sample101	SRR1589846	Robogut (time 1)	Healthy	male	25	0
+pschloss_SRR1589848	pschloss	sample101	sample101	SRR1589848	Robogut (time 1)	Healthy	male	25	0
+pschloss_SRR1589850	pschloss	sample101	sample101	SRR1589850	Robogut (time 1)	Healthy	male	25	0
+pschloss_SRR1589955	pschloss	sample102	sample102	SRR1589955	Robogut (time 2)	Healthy	male	25	0
+pschloss_SRR1589958	pschloss	sample102	sample102	SRR1589958	Robogut (time 2)	Healthy	male	25	0
+pschloss_SRR1589965	pschloss	sample102	sample102	SRR1589965	Robogut (time 2)	Healthy	male	25	0
+pschloss_SRR1590081	pschloss	sample103	sample103	SRR1590081	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590090	pschloss	sample103	sample103	SRR1590090	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590092	pschloss	sample103	sample103	SRR1590092	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590217	pschloss	sample104	sample104	SRR1590217	Fecal artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590231	pschloss	sample104	sample104	SRR1590231	Fecal artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590338	pschloss	sample11	sample11	SRR1590338	Fresh	Sick	female	25	0
+pschloss_SRR1590341	pschloss	sample11	sample11	SRR1590341	Fresh	Sick	female	25	0
+pschloss_SRR1590344	pschloss	sample11	sample11	SRR1590344	Fresh	Sick	female	25	0
+pschloss_SRR1590346	pschloss	sample11	sample11	SRR1590346	Fresh	Sick	female	25	0
+pschloss_SRR1590434	pschloss	sample12	sample12	SRR1590434	Fresh	Sick	NA	NA	0
+pschloss_SRR1590436	pschloss	sample12	sample12	SRR1590436	Fresh	Sick	NA	NA	0
+pschloss_SRR1590524	pschloss	sample13	sample13	SRR1590524	Fresh	Healthy	female	2	0
+pschloss_SRR1590586	pschloss	sample14	sample14	SRR1590586	Fresh	Healthy	female	2	0
+pschloss_SRR1590666	pschloss	sample2	sample2	SRR1590666	Fresh	Sick	NA	NA	0
+pschloss_SRR1590668	pschloss	sample2	sample2	SRR1590668	Fresh	Sick	NA	NA	0
+pschloss_SRR1590822	pschloss	sample4	sample4	SRR1590822	Fresh	Healthy	male	36	0
+pschloss_SRR1590824	pschloss	sample4	sample4	SRR1590824	Fresh	Healthy	male	36	0
+pschloss_SRR1590936	pschloss	sample55	sample55	SRR1590936	Freeze-dried	Sick	male	70	0
+pschloss_SRR1590938	pschloss	sample55	sample55	SRR1590938	Freeze-dried	Sick	male	70	0
+pschloss_SRR1590943	pschloss	sample55	sample55	SRR1590943	Freeze-dried	Sick	male	70	0
+pschloss_SRR1590944	pschloss	sample55	sample55	SRR1590944	Freeze-dried	Sick	male	70	0
+pschloss_SRR1590945	pschloss	sample55	sample55	SRR1590945	Freeze-dried	Sick	male	70	0
+pschloss_SRR1590949	pschloss	sample55	sample55	SRR1590949	Freeze-dried	Sick	male	70	0
+pschloss_SRR1591053	pschloss	sample56	sample56	SRR1591053	Freeze-dried	Sick	male	65	0
+pschloss_SRR1591061	pschloss	sample56	sample56	SRR1591061	Freeze-dried	Sick	male	65	0
+pschloss_SRR1591127	pschloss	sample57	sample57	SRR1591127	Freeze-dried	Sick	male	64	0
+pschloss_SRR1591129	pschloss	sample57	sample57	SRR1591129	Freeze-dried	Sick	male	64	0
+pschloss_SRR1591208	pschloss	sample59	sample59	SRR1591208	Freeze-dried	Sick	male	50	0
+pschloss_SRR1591309	pschloss	sample6	sample6	SRR1591309	Fresh	Healthy	male	37	0
+pschloss_SRR1591313	pschloss	sample6	sample6	SRR1591313	Fresh	Healthy	male	37	0
+pschloss_SRR1591400	pschloss	sample61	sample61	SRR1591400	Freeze-dried	Sick	male	67	0
+pschloss_SRR1591502	pschloss	sample63	sample63	SRR1591502	Freeze-dried	Sick	male	30	0
+pschloss_SRR1591604	pschloss	sample64	sample64	SRR1591604	Freeze-dried	Sick	male	56	0
+pschloss_SRR1591608	pschloss	sample64	sample64	SRR1591608	Freeze-dried	Sick	male	56	0
+pschloss_SRR1591710	pschloss	sample8	sample8	SRR1591710	Fresh	Sick	NA	NA	0
+pschloss_SRR1591712	pschloss	sample8	sample8	SRR1591712	Fresh	Sick	NA	NA	0
+pschloss_SRR1591715	pschloss	sample8	sample8	SRR1591715	Fresh	Sick	NA	NA	0
+pschloss_SRR1591803	pschloss	sample9	sample9	SRR1591803	Fresh	Sick	NA	NA	0
+pschloss_SRR1591808	pschloss	sample9	sample9	SRR1591808	Fresh	Sick	NA	NA	0
+pschloss_SRR1589755	pschloss	sample10	sample10	SRR1589755	Fresh	Sick	female	40	0
+pschloss_SRR1589838	pschloss	sample101	sample101	SRR1589838	Robogut (time 1)	Healthy	male	25	0
+pschloss_SRR1589842	pschloss	sample101	sample101	SRR1589842	Robogut (time 1)	Healthy	male	25	0
+pschloss_SRR1589847	pschloss	sample101	sample101	SRR1589847	Robogut (time 1)	Healthy	male	25	0
+pschloss_SRR1589951	pschloss	sample102	sample102	SRR1589951	Robogut (time 2)	Healthy	male	25	0
+pschloss_SRR1589953	pschloss	sample102	sample102	SRR1589953	Robogut (time 2)	Healthy	male	25	0
+pschloss_SRR1589954	pschloss	sample102	sample102	SRR1589954	Robogut (time 2)	Healthy	male	25	0
+pschloss_SRR1589962	pschloss	sample102	sample102	SRR1589962	Robogut (time 2)	Healthy	male	25	0
+pschloss_SRR1590082	pschloss	sample103	sample103	SRR1590082	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590083	pschloss	sample103	sample103	SRR1590083	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590085	pschloss	sample103	sample103	SRR1590085	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590086	pschloss	sample103	sample103	SRR1590086	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590087	pschloss	sample103	sample103	SRR1590087	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590088	pschloss	sample103	sample103	SRR1590088	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590094	pschloss	sample103	sample103	SRR1590094	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590215	pschloss	sample104	sample104	SRR1590215	Fecal artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590225	pschloss	sample104	sample104	SRR1590225	Fecal artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590335	pschloss	sample11	sample11	SRR1590335	Fresh	Sick	female	25	0
+pschloss_SRR1590343	pschloss	sample11	sample11	SRR1590343	Fresh	Sick	female	25	0
+pschloss_SRR1590345	pschloss	sample11	sample11	SRR1590345	Fresh	Sick	female	25	0
+pschloss_SRR1590349	pschloss	sample11	sample11	SRR1590349	Fresh	Sick	female	25	0
+pschloss_SRR1590431	pschloss	sample12	sample12	SRR1590431	Fresh	Sick	NA	NA	0
+pschloss_SRR1590432	pschloss	sample12	sample12	SRR1590432	Fresh	Sick	NA	NA	0
+pschloss_SRR1590520	pschloss	sample13	sample13	SRR1590520	Fresh	Healthy	female	2	0
+pschloss_SRR1590521	pschloss	sample13	sample13	SRR1590521	Fresh	Healthy	female	2	0
+pschloss_SRR1590526	pschloss	sample13	sample13	SRR1590526	Fresh	Healthy	female	2	0
+pschloss_SRR1590527	pschloss	sample13	sample13	SRR1590527	Fresh	Healthy	female	2	0
+pschloss_SRR1590672	pschloss	sample2	sample2	SRR1590672	Fresh	Sick	NA	NA	0
+pschloss_SRR1590675	pschloss	sample2	sample2	SRR1590675	Fresh	Sick	NA	NA	0
+pschloss_SRR1590677	pschloss	sample2	sample2	SRR1590677	Fresh	Sick	NA	NA	0
+pschloss_SRR1590678	pschloss	sample2	sample2	SRR1590678	Fresh	Sick	NA	NA	0
+pschloss_SRR1590742	pschloss	sample3	sample3	SRR1590742	Fresh	Sick	female	25	0
+pschloss_SRR1590744	pschloss	sample3	sample3	SRR1590744	Fresh	Sick	female	25	0
+pschloss_SRR1590828	pschloss	sample4	sample4	SRR1590828	Fresh	Healthy	male	36	0
+pschloss_SRR1590835	pschloss	sample4	sample4	SRR1590835	Fresh	Healthy	male	36	0
+pschloss_SRR1590939	pschloss	sample55	sample55	SRR1590939	Freeze-dried	Sick	male	70	0
+pschloss_SRR1590940	pschloss	sample55	sample55	SRR1590940	Freeze-dried	Sick	male	70	0
+pschloss_SRR1590942	pschloss	sample55	sample55	SRR1590942	Freeze-dried	Sick	male	70	0
+pschloss_SRR1590947	pschloss	sample55	sample55	SRR1590947	Freeze-dried	Sick	male	70	0
+pschloss_SRR1591058	pschloss	sample56	sample56	SRR1591058	Freeze-dried	Sick	male	65	0
+pschloss_SRR1591206	pschloss	sample59	sample59	SRR1591206	Freeze-dried	Sick	male	50	0
+pschloss_SRR1591314	pschloss	sample6	sample6	SRR1591314	Fresh	Healthy	male	37	0
+pschloss_SRR1591315	pschloss	sample6	sample6	SRR1591315	Fresh	Healthy	male	37	0
+pschloss_SRR1591316	pschloss	sample6	sample6	SRR1591316	Fresh	Healthy	male	37	0
+pschloss_SRR1591499	pschloss	sample63	sample63	SRR1591499	Freeze-dried	Sick	male	30	0
+pschloss_SRR1591503	pschloss	sample63	sample63	SRR1591503	Freeze-dried	Sick	male	30	0
+pschloss_SRR1591506	pschloss	sample63	sample63	SRR1591506	Freeze-dried	Sick	male	30	0
+pschloss_SRR1591512	pschloss	sample63	sample63	SRR1591512	Freeze-dried	Sick	male	30	0
+pschloss_SRR1591600	pschloss	sample64	sample64	SRR1591600	Freeze-dried	Sick	male	56	0
+pschloss_SRR1591602	pschloss	sample64	sample64	SRR1591602	Freeze-dried	Sick	male	56	0
+pschloss_SRR1591609	pschloss	sample64	sample64	SRR1591609	Freeze-dried	Sick	male	56	0
+pschloss_SRR1591611	pschloss	sample64	sample64	SRR1591611	Freeze-dried	Sick	male	56	0
+pschloss_SRR1591709	pschloss	sample8	sample8	SRR1591709	Fresh	Sick	NA	NA	0
+pschloss_SRR1591714	pschloss	sample8	sample8	SRR1591714	Fresh	Sick	NA	NA	0
+pschloss_SRR1591811	pschloss	sample9	sample9	SRR1591811	Fresh	Sick	NA	NA	0
+pschloss_SRR1591812	pschloss	sample9	sample9	SRR1591812	Fresh	Sick	NA	NA	0
+pschloss_SRR1589840	pschloss	sample101	sample101	SRR1589840	Robogut (time 1)	Healthy	male	25	0
+pschloss_SRR1589851	pschloss	sample101	sample101	SRR1589851	Robogut (time 1)	Healthy	male	25	0
+pschloss_SRR1589952	pschloss	sample102	sample102	SRR1589952	Robogut (time 2)	Healthy	male	25	0
+pschloss_SRR1589957	pschloss	sample102	sample102	SRR1589957	Robogut (time 2)	Healthy	male	25	0
+pschloss_SRR1589959	pschloss	sample102	sample102	SRR1589959	Robogut (time 2)	Healthy	male	25	0
+pschloss_SRR1590080	pschloss	sample103	sample103	SRR1590080	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590084	pschloss	sample103	sample103	SRR1590084	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590089	pschloss	sample103	sample103	SRR1590089	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590218	pschloss	sample104	sample104	SRR1590218	Fecal artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590219	pschloss	sample104	sample104	SRR1590219	Fecal artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590226	pschloss	sample104	sample104	SRR1590226	Fecal artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590229	pschloss	sample104	sample104	SRR1590229	Fecal artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590337	pschloss	sample11	sample11	SRR1590337	Fresh	Sick	female	25	0
+pschloss_SRR1590435	pschloss	sample12	sample12	SRR1590435	Fresh	Sick	NA	NA	0
+pschloss_SRR1590440	pschloss	sample12	sample12	SRR1590440	Fresh	Sick	NA	NA	0
+pschloss_SRR1590522	pschloss	sample13	sample13	SRR1590522	Fresh	Healthy	female	2	0
+pschloss_SRR1590523	pschloss	sample13	sample13	SRR1590523	Fresh	Healthy	female	2	0
+pschloss_SRR1590529	pschloss	sample13	sample13	SRR1590529	Fresh	Healthy	female	2	0
+pschloss_SRR1590587	pschloss	sample14	sample14	SRR1590587	Fresh	Healthy	female	2	0
+pschloss_SRR1590669	pschloss	sample2	sample2	SRR1590669	Fresh	Sick	NA	NA	0
+pschloss_SRR1590670	pschloss	sample2	sample2	SRR1590670	Fresh	Sick	NA	NA	0
+pschloss_SRR1590673	pschloss	sample2	sample2	SRR1590673	Fresh	Sick	NA	NA	0
+pschloss_SRR1590674	pschloss	sample2	sample2	SRR1590674	Fresh	Sick	NA	NA	0
+pschloss_SRR1590680	pschloss	sample2	sample2	SRR1590680	Fresh	Sick	NA	NA	0
+pschloss_SRR1590739	pschloss	sample3	sample3	SRR1590739	Fresh	Sick	female	25	0
+pschloss_SRR1590825	pschloss	sample4	sample4	SRR1590825	Fresh	Healthy	male	36	0
+pschloss_SRR1590829	pschloss	sample4	sample4	SRR1590829	Fresh	Healthy	male	36	0
+pschloss_SRR1590830	pschloss	sample4	sample4	SRR1590830	Fresh	Healthy	male	36	0
+pschloss_SRR1590832	pschloss	sample4	sample4	SRR1590832	Fresh	Healthy	male	36	0
+pschloss_SRR1590833	pschloss	sample4	sample4	SRR1590833	Fresh	Healthy	male	36	0
+pschloss_SRR1590935	pschloss	sample55	sample55	SRR1590935	Freeze-dried	Sick	male	70	0
+pschloss_SRR1590937	pschloss	sample55	sample55	SRR1590937	Freeze-dried	Sick	male	70	0
+pschloss_SRR1590948	pschloss	sample55	sample55	SRR1590948	Freeze-dried	Sick	male	70	0
+pschloss_SRR1591054	pschloss	sample56	sample56	SRR1591054	Freeze-dried	Sick	male	65	0
+pschloss_SRR1591056	pschloss	sample56	sample56	SRR1591056	Freeze-dried	Sick	male	65	0
+pschloss_SRR1591057	pschloss	sample56	sample56	SRR1591057	Freeze-dried	Sick	male	65	0
+pschloss_SRR1591059	pschloss	sample56	sample56	SRR1591059	Freeze-dried	Sick	male	65	0
+pschloss_SRR1591060	pschloss	sample56	sample56	SRR1591060	Freeze-dried	Sick	male	65	0
+pschloss_SRR1591130	pschloss	sample57	sample57	SRR1591130	Freeze-dried	Sick	male	64	0
+pschloss_SRR1591131	pschloss	sample57	sample57	SRR1591131	Freeze-dried	Sick	male	64	0
+pschloss_SRR1591207	pschloss	sample59	sample59	SRR1591207	Freeze-dried	Sick	male	50	0
+pschloss_SRR1591210	pschloss	sample59	sample59	SRR1591210	Freeze-dried	Sick	male	50	0
+pschloss_SRR1591218	pschloss	sample59	sample59	SRR1591218	Freeze-dried	Sick	male	50	0
+pschloss_SRR1591220	pschloss	sample59	sample59	SRR1591220	Freeze-dried	Sick	male	50	0
+pschloss_SRR1591306	pschloss	sample6	sample6	SRR1591306	Fresh	Healthy	male	37	0
+pschloss_SRR1591307	pschloss	sample6	sample6	SRR1591307	Fresh	Healthy	male	37	0
+pschloss_SRR1591311	pschloss	sample6	sample6	SRR1591311	Fresh	Healthy	male	37	0
+pschloss_SRR1591401	pschloss	sample61	sample61	SRR1591401	Freeze-dried	Sick	male	67	0
+pschloss_SRR1591404	pschloss	sample61	sample61	SRR1591404	Freeze-dried	Sick	male	67	0
+pschloss_SRR1591501	pschloss	sample63	sample63	SRR1591501	Freeze-dried	Sick	male	30	0
+pschloss_SRR1591504	pschloss	sample63	sample63	SRR1591504	Freeze-dried	Sick	male	30	0
+pschloss_SRR1591508	pschloss	sample63	sample63	SRR1591508	Freeze-dried	Sick	male	30	0
+pschloss_SRR1591610	pschloss	sample64	sample64	SRR1591610	Freeze-dried	Sick	male	56	0
+pschloss_SRR1591704	pschloss	sample8	sample8	SRR1591704	Fresh	Sick	NA	NA	0
+pschloss_SRR1591705	pschloss	sample8	sample8	SRR1591705	Fresh	Sick	NA	NA	0
+pschloss_SRR1591711	pschloss	sample8	sample8	SRR1591711	Fresh	Sick	NA	NA	0
+pschloss_SRR1591716	pschloss	sample8	sample8	SRR1591716	Fresh	Sick	NA	NA	0
+pschloss_SRR1591806	pschloss	sample9	sample9	SRR1591806	Fresh	Sick	NA	NA	0
+pschloss_SRR1591809	pschloss	sample9	sample9	SRR1591809	Fresh	Sick	NA	NA	0
+pschloss_SRR1589750	pschloss	sample10	sample10	SRR1589750	Fresh	Sick	female	40	0
+pschloss_SRR1589754	pschloss	sample10	sample10	SRR1589754	Fresh	Sick	female	40	0
+pschloss_SRR1589841	pschloss	sample101	sample101	SRR1589841	Robogut (time 1)	Healthy	male	25	0
+pschloss_SRR1589843	pschloss	sample101	sample101	SRR1589843	Robogut (time 1)	Healthy	male	25	0
+pschloss_SRR1589845	pschloss	sample101	sample101	SRR1589845	Robogut (time 1)	Healthy	male	25	0
+pschloss_SRR1589961	pschloss	sample102	sample102	SRR1589961	Robogut (time 2)	Healthy	male	25	0
+pschloss_SRR1589963	pschloss	sample102	sample102	SRR1589963	Robogut (time 2)	Healthy	male	25	0
+pschloss_SRR1590091	pschloss	sample103	sample103	SRR1590091	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590222	pschloss	sample104	sample104	SRR1590222	Fecal artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590224	pschloss	sample104	sample104	SRR1590224	Fecal artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590227	pschloss	sample104	sample104	SRR1590227	Fecal artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590230	pschloss	sample104	sample104	SRR1590230	Fecal artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590336	pschloss	sample11	sample11	SRR1590336	Fresh	Sick	female	25	0
+pschloss_SRR1590339	pschloss	sample11	sample11	SRR1590339	Fresh	Sick	female	25	0
+pschloss_SRR1590340	pschloss	sample11	sample11	SRR1590340	Fresh	Sick	female	25	0
+pschloss_SRR1590342	pschloss	sample11	sample11	SRR1590342	Fresh	Sick	female	25	0
+pschloss_SRR1590347	pschloss	sample11	sample11	SRR1590347	Fresh	Sick	female	25	0
+pschloss_SRR1590433	pschloss	sample12	sample12	SRR1590433	Fresh	Sick	NA	NA	0
+pschloss_SRR1590438	pschloss	sample12	sample12	SRR1590438	Fresh	Sick	NA	NA	0
+pschloss_SRR1590441	pschloss	sample12	sample12	SRR1590441	Fresh	Sick	NA	NA	0
+pschloss_SRR1590518	pschloss	sample13	sample13	SRR1590518	Fresh	Healthy	female	2	0
+pschloss_SRR1590525	pschloss	sample13	sample13	SRR1590525	Fresh	Healthy	female	2	0
+pschloss_SRR1590584	pschloss	sample14	sample14	SRR1590584	Fresh	Healthy	female	2	0
+pschloss_SRR1590667	pschloss	sample2	sample2	SRR1590667	Fresh	Sick	NA	NA	0
+pschloss_SRR1590671	pschloss	sample2	sample2	SRR1590671	Fresh	Sick	NA	NA	0
+pschloss_SRR1590676	pschloss	sample2	sample2	SRR1590676	Fresh	Sick	NA	NA	0
+pschloss_SRR1590740	pschloss	sample3	sample3	SRR1590740	Fresh	Sick	female	25	0
+pschloss_SRR1590741	pschloss	sample3	sample3	SRR1590741	Fresh	Sick	female	25	0
+pschloss_SRR1590821	pschloss	sample4	sample4	SRR1590821	Fresh	Healthy	male	36	0
+pschloss_SRR1590827	pschloss	sample4	sample4	SRR1590827	Fresh	Healthy	male	36	0
+pschloss_SRR1590831	pschloss	sample4	sample4	SRR1590831	Fresh	Healthy	male	36	0
+pschloss_SRR1590946	pschloss	sample55	sample55	SRR1590946	Freeze-dried	Sick	male	70	0
+pschloss_SRR1591051	pschloss	sample56	sample56	SRR1591051	Freeze-dried	Sick	male	65	0
+pschloss_SRR1591055	pschloss	sample56	sample56	SRR1591055	Freeze-dried	Sick	male	65	0
+pschloss_SRR1591064	pschloss	sample56	sample56	SRR1591064	Freeze-dried	Sick	male	65	0
+pschloss_SRR1591128	pschloss	sample57	sample57	SRR1591128	Freeze-dried	Sick	male	64	0
+pschloss_SRR1591132	pschloss	sample57	sample57	SRR1591132	Freeze-dried	Sick	male	64	0
+pschloss_SRR1591211	pschloss	sample59	sample59	SRR1591211	Freeze-dried	Sick	male	50	0
+pschloss_SRR1591213	pschloss	sample59	sample59	SRR1591213	Freeze-dried	Sick	male	50	0
+pschloss_SRR1591215	pschloss	sample59	sample59	SRR1591215	Freeze-dried	Sick	male	50	0
+pschloss_SRR1591217	pschloss	sample59	sample59	SRR1591217	Freeze-dried	Sick	male	50	0
+pschloss_SRR1591305	pschloss	sample6	sample6	SRR1591305	Fresh	Healthy	male	37	0
+pschloss_SRR1591308	pschloss	sample6	sample6	SRR1591308	Fresh	Healthy	male	37	0
+pschloss_SRR1591312	pschloss	sample6	sample6	SRR1591312	Fresh	Healthy	male	37	0
+pschloss_SRR1591397	pschloss	sample61	sample61	SRR1591397	Freeze-dried	Sick	male	67	0
+pschloss_SRR1591398	pschloss	sample61	sample61	SRR1591398	Freeze-dried	Sick	male	67	0
+pschloss_SRR1591399	pschloss	sample61	sample61	SRR1591399	Freeze-dried	Sick	male	67	0
+pschloss_SRR1591402	pschloss	sample61	sample61	SRR1591402	Freeze-dried	Sick	male	67	0
+pschloss_SRR1591505	pschloss	sample63	sample63	SRR1591505	Freeze-dried	Sick	male	30	0
+pschloss_SRR1591509	pschloss	sample63	sample63	SRR1591509	Freeze-dried	Sick	male	30	0
+pschloss_SRR1591511	pschloss	sample63	sample63	SRR1591511	Freeze-dried	Sick	male	30	0
+pschloss_SRR1591513	pschloss	sample63	sample63	SRR1591513	Freeze-dried	Sick	male	30	0
+pschloss_SRR1591601	pschloss	sample64	sample64	SRR1591601	Freeze-dried	Sick	male	56	0
+pschloss_SRR1591606	pschloss	sample64	sample64	SRR1591606	Freeze-dried	Sick	male	56	0
+pschloss_SRR1591607	pschloss	sample64	sample64	SRR1591607	Freeze-dried	Sick	male	56	0
+pschloss_SRR1591707	pschloss	sample8	sample8	SRR1591707	Fresh	Sick	NA	NA	0
+pschloss_SRR1591713	pschloss	sample8	sample8	SRR1591713	Fresh	Sick	NA	NA	0
+pschloss_SRR1591718	pschloss	sample8	sample8	SRR1591718	Fresh	Sick	NA	NA	0
+pschloss_SRR1591804	pschloss	sample9	sample9	SRR1591804	Fresh	Sick	NA	NA	0
+pschloss_SRR1591805	pschloss	sample9	sample9	SRR1591805	Fresh	Sick	NA	NA	0
+pschloss_SRR1591807	pschloss	sample9	sample9	SRR1591807	Fresh	Sick	NA	NA	0
+pschloss_SRR1591810	pschloss	sample9	sample9	SRR1591810	Fresh	Sick	NA	NA	0
+pschloss_SRR1591813	pschloss	sample9	sample9	SRR1591813	Fresh	Sick	NA	NA	0
+pschloss_SRR1589752	pschloss	sample10	sample10	SRR1589752	Fresh	Sick	female	40	0
+pschloss_SRR1589753	pschloss	sample10	sample10	SRR1589753	Fresh	Sick	female	40	0
+pschloss_SRR1589839	pschloss	sample101	sample101	SRR1589839	Robogut (time 1)	Healthy	male	25	0
+pschloss_SRR1589844	pschloss	sample101	sample101	SRR1589844	Robogut (time 1)	Healthy	male	25	0
+pschloss_SRR1589849	pschloss	sample101	sample101	SRR1589849	Robogut (time 1)	Healthy	male	25	0
+pschloss_SRR1589852	pschloss	sample101	sample101	SRR1589852	Robogut (time 1)	Healthy	male	25	0
+pschloss_SRR1589956	pschloss	sample102	sample102	SRR1589956	Robogut (time 2)	Healthy	male	25	0
+pschloss_SRR1589960	pschloss	sample102	sample102	SRR1589960	Robogut (time 2)	Healthy	male	25	0
+pschloss_SRR1589964	pschloss	sample102	sample102	SRR1589964	Robogut (time 2)	Healthy	male	25	0
+pschloss_SRR1590078	pschloss	sample103	sample103	SRR1590078	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590079	pschloss	sample103	sample103	SRR1590079	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590093	pschloss	sample103	sample103	SRR1590093	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590095	pschloss	sample103	sample103	SRR1590095	Oral artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590216	pschloss	sample104	sample104	SRR1590216	Fecal artificial colony	Healthy	NA	NA	1
+pschloss_SRR1590348	pschloss	sample11	sample11	SRR1590348	Fresh	Sick	female	25	0
+pschloss_SRR1590430	pschloss	sample12	sample12	SRR1590430	Fresh	Sick	NA	NA	0
+pschloss_SRR1590437	pschloss	sample12	sample12	SRR1590437	Fresh	Sick	NA	NA	0
+pschloss_SRR1590439	pschloss	sample12	sample12	SRR1590439	Fresh	Sick	NA	NA	0
+pschloss_SRR1590519	pschloss	sample13	sample13	SRR1590519	Fresh	Healthy	female	2	0
+pschloss_SRR1590528	pschloss	sample13	sample13	SRR1590528	Fresh	Healthy	female	2	0
+pschloss_SRR1590585	pschloss	sample14	sample14	SRR1590585	Fresh	Healthy	female	2	0
+pschloss_SRR1590588	pschloss	sample14	sample14	SRR1590588	Fresh	Healthy	female	2	0
+pschloss_SRR1590679	pschloss	sample2	sample2	SRR1590679	Fresh	Sick	NA	NA	0
+pschloss_SRR1590743	pschloss	sample3	sample3	SRR1590743	Fresh	Sick	female	25	0
+pschloss_SRR1590823	pschloss	sample4	sample4	SRR1590823	Fresh	Healthy	male	36	0
+pschloss_SRR1590826	pschloss	sample4	sample4	SRR1590826	Fresh	Healthy	male	36	0
+pschloss_SRR1590834	pschloss	sample4	sample4	SRR1590834	Fresh	Healthy	male	36	0
+pschloss_SRR1590941	pschloss	sample55	sample55	SRR1590941	Freeze-dried	Sick	male	70	0
+pschloss_SRR1591050	pschloss	sample56	sample56	SRR1591050	Freeze-dried	Sick	male	65	0
+pschloss_SRR1591052	pschloss	sample56	sample56	SRR1591052	Freeze-dried	Sick	male	65	0
+pschloss_SRR1591062	pschloss	sample56	sample56	SRR1591062	Freeze-dried	Sick	male	65	0
+pschloss_SRR1591063	pschloss	sample56	sample56	SRR1591063	Freeze-dried	Sick	male	65	0
+pschloss_SRR1591209	pschloss	sample59	sample59	SRR1591209	Freeze-dried	Sick	male	50	0
+pschloss_SRR1591212	pschloss	sample59	sample59	SRR1591212	Freeze-dried	Sick	male	50	0
+pschloss_SRR1591214	pschloss	sample59	sample59	SRR1591214	Freeze-dried	Sick	male	50	0
+pschloss_SRR1591216	pschloss	sample59	sample59	SRR1591216	Freeze-dried	Sick	male	50	0
+pschloss_SRR1591219	pschloss	sample59	sample59	SRR1591219	Freeze-dried	Sick	male	50	0
+pschloss_SRR1591310	pschloss	sample6	sample6	SRR1591310	Fresh	Healthy	male	37	0
+pschloss_SRR1591396	pschloss	sample61	sample61	SRR1591396	Freeze-dried	Sick	male	67	0
+pschloss_SRR1591403	pschloss	sample61	sample61	SRR1591403	Freeze-dried	Sick	male	67	0
+pschloss_SRR1591407	pschloss	sample61	sample61	SRR1591407	Freeze-dried	Sick	male	67	0
+pschloss_SRR1591500	pschloss	sample63	sample63	SRR1591500	Freeze-dried	Sick	male	30	0
+pschloss_SRR1591507	pschloss	sample63	sample63	SRR1591507	Freeze-dried	Sick	male	30	0
+pschloss_SRR1591510	pschloss	sample63	sample63	SRR1591510	Freeze-dried	Sick	male	30	0
+pschloss_SRR1591603	pschloss	sample64	sample64	SRR1591603	Freeze-dried	Sick	male	56	0
+pschloss_SRR1591605	pschloss	sample64	sample64	SRR1591605	Freeze-dried	Sick	male	56	0
+pturnbaugh_SRR1589756	pturnbaugh	sample10	sample10	SRR1589756	Fresh	Sick	female	40	0
+pturnbaugh_SRR1589853	pturnbaugh	sample101	sample101	SRR1589853	Robogut (time 1)	Healthy	male	25	0
+pturnbaugh_SRR1590233	pturnbaugh	sample104	sample104	SRR1590233	Fecal artificial colony	Healthy	NA	NA	1
+pturnbaugh_SRR1590234	pturnbaugh	sample104	sample104	SRR1590234	Fecal artificial colony	Healthy	NA	NA	1
+pturnbaugh_SRR1590351	pturnbaugh	sample11	sample11	SRR1590351	Fresh	Sick	female	25	0
+pturnbaugh_SRR1590352	pturnbaugh	sample11	sample11	SRR1590352	Fresh	Sick	female	25	0
+pturnbaugh_SRR1590442	pturnbaugh	sample12	sample12	SRR1590442	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1590532	pturnbaugh	sample13	sample13	SRR1590532	Fresh	Healthy	female	2	0
+pturnbaugh_SRR1590533	pturnbaugh	sample13	sample13	SRR1590533	Fresh	Healthy	female	2	0
+pturnbaugh_SRR1590685	pturnbaugh	sample2	sample2	SRR1590685	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1590746	pturnbaugh	sample3	sample3	SRR1590746	Fresh	Sick	female	25	0
+pturnbaugh_SRR1590838	pturnbaugh	sample4	sample4	SRR1590838	Fresh	Healthy	male	36	0
+pturnbaugh_SRR1590840	pturnbaugh	sample4	sample4	SRR1590840	Fresh	Healthy	male	36	0
+pturnbaugh_SRR1590952	pturnbaugh	sample55	sample55	SRR1590952	Freeze-dried	Sick	male	70	0
+pturnbaugh_SRR1591133	pturnbaugh	sample57	sample57	SRR1591133	Freeze-dried	Sick	male	64	0
+pturnbaugh_SRR1591222	pturnbaugh	sample59	sample59	SRR1591222	Freeze-dried	Sick	male	50	0
+pturnbaugh_SRR1591225	pturnbaugh	sample59	sample59	SRR1591225	Freeze-dried	Sick	male	50	0
+pturnbaugh_SRR1591408	pturnbaugh	sample61	sample61	SRR1591408	Freeze-dried	Sick	male	67	0
+pturnbaugh_SRR1591410	pturnbaugh	sample61	sample61	SRR1591410	Freeze-dried	Sick	male	67	0
+pturnbaugh_SRR1591514	pturnbaugh	sample63	sample63	SRR1591514	Freeze-dried	Sick	male	30	0
+pturnbaugh_SRR1591722	pturnbaugh	sample8	sample8	SRR1591722	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1591723	pturnbaugh	sample8	sample8	SRR1591723	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1591815	pturnbaugh	sample9	sample9	SRR1591815	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1591816	pturnbaugh	sample9	sample9	SRR1591816	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1589855	pturnbaugh	sample101	sample101	SRR1589855	Robogut (time 1)	Healthy	male	25	0
+pturnbaugh_SRR1590096	pturnbaugh	sample103	sample103	SRR1590096	Oral artificial colony	Healthy	NA	NA	1
+pturnbaugh_SRR1590098	pturnbaugh	sample103	sample103	SRR1590098	Oral artificial colony	Healthy	NA	NA	1
+pturnbaugh_SRR1590101	pturnbaugh	sample103	sample103	SRR1590101	Oral artificial colony	Healthy	NA	NA	1
+pturnbaugh_SRR1590236	pturnbaugh	sample104	sample104	SRR1590236	Fecal artificial colony	Healthy	NA	NA	1
+pturnbaugh_SRR1590445	pturnbaugh	sample12	sample12	SRR1590445	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1590530	pturnbaugh	sample13	sample13	SRR1590530	Fresh	Healthy	female	2	0
+pturnbaugh_SRR1590590	pturnbaugh	sample14	sample14	SRR1590590	Fresh	Healthy	female	2	0
+pturnbaugh_SRR1590682	pturnbaugh	sample2	sample2	SRR1590682	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1590684	pturnbaugh	sample2	sample2	SRR1590684	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1590836	pturnbaugh	sample4	sample4	SRR1590836	Fresh	Healthy	male	36	0
+pturnbaugh_SRR1590837	pturnbaugh	sample4	sample4	SRR1590837	Fresh	Healthy	male	36	0
+pturnbaugh_SRR1590839	pturnbaugh	sample4	sample4	SRR1590839	Fresh	Healthy	male	36	0
+pturnbaugh_SRR1591066	pturnbaugh	sample56	sample56	SRR1591066	Freeze-dried	Sick	male	65	0
+pturnbaugh_SRR1591067	pturnbaugh	sample56	sample56	SRR1591067	Freeze-dried	Sick	male	65	0
+pturnbaugh_SRR1591221	pturnbaugh	sample59	sample59	SRR1591221	Freeze-dried	Sick	male	50	0
+pturnbaugh_SRR1591320	pturnbaugh	sample6	sample6	SRR1591320	Fresh	Healthy	male	37	0
+pturnbaugh_SRR1591411	pturnbaugh	sample61	sample61	SRR1591411	Freeze-dried	Sick	male	67	0
+pturnbaugh_SRR1591614	pturnbaugh	sample64	sample64	SRR1591614	Freeze-dried	Sick	male	56	0
+pturnbaugh_SRR1591720	pturnbaugh	sample8	sample8	SRR1591720	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1591721	pturnbaugh	sample8	sample8	SRR1591721	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1591817	pturnbaugh	sample9	sample9	SRR1591817	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1590100	pturnbaugh	sample103	sample103	SRR1590100	Oral artificial colony	Healthy	NA	NA	1
+pturnbaugh_SRR1590235	pturnbaugh	sample104	sample104	SRR1590235	Fecal artificial colony	Healthy	NA	NA	1
+pturnbaugh_SRR1590354	pturnbaugh	sample11	sample11	SRR1590354	Fresh	Sick	female	25	0
+pturnbaugh_SRR1590531	pturnbaugh	sample13	sample13	SRR1590531	Fresh	Healthy	female	2	0
+pturnbaugh_SRR1590745	pturnbaugh	sample3	sample3	SRR1590745	Fresh	Sick	female	25	0
+pturnbaugh_SRR1591068	pturnbaugh	sample56	sample56	SRR1591068	Freeze-dried	Sick	male	65	0
+pturnbaugh_SRR1591224	pturnbaugh	sample59	sample59	SRR1591224	Freeze-dried	Sick	male	50	0
+pturnbaugh_SRR1591515	pturnbaugh	sample63	sample63	SRR1591515	Freeze-dried	Sick	male	30	0
+pturnbaugh_SRR1591516	pturnbaugh	sample63	sample63	SRR1591516	Freeze-dried	Sick	male	30	0
+pturnbaugh_SRR1591518	pturnbaugh	sample63	sample63	SRR1591518	Freeze-dried	Sick	male	30	0
+pturnbaugh_SRR1591612	pturnbaugh	sample64	sample64	SRR1591612	Freeze-dried	Sick	male	56	0
+pturnbaugh_SRR1591814	pturnbaugh	sample9	sample9	SRR1591814	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1589856	pturnbaugh	sample101	sample101	SRR1589856	Robogut (time 1)	Healthy	male	25	0
+pturnbaugh_SRR1589857	pturnbaugh	sample101	sample101	SRR1589857	Robogut (time 1)	Healthy	male	25	0
+pturnbaugh_SRR1589966	pturnbaugh	sample102	sample102	SRR1589966	Robogut (time 2)	Healthy	male	25	0
+pturnbaugh_SRR1589968	pturnbaugh	sample102	sample102	SRR1589968	Robogut (time 2)	Healthy	male	25	0
+pturnbaugh_SRR1589969	pturnbaugh	sample102	sample102	SRR1589969	Robogut (time 2)	Healthy	male	25	0
+pturnbaugh_SRR1590097	pturnbaugh	sample103	sample103	SRR1590097	Oral artificial colony	Healthy	NA	NA	1
+pturnbaugh_SRR1590238	pturnbaugh	sample104	sample104	SRR1590238	Fecal artificial colony	Healthy	NA	NA	1
+pturnbaugh_SRR1590444	pturnbaugh	sample12	sample12	SRR1590444	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1590681	pturnbaugh	sample2	sample2	SRR1590681	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1590954	pturnbaugh	sample55	sample55	SRR1590954	Freeze-dried	Sick	male	70	0
+pturnbaugh_SRR1591065	pturnbaugh	sample56	sample56	SRR1591065	Freeze-dried	Sick	male	65	0
+pturnbaugh_SRR1591069	pturnbaugh	sample56	sample56	SRR1591069	Freeze-dried	Sick	male	65	0
+pturnbaugh_SRR1591134	pturnbaugh	sample57	sample57	SRR1591134	Freeze-dried	Sick	male	64	0
+pturnbaugh_SRR1591517	pturnbaugh	sample63	sample63	SRR1591517	Freeze-dried	Sick	male	30	0
+pturnbaugh_SRR1591613	pturnbaugh	sample64	sample64	SRR1591613	Freeze-dried	Sick	male	56	0
+pturnbaugh_SRR1591719	pturnbaugh	sample8	sample8	SRR1591719	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1589757	pturnbaugh	sample10	sample10	SRR1589757	Fresh	Sick	female	40	0
+pturnbaugh_SRR1589854	pturnbaugh	sample101	sample101	SRR1589854	Robogut (time 1)	Healthy	male	25	0
+pturnbaugh_SRR1589967	pturnbaugh	sample102	sample102	SRR1589967	Robogut (time 2)	Healthy	male	25	0
+pturnbaugh_SRR1589970	pturnbaugh	sample102	sample102	SRR1589970	Robogut (time 2)	Healthy	male	25	0
+pturnbaugh_SRR1590099	pturnbaugh	sample103	sample103	SRR1590099	Oral artificial colony	Healthy	NA	NA	1
+pturnbaugh_SRR1590350	pturnbaugh	sample11	sample11	SRR1590350	Fresh	Sick	female	25	0
+pturnbaugh_SRR1590353	pturnbaugh	sample11	sample11	SRR1590353	Fresh	Sick	female	25	0
+pturnbaugh_SRR1590443	pturnbaugh	sample12	sample12	SRR1590443	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1590589	pturnbaugh	sample14	sample14	SRR1590589	Fresh	Healthy	female	2	0
+pturnbaugh_SRR1590683	pturnbaugh	sample2	sample2	SRR1590683	Fresh	Sick	NA	NA	0
+pturnbaugh_SRR1590951	pturnbaugh	sample55	sample55	SRR1590951	Freeze-dried	Sick	male	70	0
+pturnbaugh_SRR1590953	pturnbaugh	sample55	sample55	SRR1590953	Freeze-dried	Sick	male	70	0
+pturnbaugh_SRR1591223	pturnbaugh	sample59	sample59	SRR1591223	Freeze-dried	Sick	male	50	0
+pturnbaugh_SRR1591317	pturnbaugh	sample6	sample6	SRR1591317	Fresh	Healthy	male	37	0
+pturnbaugh_SRR1591318	pturnbaugh	sample6	sample6	SRR1591318	Fresh	Healthy	male	37	0
+pturnbaugh_SRR1591319	pturnbaugh	sample6	sample6	SRR1591319	Fresh	Healthy	male	37	0
+pturnbaugh_SRR1591409	pturnbaugh	sample61	sample61	SRR1591409	Freeze-dried	Sick	male	67	0
+pturnbaugh_SRR1591615	pturnbaugh	sample64	sample64	SRR1591615	Freeze-dried	Sick	male	56	0
+rburk_SRR1589758	rburk	sample10	sample10	SRR1589758	Fresh	Sick	female	40	0
+rburk_SRR1589972	rburk	sample102	sample102	SRR1589972	Robogut (time 2)	Healthy	male	25	0
+rburk_SRR1590107	rburk	sample103	sample103	SRR1590107	Oral artificial colony	Healthy	NA	NA	1
+rburk_SRR1590239	rburk	sample104	sample104	SRR1590239	Fecal artificial colony	Healthy	NA	NA	1
+rburk_SRR1590243	rburk	sample104	sample104	SRR1590243	Fecal artificial colony	Healthy	NA	NA	1
+rburk_SRR1590244	rburk	sample104	sample104	SRR1590244	Fecal artificial colony	Healthy	NA	NA	1
+rburk_SRR1590355	rburk	sample11	sample11	SRR1590355	Fresh	Sick	female	25	0
+rburk_SRR1590447	rburk	sample12	sample12	SRR1590447	Fresh	Sick	NA	NA	0
+rburk_SRR1590448	rburk	sample12	sample12	SRR1590448	Fresh	Sick	NA	NA	0
+rburk_SRR1590688	rburk	sample2	sample2	SRR1590688	Fresh	Sick	NA	NA	0
+rburk_SRR1590956	rburk	sample55	sample55	SRR1590956	Freeze-dried	Sick	male	70	0
+rburk_SRR1590958	rburk	sample55	sample55	SRR1590958	Freeze-dried	Sick	male	70	0
+rburk_SRR1591322	rburk	sample6	sample6	SRR1591322	Fresh	Healthy	male	37	0
+rburk_SRR1591520	rburk	sample63	sample63	SRR1591520	Freeze-dried	Sick	male	30	0
+rburk_SRR1591523	rburk	sample63	sample63	SRR1591523	Freeze-dried	Sick	male	30	0
+rburk_SRR1591819	rburk	sample9	sample9	SRR1591819	Fresh	Sick	NA	NA	0
+rburk_SRR1589759	rburk	sample10	sample10	SRR1589759	Fresh	Sick	female	40	0
+rburk_SRR1589974	rburk	sample102	sample102	SRR1589974	Robogut (time 2)	Healthy	male	25	0
+rburk_SRR1590105	rburk	sample103	sample103	SRR1590105	Oral artificial colony	Healthy	NA	NA	1
+rburk_SRR1590106	rburk	sample103	sample103	SRR1590106	Oral artificial colony	Healthy	NA	NA	1
+rburk_SRR1590242	rburk	sample104	sample104	SRR1590242	Fecal artificial colony	Healthy	NA	NA	1
+rburk_SRR1590356	rburk	sample11	sample11	SRR1590356	Fresh	Sick	female	25	0
+rburk_SRR1590534	rburk	sample13	sample13	SRR1590534	Fresh	Healthy	female	2	0
+rburk_SRR1590536	rburk	sample13	sample13	SRR1590536	Fresh	Healthy	female	2	0
+rburk_SRR1590537	rburk	sample13	sample13	SRR1590537	Fresh	Healthy	female	2	0
+rburk_SRR1590592	rburk	sample14	sample14	SRR1590592	Fresh	Healthy	female	2	0
+rburk_SRR1590687	rburk	sample2	sample2	SRR1590687	Fresh	Sick	NA	NA	0
+rburk_SRR1590748	rburk	sample3	sample3	SRR1590748	Fresh	Sick	female	25	0
+rburk_SRR1591071	rburk	sample56	sample56	SRR1591071	Freeze-dried	Sick	male	65	0
+rburk_SRR1591226	rburk	sample59	sample59	SRR1591226	Freeze-dried	Sick	male	50	0
+rburk_SRR1591727	rburk	sample8	sample8	SRR1591727	Fresh	Sick	NA	NA	0
+rburk_SRR1589858	rburk	sample101	sample101	SRR1589858	Robogut (time 1)	Healthy	male	25	0
+rburk_SRR1589859	rburk	sample101	sample101	SRR1589859	Robogut (time 1)	Healthy	male	25	0
+rburk_SRR1589862	rburk	sample101	sample101	SRR1589862	Robogut (time 1)	Healthy	male	25	0
+rburk_SRR1589973	rburk	sample102	sample102	SRR1589973	Robogut (time 2)	Healthy	male	25	0
+rburk_SRR1590102	rburk	sample103	sample103	SRR1590102	Oral artificial colony	Healthy	NA	NA	1
+rburk_SRR1590103	rburk	sample103	sample103	SRR1590103	Oral artificial colony	Healthy	NA	NA	1
+rburk_SRR1590357	rburk	sample11	sample11	SRR1590357	Fresh	Sick	female	25	0
+rburk_SRR1590591	rburk	sample14	sample14	SRR1590591	Fresh	Healthy	female	2	0
+rburk_SRR1590841	rburk	sample4	sample4	SRR1590841	Fresh	Healthy	male	36	0
+rburk_SRR1590843	rburk	sample4	sample4	SRR1590843	Fresh	Healthy	male	36	0
+rburk_SRR1590955	rburk	sample55	sample55	SRR1590955	Freeze-dried	Sick	male	70	0
+rburk_SRR1590959	rburk	sample55	sample55	SRR1590959	Freeze-dried	Sick	male	70	0
+rburk_SRR1591229	rburk	sample59	sample59	SRR1591229	Freeze-dried	Sick	male	50	0
+rburk_SRR1591230	rburk	sample59	sample59	SRR1591230	Freeze-dried	Sick	male	50	0
+rburk_SRR1591324	rburk	sample6	sample6	SRR1591324	Fresh	Healthy	male	37	0
+rburk_SRR1591415	rburk	sample61	sample61	SRR1591415	Freeze-dried	Sick	male	67	0
+rburk_SRR1591616	rburk	sample64	sample64	SRR1591616	Freeze-dried	Sick	male	56	0
+rburk_SRR1591617	rburk	sample64	sample64	SRR1591617	Freeze-dried	Sick	male	56	0
+rburk_SRR1591724	rburk	sample8	sample8	SRR1591724	Fresh	Sick	NA	NA	0
+rburk_SRR1591725	rburk	sample8	sample8	SRR1591725	Fresh	Sick	NA	NA	0
+rburk_SRR1591726	rburk	sample8	sample8	SRR1591726	Fresh	Sick	NA	NA	0
+rburk_SRR1591728	rburk	sample8	sample8	SRR1591728	Fresh	Sick	NA	NA	0
+rburk_SRR1591818	rburk	sample9	sample9	SRR1591818	Fresh	Sick	NA	NA	0
+rburk_SRR1589860	rburk	sample101	sample101	SRR1589860	Robogut (time 1)	Healthy	male	25	0
+rburk_SRR1589861	rburk	sample101	sample101	SRR1589861	Robogut (time 1)	Healthy	male	25	0
+rburk_SRR1590449	rburk	sample12	sample12	SRR1590449	Fresh	Sick	NA	NA	0
+rburk_SRR1590535	rburk	sample13	sample13	SRR1590535	Fresh	Healthy	female	2	0
+rburk_SRR1590686	rburk	sample2	sample2	SRR1590686	Fresh	Sick	NA	NA	0
+rburk_SRR1590690	rburk	sample2	sample2	SRR1590690	Fresh	Sick	NA	NA	0
+rburk_SRR1590845	rburk	sample4	sample4	SRR1590845	Fresh	Healthy	male	36	0
+rburk_SRR1591072	rburk	sample56	sample56	SRR1591072	Freeze-dried	Sick	male	65	0
+rburk_SRR1591074	rburk	sample56	sample56	SRR1591074	Freeze-dried	Sick	male	65	0
+rburk_SRR1591135	rburk	sample57	sample57	SRR1591135	Freeze-dried	Sick	male	64	0
+rburk_SRR1591136	rburk	sample57	sample57	SRR1591136	Freeze-dried	Sick	male	64	0
+rburk_SRR1591227	rburk	sample59	sample59	SRR1591227	Freeze-dried	Sick	male	50	0
+rburk_SRR1591228	rburk	sample59	sample59	SRR1591228	Freeze-dried	Sick	male	50	0
+rburk_SRR1591413	rburk	sample61	sample61	SRR1591413	Freeze-dried	Sick	male	67	0
+rburk_SRR1591521	rburk	sample63	sample63	SRR1591521	Freeze-dried	Sick	male	30	0
+rburk_SRR1591522	rburk	sample63	sample63	SRR1591522	Freeze-dried	Sick	male	30	0
+rburk_SRR1591618	rburk	sample64	sample64	SRR1591618	Freeze-dried	Sick	male	56	0
+rburk_SRR1591619	rburk	sample64	sample64	SRR1591619	Freeze-dried	Sick	male	56	0
+rburk_SRR1591821	rburk	sample9	sample9	SRR1591821	Fresh	Sick	NA	NA	0
+rburk_SRR1589971	rburk	sample102	sample102	SRR1589971	Robogut (time 2)	Healthy	male	25	0
+rburk_SRR1589975	rburk	sample102	sample102	SRR1589975	Robogut (time 2)	Healthy	male	25	0
+rburk_SRR1590104	rburk	sample103	sample103	SRR1590104	Oral artificial colony	Healthy	NA	NA	1
+rburk_SRR1590240	rburk	sample104	sample104	SRR1590240	Fecal artificial colony	Healthy	NA	NA	1
+rburk_SRR1590358	rburk	sample11	sample11	SRR1590358	Fresh	Sick	female	25	0
+rburk_SRR1590359	rburk	sample11	sample11	SRR1590359	Fresh	Sick	female	25	0
+rburk_SRR1590446	rburk	sample12	sample12	SRR1590446	Fresh	Sick	NA	NA	0
+rburk_SRR1590689	rburk	sample2	sample2	SRR1590689	Fresh	Sick	NA	NA	0
+rburk_SRR1590747	rburk	sample3	sample3	SRR1590747	Fresh	Sick	female	25	0
+rburk_SRR1590842	rburk	sample4	sample4	SRR1590842	Fresh	Healthy	male	36	0
+rburk_SRR1590844	rburk	sample4	sample4	SRR1590844	Fresh	Healthy	male	36	0
+rburk_SRR1590957	rburk	sample55	sample55	SRR1590957	Freeze-dried	Sick	male	70	0
+rburk_SRR1591073	rburk	sample56	sample56	SRR1591073	Freeze-dried	Sick	male	65	0
+rburk_SRR1591412	rburk	sample61	sample61	SRR1591412	Freeze-dried	Sick	male	67	0
+rburk_SRR1591414	rburk	sample61	sample61	SRR1591414	Freeze-dried	Sick	male	67	0
+rburk_SRR1591519	rburk	sample63	sample63	SRR1591519	Freeze-dried	Sick	male	30	0
+rburk_SRR1591820	rburk	sample9	sample9	SRR1591820	Fresh	Sick	NA	NA	0
+rflores_SRR1589763	rflores	sample10	sample10	SRR1589763	Fresh	Sick	female	40	0
+rflores_SRR1589864	rflores	sample101	sample101	SRR1589864	Robogut (time 1)	Healthy	male	25	0
+rflores_SRR1589870	rflores	sample101	sample101	SRR1589870	Robogut (time 1)	Healthy	male	25	0
+rflores_SRR1589871	rflores	sample101	sample101	SRR1589871	Robogut (time 1)	Healthy	male	25	0
+rflores_SRR1589979	rflores	sample102	sample102	SRR1589979	Robogut (time 2)	Healthy	male	25	0
+rflores_SRR1590109	rflores	sample103	sample103	SRR1590109	Oral artificial colony	Healthy	NA	NA	1
+rflores_SRR1590112	rflores	sample103	sample103	SRR1590112	Oral artificial colony	Healthy	NA	NA	1
+rflores_SRR1590245	rflores	sample104	sample104	SRR1590245	Fecal artificial colony	Healthy	NA	NA	1
+rflores_SRR1590246	rflores	sample104	sample104	SRR1590246	Fecal artificial colony	Healthy	NA	NA	1
+rflores_SRR1590249	rflores	sample104	sample104	SRR1590249	Fecal artificial colony	Healthy	NA	NA	1
+rflores_SRR1590256	rflores	sample104	sample104	SRR1590256	Fecal artificial colony	Healthy	NA	NA	1
+rflores_SRR1590361	rflores	sample11	sample11	SRR1590361	Fresh	Sick	female	25	0
+rflores_SRR1590365	rflores	sample11	sample11	SRR1590365	Fresh	Sick	female	25	0
+rflores_SRR1590366	rflores	sample11	sample11	SRR1590366	Fresh	Sick	female	25	0
+rflores_SRR1590367	rflores	sample11	sample11	SRR1590367	Fresh	Sick	female	25	0
+rflores_SRR1590455	rflores	sample12	sample12	SRR1590455	Fresh	Sick	NA	NA	0
+rflores_SRR1590538	rflores	sample13	sample13	SRR1590538	Fresh	Healthy	female	2	0
+rflores_SRR1590540	rflores	sample13	sample13	SRR1590540	Fresh	Healthy	female	2	0
+rflores_SRR1590693	rflores	sample2	sample2	SRR1590693	Fresh	Sick	NA	NA	0
+rflores_SRR1590698	rflores	sample2	sample2	SRR1590698	Fresh	Sick	NA	NA	0
+rflores_SRR1590750	rflores	sample3	sample3	SRR1590750	Fresh	Sick	female	25	0
+rflores_SRR1590847	rflores	sample4	sample4	SRR1590847	Fresh	Healthy	male	36	0
+rflores_SRR1590848	rflores	sample4	sample4	SRR1590848	Fresh	Healthy	male	36	0
+rflores_SRR1590850	rflores	sample4	sample4	SRR1590850	Fresh	Healthy	male	36	0
+rflores_SRR1590960	rflores	sample55	sample55	SRR1590960	Freeze-dried	Sick	male	70	0
+rflores_SRR1590961	rflores	sample55	sample55	SRR1590961	Freeze-dried	Sick	male	70	0
+rflores_SRR1590962	rflores	sample55	sample55	SRR1590962	Freeze-dried	Sick	male	70	0
+rflores_SRR1591080	rflores	sample56	sample56	SRR1591080	Freeze-dried	Sick	male	65	0
+rflores_SRR1591084	rflores	sample56	sample56	SRR1591084	Freeze-dried	Sick	male	65	0
+rflores_SRR1591140	rflores	sample57	sample57	SRR1591140	Freeze-dried	Sick	male	64	0
+rflores_SRR1591236	rflores	sample59	sample59	SRR1591236	Freeze-dried	Sick	male	50	0
+rflores_SRR1591239	rflores	sample59	sample59	SRR1591239	Freeze-dried	Sick	male	50	0
+rflores_SRR1591326	rflores	sample6	sample6	SRR1591326	Fresh	Healthy	male	37	0
+rflores_SRR1591328	rflores	sample6	sample6	SRR1591328	Fresh	Healthy	male	37	0
+rflores_SRR1591420	rflores	sample61	sample61	SRR1591420	Freeze-dried	Sick	male	67	0
+rflores_SRR1591421	rflores	sample61	sample61	SRR1591421	Freeze-dried	Sick	male	67	0
+rflores_SRR1591531	rflores	sample63	sample63	SRR1591531	Freeze-dried	Sick	male	30	0
+rflores_SRR1591623	rflores	sample64	sample64	SRR1591623	Freeze-dried	Sick	male	56	0
+rflores_SRR1591829	rflores	sample9	sample9	SRR1591829	Fresh	Sick	NA	NA	0
+rflores_SRR1589760	rflores	sample10	sample10	SRR1589760	Fresh	Sick	female	40	0
+rflores_SRR1589866	rflores	sample101	sample101	SRR1589866	Robogut (time 1)	Healthy	male	25	0
+rflores_SRR1589869	rflores	sample101	sample101	SRR1589869	Robogut (time 1)	Healthy	male	25	0
+rflores_SRR1589977	rflores	sample102	sample102	SRR1589977	Robogut (time 2)	Healthy	male	25	0
+rflores_SRR1589984	rflores	sample102	sample102	SRR1589984	Robogut (time 2)	Healthy	male	25	0
+rflores_SRR1590111	rflores	sample103	sample103	SRR1590111	Oral artificial colony	Healthy	NA	NA	1
+rflores_SRR1590252	rflores	sample104	sample104	SRR1590252	Fecal artificial colony	Healthy	NA	NA	1
+rflores_SRR1590253	rflores	sample104	sample104	SRR1590253	Fecal artificial colony	Healthy	NA	NA	1
+rflores_SRR1590255	rflores	sample104	sample104	SRR1590255	Fecal artificial colony	Healthy	NA	NA	1
+rflores_SRR1590364	rflores	sample11	sample11	SRR1590364	Fresh	Sick	female	25	0
+rflores_SRR1590453	rflores	sample12	sample12	SRR1590453	Fresh	Sick	NA	NA	0
+rflores_SRR1590541	rflores	sample13	sample13	SRR1590541	Fresh	Healthy	female	2	0
+rflores_SRR1590544	rflores	sample13	sample13	SRR1590544	Fresh	Healthy	female	2	0
+rflores_SRR1590595	rflores	sample14	sample14	SRR1590595	Fresh	Healthy	female	2	0
+rflores_SRR1590849	rflores	sample4	sample4	SRR1590849	Fresh	Healthy	male	36	0
+rflores_SRR1590964	rflores	sample55	sample55	SRR1590964	Freeze-dried	Sick	male	70	0
+rflores_SRR1590969	rflores	sample55	sample55	SRR1590969	Freeze-dried	Sick	male	70	0
+rflores_SRR1591078	rflores	sample56	sample56	SRR1591078	Freeze-dried	Sick	male	65	0
+rflores_SRR1591079	rflores	sample56	sample56	SRR1591079	Freeze-dried	Sick	male	65	0
+rflores_SRR1591231	rflores	sample59	sample59	SRR1591231	Freeze-dried	Sick	male	50	0
+rflores_SRR1591232	rflores	sample59	sample59	SRR1591232	Freeze-dried	Sick	male	50	0
+rflores_SRR1591330	rflores	sample6	sample6	SRR1591330	Fresh	Healthy	male	37	0
+rflores_SRR1591417	rflores	sample61	sample61	SRR1591417	Freeze-dried	Sick	male	67	0
+rflores_SRR1591419	rflores	sample61	sample61	SRR1591419	Freeze-dried	Sick	male	67	0
+rflores_SRR1591525	rflores	sample63	sample63	SRR1591525	Freeze-dried	Sick	male	30	0
+rflores_SRR1591528	rflores	sample63	sample63	SRR1591528	Freeze-dried	Sick	male	30	0
+rflores_SRR1591533	rflores	sample63	sample63	SRR1591533	Freeze-dried	Sick	male	30	0
+rflores_SRR1591729	rflores	sample8	sample8	SRR1591729	Fresh	Sick	NA	NA	0
+rflores_SRR1591736	rflores	sample8	sample8	SRR1591736	Fresh	Sick	NA	NA	0
+rflores_SRR1591737	rflores	sample8	sample8	SRR1591737	Fresh	Sick	NA	NA	0
+rflores_SRR1591823	rflores	sample9	sample9	SRR1591823	Fresh	Sick	NA	NA	0
+rflores_SRR1591824	rflores	sample9	sample9	SRR1591824	Fresh	Sick	NA	NA	0
+rflores_SRR1591825	rflores	sample9	sample9	SRR1591825	Fresh	Sick	NA	NA	0
+rflores_SRR1589762	rflores	sample10	sample10	SRR1589762	Fresh	Sick	female	40	0
+rflores_SRR1589867	rflores	sample101	sample101	SRR1589867	Robogut (time 1)	Healthy	male	25	0
+rflores_SRR1589872	rflores	sample101	sample101	SRR1589872	Robogut (time 1)	Healthy	male	25	0
+rflores_SRR1589980	rflores	sample102	sample102	SRR1589980	Robogut (time 2)	Healthy	male	25	0
+rflores_SRR1589981	rflores	sample102	sample102	SRR1589981	Robogut (time 2)	Healthy	male	25	0
+rflores_SRR1590118	rflores	sample103	sample103	SRR1590118	Oral artificial colony	Healthy	NA	NA	1
+rflores_SRR1590247	rflores	sample104	sample104	SRR1590247	Fecal artificial colony	Healthy	NA	NA	1
+rflores_SRR1590360	rflores	sample11	sample11	SRR1590360	Fresh	Sick	female	25	0
+rflores_SRR1590363	rflores	sample11	sample11	SRR1590363	Fresh	Sick	female	25	0
+rflores_SRR1590452	rflores	sample12	sample12	SRR1590452	Fresh	Sick	NA	NA	0
+rflores_SRR1590543	rflores	sample13	sample13	SRR1590543	Fresh	Healthy	female	2	0
+rflores_SRR1590593	rflores	sample14	sample14	SRR1590593	Fresh	Healthy	female	2	0
+rflores_SRR1590594	rflores	sample14	sample14	SRR1590594	Fresh	Healthy	female	2	0
+rflores_SRR1590692	rflores	sample2	sample2	SRR1590692	Fresh	Sick	NA	NA	0
+rflores_SRR1590700	rflores	sample2	sample2	SRR1590700	Fresh	Sick	NA	NA	0
+rflores_SRR1590749	rflores	sample3	sample3	SRR1590749	Fresh	Sick	female	25	0
+rflores_SRR1590751	rflores	sample3	sample3	SRR1590751	Fresh	Sick	female	25	0
+rflores_SRR1590846	rflores	sample4	sample4	SRR1590846	Fresh	Healthy	male	36	0
+rflores_SRR1590853	rflores	sample4	sample4	SRR1590853	Fresh	Healthy	male	36	0
+rflores_SRR1590855	rflores	sample4	sample4	SRR1590855	Fresh	Healthy	male	36	0
+rflores_SRR1590963	rflores	sample55	sample55	SRR1590963	Freeze-dried	Sick	male	70	0
+rflores_SRR1590966	rflores	sample55	sample55	SRR1590966	Freeze-dried	Sick	male	70	0
+rflores_SRR1590967	rflores	sample55	sample55	SRR1590967	Freeze-dried	Sick	male	70	0
+rflores_SRR1590968	rflores	sample55	sample55	SRR1590968	Freeze-dried	Sick	male	70	0
+rflores_SRR1591075	rflores	sample56	sample56	SRR1591075	Freeze-dried	Sick	male	65	0
+rflores_SRR1591082	rflores	sample56	sample56	SRR1591082	Freeze-dried	Sick	male	65	0
+rflores_SRR1591083	rflores	sample56	sample56	SRR1591083	Freeze-dried	Sick	male	65	0
+rflores_SRR1591139	rflores	sample57	sample57	SRR1591139	Freeze-dried	Sick	male	64	0
+rflores_SRR1591233	rflores	sample59	sample59	SRR1591233	Freeze-dried	Sick	male	50	0
+rflores_SRR1591327	rflores	sample6	sample6	SRR1591327	Fresh	Healthy	male	37	0
+rflores_SRR1591416	rflores	sample61	sample61	SRR1591416	Freeze-dried	Sick	male	67	0
+rflores_SRR1591527	rflores	sample63	sample63	SRR1591527	Freeze-dried	Sick	male	30	0
+rflores_SRR1591624	rflores	sample64	sample64	SRR1591624	Freeze-dried	Sick	male	56	0
+rflores_SRR1591733	rflores	sample8	sample8	SRR1591733	Fresh	Sick	NA	NA	0
+rflores_SRR1591826	rflores	sample9	sample9	SRR1591826	Fresh	Sick	NA	NA	0
+rflores_SRR1589868	rflores	sample101	sample101	SRR1589868	Robogut (time 1)	Healthy	male	25	0
+rflores_SRR1589978	rflores	sample102	sample102	SRR1589978	Robogut (time 2)	Healthy	male	25	0
+rflores_SRR1590113	rflores	sample103	sample103	SRR1590113	Oral artificial colony	Healthy	NA	NA	1
+rflores_SRR1590114	rflores	sample103	sample103	SRR1590114	Oral artificial colony	Healthy	NA	NA	1
+rflores_SRR1590250	rflores	sample104	sample104	SRR1590250	Fecal artificial colony	Healthy	NA	NA	1
+rflores_SRR1590251	rflores	sample104	sample104	SRR1590251	Fecal artificial colony	Healthy	NA	NA	1
+rflores_SRR1590362	rflores	sample11	sample11	SRR1590362	Fresh	Sick	female	25	0
+rflores_SRR1590368	rflores	sample11	sample11	SRR1590368	Fresh	Sick	female	25	0
+rflores_SRR1590539	rflores	sample13	sample13	SRR1590539	Fresh	Healthy	female	2	0
+rflores_SRR1590542	rflores	sample13	sample13	SRR1590542	Fresh	Healthy	female	2	0
+rflores_SRR1590691	rflores	sample2	sample2	SRR1590691	Fresh	Sick	NA	NA	0
+rflores_SRR1590695	rflores	sample2	sample2	SRR1590695	Fresh	Sick	NA	NA	0
+rflores_SRR1590696	rflores	sample2	sample2	SRR1590696	Fresh	Sick	NA	NA	0
+rflores_SRR1590697	rflores	sample2	sample2	SRR1590697	Fresh	Sick	NA	NA	0
+rflores_SRR1590752	rflores	sample3	sample3	SRR1590752	Fresh	Sick	female	25	0
+rflores_SRR1590854	rflores	sample4	sample4	SRR1590854	Fresh	Healthy	male	36	0
+rflores_SRR1590965	rflores	sample55	sample55	SRR1590965	Freeze-dried	Sick	male	70	0
+rflores_SRR1591137	rflores	sample57	sample57	SRR1591137	Freeze-dried	Sick	male	64	0
+rflores_SRR1591238	rflores	sample59	sample59	SRR1591238	Freeze-dried	Sick	male	50	0
+rflores_SRR1591325	rflores	sample6	sample6	SRR1591325	Fresh	Healthy	male	37	0
+rflores_SRR1591332	rflores	sample6	sample6	SRR1591332	Fresh	Healthy	male	37	0
+rflores_SRR1591418	rflores	sample61	sample61	SRR1591418	Freeze-dried	Sick	male	67	0
+rflores_SRR1591422	rflores	sample61	sample61	SRR1591422	Freeze-dried	Sick	male	67	0
+rflores_SRR1591423	rflores	sample61	sample61	SRR1591423	Freeze-dried	Sick	male	67	0
+rflores_SRR1591529	rflores	sample63	sample63	SRR1591529	Freeze-dried	Sick	male	30	0
+rflores_SRR1591530	rflores	sample63	sample63	SRR1591530	Freeze-dried	Sick	male	30	0
+rflores_SRR1591620	rflores	sample64	sample64	SRR1591620	Freeze-dried	Sick	male	56	0
+rflores_SRR1591621	rflores	sample64	sample64	SRR1591621	Freeze-dried	Sick	male	56	0
+rflores_SRR1591622	rflores	sample64	sample64	SRR1591622	Freeze-dried	Sick	male	56	0
+rflores_SRR1591730	rflores	sample8	sample8	SRR1591730	Fresh	Sick	NA	NA	0
+rflores_SRR1591731	rflores	sample8	sample8	SRR1591731	Fresh	Sick	NA	NA	0
+rflores_SRR1591732	rflores	sample8	sample8	SRR1591732	Fresh	Sick	NA	NA	0
+rflores_SRR1591734	rflores	sample8	sample8	SRR1591734	Fresh	Sick	NA	NA	0
+rflores_SRR1591735	rflores	sample8	sample8	SRR1591735	Fresh	Sick	NA	NA	0
+rflores_SRR1591738	rflores	sample8	sample8	SRR1591738	Fresh	Sick	NA	NA	0
+rflores_SRR1591822	rflores	sample9	sample9	SRR1591822	Fresh	Sick	NA	NA	0
+rflores_SRR1591827	rflores	sample9	sample9	SRR1591827	Fresh	Sick	NA	NA	0
+rflores_SRR1589761	rflores	sample10	sample10	SRR1589761	Fresh	Sick	female	40	0
+rflores_SRR1589863	rflores	sample101	sample101	SRR1589863	Robogut (time 1)	Healthy	male	25	0
+rflores_SRR1589865	rflores	sample101	sample101	SRR1589865	Robogut (time 1)	Healthy	male	25	0
+rflores_SRR1589976	rflores	sample102	sample102	SRR1589976	Robogut (time 2)	Healthy	male	25	0
+rflores_SRR1589982	rflores	sample102	sample102	SRR1589982	Robogut (time 2)	Healthy	male	25	0
+rflores_SRR1589985	rflores	sample102	sample102	SRR1589985	Robogut (time 2)	Healthy	male	25	0
+rflores_SRR1590108	rflores	sample103	sample103	SRR1590108	Oral artificial colony	Healthy	NA	NA	1
+rflores_SRR1590115	rflores	sample103	sample103	SRR1590115	Oral artificial colony	Healthy	NA	NA	1
+rflores_SRR1590116	rflores	sample103	sample103	SRR1590116	Oral artificial colony	Healthy	NA	NA	1
+rflores_SRR1590117	rflores	sample103	sample103	SRR1590117	Oral artificial colony	Healthy	NA	NA	1
+rflores_SRR1590119	rflores	sample103	sample103	SRR1590119	Oral artificial colony	Healthy	NA	NA	1
+rflores_SRR1590248	rflores	sample104	sample104	SRR1590248	Fecal artificial colony	Healthy	NA	NA	1
+rflores_SRR1590369	rflores	sample11	sample11	SRR1590369	Fresh	Sick	female	25	0
+rflores_SRR1590450	rflores	sample12	sample12	SRR1590450	Fresh	Sick	NA	NA	0
+rflores_SRR1590451	rflores	sample12	sample12	SRR1590451	Fresh	Sick	NA	NA	0
+rflores_SRR1590454	rflores	sample12	sample12	SRR1590454	Fresh	Sick	NA	NA	0
+rflores_SRR1590456	rflores	sample12	sample12	SRR1590456	Fresh	Sick	NA	NA	0
+rflores_SRR1590457	rflores	sample12	sample12	SRR1590457	Fresh	Sick	NA	NA	0
+rflores_SRR1590545	rflores	sample13	sample13	SRR1590545	Fresh	Healthy	female	2	0
+rflores_SRR1590596	rflores	sample14	sample14	SRR1590596	Fresh	Healthy	female	2	0
+rflores_SRR1590694	rflores	sample2	sample2	SRR1590694	Fresh	Sick	NA	NA	0
+rflores_SRR1590699	rflores	sample2	sample2	SRR1590699	Fresh	Sick	NA	NA	0
+rflores_SRR1590851	rflores	sample4	sample4	SRR1590851	Fresh	Healthy	male	36	0
+rflores_SRR1590852	rflores	sample4	sample4	SRR1590852	Fresh	Healthy	male	36	0
+rflores_SRR1591077	rflores	sample56	sample56	SRR1591077	Freeze-dried	Sick	male	65	0
+rflores_SRR1591138	rflores	sample57	sample57	SRR1591138	Freeze-dried	Sick	male	64	0
+rflores_SRR1591237	rflores	sample59	sample59	SRR1591237	Freeze-dried	Sick	male	50	0
+rflores_SRR1591331	rflores	sample6	sample6	SRR1591331	Fresh	Healthy	male	37	0
+rflores_SRR1591524	rflores	sample63	sample63	SRR1591524	Freeze-dried	Sick	male	30	0
+rflores_SRR1591526	rflores	sample63	sample63	SRR1591526	Freeze-dried	Sick	male	30	0
+rflores_SRR1591532	rflores	sample63	sample63	SRR1591532	Freeze-dried	Sick	male	30	0
+rflores_SRR1591625	rflores	sample64	sample64	SRR1591625	Freeze-dried	Sick	male	56	0
+rflores_SRR1591626	rflores	sample64	sample64	SRR1591626	Freeze-dried	Sick	male	56	0
+rflores_SRR1591627	rflores	sample64	sample64	SRR1591627	Freeze-dried	Sick	male	56	0
+rflores_SRR1591828	rflores	sample9	sample9	SRR1591828	Fresh	Sick	NA	NA	0
+rknight_SRR1589876	rknight	sample101	sample101	SRR1589876	Robogut (time 1)	Healthy	male	25	0
+rknight_SRR1589878	rknight	sample101	sample101	SRR1589878	Robogut (time 1)	Healthy	male	25	0
+rknight_SRR1589886	rknight	sample101	sample101	SRR1589886	Robogut (time 1)	Healthy	male	25	0
+rknight_SRR1589887	rknight	sample101	sample101	SRR1589887	Robogut (time 1)	Healthy	male	25	0
+rknight_SRR1589990	rknight	sample102	sample102	SRR1589990	Robogut (time 2)	Healthy	male	25	0
+rknight_SRR1590123	rknight	sample103	sample103	SRR1590123	Oral artificial colony	Healthy	NA	NA	1
+rknight_SRR1590130	rknight	sample103	sample103	SRR1590130	Oral artificial colony	Healthy	NA	NA	1
+rknight_SRR1590135	rknight	sample103	sample103	SRR1590135	Oral artificial colony	Healthy	NA	NA	1
+rknight_SRR1590137	rknight	sample103	sample103	SRR1590137	Oral artificial colony	Healthy	NA	NA	1
+rknight_SRR1590262	rknight	sample104	sample104	SRR1590262	Fecal artificial colony	Healthy	NA	NA	1
+rknight_SRR1590268	rknight	sample104	sample104	SRR1590268	Fecal artificial colony	Healthy	NA	NA	1
+rknight_SRR1590269	rknight	sample104	sample104	SRR1590269	Fecal artificial colony	Healthy	NA	NA	1
+rknight_SRR1590271	rknight	sample104	sample104	SRR1590271	Fecal artificial colony	Healthy	NA	NA	1
+rknight_SRR1590272	rknight	sample104	sample104	SRR1590272	Fecal artificial colony	Healthy	NA	NA	1
+rknight_SRR1590383	rknight	sample11	sample11	SRR1590383	Fresh	Sick	female	25	0
+rknight_SRR1590458	rknight	sample12	sample12	SRR1590458	Fresh	Sick	NA	NA	0
+rknight_SRR1590459	rknight	sample12	sample12	SRR1590459	Fresh	Sick	NA	NA	0
+rknight_SRR1590465	rknight	sample12	sample12	SRR1590465	Fresh	Sick	NA	NA	0
+rknight_SRR1590468	rknight	sample12	sample12	SRR1590468	Fresh	Sick	NA	NA	0
+rknight_SRR1590548	rknight	sample13	sample13	SRR1590548	Fresh	Healthy	female	2	0
+rknight_SRR1590549	rknight	sample13	sample13	SRR1590549	Fresh	Healthy	female	2	0
+rknight_SRR1590551	rknight	sample13	sample13	SRR1590551	Fresh	Healthy	female	2	0
+rknight_SRR1590552	rknight	sample13	sample13	SRR1590552	Fresh	Healthy	female	2	0
+rknight_SRR1590597	rknight	sample14	sample14	SRR1590597	Fresh	Healthy	female	2	0
+rknight_SRR1590598	rknight	sample14	sample14	SRR1590598	Fresh	Healthy	female	2	0
+rknight_SRR1590702	rknight	sample2	sample2	SRR1590702	Fresh	Sick	NA	NA	0
+rknight_SRR1590859	rknight	sample4	sample4	SRR1590859	Fresh	Healthy	male	36	0
+rknight_SRR1590861	rknight	sample4	sample4	SRR1590861	Fresh	Healthy	male	36	0
+rknight_SRR1590863	rknight	sample4	sample4	SRR1590863	Fresh	Healthy	male	36	0
+rknight_SRR1590865	rknight	sample4	sample4	SRR1590865	Fresh	Healthy	male	36	0
+rknight_SRR1590866	rknight	sample4	sample4	SRR1590866	Fresh	Healthy	male	36	0
+rknight_SRR1590867	rknight	sample4	sample4	SRR1590867	Fresh	Healthy	male	36	0
+rknight_SRR1590972	rknight	sample55	sample55	SRR1590972	Freeze-dried	Sick	male	70	0
+rknight_SRR1590982	rknight	sample55	sample55	SRR1590982	Freeze-dried	Sick	male	70	0
+rknight_SRR1591094	rknight	sample56	sample56	SRR1591094	Freeze-dried	Sick	male	65	0
+rknight_SRR1591245	rknight	sample59	sample59	SRR1591245	Freeze-dried	Sick	male	50	0
+rknight_SRR1591334	rknight	sample6	sample6	SRR1591334	Fresh	Healthy	male	37	0
+rknight_SRR1591433	rknight	sample61	sample61	SRR1591433	Freeze-dried	Sick	male	67	0
+rknight_SRR1591535	rknight	sample63	sample63	SRR1591535	Freeze-dried	Sick	male	30	0
+rknight_SRR1591538	rknight	sample63	sample63	SRR1591538	Freeze-dried	Sick	male	30	0
+rknight_SRR1591539	rknight	sample63	sample63	SRR1591539	Freeze-dried	Sick	male	30	0
+rknight_SRR1591540	rknight	sample63	sample63	SRR1591540	Freeze-dried	Sick	male	30	0
+rknight_SRR1591543	rknight	sample63	sample63	SRR1591543	Freeze-dried	Sick	male	30	0
+rknight_SRR1591548	rknight	sample63	sample63	SRR1591548	Freeze-dried	Sick	male	30	0
+rknight_SRR1591631	rknight	sample64	sample64	SRR1591631	Freeze-dried	Sick	male	56	0
+rknight_SRR1591632	rknight	sample64	sample64	SRR1591632	Freeze-dried	Sick	male	56	0
+rknight_SRR1591633	rknight	sample64	sample64	SRR1591633	Freeze-dried	Sick	male	56	0
+rknight_SRR1591634	rknight	sample64	sample64	SRR1591634	Freeze-dried	Sick	male	56	0
+rknight_SRR1591739	rknight	sample8	sample8	SRR1591739	Fresh	Sick	NA	NA	0
+rknight_SRR1591744	rknight	sample8	sample8	SRR1591744	Fresh	Sick	NA	NA	0
+rknight_SRR1591747	rknight	sample8	sample8	SRR1591747	Fresh	Sick	NA	NA	0
+rknight_SRR1591834	rknight	sample9	sample9	SRR1591834	Fresh	Sick	NA	NA	0
+rknight_SRR1589768	rknight	sample10	sample10	SRR1589768	Fresh	Sick	female	40	0
+rknight_SRR1589874	rknight	sample101	sample101	SRR1589874	Robogut (time 1)	Healthy	male	25	0
+rknight_SRR1589875	rknight	sample101	sample101	SRR1589875	Robogut (time 1)	Healthy	male	25	0
+rknight_SRR1589882	rknight	sample101	sample101	SRR1589882	Robogut (time 1)	Healthy	male	25	0
+rknight_SRR1589883	rknight	sample101	sample101	SRR1589883	Robogut (time 1)	Healthy	male	25	0
+rknight_SRR1589988	rknight	sample102	sample102	SRR1589988	Robogut (time 2)	Healthy	male	25	0
+rknight_SRR1589992	rknight	sample102	sample102	SRR1589992	Robogut (time 2)	Healthy	male	25	0
+rknight_SRR1589993	rknight	sample102	sample102	SRR1589993	Robogut (time 2)	Healthy	male	25	0
+rknight_SRR1590120	rknight	sample103	sample103	SRR1590120	Oral artificial colony	Healthy	NA	NA	1
+rknight_SRR1590124	rknight	sample103	sample103	SRR1590124	Oral artificial colony	Healthy	NA	NA	1
+rknight_SRR1590125	rknight	sample103	sample103	SRR1590125	Oral artificial colony	Healthy	NA	NA	1
+rknight_SRR1590132	rknight	sample103	sample103	SRR1590132	Oral artificial colony	Healthy	NA	NA	1
+rknight_SRR1590258	rknight	sample104	sample104	SRR1590258	Fecal artificial colony	Healthy	NA	NA	1
+rknight_SRR1590260	rknight	sample104	sample104	SRR1590260	Fecal artificial colony	Healthy	NA	NA	1
+rknight_SRR1590261	rknight	sample104	sample104	SRR1590261	Fecal artificial colony	Healthy	NA	NA	1
+rknight_SRR1590265	rknight	sample104	sample104	SRR1590265	Fecal artificial colony	Healthy	NA	NA	1
+rknight_SRR1590370	rknight	sample11	sample11	SRR1590370	Fresh	Sick	female	25	0
+rknight_SRR1590376	rknight	sample11	sample11	SRR1590376	Fresh	Sick	female	25	0
+rknight_SRR1590556	rknight	sample13	sample13	SRR1590556	Fresh	Healthy	female	2	0
+rknight_SRR1590600	rknight	sample14	sample14	SRR1590600	Fresh	Healthy	female	2	0
+rknight_SRR1590703	rknight	sample2	sample2	SRR1590703	Fresh	Sick	NA	NA	0
+rknight_SRR1590706	rknight	sample2	sample2	SRR1590706	Fresh	Sick	NA	NA	0
+rknight_SRR1590715	rknight	sample2	sample2	SRR1590715	Fresh	Sick	NA	NA	0
+rknight_SRR1590756	rknight	sample3	sample3	SRR1590756	Fresh	Sick	female	25	0
+rknight_SRR1590856	rknight	sample4	sample4	SRR1590856	Fresh	Healthy	male	36	0
+rknight_SRR1590860	rknight	sample4	sample4	SRR1590860	Fresh	Healthy	male	36	0
+rknight_SRR1590869	rknight	sample4	sample4	SRR1590869	Fresh	Healthy	male	36	0
+rknight_SRR1590976	rknight	sample55	sample55	SRR1590976	Freeze-dried	Sick	male	70	0
+rknight_SRR1591091	rknight	sample56	sample56	SRR1591091	Freeze-dried	Sick	male	65	0
+rknight_SRR1591093	rknight	sample56	sample56	SRR1591093	Freeze-dried	Sick	male	65	0
+rknight_SRR1591099	rknight	sample56	sample56	SRR1591099	Freeze-dried	Sick	male	65	0
+rknight_SRR1591141	rknight	sample57	sample57	SRR1591141	Freeze-dried	Sick	male	64	0
+rknight_SRR1591241	rknight	sample59	sample59	SRR1591241	Freeze-dried	Sick	male	50	0
+rknight_SRR1591243	rknight	sample59	sample59	SRR1591243	Freeze-dried	Sick	male	50	0
+rknight_SRR1591248	rknight	sample59	sample59	SRR1591248	Freeze-dried	Sick	male	50	0
+rknight_SRR1591253	rknight	sample59	sample59	SRR1591253	Freeze-dried	Sick	male	50	0
+rknight_SRR1591254	rknight	sample59	sample59	SRR1591254	Freeze-dried	Sick	male	50	0
+rknight_SRR1591343	rknight	sample6	sample6	SRR1591343	Fresh	Healthy	male	37	0
+rknight_SRR1591429	rknight	sample61	sample61	SRR1591429	Freeze-dried	Sick	male	67	0
+rknight_SRR1591430	rknight	sample61	sample61	SRR1591430	Freeze-dried	Sick	male	67	0
+rknight_SRR1591542	rknight	sample63	sample63	SRR1591542	Freeze-dried	Sick	male	30	0
+rknight_SRR1591748	rknight	sample8	sample8	SRR1591748	Fresh	Sick	NA	NA	0
+rknight_SRR1591750	rknight	sample8	sample8	SRR1591750	Fresh	Sick	NA	NA	0
+rknight_SRR1591751	rknight	sample8	sample8	SRR1591751	Fresh	Sick	NA	NA	0
+rknight_SRR1589767	rknight	sample10	sample10	SRR1589767	Fresh	Sick	female	40	0
+rknight_SRR1589881	rknight	sample101	sample101	SRR1589881	Robogut (time 1)	Healthy	male	25	0
+rknight_SRR1589994	rknight	sample102	sample102	SRR1589994	Robogut (time 2)	Healthy	male	25	0
+rknight_SRR1590129	rknight	sample103	sample103	SRR1590129	Oral artificial colony	Healthy	NA	NA	1
+rknight_SRR1590133	rknight	sample103	sample103	SRR1590133	Oral artificial colony	Healthy	NA	NA	1
+rknight_SRR1590374	rknight	sample11	sample11	SRR1590374	Fresh	Sick	female	25	0
+rknight_SRR1590380	rknight	sample11	sample11	SRR1590380	Fresh	Sick	female	25	0
+rknight_SRR1590382	rknight	sample11	sample11	SRR1590382	Fresh	Sick	female	25	0
+rknight_SRR1590599	rknight	sample14	sample14	SRR1590599	Fresh	Healthy	female	2	0
+rknight_SRR1590602	rknight	sample14	sample14	SRR1590602	Fresh	Healthy	female	2	0
+rknight_SRR1590701	rknight	sample2	sample2	SRR1590701	Fresh	Sick	NA	NA	0
+rknight_SRR1590714	rknight	sample2	sample2	SRR1590714	Fresh	Sick	NA	NA	0
+rknight_SRR1590754	rknight	sample3	sample3	SRR1590754	Fresh	Sick	female	25	0
+rknight_SRR1590755	rknight	sample3	sample3	SRR1590755	Fresh	Sick	female	25	0
+rknight_SRR1590864	rknight	sample4	sample4	SRR1590864	Fresh	Healthy	male	36	0
+rknight_SRR1590978	rknight	sample55	sample55	SRR1590978	Freeze-dried	Sick	male	70	0
+rknight_SRR1590983	rknight	sample55	sample55	SRR1590983	Freeze-dried	Sick	male	70	0
+rknight_SRR1591087	rknight	sample56	sample56	SRR1591087	Freeze-dried	Sick	male	65	0
+rknight_SRR1591095	rknight	sample56	sample56	SRR1591095	Freeze-dried	Sick	male	65	0
+rknight_SRR1591097	rknight	sample56	sample56	SRR1591097	Freeze-dried	Sick	male	65	0
+rknight_SRR1591142	rknight	sample57	sample57	SRR1591142	Freeze-dried	Sick	male	64	0
+rknight_SRR1591143	rknight	sample57	sample57	SRR1591143	Freeze-dried	Sick	male	64	0
+rknight_SRR1591144	rknight	sample57	sample57	SRR1591144	Freeze-dried	Sick	male	64	0
+rknight_SRR1591242	rknight	sample59	sample59	SRR1591242	Freeze-dried	Sick	male	50	0
+rknight_SRR1591244	rknight	sample59	sample59	SRR1591244	Freeze-dried	Sick	male	50	0
+rknight_SRR1591333	rknight	sample6	sample6	SRR1591333	Fresh	Healthy	male	37	0
+rknight_SRR1591341	rknight	sample6	sample6	SRR1591341	Fresh	Healthy	male	37	0
+rknight_SRR1591424	rknight	sample61	sample61	SRR1591424	Freeze-dried	Sick	male	67	0
+rknight_SRR1591534	rknight	sample63	sample63	SRR1591534	Freeze-dried	Sick	male	30	0
+rknight_SRR1591537	rknight	sample63	sample63	SRR1591537	Freeze-dried	Sick	male	30	0
+rknight_SRR1591547	rknight	sample63	sample63	SRR1591547	Freeze-dried	Sick	male	30	0
+rknight_SRR1591635	rknight	sample64	sample64	SRR1591635	Freeze-dried	Sick	male	56	0
+rknight_SRR1591636	rknight	sample64	sample64	SRR1591636	Freeze-dried	Sick	male	56	0
+rknight_SRR1591639	rknight	sample64	sample64	SRR1591639	Freeze-dried	Sick	male	56	0
+rknight_SRR1591741	rknight	sample8	sample8	SRR1591741	Fresh	Sick	NA	NA	0
+rknight_SRR1591831	rknight	sample9	sample9	SRR1591831	Fresh	Sick	NA	NA	0
+rknight_SRR1591832	rknight	sample9	sample9	SRR1591832	Fresh	Sick	NA	NA	0
+rknight_SRR1591838	rknight	sample9	sample9	SRR1591838	Fresh	Sick	NA	NA	0
+rknight_SRR1591841	rknight	sample9	sample9	SRR1591841	Fresh	Sick	NA	NA	0
+rknight_SRR1589873	rknight	sample101	sample101	SRR1589873	Robogut (time 1)	Healthy	male	25	0
+rknight_SRR1589877	rknight	sample101	sample101	SRR1589877	Robogut (time 1)	Healthy	male	25	0
+rknight_SRR1589879	rknight	sample101	sample101	SRR1589879	Robogut (time 1)	Healthy	male	25	0
+rknight_SRR1589987	rknight	sample102	sample102	SRR1589987	Robogut (time 2)	Healthy	male	25	0
+rknight_SRR1589995	rknight	sample102	sample102	SRR1589995	Robogut (time 2)	Healthy	male	25	0
+rknight_SRR1590000	rknight	sample102	sample102	SRR1590000	Robogut (time 2)	Healthy	male	25	0
+rknight_SRR1590121	rknight	sample103	sample103	SRR1590121	Oral artificial colony	Healthy	NA	NA	1
+rknight_SRR1590126	rknight	sample103	sample103	SRR1590126	Oral artificial colony	Healthy	NA	NA	1
+rknight_SRR1590128	rknight	sample103	sample103	SRR1590128	Oral artificial colony	Healthy	NA	NA	1
+rknight_SRR1590131	rknight	sample103	sample103	SRR1590131	Oral artificial colony	Healthy	NA	NA	1
+rknight_SRR1590136	rknight	sample103	sample103	SRR1590136	Oral artificial colony	Healthy	NA	NA	1
+rknight_SRR1590259	rknight	sample104	sample104	SRR1590259	Fecal artificial colony	Healthy	NA	NA	1
+rknight_SRR1590266	rknight	sample104	sample104	SRR1590266	Fecal artificial colony	Healthy	NA	NA	1
+rknight_SRR1590372	rknight	sample11	sample11	SRR1590372	Fresh	Sick	female	25	0
+rknight_SRR1590375	rknight	sample11	sample11	SRR1590375	Fresh	Sick	female	25	0
+rknight_SRR1590379	rknight	sample11	sample11	SRR1590379	Fresh	Sick	female	25	0
+rknight_SRR1590463	rknight	sample12	sample12	SRR1590463	Fresh	Sick	NA	NA	0
+rknight_SRR1590464	rknight	sample12	sample12	SRR1590464	Fresh	Sick	NA	NA	0
+rknight_SRR1590547	rknight	sample13	sample13	SRR1590547	Fresh	Healthy	female	2	0
+rknight_SRR1590554	rknight	sample13	sample13	SRR1590554	Fresh	Healthy	female	2	0
+rknight_SRR1590555	rknight	sample13	sample13	SRR1590555	Fresh	Healthy	female	2	0
+rknight_SRR1590705	rknight	sample2	sample2	SRR1590705	Fresh	Sick	NA	NA	0
+rknight_SRR1590757	rknight	sample3	sample3	SRR1590757	Fresh	Sick	female	25	0
+rknight_SRR1590862	rknight	sample4	sample4	SRR1590862	Fresh	Healthy	male	36	0
+rknight_SRR1590868	rknight	sample4	sample4	SRR1590868	Fresh	Healthy	male	36	0
+rknight_SRR1590870	rknight	sample4	sample4	SRR1590870	Fresh	Healthy	male	36	0
+rknight_SRR1590977	rknight	sample55	sample55	SRR1590977	Freeze-dried	Sick	male	70	0
+rknight_SRR1590980	rknight	sample55	sample55	SRR1590980	Freeze-dried	Sick	male	70	0
+rknight_SRR1590984	rknight	sample55	sample55	SRR1590984	Freeze-dried	Sick	male	70	0
+rknight_SRR1591085	rknight	sample56	sample56	SRR1591085	Freeze-dried	Sick	male	65	0
+rknight_SRR1591088	rknight	sample56	sample56	SRR1591088	Freeze-dried	Sick	male	65	0
+rknight_SRR1591089	rknight	sample56	sample56	SRR1591089	Freeze-dried	Sick	male	65	0
+rknight_SRR1591092	rknight	sample56	sample56	SRR1591092	Freeze-dried	Sick	male	65	0
+rknight_SRR1591249	rknight	sample59	sample59	SRR1591249	Freeze-dried	Sick	male	50	0
+rknight_SRR1591252	rknight	sample59	sample59	SRR1591252	Freeze-dried	Sick	male	50	0
+rknight_SRR1591255	rknight	sample59	sample59	SRR1591255	Freeze-dried	Sick	male	50	0
+rknight_SRR1591336	rknight	sample6	sample6	SRR1591336	Fresh	Healthy	male	37	0
+rknight_SRR1591339	rknight	sample6	sample6	SRR1591339	Fresh	Healthy	male	37	0
+rknight_SRR1591342	rknight	sample6	sample6	SRR1591342	Fresh	Healthy	male	37	0
+rknight_SRR1591344	rknight	sample6	sample6	SRR1591344	Fresh	Healthy	male	37	0
+rknight_SRR1591541	rknight	sample63	sample63	SRR1591541	Freeze-dried	Sick	male	30	0
+rknight_SRR1591546	rknight	sample63	sample63	SRR1591546	Freeze-dried	Sick	male	30	0
+rknight_SRR1591629	rknight	sample64	sample64	SRR1591629	Freeze-dried	Sick	male	56	0
+rknight_SRR1591630	rknight	sample64	sample64	SRR1591630	Freeze-dried	Sick	male	56	0
+rknight_SRR1591638	rknight	sample64	sample64	SRR1591638	Freeze-dried	Sick	male	56	0
+rknight_SRR1591743	rknight	sample8	sample8	SRR1591743	Fresh	Sick	NA	NA	0
+rknight_SRR1591749	rknight	sample8	sample8	SRR1591749	Fresh	Sick	NA	NA	0
+rknight_SRR1591833	rknight	sample9	sample9	SRR1591833	Fresh	Sick	NA	NA	0
+rknight_SRR1591839	rknight	sample9	sample9	SRR1591839	Fresh	Sick	NA	NA	0
+rknight_SRR1589764	rknight	sample10	sample10	SRR1589764	Fresh	Sick	female	40	0
+rknight_SRR1589880	rknight	sample101	sample101	SRR1589880	Robogut (time 1)	Healthy	male	25	0
+rknight_SRR1589884	rknight	sample101	sample101	SRR1589884	Robogut (time 1)	Healthy	male	25	0
+rknight_SRR1589885	rknight	sample101	sample101	SRR1589885	Robogut (time 1)	Healthy	male	25	0
+rknight_SRR1589986	rknight	sample102	sample102	SRR1589986	Robogut (time 2)	Healthy	male	25	0
+rknight_SRR1589989	rknight	sample102	sample102	SRR1589989	Robogut (time 2)	Healthy	male	25	0
+rknight_SRR1589991	rknight	sample102	sample102	SRR1589991	Robogut (time 2)	Healthy	male	25	0
+rknight_SRR1589996	rknight	sample102	sample102	SRR1589996	Robogut (time 2)	Healthy	male	25	0
+rknight_SRR1589997	rknight	sample102	sample102	SRR1589997	Robogut (time 2)	Healthy	male	25	0
+rknight_SRR1589998	rknight	sample102	sample102	SRR1589998	Robogut (time 2)	Healthy	male	25	0
+rknight_SRR1589999	rknight	sample102	sample102	SRR1589999	Robogut (time 2)	Healthy	male	25	0
+rknight_SRR1590127	rknight	sample103	sample103	SRR1590127	Oral artificial colony	Healthy	NA	NA	1
+rknight_SRR1590257	rknight	sample104	sample104	SRR1590257	Fecal artificial colony	Healthy	NA	NA	1
+rknight_SRR1590263	rknight	sample104	sample104	SRR1590263	Fecal artificial colony	Healthy	NA	NA	1
+rknight_SRR1590267	rknight	sample104	sample104	SRR1590267	Fecal artificial colony	Healthy	NA	NA	1
+rknight_SRR1590273	rknight	sample104	sample104	SRR1590273	Fecal artificial colony	Healthy	NA	NA	1
+rknight_SRR1590274	rknight	sample104	sample104	SRR1590274	Fecal artificial colony	Healthy	NA	NA	1
+rknight_SRR1590371	rknight	sample11	sample11	SRR1590371	Fresh	Sick	female	25	0
+rknight_SRR1590546	rknight	sample13	sample13	SRR1590546	Fresh	Healthy	female	2	0
+rknight_SRR1590550	rknight	sample13	sample13	SRR1590550	Fresh	Healthy	female	2	0
+rknight_SRR1590553	rknight	sample13	sample13	SRR1590553	Fresh	Healthy	female	2	0
+rknight_SRR1590708	rknight	sample2	sample2	SRR1590708	Fresh	Sick	NA	NA	0
+rknight_SRR1590709	rknight	sample2	sample2	SRR1590709	Fresh	Sick	NA	NA	0
+rknight_SRR1590710	rknight	sample2	sample2	SRR1590710	Fresh	Sick	NA	NA	0
+rknight_SRR1590712	rknight	sample2	sample2	SRR1590712	Fresh	Sick	NA	NA	0
+rknight_SRR1590713	rknight	sample2	sample2	SRR1590713	Fresh	Sick	NA	NA	0
+rknight_SRR1590753	rknight	sample3	sample3	SRR1590753	Fresh	Sick	female	25	0
+rknight_SRR1590857	rknight	sample4	sample4	SRR1590857	Fresh	Healthy	male	36	0
+rknight_SRR1590858	rknight	sample4	sample4	SRR1590858	Fresh	Healthy	male	36	0
+rknight_SRR1590970	rknight	sample55	sample55	SRR1590970	Freeze-dried	Sick	male	70	0
+rknight_SRR1590971	rknight	sample55	sample55	SRR1590971	Freeze-dried	Sick	male	70	0
+rknight_SRR1590973	rknight	sample55	sample55	SRR1590973	Freeze-dried	Sick	male	70	0
+rknight_SRR1590975	rknight	sample55	sample55	SRR1590975	Freeze-dried	Sick	male	70	0
+rknight_SRR1591090	rknight	sample56	sample56	SRR1591090	Freeze-dried	Sick	male	65	0
+rknight_SRR1591096	rknight	sample56	sample56	SRR1591096	Freeze-dried	Sick	male	65	0
+rknight_SRR1591098	rknight	sample56	sample56	SRR1591098	Freeze-dried	Sick	male	65	0
+rknight_SRR1591145	rknight	sample57	sample57	SRR1591145	Freeze-dried	Sick	male	64	0
+rknight_SRR1591246	rknight	sample59	sample59	SRR1591246	Freeze-dried	Sick	male	50	0
+rknight_SRR1591247	rknight	sample59	sample59	SRR1591247	Freeze-dried	Sick	male	50	0
+rknight_SRR1591250	rknight	sample59	sample59	SRR1591250	Freeze-dried	Sick	male	50	0
+rknight_SRR1591251	rknight	sample59	sample59	SRR1591251	Freeze-dried	Sick	male	50	0
+rknight_SRR1591335	rknight	sample6	sample6	SRR1591335	Fresh	Healthy	male	37	0
+rknight_SRR1591337	rknight	sample6	sample6	SRR1591337	Fresh	Healthy	male	37	0
+rknight_SRR1591338	rknight	sample6	sample6	SRR1591338	Fresh	Healthy	male	37	0
+rknight_SRR1591340	rknight	sample6	sample6	SRR1591340	Fresh	Healthy	male	37	0
+rknight_SRR1591425	rknight	sample61	sample61	SRR1591425	Freeze-dried	Sick	male	67	0
+rknight_SRR1591426	rknight	sample61	sample61	SRR1591426	Freeze-dried	Sick	male	67	0
+rknight_SRR1591427	rknight	sample61	sample61	SRR1591427	Freeze-dried	Sick	male	67	0
+rknight_SRR1591428	rknight	sample61	sample61	SRR1591428	Freeze-dried	Sick	male	67	0
+rknight_SRR1591431	rknight	sample61	sample61	SRR1591431	Freeze-dried	Sick	male	67	0
+rknight_SRR1591432	rknight	sample61	sample61	SRR1591432	Freeze-dried	Sick	male	67	0
+rknight_SRR1591434	rknight	sample61	sample61	SRR1591434	Freeze-dried	Sick	male	67	0
+rknight_SRR1591435	rknight	sample61	sample61	SRR1591435	Freeze-dried	Sick	male	67	0
+rknight_SRR1591536	rknight	sample63	sample63	SRR1591536	Freeze-dried	Sick	male	30	0
+rknight_SRR1591544	rknight	sample63	sample63	SRR1591544	Freeze-dried	Sick	male	30	0
+rknight_SRR1591545	rknight	sample63	sample63	SRR1591545	Freeze-dried	Sick	male	30	0
+rknight_SRR1591628	rknight	sample64	sample64	SRR1591628	Freeze-dried	Sick	male	56	0
+rknight_SRR1591637	rknight	sample64	sample64	SRR1591637	Freeze-dried	Sick	male	56	0
+rknight_SRR1591740	rknight	sample8	sample8	SRR1591740	Fresh	Sick	NA	NA	0
+rknight_SRR1591742	rknight	sample8	sample8	SRR1591742	Fresh	Sick	NA	NA	0
+rknight_SRR1591746	rknight	sample8	sample8	SRR1591746	Fresh	Sick	NA	NA	0
+rknight_SRR1591835	rknight	sample9	sample9	SRR1591835	Fresh	Sick	NA	NA	0
+rknight_SRR1591840	rknight	sample9	sample9	SRR1591840	Fresh	Sick	NA	NA	0

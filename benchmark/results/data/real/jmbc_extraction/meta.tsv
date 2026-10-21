@@ -1,0 +1,80 @@
+sample_id	batch	phenotype	experiment	detail	read_pairs_total
+SRR12995993	Q	feces	extraction	VIOIA6564K | SAMN15699786 | protocol Q | QIAmp DNA Stool Mini Kit based IHMS protocol Q | 8x60s	4136112
+SRR12995994	Q	feces	extraction	YXGJW9531V | SAMN15699786 | protocol Q | QIAmp DNA Stool Mini Kit based IHMS protocol Q | 8x60s	4200618
+SRR12996030	L	feces	extraction	YXVZN6388Z | SAMN15699786 | protocol L | Extrap soil DNA kit plus ver.2 | 4x60s	6410810
+SRR12996031	L	feces	extraction	JIQTH3662E | SAMN15699786 | protocol L | Extrap soil DNA kit plus ver.2 | 4x60s	4212387
+SRR12996032	L	feces	extraction	RXNQP0432B | SAMN15699786 | protocol L | Extrap soil DNA kit plus ver.2 | 3x60s	4438872
+SRR12996033	L	feces	extraction	JJPVQ5578G | SAMN15699786 | protocol L | Extrap soil DNA kit plus ver.2 | 3x60s	5513047
+SRR12996034	L	feces	extraction	LEYTL5128O | SAMN15699786 | protocol L | Extrap soil DNA kit plus ver.2 | 2x60s	4240473
+SRR12996035	L	feces	extraction	LWIEJ9832I | SAMN15699786 | protocol L | Extrap soil DNA kit plus ver.2 | 2x60s	5778107
+SRR12996036	L	feces	extraction	WIYLN4124D | SAMN15699786 | protocol L | Extrap soil DNA kit plus ver.2 | 1x60s	6633152
+SRR12996037	L	feces	extraction	SKGZX1334H | SAMN15699786 | protocol L | Extrap soil DNA kit plus ver.2 | 1x60s	4013247
+SRR12996038	S	feces	extraction	ARCDE2885O | SAMN15699786 | protocol S | QlAmp PowerFecal Pro DNA kit | 4x60s	5496497
+SRR12996040	S	feces	extraction	MTDLX0365K | SAMN15699786 | protocol S | QlAmp PowerFecal Pro DNA kit | 4x60s	4699968
+SRR12996041	S	feces	extraction	FLFAY2943S | SAMN15699786 | protocol S | QlAmp PowerFecal Pro DNA kit | 3x60s	4647732
+SRR12996042	S	feces	extraction	KFAIW9232M | SAMN15699786 | protocol S | QlAmp PowerFecal Pro DNA kit | 3x60s	4429560
+SRR12996043	S	feces	extraction	XRDUO9845R | SAMN15699786 | protocol S | QlAmp PowerFecal Pro DNA kit | 2x60s	3624647
+SRR12996044	S	feces	extraction	BJAPB8482P | SAMN15699786 | protocol S | QlAmp PowerFecal Pro DNA kit | 2x60s	4032227
+SRR12996045	S	feces	extraction	IZDPO9942G | SAMN15699786 | protocol S | QlAmp PowerFecal Pro DNA kit | 1x60s	4505115
+SRR12996046	S	feces	extraction	VLPBF9005Z | SAMN15699786 | protocol S | QlAmp PowerFecal Pro DNA kit | 1x60s	4538217
+SRR12996047	N	feces	extraction	PJHGN8994W | SAMN15699786 | protocol N | ISOSPIN Fecal DNA | 4x60s	9964360
+SRR12996049	N	feces	extraction	HDZGC1853W | SAMN15699786 | protocol N | ISOSPIN Fecal DNA | 3x60s	4699862
+SRR12996051	N	feces	extraction	OEPQJ0302L | SAMN15699786 | protocol N | ISOSPIN Fecal DNA | 3x60s	4374135
+SRR12996052	N	feces	extraction	GMIFJ4899N | SAMN15699786 | protocol N | ISOSPIN Fecal DNA | 2x60s	5348611
+SRR12996053	N	feces	extraction	DTSLA7164L | SAMN15699786 | protocol N | ISOSPIN Fecal DNA | 2x60s	4533686
+SRR12996054	N	feces	extraction	KFVKY0109G | SAMN15699786 | protocol N | ISOSPIN Fecal DNA | 1x60s	5815146
+SRR12996055	N	feces	extraction	YWUVP8943Y | SAMN15699786 | protocol N | ISOSPIN Fecal DNA | 1x60s	5957688
+SRR12996056	L	cell_mock	extraction	RLUBS0231Y | SAMN15699798 | protocol L | Extrap soil DNA kit plus ver.2 | 4x60s	6033541
+SRR12996057	L	cell_mock	extraction	EGRIC4067N | SAMN15699798 | protocol L | Extrap soil DNA kit plus ver.2 | 4x60s	5448457
+SRR12996058	L	cell_mock	extraction	VJJAX0426M | SAMN15699798 | protocol L | Extrap soil DNA kit plus ver.2 | 3x60s	4943826
+SRR12996059	L	cell_mock	extraction	BOYIA0312C | SAMN15699798 | protocol L | Extrap soil DNA kit plus ver.2 | 3x60s	4537694
+SRR12996060	L	cell_mock	extraction	BHFPF3392H | SAMN15699798 | protocol L | Extrap soil DNA kit plus ver.2 | 2x60s	4997703
+SRR12996062	L	cell_mock	extraction	DMQCW2387A | SAMN15699798 | protocol L | Extrap soil DNA kit plus ver.2 | 2x60s	5181573
+SRR12996063	L	cell_mock	extraction	OZQHT2906R | SAMN15699798 | protocol L | Extrap soil DNA kit plus ver.2 | 1x60s	6102972
+SRR12996064	L	cell_mock	extraction	EDNVV5248B | SAMN15699798 | protocol L | Extrap soil DNA kit plus ver.2 | 1x60s	5278333
+SRR12996065	S	cell_mock	extraction	GRNLA6285L | SAMN15699798 | protocol S | QlAmp PowerFecal Pro DNA kit | 4x60s	5335760
+SRR12996066	S	cell_mock	extraction	DGCIH3470D | SAMN15699798 | protocol S | QlAmp PowerFecal Pro DNA kit | 4x60s	6632018
+SRR12996067	S	cell_mock	extraction	XPEWO8425V | SAMN15699798 | protocol S | QlAmp PowerFecal Pro DNA kit | 3x60s	7327786
+SRR12996068	S	cell_mock	extraction	TBJBQ6296R | SAMN15699798 | protocol S | QlAmp PowerFecal Pro DNA kit | 3x60s	7515070
+SRR12996069	S	cell_mock	extraction	ROWML0997A | SAMN15699798 | protocol S | QlAmp PowerFecal Pro DNA kit | 2x60s	7520382
+SRR12996070	S	cell_mock	extraction	ZFFJN1274Y | SAMN15699798 | protocol S | QlAmp PowerFecal Pro DNA kit | 2x60s	6447932
+SRR12996071	S	cell_mock	extraction	FBBPG5503Y | SAMN15699798 | protocol S | QlAmp PowerFecal Pro DNA kit | 1x60s	5531082
+SRR12996073	S	cell_mock	extraction	MCTLD3828W | SAMN15699798 | protocol S | QlAmp PowerFecal Pro DNA kit | 1x60s	7799519
+SRR12996074	N	cell_mock	extraction	ZVZBB6475A | SAMN15699798 | protocol N | ISOSPIN Fecal DNA | 4x60s	7042274
+SRR12996075	N	cell_mock	extraction	XPCAG2476N | SAMN15699798 | protocol N | ISOSPIN Fecal DNA | 4x60s	6147536
+SRR12996076	N	cell_mock	extraction	MOBQJ2004F | SAMN15699798 | protocol N | ISOSPIN Fecal DNA | 3x60s	7074006
+SRR12996077	N	cell_mock	extraction	KBKQW6012J | SAMN15699798 | protocol N | ISOSPIN Fecal DNA | 3x60s	6483516
+SRR12996078	N	cell_mock	extraction	MBMMI0395X | SAMN15699798 | protocol N | ISOSPIN Fecal DNA | 2x60s	6072355
+SRR12996079	N	cell_mock	extraction	PFMFG5612F | SAMN15699798 | protocol N | ISOSPIN Fecal DNA | 2x60s	5933342
+SRR12996080	N	cell_mock	extraction	GQAOE1636R | SAMN15699798 | protocol N | ISOSPIN Fecal DNA | 1x60s	6386218
+SRR12996081	N	cell_mock	extraction	GOXWR5015Q | SAMN15699798 | protocol N | ISOSPIN Fecal DNA | 1x60s	7410632
+SRR12996119	O	cell_mock	extraction	GQHXN1601M | SAMN15699798 | protocol O | MagAttract PowerMicrobiome RNA/DNA EP Kit | 2x600s	10329932
+SRR12996120	O	cell_mock	extraction	YNUKA4069O | SAMN15699798 | protocol O | MagAttract PowerMicrobiome RNA/DNA EP Kit | 2x600s	9664487
+SRR12996121	O	cell_mock	extraction	WLDSC4184M | SAMN15699798 | protocol O | MagAttract PowerMicrobiome RNA/DNA EP Kit | 2x600s	5866353
+SRR12996122	S	cell_mock	extraction	NOJBL2122Q | SAMN15699798 | protocol S | QlAmp PowerFecal Pro DNA kit | 1x40s	4292232
+SRR12996123	S	cell_mock	extraction	AODHX9034L | SAMN15699798 | protocol S | QlAmp PowerFecal Pro DNA kit | 1x40s	4149477
+SRR12996124	S	cell_mock	extraction	MZYVP4154F | SAMN15699798 | protocol S | QlAmp PowerFecal Pro DNA kit | 1x40s	4383334
+SRR12996125	T	cell_mock	extraction	ZJHJD0408J | SAMN15699798 | protocol T | Quick DNA Fecal/Soil microbe Miniprep Kit | 1x40s	11280325
+SRR12996126	T	cell_mock	extraction	OVEML0140P | SAMN15699798 | protocol T | Quick DNA Fecal/Soil microbe Miniprep Kit | 1x40s	5588747
+SRR12996127	T	cell_mock	extraction	GEVLN1207B | SAMN15699798 | protocol T | Quick DNA Fecal/Soil microbe Miniprep Kit | 1x40s	4201699
+SRR12996129	P	cell_mock	extraction	CKDMD2679G | SAMN15699798 | protocol P | in-house phenol/chloroform-based protocol | 1x40s	4673206
+SRR12996130	P	cell_mock	extraction	IJBVM4020D | SAMN15699798 | protocol P | in-house phenol/chloroform-based protocol | 1x40s	5663143
+SRR12996131	P	cell_mock	extraction	SIEGL6439A | SAMN15699798 | protocol P | in-house phenol/chloroform-based protocol | 1x40s	5665735
+SRR12996132	L	cell_mock	extraction	YIRIW9357L | SAMN15699798 | protocol L | Extrap soil DNA kit plus ver.2 | 1x40s	4500411
+SRR12996133	L	cell_mock	extraction	AOKIO8210V | SAMN15699798 | protocol L | Extrap soil DNA kit plus ver.2 | 1x40s	6305885
+SRR12996134	L	cell_mock	extraction	TQRYL0596A | SAMN15699798 | protocol L | Extrap soil DNA kit plus ver.2 | 1x40s	7467228
+SRR12996135	R	cell_mock	extraction	GZVVR0204P | SAMN15699798 | protocol R | MORA-EXTRACT | 1x40s	4247550
+SRR12996136	R	cell_mock	extraction	NMEVA8208M | SAMN15699798 | protocol R | MORA-EXTRACT | 1x40s	5040088
+SRR12996137	R	cell_mock	extraction	MEWDB9259P | SAMN15699798 | protocol R | MORA-EXTRACT | 1x40s	4363712
+SRR12996138	M	cell_mock	extraction	CPMBK0854Y | SAMN15699798 | protocol M | FastDNA SPIN Kit for Feces | 3x40s	4655756
+SRR12996140	M	cell_mock	extraction	AOSHY0342I | SAMN15699798 | protocol M | FastDNA SPIN Kit for Feces | 3x40s	5121420
+SRR12996141	M	cell_mock	extraction	OUFTB0627P | SAMN15699798 | protocol M | FastDNA SPIN Kit for Feces | 3x40s	4973562
+SRR12996142	M	cell_mock	extraction	YNSEC6940T | SAMN15699798 | protocol M | FastDNA SPIN Kit for Feces | 1x40s	7210305
+SRR12996143	M	cell_mock	extraction	CFYYO4072W | SAMN15699798 | protocol M | FastDNA SPIN Kit for Feces | 1x40s	3718780
+SRR12996144	M	cell_mock	extraction	XBVGF0483S | SAMN15699798 | protocol M | FastDNA SPIN Kit for Feces | 1x40s	5954069
+SRR12996145	N	cell_mock	extraction	ZJXRR7209C | SAMN15699798 | protocol N | ISOSPIN Fecal DNA | 1x40s	4836397
+SRR12996146	N	cell_mock	extraction	ZFOZD8577K | SAMN15699798 | protocol N | ISOSPIN Fecal DNA | 1x40s	5088964
+SRR12996147	N	cell_mock	extraction	ASQJZ0615T | SAMN15699798 | protocol N | ISOSPIN Fecal DNA | 1x40s	4657404
+SRR12996148	Q	cell_mock	extraction	GZAFM6535A | SAMN15699798 | protocol Q | QIAmp DNA Stool Mini Kit based IHMS protocol Q | 8x60s	4689076
+SRR12996149	Q	cell_mock	extraction	YMTQS4157I | SAMN15699798 | protocol Q | QIAmp DNA Stool Mini Kit based IHMS protocol Q | 8x60s	4014264
+SRR12996151	Q	cell_mock	extraction	UMSRP0980H | SAMN15699798 | protocol Q | QIAmp DNA Stool Mini Kit based IHMS protocol Q | 8x60s	7108991

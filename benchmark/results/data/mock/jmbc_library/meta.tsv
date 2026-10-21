@@ -1,0 +1,85 @@
+sample_id	batch	phenotype	experiment	detail	read_pairs_total
+SRR12996152	F0	dna_mock	library	OKZVY1505D | SAMN15699795 | protocol F0 | KAPA HyperPrep + KAPA Frag | 500 ng (X0)	11081338
+SRR12996153	F0	dna_mock	library	YMZAY7106F | SAMN15699795 | protocol F0 | KAPA HyperPrep + KAPA Frag | 500 ng (X0)	11125433
+SRR12996154	F0	dna_mock	library	WZSND9816K | SAMN15699795 | protocol F0 | KAPA HyperPrep + KAPA Frag | 500 ng (X0)	10113254
+SRR12996155	FL	dna_mock	library	EAWGW9546V | SAMN15699795 | protocol FL | KAPA HyperPrep + KAPA Frag | 50 ng (XL)	7068777
+SRR12996156	FL	dna_mock	library	VYEBW9961P | SAMN15699795 | protocol FL | KAPA HyperPrep + KAPA Frag | 50 ng (XL)	7477101
+SRR12996157	FL	dna_mock	library	TXQVM2545E | SAMN15699795 | protocol FL | KAPA HyperPrep + KAPA Frag | 50 ng (XL)	7347457
+SRR12996158	FH	dna_mock	library	UHLIK8571P | SAMN15699795 | protocol FH | KAPA HyperPrep + KAPA Frag | 1 ng (XH)	8122704
+SRR12996159	FH	dna_mock	library	WYGHI2354Y | SAMN15699795 | protocol FH | KAPA HyperPrep + KAPA Frag | 1 ng (XH)	7176897
+SRR12996160	FH	dna_mock	library	CVWLS4883I | SAMN15699795 | protocol FH | KAPA HyperPrep + KAPA Frag | 1 ng (XH)	7825147
+SRR12996162	GL	dna_mock	library	PXKIM6024D | SAMN15699795 | protocol GL | KAPA HTP + KAPA Frag | 50 ng (XL)	7707914
+SRR12996163	GL	dna_mock	library	NKTID8053X | SAMN15699795 | protocol GL | KAPA HTP + KAPA Frag | 50 ng (XL)	8301525
+SRR12996164	GL	dna_mock	library	UIYDC6252L | SAMN15699795 | protocol GL | KAPA HTP + KAPA Frag | 50 ng (XL)	8619514
+SRR12996165	GH	dna_mock	library	VTDEF2260K | SAMN15699795 | protocol GH | KAPA HTP + KAPA Frag | 1 ng (XH)	7265340
+SRR12996166	GH	dna_mock	library	JEJBM2114H | SAMN15699795 | protocol GH | KAPA HTP + KAPA Frag | 1 ng (XH)	7928794
+SRR12996167	GH	dna_mock	library	MFMHR0336X | SAMN15699795 | protocol GH | KAPA HTP + KAPA Frag | 1 ng (XH)	7933522
+SRR12996168	KL	dna_mock	library	MRXSU2419K | SAMN15699795 | protocol KL | SMARTer ThruPLEX DNA-Seq Kit | 50 ng (XL)	9362506
+SRR12996169	KL	dna_mock	library	OBSBP7633H | SAMN15699795 | protocol KL | SMARTer ThruPLEX DNA-Seq Kit | 50 ng (XL)	8206503
+SRR12996170	KL	dna_mock	library	VPLWO9012T | SAMN15699795 | protocol KL | SMARTer ThruPLEX DNA-Seq Kit | 50 ng (XL)	9342866
+SRR12996171	KH	dna_mock	library	UDEUH2203G | SAMN15699795 | protocol KH | SMARTer ThruPLEX DNA-Seq Kit | 1 ng (XH)	6161994
+SRR12996173	KH	dna_mock	library	RNVRF2397Q | SAMN15699795 | protocol KH | SMARTer ThruPLEX DNA-Seq Kit | 1 ng (XH)	7812631
+SRR12996174	KH	dna_mock	library	FAQBJ8354O | SAMN15699795 | protocol KH | SMARTer ThruPLEX DNA-Seq Kit | 1 ng (XH)	9300863
+SRR12996175	B0	dna_mock	library	EWWUF5893S | SAMN15699795 | protocol B0 | QIAseq FX DNA Library Kit | 500 ng (X0)	9694472
+SRR12996176	B0	dna_mock	library	SSUOU3710N | SAMN15699795 | protocol B0 | QIAseq FX DNA Library Kit | 500 ng (X0)	7785985
+SRR12996177	B0	dna_mock	library	ONOLI8203G | SAMN15699795 | protocol B0 | QIAseq FX DNA Library Kit | 500 ng (X0)	5820034
+SRR12996178	BL	dna_mock	library	RINGI6673U | SAMN15699795 | protocol BL | QIAseq FX DNA Library Kit | 50 ng (XL)	4126250
+SRR12996179	BL	dna_mock	library	IEHKK7266N | SAMN15699795 | protocol BL | QIAseq FX DNA Library Kit | 50 ng (XL)	3187392
+SRR12996180	BL	dna_mock	library	VZRWH7215I | SAMN15699795 | protocol BL | QIAseq FX DNA Library Kit | 50 ng (XL)	3066761
+SRR12996181	BH	dna_mock	library	WPACE6920A | SAMN15699795 | protocol BH | QIAseq FX DNA Library Kit | 1 ng (XH)	5281491
+SRR12996182	BH	dna_mock	library	IPQGA1889J | SAMN15699795 | protocol BH | QIAseq FX DNA Library Kit | 1 ng (XH)	5648433
+SRR12996184	BH	dna_mock	library	EKMKV2003M | SAMN15699795 | protocol BH | QIAseq FX DNA Library Kit | 1 ng (XH)	3666747
+SRR12996185	JL	dna_mock	library	TNHUX0178E | SAMN15699795 | protocol JL | Nextera DNA Flex Library Prep Kit | 50 ng (XL)	1807446
+SRR12996186	JL	dna_mock	library	ZDLTW7915V | SAMN15699795 | protocol JL | Nextera DNA Flex Library Prep Kit | 50 ng (XL)	2929741
+SRR12996187	JL	dna_mock	library	VGSEN4896N | SAMN15699795 | protocol JL | Nextera DNA Flex Library Prep Kit | 50 ng (XL)	8671481
+SRR12996188	JH	dna_mock	library	YVZPY7425X | SAMN15699795 | protocol JH | Nextera DNA Flex Library Prep Kit | 1 ng (XH)	2966765
+SRR12996189	JH	dna_mock	library	TUPDT1718K | SAMN15699795 | protocol JH | Nextera DNA Flex Library Prep Kit | 1 ng (XH)	2553249
+SRR12996190	JH	dna_mock	library	YZFKH6948N | SAMN15699795 | protocol JH | Nextera DNA Flex Library Prep Kit | 1 ng (XH)	3007823
+SRR12996191	IL	dna_mock	library	WPVKD1814M | SAMN15699795 | protocol IL | NEBNext Ultra II FS DNA Library Prep Kit | 50 ng (XL)	10607431
+SRR12996192	IL	dna_mock	library	LPFJI8941A | SAMN15699795 | protocol IL | NEBNext Ultra II FS DNA Library Prep Kit | 50 ng (XL)	10162727
+SRR12996193	IL	dna_mock	library	ADDST7456U | SAMN15699795 | protocol IL | NEBNext Ultra II FS DNA Library Prep Kit | 50 ng (XL)	9800826
+SRR12996195	IH	dna_mock	library	ZNASJ4343U | SAMN15699795 | protocol IH | NEBNext Ultra II FS DNA Library Prep Kit | 1 ng (XH)	11854124
+SRR12996196	IH	dna_mock	library	YGHKA9860M | SAMN15699795 | protocol IH | NEBNext Ultra II FS DNA Library Prep Kit | 1 ng (XH)	9269961
+SRR12996197	IH	dna_mock	library	PIMPV2601E | SAMN15699795 | protocol IH | NEBNext Ultra II FS DNA Library Prep Kit | 1 ng (XH)	10617823
+SRR12996198	E0	dna_mock	library	XWMSK1794C | SAMN15699795 | protocol E0 | KAPA HyperPrep (PCR-free) Kit | 500 ng (X0)	13007529
+SRR12996199	E0	dna_mock	library	PXSXN2192Y | SAMN15699795 | protocol E0 | KAPA HyperPrep (PCR-free) Kit | 500 ng (X0)	13320142
+SRR12996200	E0	dna_mock	library	AQLAS7207P | SAMN15699795 | protocol E0 | KAPA HyperPrep (PCR-free) Kit | 500 ng (X0)	11525380
+SRR12996201	DL	dna_mock	library	VETOD3091P | SAMN15699795 | protocol DL | KAPA HTP Library Preparation Kit | 50 ng (XL)	9534327
+SRR12996202	DL	dna_mock	library	QEZSB6901C | SAMN15699795 | protocol DL | KAPA HTP Library Preparation Kit | 50 ng (XL)	9501456
+SRR12996203	DL	dna_mock	library	KXSAM6874D | SAMN15699795 | protocol DL | KAPA HTP Library Preparation Kit | 50 ng (XL)	9442022
+SRR12996204	DH	dna_mock	library	FZWNX0246H | SAMN15699795 | protocol DH | KAPA HTP Library Preparation Kit | 1 ng (XH)	10187551
+SRR12996208	DH	dna_mock	library	MDEZV6571Z | SAMN15699795 | protocol DH | KAPA HTP Library Preparation Kit | 1 ng (XH)	9886743
+SRR12996209	DH	dna_mock	library	NFQSL1672A | SAMN15699795 | protocol DH | KAPA HTP Library Preparation Kit | 1 ng (XH)	10142444
+SRR12996211	AL	dna_mock	library	WDJOT3418B | SAMN15699795 | protocol AL | Accel NGS 2S Plus DNA Library Kit | 50 ng (XL)	7700685
+SRR12996212	AL	dna_mock	library	GMTGR1407W | SAMN15699795 | protocol AL | Accel NGS 2S Plus DNA Library Kit | 50 ng (XL)	8291342
+SRR12996213	AL	dna_mock	library	OOXIK5486P | SAMN15699795 | protocol AL | Accel NGS 2S Plus DNA Library Kit | 50 ng (XL)	8272566
+SRR12996214	AH	dna_mock	library	NYXZY9866Z | SAMN15699795 | protocol AH | Accel NGS 2S Plus DNA Library Kit | 1 ng (XH)	9132783
+SRR12996215	AH	dna_mock	library	KAZRM8350B | SAMN15699795 | protocol AH | Accel NGS 2S Plus DNA Library Kit | 1 ng (XH)	8700895
+SRR12996216	AH	dna_mock	library	MIABL7113W | SAMN15699795 | protocol AH | Accel NGS 2S Plus DNA Library Kit | 1 ng (XH)	8998250
+SRR12996217	EL	dna_mock	library	QPQOV1893L | SAMN15699795 | protocol EL | KAPA HyperPrep (PCR-free) Kit | 50 ng (XL)	10168821
+SRR12996219	EL	dna_mock	library	WEZOA1238R | SAMN15699795 | protocol EL | KAPA HyperPrep (PCR-free) Kit | 50 ng (XL)	9286968
+SRR12996220	EL	dna_mock	library	FQPVZ3967C | SAMN15699795 | protocol EL | KAPA HyperPrep (PCR-free) Kit | 50 ng (XL)	9523644
+SRR12996223	EH	dna_mock	library	DPVUO1574H | SAMN15699795 | protocol EH | KAPA HyperPrep (PCR-free) Kit | 1 ng (XH)	10171471
+SRR12996224	EH	dna_mock	library	IJUTS6740L | SAMN15699795 | protocol EH | KAPA HyperPrep (PCR-free) Kit | 1 ng (XH)	9089610
+SRR12996225	EH	dna_mock	library	QLMFJ6572R | SAMN15699795 | protocol EH | KAPA HyperPrep (PCR-free) Kit | 1 ng (XH)	9231695
+SRR12996226	HL	dna_mock	library	NTCPN6519G | SAMN15699795 | protocol HL | NEBNext Ultra II DNA Library Prep Kit | 50 ng (XL)	9401620
+SRR12996227	HL	dna_mock	library	NLYBD3171B | SAMN15699795 | protocol HL | NEBNext Ultra II DNA Library Prep Kit | 50 ng (XL)	9146250
+SRR12996228	HL	dna_mock	library	XYWYK0128G | SAMN15699795 | protocol HL | NEBNext Ultra II DNA Library Prep Kit | 50 ng (XL)	8945585
+SRR12996230	HH	dna_mock	library	ZHILX6222J | SAMN15699795 | protocol HH | NEBNext Ultra II DNA Library Prep Kit | 1 ng (XH)	9993106
+SRR12996231	HH	dna_mock	library	AENUE8978L | SAMN15699795 | protocol HH | NEBNext Ultra II DNA Library Prep Kit | 1 ng (XH)	8124875
+SRR12996232	HH	dna_mock	library	OYWKV3727D | SAMN15699795 | protocol HH | NEBNext Ultra II DNA Library Prep Kit | 1 ng (XH)	8961646
+SRR12996233	CL	dna_mock	library	ZZFIW8217R | SAMN15699795 | protocol CL | TruSeq (Nano) DNA (PCR-Free) Library Prep Kit | 50 ng (XL)	7286053
+SRR12996234	CL	dna_mock	library	PHKHG5314R | SAMN15699795 | protocol CL | TruSeq (Nano) DNA (PCR-Free) Library Prep Kit | 50 ng (XL)	6064300
+SRR12996235	CL	dna_mock	library	IAGJN2467B | SAMN15699795 | protocol CL | TruSeq (Nano) DNA (PCR-Free) Library Prep Kit | 50 ng (XL)	7206326
+SRR12996236	CH	dna_mock	library	BRFMX1775K | SAMN15699795 | protocol CH | TruSeq (Nano) DNA (PCR-Free) Library Prep Kit | 1 ng (XH)	7918419
+SRR12996237	CH	dna_mock	library	DVJIC2603M | SAMN15699795 | protocol CH | TruSeq (Nano) DNA (PCR-Free) Library Prep Kit | 1 ng (XH)	7967612
+SRR12996238	CH	dna_mock	library	LUFSH1258S | SAMN15699795 | protocol CH | TruSeq (Nano) DNA (PCR-Free) Library Prep Kit | 1 ng (XH)	7873064
+SRR12996239	D0	dna_mock	library	PDZEP7730Z | SAMN15699795 | protocol D0 | KAPA HTP Library Preparation Kit | 500 ng (X0)	17702854
+SRR12996241	D0	dna_mock	library	JVECG4894E | SAMN15699795 | protocol D0 | KAPA HTP Library Preparation Kit | 500 ng (X0)	18117803
+SRR12996242	D0	dna_mock	library	SLVME9773T | SAMN15699795 | protocol D0 | KAPA HTP Library Preparation Kit | 500 ng (X0)	16802831
+SRR12996243	A0	dna_mock	library	JBUIX5568V | SAMN15699795 | protocol A0 | Accel NGS 2S Plus DNA Library Kit | 500 ng (X0)	7534289
+SRR12996244	A0	dna_mock	library	XGNLP7038C | SAMN15699795 | protocol A0 | Accel NGS 2S Plus DNA Library Kit | 500 ng (X0)	7924370
+SRR12996245	A0	dna_mock	library	YPASQ0509K | SAMN15699795 | protocol A0 | Accel NGS 2S Plus DNA Library Kit | 500 ng (X0)	9290896
+SRR12996246	C0	dna_mock	library	HREBM5403X | SAMN15699795 | protocol C0 | TruSeq (Nano) DNA (PCR-Free) Library Prep Kit | 500 ng (X0)	11489517
+SRR12996247	C0	dna_mock	library	CAHHZ8466D | SAMN15699795 | protocol C0 | TruSeq (Nano) DNA (PCR-Free) Library Prep Kit | 500 ng (X0)	13842322
+SRR12996248	C0	dna_mock	library	QMBWW8147T | SAMN15699795 | protocol C0 | TruSeq (Nano) DNA (PCR-Free) Library Prep Kit | 500 ng (X0)	13770875
