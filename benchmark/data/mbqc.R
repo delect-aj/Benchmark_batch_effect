@@ -25,7 +25,8 @@ lock <- file.path(ck, ".lock")
 if (file.exists(lock) && difftime(Sys.time(), file.mtime(lock), units = "hours") < 3)
   stop("another build holds the lock (", readLines(lock, warn = FALSE)[1], "); delete ", lock, " to override")
 hold <- function() writeLines(paste(Sys.info()[["nodename"]], Sys.getpid(), format(Sys.time())), lock)
-hold(); on.exit(unlink(lock), add = TRUE)
+hold()   # released at the end of the script; a crashed build leaves it until it goes stale (on.exit does
+         # nothing at top level, and R has no reliable at-exit hook for a script interrupted by an error)
 
 # Keep the whole manifest: the sample metadata at the end is built from it, and a lab that already has a
 # checkpoint needs no reads on disk at all -- which is what lets the 13 GB of FastQ be deleted once the
@@ -159,3 +160,4 @@ w(as.data.frame(counts), "counts.tsv"); w(meta, "meta.tsv"); w(tax, "taxonomy.ts
 print(table(meta$batch))
 say("mbqc:", nrow(counts), "samples x", ncol(counts), "genera,",
     nlevels(factor(meta$batch)), "handling labs,", nlevels(factor(meta$phenotype)), "specimens")
+unlink(lock)
