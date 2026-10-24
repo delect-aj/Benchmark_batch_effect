@@ -6,7 +6,8 @@
 #   d  how the metrics correlate with each other across all method x dataset results
 #   e  batch removal against signal retention, with the undominated methods marked
 #
-# Usage: Rscript figures/fig2.R <results dir> <out.pdf>
+# Usage: Rscript figures/fig2.R <results dir> <out.pdf> [dataset for panel a]
+# Panel a defaults to hivrc_16s: 17 studies, the strongest batch structure of the evaluation sets.
 source("figures/_panels.R")
 
 batch_metrics <- function() c("R2_batch_ait", "R2_batch_bc", "R2_batch_jac", "ASW_batch", "iLISI")
@@ -118,11 +119,13 @@ panel_tradeoff <- function(scored, methods_table = method_table()) {
 
 main <- function(args) {
   results_dir <- args[1]; out <- args[2]
+  ordination_set <- if (length(args) > 2) args[3] else "real/hivrc_16s"
   scored <- read_scores(file.path(results_dir, "scores.tsv"))
   evaluated <- scored[scored$regime == "real" & scored$status == "ok", ]
-  shown <- intersect(c("raw", "limma", "conqur", "mmuphin", "harmony"), unique(evaluated$method))
+  shown <- intersect(c("raw", "limma", "conqur", "mmuphin", "harmony"),
+                     evaluated$method[evaluated$dataset == ordination_set])
 
-  figure <- (panel_ordination(results_dir, "real/hivrc_16s", shown) /
+  figure <- (panel_ordination(results_dir, ordination_set, shown) /
              (panel_global(evaluated) | (panel_flip(evaluated) / panel_metric_agreement(evaluated) /
                                          panel_tradeoff(evaluated)))) +
     plot_layout(heights = c(1, 3.2)) +
