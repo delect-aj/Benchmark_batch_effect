@@ -33,11 +33,11 @@ panel_da <- function(planted, methods_table = method_table()) {
                truth = truth_labels()[["planted"]]),
     data.frame(method = planted$method, value = planted$DA_oracle_power, measure = "power",
                truth = truth_labels()[["oracle"]]),
-    data.frame(method = planted$method, value = planted$DA_AP, measure = "average precision",
+    data.frame(method = planted$method, value = planted$DA_AP, measure = "precision",
                truth = truth_labels()[["planted"]]),
-    data.frame(method = planted$method, value = planted$DA_oracle_AP, measure = "average precision",
+    data.frame(method = planted$method, value = planted$DA_oracle_AP, measure = "precision",
                truth = truth_labels()[["oracle"]]))
-  spread$measure <- factor(spread$measure, c("power", "average precision"))
+  spread$measure <- factor(spread$measure, c("power", "precision"))
 
   panel_fdr <- ggplot(label_methods(pooled, methods_table), aes(label, value, fill = truth)) +
     geom_col(position = position_dodge(0.8), width = 0.75) +
