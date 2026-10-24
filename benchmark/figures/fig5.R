@@ -1,0 +1,148 @@
+# Figure 5 -- Q4: does removing the batch term make the downstream answers better?
+#
+#   a  differential abundance against the planted truth: error rate, power, precision
+#   b  with nothing planted, how many taxa does each method still call
+#   c  leave-one-study-out prediction (an upper bound: correction saw the held-out labels)
+#   d  the three rankings side by side -- the direct test of the contradiction in the literature
+#   e  what each method costs to run, and how often it fails
+#   f  what to use, by research goal and by how confounded the design is
+#
+# Usage: Rscript figures/fig5.R <results dir> <out.pdf>
+source("figures/_panels.R")
+
+batch_metrics <- function() c("R2_batch_ait", "R2_batch_bc", "R2_batch_jac", "ASW_batch", "iLISI")
+bio_metrics <- function() c("R2_pheno_ait", "R2_pheno_bc", "R2_pheno_jac", "ASW_pheno", "cLISI")
+
+panel_da <- function(planted, methods_table = method_table()) {
+  long <- bind_rows(
+    data.frame(method = planted$method, value = planted$DA_FDR, measure = "false discovery rate"),
+    data.frame(method = planted$method, value = planted$DA_power, measure = "power"),
+    data.frame(method = planted$method, value = planted$DA_AP, measure = "average precision"))
+  long$measure <- factor(long$measure, c("false discovery rate", "power", "average precision"))
+  nominal <- data.frame(measure = factor("false discovery rate", levels(long$measure)), y = 0.05)
+  ggplot(label_methods(long[!is.na(long$value), ], methods_table), aes(label, value, fill = track)) +
+    geom_boxplot(outlier.size = 0.2, linewidth = 0.25, width = 0.7) +
+    geom_hline(data = nominal, aes(yintercept = y), linetype = "22", linewidth = 0.3, colour = "#b2182b") +
+    facet_wrap(~ measure, nrow = 1, scales = "free_y") +
+    scale_fill_manual(values = track_colours(), guide = "none") +
+    labs(x = NULL, y = NULL, title = "Differential abundance against the planted truth (dashed: nominal 5%)") +
+    theme_bench() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+}
+
+panel_null_da <- function(null_simulated, methods_table = method_table()) {
+  rates <- null_simulated %>%
+    group_by(method) %>%
+    summarise(false_positives = mean(DA_nsig / n_taxa, na.rm = TRUE), .groups = "drop")
+  ggplot(label_methods(rates, methods_table), aes(label, false_positives, fill = track)) +
+    geom_col(width = 0.7) +
+    geom_hline(yintercept = 0.05, linetype = "22", linewidth = 0.3, colour = "#b2182b") +
+    scale_fill_manual(values = track_colours(), guide = "none") +
+    labs(x = NULL, y = "fraction of taxa called", title = "With nothing planted") +
+    theme_bench() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+}
+
+panel_loso <- function(loso, methods_table = method_table()) {
+  scored <- loso[loso$status == "ok" & !is.na(loso$auroc), ]
+  ggplot(label_methods(scored, methods_table), aes(label, auroc, fill = classifier)) +
+    geom_hline(yintercept = 0.5, linetype = "22", linewidth = 0.3, colour = "grey50") +
+    geom_boxplot(outlier.size = 0.2, linewidth = 0.25, width = 0.7) +
+    scale_fill_brewer(palette = "Pastel1", name = NULL) +
+    labs(x = NULL, y = "auROC, study held out",
+         title = "Cross-study prediction (upper bound: correction saw the held-out labels)") +
+    theme_bench() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+}
+
+# The three ways of saying "this method is good", put on one axis each.
+ranking_table <- function(scored, loso) {
+  evaluated <- scored[scored$status == "ok", ]
+  batch <- family_score(evaluated, batch_metrics()) %>% filter(family == "batch") %>%
+    select(method, `batch removal` = score)
+  da <- evaluated %>% filter(regime == "sim", da_prop > 0) %>% group_by(method) %>%
+    summarise(`DA precision` = mean(DA_AP, na.rm = TRUE), .groups = "drop")
+  prediction <- loso %>% filter(status == "ok") %>% group_by(method) %>%
+    summarise(`cross-study auROC` = mean(auroc, na.rm = TRUE), .groups = "drop")
+  Reduce(function(a, b) inner_join(a, b, by = "method"), list(batch, da, prediction))
+}
+
+panel_consistency <- function(rankings, methods_table = method_table()) {
+  long <- bind_rows(lapply(setdiff(names(rankings), "method"), function(criterion)
+    data.frame(method = rankings$method, criterion = criterion,
+               rank = rank(-rankings[[criterion]], ties.method = "min"))))
+  long$criterion <- factor(long$criterion, setdiff(names(rankings), "method"))
+  ggplot(label_methods(long, methods_table), aes(criterion, rank, group = label, colour = label)) +
+    geom_line(linewidth = 0.4) + geom_point(size = 1) +
+    ggrepel::geom_text_repel(data = ~ subset(.x, as.integer(criterion) == nlevels(criterion)),
+                             aes(label = label), size = 1.8, direction = "y", hjust = 0,
+                             nudge_x = 0.12, segment.size = 0.2, max.overlaps = 20) +
+    scale_y_reverse(breaks = seq(2, 16, 2)) +
+    scale_colour_viridis_d(option = "turbo", guide = "none") +
+    expand_limits(x = 3.6) +
+    labs(x = NULL, y = "rank (1 = best)", title = "Do the three criteria agree on an order?") +
+    theme_bench()
+}
+
+panel_cost <- function(scored, methods_table = method_table()) {
+  cost <- scored %>%
+    group_by(method) %>%
+    summarise(seconds = median(seconds, na.rm = TRUE), memory = median(max_rss_mb, na.rm = TRUE),
+              failures = mean(status != "ok"), .groups = "drop")
+  ggplot(label_methods(cost, methods_table), aes(seconds, memory)) +
+    geom_point(aes(size = failures, colour = track)) +
+    ggrepel::geom_text_repel(aes(label = label), size = 1.8, segment.size = 0.2, max.overlaps = 20) +
+    scale_x_log10() + scale_y_log10() +
+    scale_size_area(max_size = 5, name = "failure rate", labels = scales::percent) +
+    scale_colour_manual(values = track_colours(), guide = "none") +
+    labs(x = "median seconds per dataset", y = "median peak memory (MB)",
+         title = "What it costs to run") +
+    theme_bench()
+}
+
+# Top three methods per goal, split at the point where the design stops being balanced.
+panel_recommendation <- function(scored, loso, confounding, methods_table = method_table()) {
+  evaluated <- scored[scored$status == "ok" & scored$method != "oracle", ]
+  evaluated$v <- ifelse(evaluated$regime == "sim", evaluated$cramers_v,
+                        confounding[sub("^real/", "", evaluated$dataset)])
+  evaluated$design <- ifelse(evaluated$v < 0.3, "balanced (V < 0.3)", "confounded (V >= 0.3)")
+  loso$design <- ifelse(confounding[loso$dataset] < 0.3, "balanced (V < 0.3)", "confounded (V >= 0.3)")
+
+  goals <- bind_rows(
+    bind_rows(family_score(evaluated, c(batch_metrics(), bio_metrics()),
+                           by = c("design", "method"))) %>%
+      group_by(design, method) %>%
+      summarise(value = mean(score, na.rm = TRUE), goal = "exploration / visualisation", .groups = "drop"),
+    evaluated %>% filter(regime == "sim", da_prop > 0) %>% group_by(design, method) %>%
+      summarise(value = mean(DA_AP, na.rm = TRUE), goal = "differential abundance", .groups = "drop"),
+    loso %>% filter(status == "ok") %>% group_by(design, method) %>%
+      summarise(value = mean(auroc, na.rm = TRUE), goal = "cross-study prediction", .groups = "drop"))
+
+  top <- goals %>% filter(!is.na(value)) %>% group_by(goal, design) %>%
+    slice_max(value, n = 3) %>%
+    summarise(recommendation = paste(methods_table$label[match(method, methods_table$method)],
+                                     collapse = "\n"), .groups = "drop")
+  ggplot(top, aes(design, goal)) +
+    geom_tile(fill = "grey96", colour = "grey70", linewidth = 0.3) +
+    geom_text(aes(label = recommendation), size = 2, lineheight = 1.1) +
+    labs(x = NULL, y = NULL, title = "Top three by goal and by how confounded the design is") +
+    theme_bench() + theme(panel.grid = element_blank())
+}
+
+main <- function(args) {
+  results_dir <- args[1]; out <- args[2]
+  scored <- read_scores(file.path(results_dir, "scores.tsv"))
+  loso <- read.delim(file.path(results_dir, "loso.tsv"))
+  simulated <- scored[scored$regime == "sim" & scored$status == "ok", ]
+  confounding <- dataset_confounding(results_dir, unique(scored$dataset[scored$regime == "real"]))
+  names(confounding) <- sub("^real/", "", unique(scored$dataset[scored$regime == "real"]))
+
+  figure <- (panel_da(simulated[simulated$da_prop > 0, ]) /
+             (panel_null_da(simulated[simulated$da_prop == 0 & simulated$method != "oracle", ]) |
+              panel_loso(loso)) /
+             (panel_consistency(ranking_table(scored, loso)) | panel_cost(scored)) /
+             panel_recommendation(scored, loso, confounding)) +
+    plot_layout(heights = c(1.1, 1.1, 1.2, 1)) +
+    plot_annotation(tag_levels = "a") &
+    theme(plot.tag = element_text(size = 9, face = "bold"))
+  save_figure(figure, out, 180, 205)
+}
+
+main(commandArgs(TRUE))

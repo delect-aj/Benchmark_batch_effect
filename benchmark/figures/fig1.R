@@ -10,22 +10,8 @@
 source("figures/_panels.R")
 suppressMessages(library(ggrepel))
 
-# Batch-phenotype association, the quantity the whole confounding axis is built on. Cramer's V is 0
-# when every batch has the same phenotype mix and 1 when batch determines phenotype.
-cramers_v <- function(batch, phenotype) {
-  counted <- table(batch, phenotype)
-  if (min(dim(counted)) < 2) return(1)   # one phenotype level: batch trivially determines it
-  chi2 <- suppressWarnings(chisq.test(counted, correct = FALSE))$statistic
-  sqrt(chi2 / (sum(counted) * (min(dim(counted)) - 1)))   # the (min(dim) - 1) term bounds V at 1
-}
-
-dataset_confounding <- function(datasets, results_dir) {
-  vapply(datasets$dataset, function(name) {
-    meta <- read.delim(file.path(results_dir, "data", sub("^results/data/", "", datasets$path[datasets$dataset == name]),
-                                 "meta.tsv"), row.names = 1)
-    as.numeric(cramers_v(meta$batch, meta$phenotype))
-  }, 0)
-}
+dataset_confounding_table <- function(datasets, results_dir)
+  dataset_confounding(results_dir, sub("^results/data/", "", datasets$path))
 
 panel_design <- function() {
   boxes <- data.frame(
@@ -133,7 +119,7 @@ main <- function(args) {
   methods <- methods[methods$role != "sensitivity", ]
 
   figure <- (panel_design() /
-             (panel_landscape(datasets) | panel_confounding(datasets, dataset_confounding(datasets, results_dir),
+             (panel_landscape(datasets) | panel_confounding(datasets, dataset_confounding_table(datasets, results_dir),
                                                             c(0, 0.3, 0.6, 0.9, 1))) /
              panel_simulation_space(scenarios) /
              panel_inventory(methods)) +

@@ -54,6 +54,23 @@ read_scores <- function(path) {
   scored
 }
 
+# One method's output on one dataset, together with the kind tag that says how to read it.
+read_output <- function(results_dir, dataset, method) {
+  path <- file.path(results_dir, "out", dataset, paste0(method, ".tsv"))
+  list(values = as.matrix(read.delim(path, row.names = 1, check.names = FALSE)),
+       kind = jsonlite::fromJSON(paste0(path, ".json"))$kind)
+}
+
+# The space the distance metrics are computed in, kept identical to metrics/compute.R: compositions go
+# to Aitchison coordinates, everything else is already Euclidean.
+euclidean_space <- function(values, kind) {
+  if (!kind %in% c("counts", "relabund")) return(values)
+  proportions <- pmax(values, 0) / rowSums(pmax(values, 0))
+  proportions[proportions == 0] <- min(proportions[proportions > 0]) / 2
+  logged <- log(proportions)
+  logged - rowMeans(logged)
+}
+
 # --- Normalisation -------------------------------------------------------------------------------
 
 # One metric, oriented so that larger is better, with the transform the catalogue asks for.
@@ -85,12 +102,29 @@ ranked <- function(scored, metric, group = "dataset", catalog = metric_catalog()
     mutate(metric = metric)
 }
 
-# Mean scaled score over several metrics, per method -- the summary used by the heatmaps and the
-# trade-off and recommendation panels.
-family_score <- function(scored, metrics, group = "dataset", catalog = metric_catalog()) {
+# Mean scaled score over several metrics -- the summary used by the heatmaps, the trade-off, the
+# gradient curves and the recommendation table. `by` says how finely to keep the result: per method
+# overall, or per method within each dataset.
+family_score <- function(scored, metrics, by = "method", group = "dataset", catalog = metric_catalog()) {
   bind_rows(lapply(metrics, function(m) scaled_score(scored, m, group, catalog))) %>%
-    group_by(method, family) %>%
+    group_by(across(all_of(c(by, "family")))) %>%
     summarise(score = mean(score, na.rm = TRUE), n = sum(!is.na(score)), .groups = "drop")
+}
+
+# Batch-phenotype association. 0 when every batch has the same phenotype mix, 1 when batch determines
+# it; the (min(dim) - 1) term is what bounds it at 1 for phenotypes with more than two levels.
+cramers_v <- function(batch, phenotype) {
+  counted <- table(batch, phenotype)
+  if (min(dim(counted)) < 2) return(1)   # one phenotype level: batch trivially determines it
+  chi2 <- suppressWarnings(chisq.test(counted, correct = FALSE))$statistic
+  as.numeric(sqrt(chi2 / (sum(counted) * (min(dim(counted)) - 1))))
+}
+
+dataset_confounding <- function(results_dir, datasets) {
+  vapply(datasets, function(d) {
+    meta <- read.delim(file.path(results_dir, "data", d, "meta.tsv"), row.names = 1)
+    cramers_v(meta$batch, meta$phenotype)
+  }, 0)
 }
 
 # --- Output --------------------------------------------------------------------------------------
