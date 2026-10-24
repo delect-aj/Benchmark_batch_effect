@@ -10,7 +10,9 @@
 # Usage: Rscript figures/fig3.R <results dir> <out.pdf>
 source("figures/_panels.R")
 
-short_dataset <- function(paths) sub("jmbc_", "jmbc ", sub(".*/", "", paths))
+short_dataset <- function(paths)
+  c(brooks = "brooks", jmbc_extraction = "jmbc extr.", jmbc_library = "jmbc libr.",
+    salim_pig = "salim pig")[sub(".*/", "", paths)]
 
 # Each method's value minus the value `raw` got on the same dataset: the improvement correction bought.
 change_from_raw <- function(scored, metric) {
@@ -43,7 +45,7 @@ panel_distance_to_truth <- function(truth_summary, methods_table = method_table(
     geom_col(width = 0.7) +
     facet_wrap(~ dataset, nrow = 1, scales = "free_x") +
     scale_fill_manual(values = track_colours(), guide = "none") +
-    scale_y_discrete(limits = rev) +
+    scale_y_discrete(limits = rev) + scale_x_continuous(n.breaks = 3) +
     labs(x = "Aitchison distance to truth", y = NULL, title = "Accuracy against the pipetted truth") +
     theme_bench()
 }
@@ -57,7 +59,7 @@ panel_false_structure <- function(truth_summary, methods_table = method_table())
     geom_point(aes(x = false_da_fraction), shape = 21, fill = "white", size = 1.2) +
     facet_wrap(~ dataset, nrow = 1) +
     scale_fill_manual(values = track_colours(), guide = "none") +
-    scale_y_discrete(limits = rev) +
+    scale_y_discrete(limits = rev) + scale_x_continuous(n.breaks = 3) +
     labs(x = "batch R2 among identical material", y = NULL,
          title = "False structure between protocols (points: taxa still differing)") +
     theme_bench()
@@ -65,8 +67,8 @@ panel_false_structure <- function(truth_summary, methods_table = method_table())
 
 panel_oracle_fidelity <- function(simulated, methods_table = method_table()) {
   long <- bind_rows(
-    data.frame(method = simulated$method, value = simulated$oracle_mantel, measure = "distances (Mantel r)"),
-    data.frame(method = simulated$method, value = simulated$oracle_taxon_rho, measure = "per taxon (rho)"))
+    data.frame(method = simulated$method, value = simulated$oracle_mantel, measure = "Mantel r"),
+    data.frame(method = simulated$method, value = simulated$oracle_taxon_rho, measure = "per-taxon rho"))
   ggplot(label_methods(long[!is.na(long$value), ], methods_table), aes(value, label, fill = track)) +
     geom_boxplot(outlier.size = 0.2, linewidth = 0.25, width = 0.7) +
     facet_wrap(~ measure, nrow = 1) +
