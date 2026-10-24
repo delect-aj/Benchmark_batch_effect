@@ -39,7 +39,10 @@ oracle_mantel\ttruth\t1\tidentity\tdistance fidelity (Mantel r)
 oracle_taxon_rho\ttruth\t1\tidentity\tper-taxon fidelity (rho)
 DA_FDR\tda\t-1\tidentity\tDA false discovery rate
 DA_power\tda\t1\tidentity\tDA power
-DA_AP\tda\t1\tidentity\tDA average precision", sep = "\t")
+DA_AP\tda\t1\tidentity\tDA average precision
+DA_oracle_FDR\tda\t-1\tidentity\tFDR vs the batch-free answer
+DA_oracle_power\tda\t1\tidentity\tpower vs the batch-free answer
+DA_oracle_AP\tda\t1\tidentity\tprecision vs the batch-free answer", sep = "\t")
 
 # --- Reading results -----------------------------------------------------------------------------
 

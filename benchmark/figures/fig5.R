@@ -13,31 +13,45 @@ source("figures/_panels.R")
 batch_metrics <- function() c("R2_batch_ait", "R2_batch_bc", "R2_batch_jac", "ASW_batch", "iLISI")
 bio_metrics <- function() c("R2_pheno_ait", "R2_pheno_bc", "R2_pheno_jac", "ASW_pheno", "cLISI")
 
-# The false discovery rate is pooled over scenarios rather than averaged: most scenarios call only a
-# handful of taxa, and a per-scenario ratio with a denominator of one or two is 0 or 1 by arithmetic,
-# not by behaviour. Power and average precision have no such denominator and keep their distribution.
+# Two truths side by side. "planted" is what the simulation put in; "batch-free answer" is what the
+# same test finds on the oracle table -- the answer the data would have given with no batch effect.
+# The error rate is pooled over scenarios rather than averaged: most scenarios call only a handful of
+# taxa, and a per-scenario ratio with a denominator of one or two is 0 or 1 by arithmetic, not by
+# behaviour. Power and precision have no such denominator and keep their distribution.
+truth_labels <- function() c(planted = "planted truth", oracle = "batch-free answer")
+
 panel_da <- function(planted, methods_table = method_table()) {
-  measures <- c("power", "average precision")
-  long <- bind_rows(
-    data.frame(method = planted$method, value = planted$DA_power, measure = "power"),
-    data.frame(method = planted$method, value = planted$DA_AP, measure = "average precision"))
-  long$measure <- factor(long$measure, measures)
-  pooled <- planted %>%
-    group_by(method) %>%
-    summarise(value = sum(DA_FDR * DA_nsig, na.rm = TRUE) / sum(DA_nsig, na.rm = TRUE),
-              measure = factor("pooled false discovery rate"), .groups = "drop")
-  panel_fdr <- ggplot(label_methods(pooled, methods_table), aes(label, value, fill = track)) +
-    geom_col(width = 0.7) +
+  pooled <- bind_rows(
+    planted %>% group_by(method) %>%
+      summarise(value = sum(DA_FDR * DA_nsig, na.rm = TRUE) / sum(DA_nsig, na.rm = TRUE),
+                truth = truth_labels()[["planted"]], .groups = "drop"),
+    planted %>% group_by(method) %>%
+      summarise(value = sum(DA_oracle_FDR * DA_nsig, na.rm = TRUE) / sum(DA_nsig, na.rm = TRUE),
+                truth = truth_labels()[["oracle"]], .groups = "drop"))
+  spread <- bind_rows(
+    data.frame(method = planted$method, value = planted$DA_power, measure = "power",
+               truth = truth_labels()[["planted"]]),
+    data.frame(method = planted$method, value = planted$DA_oracle_power, measure = "power",
+               truth = truth_labels()[["oracle"]]),
+    data.frame(method = planted$method, value = planted$DA_AP, measure = "average precision",
+               truth = truth_labels()[["planted"]]),
+    data.frame(method = planted$method, value = planted$DA_oracle_AP, measure = "average precision",
+               truth = truth_labels()[["oracle"]]))
+  spread$measure <- factor(spread$measure, c("power", "average precision"))
+
+  panel_fdr <- ggplot(label_methods(pooled, methods_table), aes(label, value, fill = truth)) +
+    geom_col(position = position_dodge(0.8), width = 0.75) +
     geom_hline(yintercept = 0.05, linetype = "22", linewidth = 0.3, colour = "#b2182b") +
-    scale_fill_manual(values = track_colours(), guide = "none") +
+    scale_fill_brewer(palette = "Set2", name = NULL) +
     labs(x = NULL, y = NULL, title = "Pooled FDR (dashed: nominal 5%)") +
     theme_bench() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
-  panel_rest <- ggplot(label_methods(long[!is.na(long$value), ], methods_table),
-                       aes(label, value, fill = track)) +
-    geom_boxplot(outlier.size = 0.2, linewidth = 0.25, width = 0.7) +
+  panel_rest <- ggplot(label_methods(spread[!is.na(spread$value), ], methods_table),
+                       aes(label, value, fill = truth)) +
+    geom_boxplot(outlier.size = 0.2, linewidth = 0.25, width = 0.7,
+                 position = position_dodge(0.8)) +
     facet_wrap(~ measure, nrow = 1) +
-    scale_fill_manual(values = track_colours(), guide = "none") +
-    labs(x = NULL, y = NULL, title = "Power and precision against the planted truth") +
+    scale_fill_brewer(palette = "Set2", guide = "none") +
+    labs(x = NULL, y = NULL, title = "Power and precision") +
     theme_bench() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
   panel_fdr | panel_rest
 }
@@ -71,7 +85,7 @@ ranking_table <- function(scored, loso) {
   batch <- family_score(evaluated, batch_metrics()) %>% filter(family == "batch") %>%
     select(method, `batch removal` = score)
   da <- evaluated %>% filter(regime == "sim", da_prop > 0) %>% group_by(method) %>%
-    summarise(`DA precision` = mean(DA_AP, na.rm = TRUE), .groups = "drop")
+    summarise(`DA recovery` = mean(DA_oracle_AP, na.rm = TRUE), .groups = "drop")
   prediction <- loso %>% filter(status == "ok") %>% group_by(method) %>%
     summarise(`cross-study auROC` = mean(auroc, na.rm = TRUE), .groups = "drop")
   Reduce(function(a, b) inner_join(a, b, by = "method"), list(batch, da, prediction))
@@ -124,7 +138,7 @@ panel_recommendation <- function(scored, loso, confounding, methods_table = meth
       group_by(design, method) %>%
       summarise(value = mean(score, na.rm = TRUE), goal = "exploration / visualisation", .groups = "drop"),
     evaluated %>% filter(regime == "sim", da_prop > 0) %>% group_by(design, method) %>%
-      summarise(value = mean(DA_AP, na.rm = TRUE), goal = "differential abundance", .groups = "drop"),
+      summarise(value = mean(DA_oracle_AP, na.rm = TRUE), goal = "differential abundance", .groups = "drop"),
     loso %>% filter(status == "ok") %>% group_by(design, method) %>%
       summarise(value = mean(auroc, na.rm = TRUE), goal = "cross-study prediction", .groups = "drop"))
 

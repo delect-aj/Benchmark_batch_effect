@@ -7,7 +7,8 @@ silva: /beegfs/dongbiao/silva_138.2/silva_138.2_dada2_genus.fa.gz
 scenarios: config/scenarios.tsv   # frozen design (simulate/design.R); do not regenerate after results exist
 only: ""                          # regex filter on scenario ids ("" = all)
 methods_only: ""                  # regex filter on method names, for test runs ("" = all)
-reps: 20
+reps: 5                           # replicates per LHS scenario
+reps_gradient: 20                 # replicates per sweep/null scenario (Fig 4's gradient curves)
 timeout: 6h                       # a method hitting this is recorded as failed, not dropped
 templates:
   16s: data/templates/16s.tsv

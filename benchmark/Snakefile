@@ -8,7 +8,10 @@ R, PY, RDATA = (os.path.expanduser(config[k]) for k in ("rscript", "python", "rs
 RDADA, SILVA = os.path.expanduser(config["rscript_dada2"]), config["silva"]
 SC = pd.read_csv(config["scenarios"], sep="\t").set_index("scenario")
 SC = SC[SC.index.str.contains(config["only"])] if config["only"] else SC
-SIMS = [f"sim/{s}/rep{r}" for s in SC.index for r in range(1, int(config["reps"]) + 1)]
+# The gradient scenarios carry Figure 4's curves one point at a time, so they get the full number of
+# replicates; the LHS grid trades replicates for coverage and gets fewer.
+reps_for = lambda scen: int(config["reps_gradient"] if re.match(r"^(sweep|null)_", scen) else config["reps"])
+SIMS = [f"sim/{s}/rep{r}" for s in SC.index for r in range(1, reps_for(s) + 1)]
 REAL = [f"real/{d}" for d in config["real"]]
 MOCK = [f"mock/{d}" for d in config["mock"]]
 LOSO, TRUTH = config["loso"], config["truth"]

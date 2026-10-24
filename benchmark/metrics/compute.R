@@ -53,8 +53,22 @@ res$iLISI <- (lisi(D$ait, batch) - 1) / (nlevels(batch) - 1)  # 1 = perfectly mi
 res$cLISI <- (nlevels(pheno) - lisi(D$ait, pheno)) / (nlevels(pheno) - 1)  # 1 = phenotypes fully separated
 
 # --- Ground truth (simulations only) -----------------------------------------------------------
+# One Wilcoxon pass over a table, in whatever space the caller hands it.
+da_test <- function(space, group) {
+  p <- apply(space, 2, function(v) suppressWarnings(wilcox.test(v ~ group, exact = FALSE)$p.value))
+  p[is.na(p)] <- 1                                   # constant taxa
+  list(p = p, sig = names(p)[p.adjust(p, "BH") < 0.05])
+}
+# Error rate, power and average precision of one call set against one definition of the truth.
+against <- function(called, p, truth)
+  list(FDR = if (length(called)) mean(!called %in% truth) else 0,
+       power = if (length(truth)) mean(truth %in% called) else NA,
+       AP = if (length(truth)) { hit <- names(sort(p)) %in% truth
+                                 mean((cumsum(hit) / seq_along(hit))[hit]) } else NA)
+
 oracle_f <- file.path(a[1], "oracle.tsv")
 res$oracle_mantel <- res$oracle_taxon_rho <- NA
+oracle_sig <- NULL
 if (file.exists(oracle_f)) {
   o <- clr_of_prop(prop(as.matrix(read.delim(oracle_f, row.names = 1, check.names = FALSE))))
   stopifnot(identical(rownames(o), rownames(x)))
@@ -62,21 +76,37 @@ if (file.exists(oracle_f)) {
   if (kind != "embedding")
     res$oracle_taxon_rho <- mean(sapply(colnames(o), function(j) cor(eucl[, j], o[, j], method = "spearman")),
                                  na.rm = TRUE)
+  if (nlevels(pheno) == 2) oracle_sig <- da_test(o, pheno)$sig
 }
 
+# Two truths, because they answer different questions.
+#
+# `truth_da.txt` is what the simulation planted: did the method recover the biology? On its own it
+# overstates the error rate, because planting a fold change renormalises the community -- the taxa
+# that were *not* planted really do shift, and counting them as errors blames the method for the
+# simulation (measured: the planted effects change total mass by 1.5-2x, which moves every other
+# taxon's prevalence by ~0.04).
+#
+# The oracle's own calls are what the same test finds on the batch-free table: did the method recover
+# the answer the data would have given with no batch effect at all? That is the question a
+# batch-correction benchmark actually asks, and it is well defined whatever the simulation did to the
+# composition. By construction the oracle scores perfectly against it, so it bounds the scale rather
+# than acting as a comparator.
 truth_f <- file.path(a[1], "truth_da.txt")
 res$DA_FDR <- res$DA_power <- res$DA_AP <- res$DA_nsig <- NA
-if (file.exists(truth_f) && kind != "embedding" && nlevels(pheno) == 2) {
-  truth <- readLines(truth_f)
-  p <- apply(eucl, 2, function(v) suppressWarnings(wilcox.test(v ~ pheno, exact = FALSE)$p.value))
-  p[is.na(p)] <- 1  # constant taxa
-  sig <- names(p)[p.adjust(p, "BH") < 0.05]
-  hit <- names(sort(p)) %in% truth
-  res$DA_nsig <- length(sig)
-  res$DA_FDR <- if (length(sig)) mean(!sig %in% truth) else 0
-  if (length(truth)) {
-    res$DA_power <- mean(truth %in% sig)
-    res$DA_AP <- mean((cumsum(hit) / seq_along(hit))[hit])  # average precision over the p-value ranking
+res$DA_oracle_FDR <- res$DA_oracle_power <- res$DA_oracle_AP <- NA
+if (kind != "embedding" && nlevels(pheno) == 2) {
+  called <- da_test(eucl, pheno)
+  res$DA_nsig <- length(called$sig)
+  if (file.exists(truth_f)) {
+    planted <- against(called$sig, called$p, readLines(truth_f))
+    res$DA_FDR <- planted$FDR; res$DA_power <- planted$power; res$DA_AP <- planted$AP
+  }
+  if (!is.null(oracle_sig)) {
+    recovered <- against(called$sig, called$p, oracle_sig)
+    res$DA_oracle_FDR <- recovered$FDR
+    res$DA_oracle_power <- recovered$power
+    res$DA_oracle_AP <- recovered$AP
   }
 }
 
