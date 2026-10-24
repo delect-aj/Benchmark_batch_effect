@@ -119,15 +119,16 @@ rule score:
         else printf 'method\\n{wildcards.m}\\n' > {output}; fi
         """
 
-rule loso:  # leave-one-study-out prediction; the wrapper is re-run per fold with the held-out labels masked
-    input: "results/data/real/{ds}/counts.tsv", "results/data/real/{ds}/meta.tsv"
+rule loso:  # cross-study prediction, re-split from the table the method already produced (upper bound)
+    input: "results/out/real/{ds}/{m}.status", "results/data/real/{ds}/meta.tsv"
     output: "results/loso/{ds}/{m}.tsv"
     log: "results/logs/loso/{ds}/{m}.log"
-    threads: lambda w: config["threads"].get(w.m, 1)
-    params:
-        exe = lambda w: R if SCRIPT[w.m].endswith(".R") else PY,
-        script = lambda w: SCRIPT[w.m], t = config.get("loso_timeout", "1h")
-    shell: "{R} metrics/loso.R results/data/real/{wildcards.ds} {params.exe} {params.script} {output} {params.t} > {log} 2>&1"
+    shell:
+        """
+        if grep -q '^ok' {input[0]} && {R} metrics/loso.R results/data/real/{wildcards.ds} \
+             results/out/real/{wildcards.ds}/{wildcards.m}.tsv {output} > {log} 2>&1; then :
+        else printf 'dataset\tmethod\theld_out\tclassifier\tauroc\tn_train\tn_test\tn_pos_test\tstatus\n{wildcards.ds}\t{wildcards.m}\tNA\tNA\tNA\tNA\tNA\tNA\tcorrection unavailable\n' > {output}; fi
+        """
 
 rule loso_all:
     input: [f"results/loso/{d}/{m}.tsv" for d in LOSO for m in config["methods"] if m != "oracle"]

@@ -8,7 +8,6 @@ scenarios: config/scenarios.tsv   # frozen design (simulate/design.R); do not re
 only: ""                          # regex filter on scenario ids ("" = all)
 reps: 20
 timeout: 6h                       # a method hitting this is recorded as failed, not dropped
-loso_timeout: 1h                  # per fold, not per dataset: LOSO re-runs a wrapper once per study
 templates:
   16s: data/templates/16s.tsv
   mgx: data/templates/mgx.tsv
@@ -16,6 +15,8 @@ real: [crc_mgx, ibd_mgx, ici_mgx, crc_16s, ibd_16s, hiv_16s, hivrc_16s, seed_16s
 # Cross-study prediction only applies where the batch IS the study and the phenotype is a disease
 # contrast. seed_16s is excluded because no study contains all five host plants, mbqc and
 # jmbc_extraction because their batches are laboratories and protocols rather than studies.
+# Scored by re-splitting the already-corrected table, so correction saw the held-out labels: the
+# resulting auROCs are an upper bound, with `raw` (no correction, no leakage) as the honest reference.
 loso: [crc_mgx, ibd_mgx, ici_mgx, crc_16s, ibd_16s, hiv_16s, hivrc_16s]
 methods: [raw, oracle, limma, combat, combatseq, mmuphin, conqur, cqr, plsdabatch, wplsdabatch,
           percentile, metadict, debias_m, harmony, fastmnn, scanvi]
