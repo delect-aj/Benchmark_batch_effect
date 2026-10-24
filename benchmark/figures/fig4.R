@@ -22,18 +22,23 @@ scored_by_scenario <- function(scored) {
   left_join(families, parameters, by = "dataset", suffix = c("", "_scenario"))
 }
 
+# The gradient is indexed by the designed confounding level, not by each replicate's realised
+# Cramer's V: with 20 replicates per level the realised values scatter around the design point and
+# would turn five points into a hundred.
 panel_gradient <- function(sweep_scores, methods_table = method_table()) {
   curves <- sweep_scores %>%
-    group_by(method, family, template, cramers_v) %>%
-    summarise(score = mean(score, na.rm = TRUE), .groups = "drop")
-  ggplot(label_methods(curves, methods_table), aes(cramers_v, score, colour = label, group = label)) +
+    group_by(method, family, template, conf) %>%
+    summarise(spread = sd(score, na.rm = TRUE), score = mean(score, na.rm = TRUE), .groups = "drop")
+  ggplot(label_methods(curves, methods_table), aes(conf, score, colour = label, group = label)) +
+    geom_errorbar(aes(ymin = score - spread, ymax = score + spread), width = 0, linewidth = 0.25,
+                  alpha = 0.5) +
     geom_line(linewidth = 0.4) + geom_point(size = 0.7) +
     facet_grid(family ~ template, labeller = as_labeller(
       c(batch = "batch removal", bio = "signal retention", `16s.tsv` = "16S", `mgx.tsv` = "metagenome",
         `16s` = "16S", mgx = "metagenome"))) +
     scale_colour_viridis_d(option = "turbo", name = NULL) +
     guides(colour = guide_legend(ncol = 2, keyheight = unit(2.6, "mm"))) +
-    labs(x = "batch-phenotype confounding (Cramer's V)", y = "scaled score",
+    labs(x = "designed batch-phenotype confounding", y = "scaled score (mean +- sd over replicates)",
          title = "Performance along the confounding gradient") +
     theme_bench() + theme(legend.position = "right")
 }
@@ -48,26 +53,26 @@ panel_overcorrection <- function(simulated, methods_table = method_table()) {
   corrected$index <- (corrected$raw_pheno - corrected$R2_pheno_ait) /
                      (corrected$raw_batch - corrected$R2_batch_ait)
   summarised <- corrected %>%
-    group_by(method, cramers_v) %>%
+    group_by(method, conf) %>%
     summarise(index = median(index, na.rm = TRUE), .groups = "drop")
-  ggplot(label_methods(summarised, methods_table), aes(cramers_v, index, colour = label)) +
+  ggplot(label_methods(summarised, methods_table), aes(conf, index, colour = label)) +
     geom_hline(yintercept = 1, linetype = "22", linewidth = 0.3, colour = "grey50") +
     geom_line(linewidth = 0.4) + geom_point(size = 0.7) +
     scale_colour_viridis_d(option = "turbo", guide = "none") +
     scale_y_log10(labels = scales::label_number()) +
     coord_cartesian(ylim = c(0.01, 10)) +
-    labs(x = "Cramer's V", y = "signal lost / batch removed",
+    labs(x = "designed confounding", y = "signal lost / batch removed",
          title = "Overcorrection index") +
     theme_bench()
 }
 
 panel_invented_signal <- function(null_scores, methods_table = method_table()) {
   shown <- label_methods(null_scores, methods_table)
-  shown$confounding <- factor(round(shown$cramers_v, 1))
+  shown$confounding <- factor(shown$conf)
   ggplot(shown, aes(R2_pheno_ait, label, fill = confounding)) +
     stat_summary(fun = mean, geom = "col", orientation = "y",
                  position = position_dodge(0.8), width = 0.75) +
-    scale_fill_brewer(palette = "OrRd", name = "Cramer's V") +
+    scale_fill_brewer(palette = "OrRd", name = "designed\nconfounding") +
     scale_y_discrete(limits = rev) +
     labs(x = "R2 of a phenotype that carries no signal", y = NULL,
          title = "Invented structure in the null scenarios") +
@@ -97,10 +102,10 @@ panel_breakpoint <- function(sweep_simulated, methods_table = method_table()) {
   retained <- inner_join(sweep_simulated[sweep_simulated$method != "oracle", ], oracle, by = "dataset")
   retained$retention <- retained$R2_pheno_ait / retained$oracle_pheno
   breaks <- retained %>%
-    group_by(method, cramers_v) %>%
+    group_by(method, conf) %>%
     summarise(retention = mean(retention, na.rm = TRUE), .groups = "drop") %>%
     group_by(method) %>%
-    summarise(breakpoint = suppressWarnings(min(cramers_v[retention < 0.5])), .groups = "drop")
+    summarise(breakpoint = suppressWarnings(min(conf[retention < 0.5])), .groups = "drop")
   breaks$breakpoint[!is.finite(breaks$breakpoint)] <- 1.1   # never fell below half across the gradient
   shown <- label_methods(breaks, methods_table)
   shown$label <- reorder(shown$label, -shown$breakpoint)
@@ -109,7 +114,7 @@ panel_breakpoint <- function(sweep_simulated, methods_table = method_table()) {
     geom_vline(xintercept = 1.05, linetype = "22", linewidth = 0.3, colour = "grey50") +
     scale_fill_manual(values = track_colours(), guide = "none") +
     scale_x_continuous(breaks = c(0, 0.3, 0.6, 0.9, 1.1), labels = c("0", "0.3", "0.6", "0.9", "never")) +
-    labs(x = "Cramer's V where less than half the signal survives", y = NULL,
+    labs(x = "designed confounding where less than half the signal survives", y = NULL,
          title = "Breaking point") +
     theme_bench()
 }
