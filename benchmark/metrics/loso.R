@@ -50,9 +50,15 @@ for (s in sort(unique(meta$batch))) {
   xi <- x[, apply(x[!test, , drop = FALSE], 2, sd) > 0, drop = FALSE]   # constant in training -> uninformative
   yt <- droplevels(y[!test]); ys <- droplevels(y[test])
   fits <- list(
+    # lambda.min, not lambda.1se: the one-standard-error rule is tuned for parsimony and on these data it
+    # selects no features at all, leaving an intercept-only model whose predictions are constant. That scores
+    # exactly 0.5 for every method and would erase the comparison. A fold where even lambda.min keeps nothing
+    # is reported as degenerate rather than as chance performance -- no model was fitted, so there is no
+    # performance to report.
     L1_logistic = tryCatch({
       cv <- cv.glmnet(xi[!test, ], yt, family = "binomial", alpha = 1, nfolds = 5)
-      as.numeric(predict(cv, xi[test, , drop = FALSE], s = "lambda.1se", type = "response"))
+      if (sum(coef(cv, s = "lambda.min")[-1] != 0) == 0) NA
+      else as.numeric(predict(cv, xi[test, , drop = FALSE], s = "lambda.min", type = "response"))
     }, error = function(e) NULL),
     random_forest = tryCatch({
       rf <- randomForest(xi[!test, ], yt, ntree = 500)
@@ -61,8 +67,8 @@ for (s in sort(unique(meta$batch))) {
 
   for (cl in names(fits)) {
     p <- fits[[cl]]
-    rows[[length(rows) + 1]] <- row(s, cl, if (is.null(p)) NA_real_ else auc_of(ys, p), test,
-                                    if (is.null(p)) "classifier failed" else "ok")
+    st <- if (is.null(p)) "classifier failed" else if (length(p) == 1 && is.na(p)) "degenerate: no features selected" else "ok"
+    rows[[length(rows) + 1]] <- row(s, cl, if (st == "ok") auc_of(ys, p) else NA_real_, test, st)
   }
 }
 
