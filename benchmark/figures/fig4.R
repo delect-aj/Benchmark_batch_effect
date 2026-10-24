@@ -43,8 +43,13 @@ panel_gradient <- function(sweep_scores, methods_table = method_table()) {
     theme_bench() + theme(legend.position = "right")
 }
 
-# How much biological signal a method gives up for each unit of batch signal it removes. Taken as a
-# median over scenarios: the ratio is unstable wherever a method barely moved the batch term.
+# How much biological signal a method gives up for each unit of batch signal it removes, as a median
+# over replicates (the ratio is unstable wherever a method barely moved the batch term).
+#
+# The axis is symmetric around zero because the ratio goes negative, and that is the finding rather
+# than an artefact: a negative index means the apparent phenotype signal *grew* while the batch term
+# shrank, which is batch structure being moved onto the phenotype axis rather than removed. A log
+# axis would silently drop every one of those points.
 panel_overcorrection <- function(simulated, methods_table = method_table()) {
   reference <- simulated[simulated$method == "raw", c("dataset", "R2_batch_ait", "R2_pheno_ait")]
   names(reference)[2:3] <- c("raw_batch", "raw_pheno")
@@ -56,13 +61,14 @@ panel_overcorrection <- function(simulated, methods_table = method_table()) {
     group_by(method, conf) %>%
     summarise(index = median(index, na.rm = TRUE), .groups = "drop")
   ggplot(label_methods(summarised, methods_table), aes(conf, index, colour = label)) +
-    geom_hline(yintercept = 1, linetype = "22", linewidth = 0.3, colour = "grey50") +
+    geom_hline(yintercept = c(0, 1), linetype = c("solid", "22"), linewidth = 0.3,
+               colour = c("grey70", "grey50")) +
     geom_line(linewidth = 0.4) + geom_point(size = 0.7) +
     scale_colour_viridis_d(option = "turbo", guide = "none") +
-    scale_y_log10(labels = scales::label_number()) +
-    coord_cartesian(ylim = c(0.01, 10)) +
+    scale_y_continuous(trans = scales::pseudo_log_trans(sigma = 0.01),
+                       breaks = c(-10, -1, -0.1, 0, 0.1, 1, 10), labels = scales::label_number()) +
     labs(x = "designed confounding", y = "signal lost / batch removed",
-         title = "Overcorrection index") +
+         title = "Overcorrection index (negative: signal gained, not lost)") +
     theme_bench()
 }
 
