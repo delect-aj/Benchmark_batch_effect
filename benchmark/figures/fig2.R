@@ -53,7 +53,7 @@ panel_global <- function(scored, methods_table = method_table()) {
                labeller = as_labeller(c(batch = "batch removal", bio = "signal retention"))) +
     scale_fill_viridis_c(option = "mako", direction = -1, limits = c(0, 1), name = "scaled\nscore") +
     scale_y_discrete(limits = rev) +
-    labs(x = NULL, y = NULL, title = "Mean scaled score across the evaluation datasets") +
+    labs(x = NULL, y = NULL, title = "Mean scaled score, evaluation datasets") +
     theme_bench() +
     theme(axis.text.x = element_text(angle = 40, hjust = 1), panel.grid = element_blank())
 }
