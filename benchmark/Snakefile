@@ -49,7 +49,9 @@ rule template_16s:
     shell: "{R} simulate/make_templates.R 16s {output}"
 
 rule template_mgx:
-    input: "results/data/real/crc_mgx/counts.tsv"
+    # ancient(): the simulation design is frozen once results exist (config/config.yaml), so a rebuilt
+    # crc_mgx table must not silently re-fit the template and re-draw every metagenome scenario.
+    input: ancient("results/data/real/crc_mgx/counts.tsv")
     output: "data/templates/mgx.tsv"
     shell: "{R} simulate/make_templates.R mgx {output} results/data/real/crc_mgx"
 
