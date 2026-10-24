@@ -101,7 +101,8 @@ write.table(data.frame(taxon = taxa[keep_t], log2fc = log2(fc[keep_t]), mean_rel
             file.path(outdir, "truth_fc.tsv"), sep = "\t", quote = FALSE, row.names = FALSE)
 
 tb <- table(meta$batch, meta$phenotype)
-p$cramers_v <- if (min(dim(tb)) > 1) sqrt(suppressWarnings(chisq.test(tb, correct = FALSE))$statistic / sum(tb)) else 1
+p$cramers_v <- if (min(dim(tb)) > 1)   # the (min(dim) - 1) term bounds V at 1; it is 1 here, the phenotype being binary
+  sqrt(suppressWarnings(chisq.test(tb, correct = FALSE))$statistic / (sum(tb) * (min(dim(tb)) - 1))) else 1
 p$n_samples <- nrow(meta); p$n_taxa <- sum(keep_t); p$n_da <- length(intersect(taxa[da], taxa[keep_t]))
 p$template <- basename(template)
 jsonlite::write_json(lapply(p, unname), file.path(outdir, "params.json"), auto_unbox = TRUE, pretty = TRUE)

@@ -10,8 +10,12 @@ SC = pd.read_csv(config["scenarios"], sep="\t").set_index("scenario")
 SC = SC[SC.index.str.contains(config["only"])] if config["only"] else SC
 SIMS = [f"sim/{s}/rep{r}" for s in SC.index for r in range(1, int(config["reps"]) + 1)]
 REAL = [f"real/{d}" for d in config["real"]]
-LOSO = config.get("loso", [])
-METHODS, SENS = config["methods"], config.get("sensitivity_methods", [])
+MOCK = [f"mock/{d}" for d in config["mock"]]
+LOSO, TRUTH = config["loso"], config["truth"]
+# Method inventory: output kind, requirements, display label. Also what the figures label axes with.
+MI = pd.read_csv("config/methods.tsv", sep="\t").set_index("method")
+keep = lambda names: [m for m in names if re.search(config["methods_only"], m)]
+METHODS, SENS = keep(config["methods"]), keep(config.get("sensitivity_methods", []))
 SCRIPT = {m: next(f"methods/{m}{e}" for e in (".R", ".py") if os.path.exists(f"methods/{m}{e}")) for m in METHODS + SENS}
 
 def methods_for(ds):
@@ -20,10 +24,10 @@ def methods_for(ds):
     return METHODS + (SENS if re.search(config["sensitivity_only"], ds.split("/")[1]) else [])
 
 wildcard_constraints:
-    ds = r"(sim/[^/]+/rep\d+|real/[^/]+)", m = r"[^/]+", scen = r"[^/]+", rep = r"\d+"
+    ds = r"(sim/[^/]+/rep\d+|real/[^/]+|mock/[^/]+)", m = r"[^/]+", scen = r"[^/]+", rep = r"\d+"
 
 rule all:
-    input: "results/scores.tsv"
+    input: [f"results/figures/fig{i}.pdf" for i in range(1, 6)]
 
 rule fit_template:
     input: "{t}.tsv"
@@ -91,7 +95,7 @@ rule salim_pig:  # storage/handling experiment (PRJEB31650): published count tab
     shell: "{R} data/salim_pig.R results/data/mock/salim_pig results/raw/salim"
 
 rule data:  # every dataset, without running methods
-    input: [f"results/data/{ds}/counts.tsv" for ds in REAL] + [f"results/data/mock/{d}/counts.tsv" for d in ("brooks", "salim_pig")]
+    input: [f"results/data/{ds}/counts.tsv" for ds in REAL + MOCK]
 
 rule run:
     input: "results/data/{ds}/counts.tsv", "results/data/{ds}/meta.tsv"
@@ -131,7 +135,42 @@ rule loso:  # cross-study prediction, re-split from the table the method already
         """
 
 rule loso_all:
-    input: [f"results/loso/{d}/{m}.tsv" for d in LOSO for m in config["methods"] if m != "oracle"]
+    input: [f"results/loso/{d}/{m}.tsv" for d in LOSO for m in METHODS if m != "oracle"]
+
+rule truth:  # distance to the composition that was actually pipetted, for the designed mock datasets
+    input: "results/out/{ds}/{m}.status", "results/data/{ds}/truth.tsv"
+    output: summary = "results/truth/{ds}/{m}.summary.tsv", taxon = "results/truth/{ds}/{m}.taxon.tsv"
+    log: "results/logs/truth/{ds}/{m}.log"
+    shell:   # a method that could not run on this dataset is recorded, like elsewhere, as a result
+        """
+        if grep -q '^ok' {input[0]} && {R} metrics/truth.R results/data/{wildcards.ds} \
+             results/out/{wildcards.ds}/{wildcards.m}.tsv {output.summary} {output.taxon} > {log} 2>&1; then :
+        else printf 'dataset\tmethod\tstatus\n{wildcards.ds}\t{wildcards.m}\tcorrection unavailable\n' > {output.summary}
+             printf 'dataset\tmethod\ttaxon\tn_samples\tlog2_ratio\tbatch_sd\n' > {output.taxon}
+        fi
+        """
+
+# Embeddings have no taxon axis, so they are not scored against a known composition.
+TABLE_METHODS = [m for m in METHODS if MI.loc[m, "output"] != "embedding" and m != "oracle"]
+
+rule collect:  # the three tidy tables the figures read
+    input:
+        scores = "results/scores.tsv",
+        truth = [f"results/truth/{d}/{m}.{k}.tsv" for d in TRUTH for m in TABLE_METHODS
+                 for k in ("summary", "taxon")],
+        loso = [f"results/loso/{d}/{m}.tsv" for d in LOSO for m in METHODS if m != "oracle"]
+    output: "results/truth_summary.tsv", "results/truth_taxon.tsv", "results/loso.tsv"
+    run:
+        for out, paths in zip(output, [[p for p in input.truth if p.endswith("summary.tsv")],
+                                       [p for p in input.truth if p.endswith("taxon.tsv")],
+                                       list(input.loso)]):
+            pd.concat([pd.read_csv(p, sep="\t") for p in paths]).to_csv(out, sep="\t", index=False)
+
+rule figures:
+    input: "results/scores.tsv", "results/truth_summary.tsv", "results/truth_taxon.tsv", "results/loso.tsv"
+    output: [f"results/figures/fig{i}.pdf" for i in range(1, 6)]
+    log: "results/logs/figures.log"
+    shell: "for i in 1 2 3 4 5; do {R} figures/fig$i.R results results/figures/fig$i.pdf; done > {log} 2>&1"
 
 rule aggregate:
     input: [f"results/out/{ds}/{m}.score" for ds in SIMS + REAL for m in methods_for(ds)]

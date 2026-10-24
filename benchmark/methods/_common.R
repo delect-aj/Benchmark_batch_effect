@@ -35,5 +35,8 @@ clr <- function(counts, pseudo = 0.5) {
   l - rowMeans(l)
 }
 
-# Protected covariate design, used identically by every method that accepts one
-bio_design <- function(meta) model.matrix(~ phenotype, meta)
+# Protected covariate design, used identically by every method that accepts one. A dataset with a
+# single phenotype level has no biological contrast to protect (the designed null sets), and the
+# intercept alone is then the correct design -- not a degenerate one.
+bio_design <- function(meta)
+  if (nlevels(meta$phenotype) > 1) model.matrix(~ phenotype, meta) else model.matrix(~ 1, meta)

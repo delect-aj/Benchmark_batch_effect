@@ -6,6 +6,7 @@ rscript_dada2: ~/software/R-4.1.3/bin/R --no-echo --vanilla   # DADA2 (MBQC only
 silva: /beegfs/dongbiao/silva_138.2/silva_138.2_dada2_genus.fa.gz
 scenarios: config/scenarios.tsv   # frozen design (simulate/design.R); do not regenerate after results exist
 only: ""                          # regex filter on scenario ids ("" = all)
+methods_only: ""                  # regex filter on method names, for test runs ("" = all)
 reps: 20
 timeout: 6h                       # a method hitting this is recorded as failed, not dropped
 templates:
@@ -18,6 +19,10 @@ real: [crc_mgx, ibd_mgx, ici_mgx, crc_16s, ibd_16s, hiv_16s, hivrc_16s, seed_16s
 # Scored by re-splitting the already-corrected table, so correction saw the held-out labels: the
 # resulting auROCs are an upper bound, with `raw` (no correction, no leakage) as the honest reference.
 loso: [crc_mgx, ibd_mgx, ici_mgx, crc_16s, ibd_16s, hiv_16s, hivrc_16s]
+# Designed mock sets: methods run on them too, but they are scored against the pipetted composition
+# (metrics/truth.R) rather than with the proxy metrics, so they stay out of `real`.
+mock: [brooks, jmbc_library, salim_pig]
+truth: [real/jmbc_extraction, mock/brooks, mock/jmbc_library, mock/salim_pig]
 methods: [raw, oracle, limma, combat, combatseq, mmuphin, conqur, cqr, plsdabatch, wplsdabatch,
           percentile, metadict, debias_m, harmony, fastmnn, scanvi]
 # ruviiinb: unavailable with current Bioconductor (see README); wrapper kept

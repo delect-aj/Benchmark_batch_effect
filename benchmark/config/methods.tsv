@@ -1,0 +1,19 @@
+method	label	track	output	needs_phenotype	needs_controls	binary_only	transductive	role
+raw	Raw	baseline	counts	no	no	no	na	baseline
+oracle	Oracle	baseline	counts	no	no	no	na	baseline
+limma	limma	A	clr	yes	no	no	yes	main
+combat	ComBat	A	clr	yes	no	no	yes	main
+combatseq	ComBat-seq	A	counts	yes	no	no	yes	main
+mmuphin	MMUPHin	A	relabund	yes	no	no	yes	main
+conqur	ConQuR (tuned)	A	counts	yes	no	no	yes	main
+cqr	CQR	A	counts	yes	no	no	yes	main
+plsdabatch	PLSDA-batch	A	clr	yes	no	no	yes	main
+wplsdabatch	PLSDA-batch (weighted)	A	clr	yes	no	no	yes	main
+percentile	Percentile norm.	A	percentile	yes	yes	yes	yes	main
+metadict	MetaDICT	A	counts	yes	no	no	yes	main
+debias_m	DEBIAS-M	A	relabund	yes	no	yes	yes	main
+harmony	Harmony	B	embedding	no	no	no	yes	main
+fastmnn	fastMNN	B	embedding	no	no	no	yes	main
+scanvi	scANVI	B	embedding	yes	no	no	yes	main
+conqur_default	ConQuR (default)	A	counts	yes	no	no	yes	sensitivity
+conqur_permcov	ConQuR (permuted cov.)	A	counts	yes	no	no	yes	sensitivity
