@@ -42,7 +42,8 @@ panel_gradient <- function(sweep_scores, methods_table = method_table()) {
 panel_overcorrection <- function(simulated, methods_table = method_table()) {
   reference <- simulated[simulated$method == "raw", c("dataset", "R2_batch_ait", "R2_pheno_ait")]
   names(reference)[2:3] <- c("raw_batch", "raw_pheno")
-  corrected <- inner_join(simulated[simulated$method != "raw", ], reference, by = "dataset")
+  # oracle has no batch term to remove, so the ratio is not defined for it
+  corrected <- inner_join(simulated[!simulated$method %in% c("raw", "oracle"), ], reference, by = "dataset")
   corrected$index <- (corrected$raw_pheno - corrected$R2_pheno_ait) /
                      (corrected$raw_batch - corrected$R2_batch_ait)
   summarised <- corrected %>%
@@ -65,7 +66,7 @@ panel_invented_signal <- function(null_scores, methods_table = method_table()) {
     geom_col(position = position_dodge(0.85), width = 0.8) +
     facet_wrap(~ label, nrow = 2) +
     scale_fill_manual(values = track_colours(), guide = "none") +
-    labs(x = "Cramer's V", y = "R2 of a phenotype that carries no signal",
+    labs(x = "Cramer's V", y = "R2 of a signal-free phenotype",
          title = "Invented structure in the null scenarios") +
     theme_bench()
 }
@@ -103,9 +104,9 @@ panel_breakpoint <- function(sweep_simulated, methods_table = method_table()) {
   ggplot(shown, aes(breakpoint, label, fill = track)) +
     geom_col(width = 0.7) +
     geom_vline(xintercept = 1.05, linetype = "22", linewidth = 0.3, colour = "grey50") +
-    annotate("text", x = 1.05, y = 1, label = "never", size = 1.9, hjust = -0.1, colour = "grey40") +
     scale_fill_manual(values = track_colours(), guide = "none") +
-    labs(x = "Cramer's V at which less than half the signal survives", y = NULL,
+    scale_x_continuous(breaks = c(0, 0.3, 0.6, 0.9, 1.1), labels = c("0", "0.3", "0.6", "0.9", "never")) +
+    labs(x = "Cramer's V where less than half the signal survives", y = NULL,
          title = "Breaking point") +
     theme_bench()
 }

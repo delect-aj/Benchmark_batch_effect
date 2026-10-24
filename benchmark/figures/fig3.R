@@ -10,6 +10,8 @@
 # Usage: Rscript figures/fig3.R <results dir> <out.pdf>
 source("figures/_panels.R")
 
+short_dataset <- function(paths) sub("jmbc_", "jmbc ", sub(".*/", "", paths))
+
 # Each method's value minus the value `raw` got on the same dataset: the improvement correction bought.
 change_from_raw <- function(scored, metric) {
   reference <- scored[scored$method == "raw", c("dataset", metric)]
@@ -36,28 +38,27 @@ panel_taxon_bias <- function(per_taxon, dataset, methods_table = method_table())
 
 panel_distance_to_truth <- function(truth_summary, methods_table = method_table()) {
   shown <- label_methods(truth_summary, methods_table)
-  shown$dataset <- sub(".*/", "", shown$dataset)
+  shown$dataset <- short_dataset(shown$dataset)
   ggplot(shown, aes(label, aitchison_to_truth, fill = track)) +
     geom_col(width = 0.7) +
     facet_wrap(~ dataset, nrow = 1, scales = "free_y") +
     scale_fill_manual(values = track_colours(), guide = "none") +
-    labs(x = NULL, y = "Aitchison distance to the known composition",
-         title = "Accuracy against the pipetted truth") +
+    labs(x = NULL, y = "Aitchison distance to truth", title = "Accuracy against the pipetted truth") +
     theme_bench() +
     theme(axis.text.x = element_text(angle = 45, hjust = 1))
 }
 
 panel_false_structure <- function(truth_summary, methods_table = method_table()) {
   shown <- label_methods(truth_summary, methods_table)
-  shown$dataset <- sub(".*/", "", shown$dataset)
+  shown$dataset <- short_dataset(shown$dataset)
   shown$false_da_fraction <- shown$false_da_n / shown$n_taxa
   ggplot(shown, aes(label)) +
     geom_col(aes(y = R2_batch, fill = track), width = 0.7) +
     geom_point(aes(y = false_da_fraction), shape = 21, fill = "white", size = 1.2) +
     facet_wrap(~ dataset, nrow = 1) +
     scale_fill_manual(values = track_colours(), guide = "none") +
-    labs(x = NULL, y = "batch R2 among identical material",
-         title = "False structure left between protocols (points: fraction of taxa still differing)") +
+    labs(x = NULL, y = "batch R2, identical material",
+         title = "False structure between protocols (points: taxa still differing)") +
     theme_bench() +
     theme(axis.text.x = element_text(angle = 45, hjust = 1))
 }
@@ -70,8 +71,7 @@ panel_oracle_fidelity <- function(simulated, methods_table = method_table()) {
     geom_boxplot(outlier.size = 0.2, linewidth = 0.25, width = 0.7) +
     facet_wrap(~ measure, nrow = 1) +
     scale_fill_manual(values = track_colours(), guide = "none") +
-    labs(x = NULL, y = "agreement with the batch-free truth",
-         title = "Fidelity to the simulated truth") +
+    labs(x = NULL, y = "agreement with truth", title = "Fidelity to the simulated truth") +
     theme_bench() +
     theme(axis.text.x = element_text(angle = 45, hjust = 1))
 }
@@ -83,8 +83,8 @@ panel_systematic <- function(simulated, methods_table = method_table()) {
   ggplot(label_methods(shown, methods_table), aes(label, oracle_taxon_rho, fill = bias_kind)) +
     stat_summary(fun = median, geom = "col", position = position_dodge(0.8), width = 0.75) +
     scale_fill_brewer(palette = "BuPu", name = "taxa hit by the bias") +
-    labs(x = NULL, y = "per-taxon fidelity (median rho)",
-         title = "Does the multiplicative assumption decide the outcome?") +
+    labs(x = NULL, y = "median per-taxon rho",
+         title = "Does the multiplicative assumption decide it?") +
     theme_bench() +
     theme(axis.text.x = element_text(angle = 45, hjust = 1))
 }
@@ -100,7 +100,7 @@ panel_proxy_versus_truth <- function(simulated, methods_table = method_table()) 
     geom_vline(xintercept = 0, linewidth = 0.25, colour = "grey60") +
     geom_point(size = 0.3, alpha = 0.35) +
     scale_colour_manual(values = track_colours(), name = NULL) +
-    labs(x = "batch R2 removed (vs raw)", y = "gain in fidelity to the truth (vs raw)",
+    labs(x = "batch R2 removed (vs raw)", y = "fidelity gained (vs raw)",
          title = "Proxy against truth, one point per scenario") +
     theme_bench()
 }

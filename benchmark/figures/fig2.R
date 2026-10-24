@@ -25,12 +25,15 @@ panel_ordination <- function(results_dir, dataset, methods, methods_table = meth
   meta <- read.delim(file.path(results_dir, "data", dataset, "meta.tsv"), row.names = 1)
   points <- label_methods(bind_rows(lapply(methods, function(m) ordination(results_dir, dataset, m, meta))),
                           methods_table)
-  coloured <- bind_rows(transform(points, colour = factor(batch), facet = "coloured by batch"),
-                        transform(points, colour = factor(phenotype), facet = "coloured by phenotype"))
+  # The two rows colour by variables with different numbers of levels, so each is spread over the whole
+  # palette by its own index rather than sharing one discrete scale that would squash the phenotypes.
+  spread <- function(values) { f <- factor(values); (as.integer(f) - 1) / max(1, nlevels(f) - 1) }
+  coloured <- bind_rows(transform(points, colour = spread(batch), facet = "by batch"),
+                        transform(points, colour = spread(phenotype), facet = "by phenotype"))
   ggplot(coloured, aes(dim1, dim2, colour = colour)) +
     geom_point(size = 0.35, alpha = 0.7) +
     facet_grid(facet ~ label, scales = "free") +
-    scale_colour_viridis_d(guide = "none", option = "turbo") +
+    scale_colour_viridis_c(guide = "none", option = "turbo") +
     labs(x = "PCo 1", y = "PCo 2", title = paste("Ordination of", sub(".*/", "", dataset))) +
     theme_bench() +
     theme(axis.text = element_blank(), axis.ticks = element_blank())
@@ -45,7 +48,7 @@ panel_global <- function(scored, methods_table = method_table()) {
                           metric_catalog()$label[match(metrics, metric_catalog()$metric)])
   ggplot(label_methods(scores, methods_table), aes(metric, label)) +
     geom_tile(aes(fill = score), colour = "white", linewidth = 0.3) +
-    geom_text(aes(label = sprintf("%.2f", score)), size = 1.6) +
+    geom_text(aes(label = ifelse(is.na(score), "", sprintf("%.2f", score))), size = 1.6) +
     facet_grid(. ~ family, scales = "free_x", space = "free_x",
                labeller = as_labeller(c(batch = "batch removal", bio = "signal retention"))) +
     scale_fill_viridis_c(option = "mako", direction = -1, limits = c(0, 1), name = "scaled\nscore") +
@@ -70,8 +73,7 @@ panel_flip <- function(scored, methods_table = method_table()) {
     scale_y_reverse(breaks = seq(2, 16, 2)) +
     scale_colour_manual(values = track_colours(), guide = "none") +
     expand_limits(x = 4.2) +
-    labs(x = NULL, y = "mean rank (1 = least batch signal left)",
-         title = "Does the ranking survive the choice of distance?") +
+    labs(x = NULL, y = "mean rank", title = "Does the ranking survive the distance?") +
     theme_bench()
 }
 
@@ -110,8 +112,7 @@ panel_tradeoff <- function(scored, methods_table = method_table()) {
     geom_point(aes(colour = track), size = 1.3) +
     ggrepel::geom_text_repel(aes(label = label), size = 1.8, segment.size = 0.2, max.overlaps = 20) +
     scale_colour_manual(values = track_colours(), name = NULL) +
-    labs(x = "batch removal (scaled)", y = "signal retention (scaled)",
-         title = "The trade-off, with the undominated set") +
+    labs(x = "batch removal", y = "signal retention", title = "The trade-off") +
     theme_bench()
 }
 

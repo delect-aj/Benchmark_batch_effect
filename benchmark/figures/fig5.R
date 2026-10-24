@@ -13,20 +13,33 @@ source("figures/_panels.R")
 batch_metrics <- function() c("R2_batch_ait", "R2_batch_bc", "R2_batch_jac", "ASW_batch", "iLISI")
 bio_metrics <- function() c("R2_pheno_ait", "R2_pheno_bc", "R2_pheno_jac", "ASW_pheno", "cLISI")
 
+# The false discovery rate is pooled over scenarios rather than averaged: most scenarios call only a
+# handful of taxa, and a per-scenario ratio with a denominator of one or two is 0 or 1 by arithmetic,
+# not by behaviour. Power and average precision have no such denominator and keep their distribution.
 panel_da <- function(planted, methods_table = method_table()) {
+  measures <- c("power", "average precision")
   long <- bind_rows(
-    data.frame(method = planted$method, value = planted$DA_FDR, measure = "false discovery rate"),
     data.frame(method = planted$method, value = planted$DA_power, measure = "power"),
     data.frame(method = planted$method, value = planted$DA_AP, measure = "average precision"))
-  long$measure <- factor(long$measure, c("false discovery rate", "power", "average precision"))
-  nominal <- data.frame(measure = factor("false discovery rate", levels(long$measure)), y = 0.05)
-  ggplot(label_methods(long[!is.na(long$value), ], methods_table), aes(label, value, fill = track)) +
-    geom_boxplot(outlier.size = 0.2, linewidth = 0.25, width = 0.7) +
-    geom_hline(data = nominal, aes(yintercept = y), linetype = "22", linewidth = 0.3, colour = "#b2182b") +
-    facet_wrap(~ measure, nrow = 1, scales = "free_y") +
+  long$measure <- factor(long$measure, measures)
+  pooled <- planted %>%
+    group_by(method) %>%
+    summarise(value = sum(DA_FDR * DA_nsig, na.rm = TRUE) / sum(DA_nsig, na.rm = TRUE),
+              measure = factor("pooled false discovery rate"), .groups = "drop")
+  panel_fdr <- ggplot(label_methods(pooled, methods_table), aes(label, value, fill = track)) +
+    geom_col(width = 0.7) +
+    geom_hline(yintercept = 0.05, linetype = "22", linewidth = 0.3, colour = "#b2182b") +
     scale_fill_manual(values = track_colours(), guide = "none") +
-    labs(x = NULL, y = NULL, title = "Differential abundance against the planted truth (dashed: nominal 5%)") +
+    labs(x = NULL, y = NULL, title = "Pooled FDR (dashed: nominal 5%)") +
     theme_bench() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  panel_rest <- ggplot(label_methods(long[!is.na(long$value), ], methods_table),
+                       aes(label, value, fill = track)) +
+    geom_boxplot(outlier.size = 0.2, linewidth = 0.25, width = 0.7) +
+    facet_wrap(~ measure, nrow = 1) +
+    scale_fill_manual(values = track_colours(), guide = "none") +
+    labs(x = NULL, y = NULL, title = "Power and precision against the planted truth") +
+    theme_bench() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  panel_fdr | panel_rest
 }
 
 panel_null_da <- function(null_simulated, methods_table = method_table()) {
@@ -37,7 +50,7 @@ panel_null_da <- function(null_simulated, methods_table = method_table()) {
     geom_col(width = 0.7) +
     geom_hline(yintercept = 0.05, linetype = "22", linewidth = 0.3, colour = "#b2182b") +
     scale_fill_manual(values = track_colours(), guide = "none") +
-    labs(x = NULL, y = "fraction of taxa called", title = "With nothing planted") +
+    labs(x = NULL, y = "fraction of taxa called", title = "With nothing planted (dashed: 5%)") +
     theme_bench() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
 }
 
@@ -48,7 +61,7 @@ panel_loso <- function(loso, methods_table = method_table()) {
     geom_boxplot(outlier.size = 0.2, linewidth = 0.25, width = 0.7) +
     scale_fill_brewer(palette = "Pastel1", name = NULL) +
     labs(x = NULL, y = "auROC, study held out",
-         title = "Cross-study prediction (upper bound: correction saw the held-out labels)") +
+         title = "Cross-study prediction (upper bound)") +
     theme_bench() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
 }
 
@@ -134,7 +147,7 @@ main <- function(args) {
   confounding <- dataset_confounding(results_dir, unique(scored$dataset[scored$regime == "real"]))
   names(confounding) <- sub("^real/", "", unique(scored$dataset[scored$regime == "real"]))
 
-  figure <- (panel_da(simulated[simulated$da_prop > 0, ]) /
+  figure <- (wrap_elements(panel_da(simulated[simulated$da_prop > 0, ])) /
              (panel_null_da(simulated[simulated$da_prop == 0 & simulated$method != "oracle", ]) |
               panel_loso(loso)) /
              (panel_consistency(ranking_table(scored, loso)) | panel_cost(scored)) /
