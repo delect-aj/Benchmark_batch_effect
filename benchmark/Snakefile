@@ -10,6 +10,7 @@ SC = pd.read_csv(config["scenarios"], sep="\t").set_index("scenario")
 SC = SC[SC.index.str.contains(config["only"])] if config["only"] else SC
 SIMS = [f"sim/{s}/rep{r}" for s in SC.index for r in range(1, int(config["reps"]) + 1)]
 REAL = [f"real/{d}" for d in config["real"]]
+LOSO = config.get("loso", [])
 METHODS, SENS = config["methods"], config.get("sensitivity_methods", [])
 SCRIPT = {m: next(f"methods/{m}{e}" for e in (".R", ".py") if os.path.exists(f"methods/{m}{e}")) for m in METHODS + SENS}
 
@@ -117,6 +118,19 @@ rule score:
         if grep -q '^ok' {input} && {R} metrics/compute.R results/data/{wildcards.ds} results/out/{wildcards.ds}/{wildcards.m}.tsv {output} 2> {log}; then :
         else printf 'method\\n{wildcards.m}\\n' > {output}; fi
         """
+
+rule loso:  # leave-one-study-out prediction; the wrapper is re-run per fold with the held-out labels masked
+    input: "results/data/real/{ds}/counts.tsv", "results/data/real/{ds}/meta.tsv"
+    output: "results/loso/{ds}/{m}.tsv"
+    log: "results/logs/loso/{ds}/{m}.log"
+    threads: lambda w: config["threads"].get(w.m, 1)
+    params:
+        exe = lambda w: R if SCRIPT[w.m].endswith(".R") else PY,
+        script = lambda w: SCRIPT[w.m], t = config.get("loso_timeout", "1h")
+    shell: "{R} metrics/loso.R results/data/real/{wildcards.ds} {params.exe} {params.script} {output} {params.t} > {log} 2>&1"
+
+rule loso_all:
+    input: [f"results/loso/{d}/{m}.tsv" for d in LOSO for m in config["methods"] if m != "oracle"]
 
 rule aggregate:
     input: [f"results/out/{ds}/{m}.score" for ds in SIMS + REAL for m in methods_for(ds)]
