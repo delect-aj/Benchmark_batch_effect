@@ -24,7 +24,8 @@ def methods_for(ds):
     return METHODS + (SENS if re.search(config["sensitivity_only"], ds.split("/")[1]) else [])
 
 wildcard_constraints:
-    ds = r"(sim/[^/]+/rep\d+|real/[^/]+|mock/[^/]+)", m = r"[^/]+", scen = r"[^/]+", rep = r"\d+"
+    ds = r"(sim/[^/]+/rep\d+|real/[^/]+|mock/[^/]+)", m = r"[^/]+", scen = r"[^/]+", rep = r"\d+",
+    name = r"[^/]+"
 
 rule all:
     input: [f"results/figures/fig{i}.pdf" for i in range(1, 6)]
@@ -124,14 +125,14 @@ rule score:
         """
 
 rule loso:  # cross-study prediction, re-split from the table the method already produced (upper bound)
-    input: "results/out/real/{ds}/{m}.status", "results/data/real/{ds}/meta.tsv"
-    output: "results/loso/{ds}/{m}.tsv"
-    log: "results/logs/loso/{ds}/{m}.log"
+    input: "results/out/real/{name}/{m}.status", "results/data/real/{name}/meta.tsv"
+    output: "results/loso/{name}/{m}.tsv"
+    log: "results/logs/loso/{name}/{m}.log"
     shell:
         """
-        if grep -q '^ok' {input[0]} && {R} metrics/loso.R results/data/real/{wildcards.ds} \
-             results/out/real/{wildcards.ds}/{wildcards.m}.tsv {output} > {log} 2>&1; then :
-        else printf 'dataset\tmethod\theld_out\tclassifier\tauroc\tn_train\tn_test\tn_pos_test\tstatus\n{wildcards.ds}\t{wildcards.m}\tNA\tNA\tNA\tNA\tNA\tNA\tcorrection unavailable\n' > {output}; fi
+        if grep -q '^ok' {input[0]} && {R} metrics/loso.R results/data/real/{wildcards.name} \
+             results/out/real/{wildcards.name}/{wildcards.m}.tsv {output} > {log} 2>&1; then :
+        else printf 'dataset\tmethod\theld_out\tclassifier\tauroc\tn_train\tn_test\tn_pos_test\tstatus\n{wildcards.name}\t{wildcards.m}\tNA\tNA\tNA\tNA\tNA\tNA\tcorrection unavailable\n' > {output}; fi
         """
 
 rule loso_all:
