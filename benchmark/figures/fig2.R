@@ -49,7 +49,6 @@ panel_global <- function(scored, methods_table = method_table()) {
                           metric_catalog()$label[match(metrics, metric_catalog()$metric)])
   ggplot(label_methods(scores, methods_table), aes(metric, label)) +
     geom_tile(aes(fill = score), colour = "white", linewidth = 0.3) +
-    geom_text(aes(label = ifelse(is.na(score), "", sprintf("%.2f", score))), size = 1.6) +
     facet_grid(. ~ family, scales = "free_x", space = "free_x",
                labeller = as_labeller(c(batch = "batch removal", bio = "signal retention"))) +
     scale_fill_viridis_c(option = "mako", direction = -1, limits = c(0, 1), name = "scaled\nscore") +
@@ -70,10 +69,11 @@ panel_flip <- function(scored, methods_table = method_table()) {
     geom_point(size = 1) +
     ggrepel::geom_text_repel(data = ~ subset(.x, distance == tail(levels(distance), 1)),
                              aes(label = label), size = 1.8, direction = "y", hjust = 0,
-                             nudge_x = 0.15, segment.size = 0.2, max.overlaps = 20) +
-    scale_y_reverse(breaks = seq(2, 16, 2)) +
+                             nudge_x = 0.2, segment.size = 0.2, max.overlaps = Inf,
+                             box.padding = 0.12, min.segment.length = 0) +
+    scale_y_reverse(breaks = seq(2, 18, 2)) +
     scale_colour_manual(values = track_colours(), guide = "none") +
-    expand_limits(x = 4.2) +
+    expand_limits(x = 5.2) +
     labs(x = NULL, y = "mean rank", title = "Does the ranking survive the distance?") +
     theme_bench()
 }

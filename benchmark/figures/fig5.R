@@ -21,6 +21,7 @@ bio_metrics <- function() c("R2_pheno_ait", "R2_pheno_bc", "R2_pheno_jac", "ASW_
 truth_labels <- function() c(planted = "planted truth", oracle = "batch-free answer")
 
 panel_da <- function(planted, methods_table = method_table()) {
+  measures <- c("pooled FDR (dashed: 5%)", "power", "precision")
   pooled <- bind_rows(
     planted %>% group_by(method) %>%
       summarise(value = sum(DA_FDR * DA_nsig, na.rm = TRUE) / sum(DA_nsig, na.rm = TRUE),
@@ -28,55 +29,55 @@ panel_da <- function(planted, methods_table = method_table()) {
     planted %>% group_by(method) %>%
       summarise(value = sum(DA_oracle_FDR * DA_nsig, na.rm = TRUE) / sum(DA_nsig, na.rm = TRUE),
                 truth = truth_labels()[["oracle"]], .groups = "drop"))
+  pooled$measure <- factor(measures[1], measures)
   spread <- bind_rows(
-    data.frame(method = planted$method, value = planted$DA_power, measure = "power",
+    data.frame(method = planted$method, value = planted$DA_power, measure = measures[2],
                truth = truth_labels()[["planted"]]),
-    data.frame(method = planted$method, value = planted$DA_oracle_power, measure = "power",
+    data.frame(method = planted$method, value = planted$DA_oracle_power, measure = measures[2],
                truth = truth_labels()[["oracle"]]),
-    data.frame(method = planted$method, value = planted$DA_AP, measure = "precision",
+    data.frame(method = planted$method, value = planted$DA_AP, measure = measures[3],
                truth = truth_labels()[["planted"]]),
-    data.frame(method = planted$method, value = planted$DA_oracle_AP, measure = "precision",
+    data.frame(method = planted$method, value = planted$DA_oracle_AP, measure = measures[3],
                truth = truth_labels()[["oracle"]]))
-  spread$measure <- factor(spread$measure, c("power", "precision"))
+  spread$measure <- factor(spread$measure, measures)
 
-  panel_fdr <- ggplot(label_methods(pooled, methods_table), aes(label, value, fill = truth)) +
-    geom_col(position = position_dodge(0.8), width = 0.75) +
-    geom_hline(yintercept = 0.05, linetype = "22", linewidth = 0.3, colour = "#b2182b") +
+  ggplot(mapping = aes(value, label, fill = truth)) +
+    geom_col(data = label_methods(pooled, methods_table), position = position_dodge(0.8), width = 0.75) +
+    geom_vline(data = data.frame(measure = factor(measures[1], measures)), aes(xintercept = 0.05),
+               linetype = "22", linewidth = 0.3, colour = "#b2182b") +
+    geom_boxplot(data = label_methods(spread[!is.na(spread$value), ], methods_table),
+                 outlier.size = 0.2, linewidth = 0.25, width = 0.7, position = position_dodge(0.8)) +
+    facet_wrap(~ measure, nrow = 1, scales = "free_x") +
     scale_fill_brewer(palette = "Set2", name = NULL) +
-    labs(x = NULL, y = NULL, title = "Pooled FDR (dashed: nominal 5%)") +
-    theme_bench() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
-  panel_rest <- ggplot(label_methods(spread[!is.na(spread$value), ], methods_table),
-                       aes(label, value, fill = truth)) +
-    geom_boxplot(outlier.size = 0.2, linewidth = 0.25, width = 0.7,
-                 position = position_dodge(0.8)) +
-    facet_wrap(~ measure, nrow = 1) +
-    scale_fill_brewer(palette = "Set2", guide = "none") +
-    labs(x = NULL, y = NULL, title = "Power and precision") +
-    theme_bench() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
-  panel_fdr | panel_rest
+    scale_y_discrete(limits = rev) +
+    labs(x = NULL, y = NULL, title = "Differential abundance against two definitions of the truth") +
+    theme_bench()
 }
 
+# Embeddings have no taxon axis and make no calls, so they are absent rather than scored as zero.
 panel_null_da <- function(null_simulated, methods_table = method_table()) {
-  rates <- null_simulated %>%
+  rates <- null_simulated[!is.na(null_simulated$DA_nsig), ] %>%
     group_by(method) %>%
-    summarise(false_positives = mean(DA_nsig / n_taxa, na.rm = TRUE), .groups = "drop")
-  ggplot(label_methods(rates, methods_table), aes(label, false_positives, fill = track)) +
+    summarise(false_positives = mean(DA_nsig / n_taxa), .groups = "drop")
+  ggplot(label_methods(rates, methods_table), aes(false_positives, label, fill = track)) +
     geom_col(width = 0.7) +
-    geom_hline(yintercept = 0.05, linetype = "22", linewidth = 0.3, colour = "#b2182b") +
+    geom_vline(xintercept = 0.05, linetype = "22", linewidth = 0.3, colour = "#b2182b") +
     scale_fill_manual(values = track_colours(), guide = "none") +
-    labs(x = NULL, y = "fraction of taxa called", title = "With nothing planted (dashed: 5%)") +
-    theme_bench() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+    scale_y_discrete(limits = rev) +
+    labs(x = "fraction of taxa called", y = NULL, title = "With nothing planted (dashed: 5%)") +
+    theme_bench()
 }
 
 panel_loso <- function(loso, methods_table = method_table()) {
   scored <- loso[loso$status == "ok" & !is.na(loso$auroc), ]
-  ggplot(label_methods(scored, methods_table), aes(label, auroc, fill = classifier)) +
-    geom_hline(yintercept = 0.5, linetype = "22", linewidth = 0.3, colour = "grey50") +
+  ggplot(label_methods(scored, methods_table), aes(auroc, label, fill = classifier)) +
+    geom_vline(xintercept = 0.5, linetype = "22", linewidth = 0.3, colour = "grey50") +
     geom_boxplot(outlier.size = 0.2, linewidth = 0.25, width = 0.7) +
     scale_fill_brewer(palette = "Pastel1", name = NULL) +
-    labs(x = NULL, y = "auROC, study held out",
+    scale_y_discrete(limits = rev) +
+    labs(x = "auROC, study held out", y = NULL,
          title = "Cross-study prediction (upper bound)") +
-    theme_bench() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+    theme_bench()
 }
 
 # The three ways of saying "this method is good", put on one axis each.
@@ -161,15 +162,15 @@ main <- function(args) {
   confounding <- dataset_confounding(results_dir, unique(scored$dataset[scored$regime == "real"]))
   names(confounding) <- sub("^real/", "", unique(scored$dataset[scored$regime == "real"]))
 
-  figure <- (wrap_elements(panel_da(simulated[simulated$da_prop > 0, ])) /
+  figure <- (panel_da(simulated[simulated$da_prop > 0, ]) /
              (panel_null_da(simulated[simulated$da_prop == 0 & simulated$method != "oracle", ]) |
               panel_loso(loso)) /
              (panel_consistency(ranking_table(scored, loso)) | panel_cost(scored)) /
              panel_recommendation(scored, loso, confounding)) +
-    plot_layout(heights = c(1.1, 1.1, 1.2, 1)) +
+    plot_layout(heights = c(1.3, 1.2, 1.2, 1)) +
     plot_annotation(tag_levels = "a") &
     theme(plot.tag = element_text(size = 9, face = "bold"))
-  save_figure(figure, out, 180, 205)
+  save_figure(figure, out, 180, 240)
 }
 
 main(commandArgs(TRUE))

@@ -32,6 +32,7 @@ panel_gradient <- function(sweep_scores, methods_table = method_table()) {
       c(batch = "batch removal", bio = "signal retention", `16s.tsv` = "16S", `mgx.tsv` = "metagenome",
         `16s` = "16S", mgx = "metagenome"))) +
     scale_colour_viridis_d(option = "turbo", name = NULL) +
+    guides(colour = guide_legend(ncol = 2, keyheight = unit(2.6, "mm"))) +
     labs(x = "batch-phenotype confounding (Cramer's V)", y = "scaled score",
          title = "Performance along the confounding gradient") +
     theme_bench() + theme(legend.position = "right")
@@ -61,12 +62,14 @@ panel_overcorrection <- function(simulated, methods_table = method_table()) {
 }
 
 panel_invented_signal <- function(null_scores, methods_table = method_table()) {
-  ggplot(label_methods(null_scores, methods_table), aes(factor(round(cramers_v, 1)), R2_pheno_ait,
-                                                        fill = track)) +
-    geom_col(position = position_dodge(0.85), width = 0.8) +
-    facet_wrap(~ label, nrow = 2) +
-    scale_fill_manual(values = track_colours(), guide = "none") +
-    labs(x = "Cramer's V", y = "R2 of a signal-free phenotype",
+  shown <- label_methods(null_scores, methods_table)
+  shown$confounding <- factor(round(shown$cramers_v, 1))
+  ggplot(shown, aes(R2_pheno_ait, label, fill = confounding)) +
+    stat_summary(fun = mean, geom = "col", orientation = "y",
+                 position = position_dodge(0.8), width = 0.75) +
+    scale_fill_brewer(palette = "OrRd", name = "Cramer's V") +
+    scale_y_discrete(limits = rev) +
+    labs(x = "R2 of a phenotype that carries no signal", y = NULL,
          title = "Invented structure in the null scenarios") +
     theme_bench()
 }
@@ -129,10 +132,10 @@ main <- function(args) {
               panel_breakpoint(simulated[simulated$family == "sweep", ])) /
              panel_invented_signal(simulated[simulated$family == "null" & simulated$method != "oracle", ]) /
              panel_real_anchors(real_by_dataset, confounding)) +
-    plot_layout(heights = c(1.4, 1, 1.2, 1)) +
+    plot_layout(heights = c(1.4, 1, 1.2, 1.1)) +
     plot_annotation(tag_levels = "a") &
     theme(plot.tag = element_text(size = 9, face = "bold"))
-  save_figure(figure, out, 180, 215)
+  save_figure(figure, out, 180, 230)
 }
 
 main(commandArgs(TRUE))
