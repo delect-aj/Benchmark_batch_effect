@@ -24,7 +24,9 @@ SCRIPT = {m: next(f"methods/{m}{e}" for e in (".R", ".py") if os.path.exists(f"m
 def methods_for(ds):
     if not ds.startswith("sim/"):
         return [m for m in METHODS if m != "oracle"]
-    return METHODS + (SENS if re.search(config["sensitivity_only"], ds.split("/")[1]) else [])
+    gradient = re.search(config["sensitivity_only"], ds.split("/")[1])
+    on_grid = [m for m in METHODS if gradient or m not in config["skip_on_lhs"]]
+    return on_grid + (SENS if gradient else [])
 
 wildcard_constraints:
     ds = r"(sim/[^/]+/rep\d+|real/[^/]+|mock/[^/]+)", m = r"[^/]+", scen = r"[^/]+", rep = r"\d+",
