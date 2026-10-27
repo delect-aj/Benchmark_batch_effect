@@ -68,7 +68,7 @@ panel_overcorrection <- function(simulated, methods_table = method_table()) {
     scale_y_continuous(trans = scales::pseudo_log_trans(sigma = 0.01),
                        breaks = c(-10, -1, -0.1, 0, 0.1, 1, 10), labels = scales::label_number()) +
     labs(x = "designed confounding", y = "signal lost / batch removed",
-         title = "Overcorrection index (negative: signal gained, not lost)") +
+         title = "Overcorrection index") +
     theme_bench()
 }
 
