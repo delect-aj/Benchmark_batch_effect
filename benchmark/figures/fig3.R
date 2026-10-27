@@ -49,7 +49,7 @@ panel_distance_to_truth <- function(truth_summary, methods_table = method_table(
     scale_fill_manual(values = track_colours(), guide = "none") +
     scale_y_discrete(limits = rev) + scale_x_continuous(n.breaks = 3) +
     labs(x = "Aitchison distance to truth", y = NULL, title = "Accuracy against the pipetted truth") +
-    theme_bench()
+    theme_bench() + theme(axis.text.x = element_text(size = 5.5))
 }
 
 panel_false_structure <- function(truth_summary, methods_table = method_table()) {
@@ -62,11 +62,12 @@ panel_false_structure <- function(truth_summary, methods_table = method_table())
                stroke = 0.3) +
     facet_wrap(~ dataset, nrow = 1) +
     scale_fill_manual(values = track_colours(), guide = "none") +
-    scale_y_discrete(limits = rev) + scale_x_continuous(n.breaks = 3) +
+    scale_y_discrete(limits = rev) + scale_x_continuous(breaks = c(0, 0.5, 1)) +
     labs(x = "batch R2 among identical material", y = NULL,
          title = "False structure between protocols") +
     theme_bench() +
-    theme(axis.text.y = element_blank(), axis.ticks.y = element_blank())
+    theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(),
+          axis.text.x = element_text(size = 5.5))
 }
 
 panel_oracle_fidelity <- function(simulated, methods_table = method_table()) {
@@ -77,10 +78,10 @@ panel_oracle_fidelity <- function(simulated, methods_table = method_table()) {
     geom_boxplot(outlier.size = 0.2, linewidth = 0.25, width = 0.7) +
     facet_wrap(~ measure, nrow = 1) +
     scale_fill_manual(values = track_colours(), guide = "none") +
-    scale_y_discrete(limits = rev) +
+    scale_y_discrete(limits = rev) + scale_x_continuous(n.breaks = 3) +
     labs(x = "agreement with the batch-free truth", y = NULL,
          title = "Fidelity to the simulated truth") +
-    theme_bench()
+    theme_bench() + theme(axis.text.x = element_text(size = 5.5))
 }
 
 panel_systematic <- function(simulated, methods_table = method_table()) {

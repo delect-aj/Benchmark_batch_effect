@@ -130,9 +130,10 @@ panel_cost <- function(scored, methods_table = method_table()) {
     scale_y_log10(expand = expansion(mult = 0.18)) +
     scale_size_area(max_size = 4, name = "failure rate", labels = scales::percent) +
     scale_colour_manual(values = track_colours(), guide = "none") +
+    guides(size = guide_legend(nrow = 1)) +
     labs(x = "median seconds per dataset", y = "median peak memory (MB)",
          title = "What it costs to run") +
-    theme_bench()
+    theme_bench() + theme(legend.position = "bottom")
 }
 
 # Top three methods per goal, split at the point where the design stops being balanced.
