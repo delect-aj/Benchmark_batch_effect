@@ -55,10 +55,10 @@ panel_global <- function(scored, methods_table = method_table()) {
                          na.value = "grey85") +
     scale_y_discrete(limits = rev) +
     labs(x = NULL, y = NULL, title = "Mean scaled score, evaluation datasets",
-         caption = "grey: the metric does not apply to that output kind") +
+         subtitle = "grey: the metric does not apply to that output kind") +
     theme_bench() +
     theme(axis.text.x = element_text(angle = 40, hjust = 1), panel.grid = element_blank(),
-          plot.caption = element_text(size = 5.5, colour = "grey30", hjust = 0))
+          plot.subtitle = element_text(size = 5.5, colour = "grey30"))
 }
 
 panel_flip <- function(scored, methods_table = method_table()) {
@@ -77,9 +77,9 @@ panel_flip <- function(scored, methods_table = method_table()) {
                              force = 3, min.segment.length = 0, seed = 1) +
     scale_y_reverse(breaks = seq(2, 18, 2)) +
     scale_colour_manual(values = track_colours(), guide = "none") +
-    scale_x_discrete(expand = expansion(add = c(0.15, 2.6))) +
+    scale_x_discrete(expand = expansion(add = c(0.15, 2.2))) +
     labs(x = NULL, y = "mean rank", title = "Does the ranking survive the distance?") +
-    theme_bench()
+    theme_bench() + theme(axis.text.x = element_text(angle = 25, hjust = 1))
 }
 
 panel_metric_agreement <- function(scored) {
@@ -133,12 +133,12 @@ main <- function(args) {
                      evaluated$method[evaluated$dataset == ordination_set])
 
   figure <- (panel_ordination(results_dir, ordination_set, shown) /
-             (panel_global(evaluated) | (panel_flip(evaluated) / panel_metric_agreement(evaluated) /
-                                         panel_tradeoff(evaluated)))) +
-    plot_layout(heights = c(1, 3.2)) +
+             (panel_global(evaluated) | (panel_flip(evaluated) / panel_metric_agreement(evaluated))) /
+             panel_tradeoff(evaluated)) +
+    plot_layout(heights = c(0.9, 2.6, 1.3)) +
     plot_annotation(tag_levels = "a") &
     theme(plot.tag = element_text(size = 9, face = "bold"))
-  save_figure(figure, out, 180, 200)
+  save_figure(figure, out, 180, 225)
 }
 
 main(commandArgs(TRUE))

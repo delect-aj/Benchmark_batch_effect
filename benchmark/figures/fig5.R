@@ -109,7 +109,8 @@ panel_consistency <- function(rankings, methods_table = method_table()) {
                              force = 2, min.segment.length = 0, seed = 1) +
     scale_y_reverse(breaks = seq(2, 16, 2)) +
     scale_colour_viridis_d(option = "turbo", guide = "none") +
-    scale_x_discrete(expand = expansion(add = c(0.15, 2.4))) +
+    scale_x_discrete(expand = expansion(add = c(0.15, 2.4)),
+                     labels = function(x) sub(" ", "\n", x)) +
     labs(x = NULL, y = "rank (1 = best)", title = "Do the three criteria agree on an order?") +
     theme_bench()
 }
@@ -122,11 +123,12 @@ panel_cost <- function(scored, methods_table = method_table()) {
   ggplot(label_methods(cost, methods_table), aes(seconds, memory)) +
     geom_point(aes(size = failures, colour = track)) +
     ggrepel::geom_text_repel(aes(label = label), size = 1.7, segment.size = 0.2,
-                             segment.colour = "grey60", max.overlaps = Inf, force = 14,
-                             box.padding = 0.4, point.padding = 0.25, min.segment.length = 0,
-                             seed = 1) +
-    scale_x_log10() + scale_y_log10() +
-    scale_size_area(max_size = 5, name = "failure rate", labels = scales::percent) +
+                             segment.colour = "grey60", max.overlaps = Inf, force = 30,
+                             force_pull = 0.3, box.padding = 0.5, point.padding = 0.3,
+                             min.segment.length = 0, max.iter = 50000, seed = 1) +
+    scale_x_log10(expand = expansion(mult = 0.12)) +
+    scale_y_log10(expand = expansion(mult = 0.18)) +
+    scale_size_area(max_size = 4, name = "failure rate", labels = scales::percent) +
     scale_colour_manual(values = track_colours(), guide = "none") +
     labs(x = "median seconds per dataset", y = "median peak memory (MB)",
          title = "What it costs to run") +
