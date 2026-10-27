@@ -62,7 +62,7 @@ panel_false_structure <- function(truth_summary, methods_table = method_table())
                stroke = 0.3) +
     facet_wrap(~ dataset, nrow = 1) +
     scale_fill_manual(values = track_colours(), guide = "none") +
-    scale_y_discrete(limits = rev) + scale_x_continuous(breaks = c(0, 0.5, 1)) +
+    scale_y_discrete(limits = rev) + scale_x_continuous(breaks = c(0, 1)) +
     labs(x = "batch R2 among identical material", y = NULL,
          title = "False structure between protocols") +
     theme_bench() +
