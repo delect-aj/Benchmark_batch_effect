@@ -107,7 +107,7 @@ panel_proxy_versus_truth <- function(simulated, methods_table = method_table()) 
     geom_hline(yintercept = 0, linewidth = 0.25, colour = "grey60") +
     geom_vline(xintercept = 0, linewidth = 0.25, colour = "grey60") +
     geom_point(size = 0.3, alpha = 0.35) +
-    scale_colour_manual(values = track_colours(), name = NULL) +
+    scale_colour_manual(values = track_colours(), labels = track_labels(), name = NULL) +
     labs(x = "batch R2 removed (vs raw)", y = "fidelity gained (vs raw)",
          title = "Proxy against truth, one point per scenario") +
     theme_bench()

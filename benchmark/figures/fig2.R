@@ -29,8 +29,8 @@ panel_ordination <- function(results_dir, dataset, methods, methods_table = meth
   # The two rows colour by variables with different numbers of levels, so each is spread over the whole
   # palette by its own index rather than sharing one discrete scale that would squash the phenotypes.
   spread <- function(values) { f <- factor(values); (as.integer(f) - 1) / max(1, nlevels(f) - 1) }
-  coloured <- bind_rows(transform(points, colour = spread(batch), facet = "by batch"),
-                        transform(points, colour = spread(phenotype), facet = "by phenotype"))
+  coloured <- bind_rows(transform(points, colour = spread(batch), facet = "batch"),
+                        transform(points, colour = spread(phenotype), facet = "phenotype"))
   ggplot(coloured, aes(dim1, dim2, colour = colour)) +
     geom_point(size = 0.35, alpha = 0.7) +
     facet_grid(facet ~ label, scales = "free") +
@@ -114,12 +114,12 @@ panel_tradeoff <- function(scored, methods_table = method_table()) {
   front <- pareto_front(points)
   ggplot(label_methods(points, methods_table), aes(batch, bio)) +
     geom_line(data = label_methods(front, methods_table), colour = "grey60", linewidth = 0.4) +
-    geom_point(aes(colour = track), size = 1.3) +
+    geom_point(aes(colour = track), size = 1.4) +
     ggrepel::geom_text_repel(aes(label = label), size = 1.7, segment.size = 0.2,
                              segment.colour = "grey60", max.overlaps = Inf, force = 10,
                              box.padding = 0.35, point.padding = 0.2, min.segment.length = 0,
                              seed = 1) +
-    scale_colour_manual(values = track_colours(), name = NULL) +
+    scale_colour_manual(values = track_colours(), labels = track_labels(), name = NULL) +
     labs(x = "batch removal", y = "signal retention", title = "The trade-off") +
     theme_bench() + theme(legend.position = "bottom")
 }

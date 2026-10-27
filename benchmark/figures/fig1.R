@@ -23,8 +23,9 @@ panel_design <- function() {
              "one wrapper interface\ncounts + batch + phenotype  ->  corrected table or embedding",
              "batch removal\nR2, ASW, LISI", "signal retention\nR2, cLISI, oracle",
              "downstream\nDA, cross-study", "practicality\ntime, memory, failures"))
+  boxes$width <- ifelse(boxes$fill == "interface", 2.94, 0.92)
   ggplot(boxes, aes(x, y)) +
-    geom_tile(aes(fill = fill), width = 0.92, height = 0.82, colour = "grey30", linewidth = 0.3) +
+    geom_tile(aes(fill = fill, width = width), height = 0.82, colour = "grey30", linewidth = 0.3) +
     geom_text(aes(label = text), size = 1.9, lineheight = 1.1) +
     annotate("segment", x = c(1, 2, 3), xend = c(1.9, 2, 2.1), y = 2.58, yend = 2.42,
              arrow = arrow(length = unit(1.2, "mm")), linewidth = 0.3) +
@@ -48,7 +49,7 @@ panel_landscape <- function(datasets) {
     scale_colour_manual(values = c(yes = "#2c7fb8", no = "#d95f0e"),
                         labels = c(yes = "evaluation", no = "calibration")) +
     labs(x = "samples (log scale)", y = "batches", size = "features",
-         shape = "assay", colour = NULL, title = "Dataset landscape") +
+         shape = "assay", colour = "role", title = "Dataset landscape") +
     guides(shape = guide_legend(order = 1), colour = guide_legend(order = 2),
            size = guide_legend(order = 3)) +
     theme_bench() +
@@ -89,6 +90,7 @@ panel_simulation_space <- function(scenarios) {
   ggplot(sampled, aes(value, 1)) +
     geom_point(size = 0.5, alpha = 0.25, position = position_jitter(height = 0.3)) +
     facet_wrap(~ parameter, ncol = 4, scales = "free_x") +
+    scale_x_continuous(n.breaks = 4) +
     labs(x = NULL, y = NULL, title = "Simulation parameter space sampled (213 scenarios)") +
     theme_bench() +
     theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(),

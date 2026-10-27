@@ -146,6 +146,9 @@ theme_bench <- function(base_size = 7) {
 
 track_colours <- function() c(baseline = "grey40", A = "#2c7fb8", B = "#d95f0e")
 
+# "track A" and "track B" mean nothing to a reader; say what the method returns.
+track_labels <- function() c(baseline = "baseline", A = "corrected table", B = "embedding")
+
 # Nature-style double column is 180 mm; single column 88 mm.
 save_figure <- function(figure, path, width_mm, height_mm) {
   ggsave(path, figure, width = width_mm, height = height_mm, units = "mm", device = "pdf")
