@@ -119,7 +119,7 @@ panel_breakpoint <- function(sweep_simulated, methods_table = method_table()) {
     geom_col(width = 0.7) +
     geom_vline(xintercept = 1.05, linetype = "22", linewidth = 0.3, colour = "grey50") +
     scale_fill_manual(values = track_colours(), guide = "none") +
-    scale_x_continuous(breaks = c(0, 0.3, 0.6, 0.9, 1.1), labels = c("0", "0.3", "0.6", "0.9", "never")) +
+    scale_x_continuous(breaks = c(0, 0.3, 0.6, 1.1), labels = c("0", "0.3", "0.6", "never")) +
     labs(x = "designed confounding where less than half the signal survives", y = NULL,
          title = "Breaking point") +
     theme_bench()
