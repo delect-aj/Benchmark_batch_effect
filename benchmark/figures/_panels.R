@@ -136,7 +136,8 @@ theme_bench <- function(base_size = 7) {
   theme_bw(base_size = base_size) +
     theme(panel.grid.minor = element_blank(),
           strip.background = element_rect(fill = "grey95", colour = NA),
-          strip.text = element_text(size = base_size, margin = margin(1.5, 1.5, 1.5, 1.5, "mm")),
+          strip.text = element_text(size = base_size - 0.5,
+                                    margin = margin(1.2, 1.2, 1.2, 1.2, "mm")),
           legend.key.size = unit(3, "mm"), legend.margin = margin(0, 0, 0, 0),
           plot.tag = element_text(size = base_size + 2, face = "bold"),
           plot.title = element_text(size = base_size, face = "bold"),

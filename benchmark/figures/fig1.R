@@ -41,14 +41,19 @@ panel_design <- function() {
 panel_landscape <- function(datasets) {
   ggplot(datasets, aes(samples, n_batch)) +
     geom_point(aes(size = features, shape = assay, colour = evaluated), alpha = 0.85) +
-    geom_text_repel(aes(label = dataset), size = 1.9, min.segment.length = 0,
-                    max.overlaps = 20) +
+    geom_text_repel(aes(label = dataset), size = 1.9, min.segment.length = 0, max.overlaps = Inf,
+                    force = 12, box.padding = 0.45, point.padding = 0.25, seed = 1,
+                    segment.size = 0.2, segment.colour = "grey50") +
     scale_x_log10() + scale_size_area(max_size = 5, breaks = c(10, 100, 700)) +
     scale_colour_manual(values = c(yes = "#2c7fb8", no = "#d95f0e"),
                         labels = c(yes = "evaluation", no = "calibration")) +
     labs(x = "samples (log scale)", y = "batches", size = "features",
          shape = "assay", colour = NULL, title = "Dataset landscape") +
-    theme_bench()
+    guides(shape = guide_legend(order = 1), colour = guide_legend(order = 2),
+           size = guide_legend(order = 3)) +
+    theme_bench() +
+    theme(legend.position = "bottom", legend.box = "horizontal", legend.title = element_text(size = 6),
+          legend.spacing.x = unit(1, "mm"))
 }
 
 panel_confounding <- function(datasets, confounding, simulated_levels) {
@@ -57,15 +62,15 @@ panel_confounding <- function(datasets, confounding, simulated_levels) {
   placed$dataset <- factor(placed$dataset, placed$dataset[order(placed$v)])
   ggplot(placed, aes(v, dataset)) +
     geom_vline(xintercept = simulated_levels, colour = "grey70", linetype = "22", linewidth = 0.3) +
-    annotate("text", x = simulated_levels, y = nlevels(placed$dataset) + 0.9,
+    annotate("text", x = simulated_levels, y = nlevels(placed$dataset) + 1.1,
              label = format(simulated_levels), size = 1.9, colour = "grey40") +
-    annotate("text", x = 0, y = nlevels(placed$dataset) + 1.9, label = "simulated gradient",
+    annotate("text", x = 0, y = nlevels(placed$dataset) + 2.3, label = "simulated gradient",
              size = 2, colour = "grey40", hjust = 0) +
     geom_segment(aes(x = 0, xend = v, yend = dataset), colour = "grey60", linewidth = 0.3) +
     geom_point(aes(colour = assay), size = 1.6) +
     scale_colour_brewer(palette = "Dark2") +
     # declared so the numeric y of the two annotations does not type the axis as continuous first
-    scale_y_discrete(expand = expansion(add = c(0.6, 2.4))) +
+    scale_y_discrete(expand = expansion(add = c(0.6, 3.2))) +
     scale_x_continuous(limits = c(0, 1.02), expand = expansion(0.01)) +
     labs(x = "batch-phenotype confounding (Cramer's V)", y = NULL, colour = NULL,
          title = "Where the real datasets sit on the confounding axis") +
@@ -104,10 +109,13 @@ panel_inventory <- function(methods) {
   ggplot(long, aes(property, label)) +
     geom_tile(aes(fill = value), colour = "white", linewidth = 0.4) +
     geom_text(data = output, aes(label = value), size = 1.8) +
-    scale_fill_manual(values = c(yes = "#2c7fb8", no = "grey92", na = "grey75"), guide = "none") +
+    scale_fill_manual(values = c(yes = "#2c7fb8", no = "grey92", na = "grey75"), name = NULL,
+                      breaks = c("yes", "no", "na"),
+                      labels = c(yes = "yes", no = "no", na = "not applicable")) +
     labs(x = NULL, y = NULL, title = "Method inventory") +
     theme_bench() +
-    theme(axis.text.x = element_text(angle = 40, hjust = 1), panel.grid = element_blank())
+    theme(axis.text.x = element_text(angle = 40, hjust = 1), panel.grid = element_blank(),
+          legend.position = "bottom")
 }
 
 main <- function(args) {

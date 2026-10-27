@@ -21,6 +21,7 @@ bio_metrics <- function() c("R2_pheno_ait", "R2_pheno_bc", "R2_pheno_jac", "ASW_
 truth_labels <- function() c(planted = "planted truth", oracle = "batch-free answer")
 
 panel_da <- function(planted, methods_table = method_table()) {
+  planted <- planted[!is.na(planted$DA_nsig), ]
   measures <- c("pooled FDR (dashed: 5%)", "power", "precision")
   pooled <- bind_rows(
     planted %>% group_by(method) %>%
@@ -50,8 +51,10 @@ panel_da <- function(planted, methods_table = method_table()) {
     facet_wrap(~ measure, nrow = 1, scales = "free_x") +
     scale_fill_brewer(palette = "Set2", name = NULL) +
     scale_y_discrete(limits = rev) +
-    labs(x = NULL, y = NULL, title = "Differential abundance against two definitions of the truth") +
-    theme_bench()
+    labs(x = NULL, y = NULL, title = "Differential abundance against two definitions of the truth",
+         caption = "embedding methods make no per-taxon calls and are absent") +
+    theme_bench() +
+    theme(plot.caption = element_text(size = 5.5, colour = "grey30", hjust = 0))
 }
 
 # Embeddings have no taxon axis and make no calls, so they are absent rather than scored as zero.
@@ -100,11 +103,13 @@ panel_consistency <- function(rankings, methods_table = method_table()) {
   ggplot(label_methods(long, methods_table), aes(criterion, rank, group = label, colour = label)) +
     geom_line(linewidth = 0.4) + geom_point(size = 1) +
     ggrepel::geom_text_repel(data = ~ subset(.x, as.integer(criterion) == nlevels(criterion)),
-                             aes(label = label), size = 1.8, direction = "y", hjust = 0,
-                             nudge_x = 0.12, segment.size = 0.2, max.overlaps = 20) +
+                             aes(label = label), size = 1.7, direction = "y", hjust = 0,
+                             nudge_x = 0.18, segment.size = 0.2, segment.colour = "grey60",
+                             max.overlaps = Inf, box.padding = 0.06, point.padding = 0.05,
+                             force = 2, min.segment.length = 0, seed = 1) +
     scale_y_reverse(breaks = seq(2, 16, 2)) +
     scale_colour_viridis_d(option = "turbo", guide = "none") +
-    expand_limits(x = 3.6) +
+    scale_x_discrete(expand = expansion(add = c(0.15, 2.4))) +
     labs(x = NULL, y = "rank (1 = best)", title = "Do the three criteria agree on an order?") +
     theme_bench()
 }
@@ -116,7 +121,10 @@ panel_cost <- function(scored, methods_table = method_table()) {
               failures = mean(status != "ok"), .groups = "drop")
   ggplot(label_methods(cost, methods_table), aes(seconds, memory)) +
     geom_point(aes(size = failures, colour = track)) +
-    ggrepel::geom_text_repel(aes(label = label), size = 1.8, segment.size = 0.2, max.overlaps = 20) +
+    ggrepel::geom_text_repel(aes(label = label), size = 1.7, segment.size = 0.2,
+                             segment.colour = "grey60", max.overlaps = Inf, force = 14,
+                             box.padding = 0.4, point.padding = 0.25, min.segment.length = 0,
+                             seed = 1) +
     scale_x_log10() + scale_y_log10() +
     scale_size_area(max_size = 5, name = "failure rate", labels = scales::percent) +
     scale_colour_manual(values = track_colours(), guide = "none") +

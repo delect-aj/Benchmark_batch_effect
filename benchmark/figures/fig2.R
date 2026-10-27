@@ -51,11 +51,14 @@ panel_global <- function(scored, methods_table = method_table()) {
     geom_tile(aes(fill = score), colour = "white", linewidth = 0.3) +
     facet_grid(. ~ family, scales = "free_x", space = "free_x",
                labeller = as_labeller(c(batch = "batch removal", bio = "signal retention"))) +
-    scale_fill_viridis_c(option = "mako", direction = -1, limits = c(0, 1), name = "scaled\nscore") +
+    scale_fill_viridis_c(option = "mako", direction = -1, limits = c(0, 1), name = "scaled\nscore",
+                         na.value = "grey85") +
     scale_y_discrete(limits = rev) +
-    labs(x = NULL, y = NULL, title = "Mean scaled score, evaluation datasets") +
+    labs(x = NULL, y = NULL, title = "Mean scaled score, evaluation datasets",
+         caption = "grey: the metric does not apply to that output kind") +
     theme_bench() +
-    theme(axis.text.x = element_text(angle = 40, hjust = 1), panel.grid = element_blank())
+    theme(axis.text.x = element_text(angle = 40, hjust = 1), panel.grid = element_blank(),
+          plot.caption = element_text(size = 5.5, colour = "grey30", hjust = 0))
 }
 
 panel_flip <- function(scored, methods_table = method_table()) {
@@ -68,12 +71,13 @@ panel_flip <- function(scored, methods_table = method_table()) {
     geom_line(linewidth = 0.4) +
     geom_point(size = 1) +
     ggrepel::geom_text_repel(data = ~ subset(.x, distance == tail(levels(distance), 1)),
-                             aes(label = label), size = 1.8, direction = "y", hjust = 0,
-                             nudge_x = 0.2, segment.size = 0.2, max.overlaps = Inf,
-                             box.padding = 0.12, min.segment.length = 0) +
+                             aes(label = label), size = 1.7, direction = "y", hjust = 0,
+                             nudge_x = 0.25, segment.size = 0.2, segment.colour = "grey60",
+                             max.overlaps = Inf, box.padding = 0.08, point.padding = 0.05,
+                             force = 3, min.segment.length = 0, seed = 1) +
     scale_y_reverse(breaks = seq(2, 18, 2)) +
     scale_colour_manual(values = track_colours(), guide = "none") +
-    expand_limits(x = 5.2) +
+    scale_x_discrete(expand = expansion(add = c(0.15, 2.6))) +
     labs(x = NULL, y = "mean rank", title = "Does the ranking survive the distance?") +
     theme_bench()
 }
@@ -111,10 +115,13 @@ panel_tradeoff <- function(scored, methods_table = method_table()) {
   ggplot(label_methods(points, methods_table), aes(batch, bio)) +
     geom_line(data = label_methods(front, methods_table), colour = "grey60", linewidth = 0.4) +
     geom_point(aes(colour = track), size = 1.3) +
-    ggrepel::geom_text_repel(aes(label = label), size = 1.8, segment.size = 0.2, max.overlaps = 20) +
+    ggrepel::geom_text_repel(aes(label = label), size = 1.7, segment.size = 0.2,
+                             segment.colour = "grey60", max.overlaps = Inf, force = 10,
+                             box.padding = 0.35, point.padding = 0.2, min.segment.length = 0,
+                             seed = 1) +
     scale_colour_manual(values = track_colours(), name = NULL) +
     labs(x = "batch removal", y = "signal retention", title = "The trade-off") +
-    theme_bench()
+    theme_bench() + theme(legend.position = "bottom")
 }
 
 main <- function(args) {

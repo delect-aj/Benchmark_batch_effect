@@ -10,9 +10,11 @@
 # Usage: Rscript figures/fig3.R <results dir> <out.pdf>
 source("figures/_panels.R")
 
+# Short enough to survive a quarter-width facet strip.
 short_dataset <- function(paths)
-  c(brooks = "brooks", jmbc_extraction = "jmbc extr.", jmbc_library = "jmbc libr.",
-    salim_pig = "salim pig")[sub(".*/", "", paths)]
+  factor(c(brooks = "brooks", jmbc_extraction = "JMBC extr", jmbc_library = "JMBC libr",
+           salim_pig = "salim pig")[sub(".*/", "", paths)],
+         c("brooks", "JMBC extr", "JMBC libr", "salim pig"))
 
 # Each method's value minus the value `raw` got on the same dataset: the improvement correction bought.
 change_from_raw <- function(scored, metric) {
@@ -56,13 +58,15 @@ panel_false_structure <- function(truth_summary, methods_table = method_table())
   shown$false_da_fraction <- shown$false_da_n / shown$n_taxa
   ggplot(shown, aes(y = label)) +
     geom_col(aes(x = R2_batch, fill = track), width = 0.7) +
-    geom_point(aes(x = false_da_fraction), shape = 21, fill = "white", size = 1.2) +
+    geom_point(aes(x = false_da_fraction), shape = 21, fill = "white", size = 1.1,
+               stroke = 0.3) +
     facet_wrap(~ dataset, nrow = 1) +
     scale_fill_manual(values = track_colours(), guide = "none") +
     scale_y_discrete(limits = rev) + scale_x_continuous(n.breaks = 3) +
     labs(x = "batch R2 among identical material", y = NULL,
-         title = "False structure between protocols (points: taxa still differing)") +
-    theme_bench()
+         title = "False structure between protocols") +
+    theme_bench() +
+    theme(axis.text.y = element_blank(), axis.ticks.y = element_blank())
 }
 
 panel_oracle_fidelity <- function(simulated, methods_table = method_table()) {
