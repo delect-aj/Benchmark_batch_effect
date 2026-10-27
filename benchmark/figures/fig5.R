@@ -115,8 +115,11 @@ panel_consistency <- function(rankings, methods_table = method_table()) {
     theme_bench()
 }
 
+# The permuted-covariate run is a control rather than a method anyone would choose, so it is left
+# out of the practicality panel; it stays everywhere its result is the point.
 panel_cost <- function(scored, methods_table = method_table()) {
-  cost <- scored %>%
+  sensitivity <- methods_table$method[methods_table$role == "sensitivity"]
+  cost <- scored[!scored$method %in% sensitivity, ] %>%
     group_by(method) %>%
     summarise(seconds = median(seconds, na.rm = TRUE), memory = median(max_rss_mb, na.rm = TRUE),
               failures = mean(status != "ok"), .groups = "drop")
@@ -127,7 +130,7 @@ panel_cost <- function(scored, methods_table = method_table()) {
                              force_pull = 0.3, box.padding = 0.5, point.padding = 0.3,
                              min.segment.length = 0, max.iter = 50000, seed = 1) +
     scale_x_log10(expand = expansion(mult = 0.12)) +
-    scale_y_log10(expand = expansion(mult = 0.18)) +
+    scale_y_log10(expand = expansion(mult = 0.3)) +
     scale_size_area(max_size = 4, name = "failure rate", labels = scales::percent) +
     scale_colour_manual(values = track_colours(), guide = "none") +
     guides(size = guide_legend(nrow = 1)) +
