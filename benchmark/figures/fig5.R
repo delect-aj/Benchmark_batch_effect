@@ -52,9 +52,9 @@ panel_da <- function(planted, methods_table = method_table()) {
     scale_fill_brewer(palette = "Set2", name = NULL) +
     scale_y_discrete(limits = rev) +
     labs(x = NULL, y = NULL, title = "Differential abundance against two definitions of the truth",
-         caption = "embedding methods make no per-taxon calls and are absent") +
+         subtitle = "embedding methods make no per-taxon calls and are absent") +
     theme_bench() +
-    theme(plot.caption = element_text(size = 5.5, colour = "grey30", hjust = 0))
+    theme(plot.subtitle = element_text(size = 5.5, colour = "grey30"))
 }
 
 # Embeddings have no taxon axis and make no calls, so they are absent rather than scored as zero.
@@ -104,9 +104,9 @@ panel_consistency <- function(rankings, methods_table = method_table()) {
     geom_line(linewidth = 0.4) + geom_point(size = 1) +
     ggrepel::geom_text_repel(data = ~ subset(.x, as.integer(criterion) == nlevels(criterion)),
                              aes(label = label), size = 1.7, direction = "y", hjust = 0,
-                             nudge_x = 0.18, segment.size = 0.2, segment.colour = "grey60",
-                             max.overlaps = Inf, box.padding = 0.06, point.padding = 0.05,
-                             force = 2, min.segment.length = 0, seed = 1) +
+                             colour = "grey15", nudge_x = 0.18, segment.size = 0.2,
+                             segment.colour = "grey60", max.overlaps = Inf, box.padding = 0.06,
+                             point.padding = 0.05, force = 2, min.segment.length = 0, seed = 1) +
     scale_y_reverse(breaks = seq(2, 16, 2)) +
     scale_colour_viridis_d(option = "turbo", guide = "none") +
     scale_x_discrete(expand = expansion(add = c(0.15, 2.4)),
@@ -164,8 +164,9 @@ panel_recommendation <- function(scored, loso, confounding, methods_table = meth
   ggplot(top, aes(design, goal)) +
     geom_tile(fill = "grey96", colour = "grey70", linewidth = 0.3) +
     geom_text(aes(label = recommendation), size = 2, lineheight = 1.1) +
+    scale_x_discrete(expand = expansion(0)) + scale_y_discrete(expand = expansion(0)) +
     labs(x = NULL, y = NULL, title = "Top three by goal and by how confounded the design is") +
-    theme_bench() + theme(panel.grid = element_blank())
+    theme_bench() + theme(panel.grid = element_blank(), axis.ticks = element_blank())
 }
 
 main <- function(args) {

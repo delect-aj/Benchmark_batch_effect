@@ -20,17 +20,24 @@ panel_design <- function() {
     text = c("curated real data\n10 sets, 7,115 samples\nproxy metrics only",
              "designed protocol runs\n4 sets, known composition\nor repeated specimens",
              "simulation\n213 scenarios\nfull ground truth",
-             "one wrapper interface\ncounts + batch + phenotype  ->  corrected table or embedding",
+             "one wrapper interface\ncounts + batch + phenotype  →  corrected table or embedding",
              "batch removal\nR2, ASW, LISI", "signal retention\nR2, cLISI, oracle",
              "downstream\nDA, cross-study", "practicality\ntime, memory, failures"))
   boxes$width <- ifelse(boxes$fill == "interface", 2.94, 0.92)
+  # Elbow connectors rather than a fan of diagonals: every box drops straight onto a horizontal bus,
+  # so no two lines cross and the arrowheads do not pile up on one point.
+  tall <- 0.72; half <- tall / 2; tip <- arrow(length = unit(1.1, "mm"))
   ggplot(boxes, aes(x, y)) +
-    geom_tile(aes(fill = fill, width = width), height = 0.82, colour = "grey30", linewidth = 0.3) +
+    geom_tile(aes(fill = fill, width = width), height = tall, colour = "grey30", linewidth = 0.3) +
     geom_text(aes(label = text), size = 1.9, lineheight = 1.1) +
-    annotate("segment", x = c(1, 2, 3), xend = c(1.9, 2, 2.1), y = 2.58, yend = 2.42,
-             arrow = arrow(length = unit(1.2, "mm")), linewidth = 0.3) +
-    annotate("segment", x = 2, xend = c(1, 2, 3, 4), y = 1.58, yend = 1.42,
-             arrow = arrow(length = unit(1.2, "mm")), linewidth = 0.3) +
+    annotate("segment", x = c(1, 3, 1), xend = c(1, 3, 3), y = c(3 - half, 3 - half, 2.5),
+             yend = 2.5, linewidth = 0.3, colour = "grey30") +
+    annotate("segment", x = 2, xend = 2, y = 3 - half, yend = 2 + half,
+             arrow = tip, linewidth = 0.3, colour = "grey30") +
+    annotate("segment", x = c(2, 1), xend = c(2, 4), y = c(2 - half, 1.5), yend = 1.5,
+             linewidth = 0.3, colour = "grey30") +
+    annotate("segment", x = 1:4, xend = 1:4, y = 1.5, yend = 1 + half,
+             arrow = tip, linewidth = 0.3, colour = "grey30") +
     scale_fill_manual(values = c(regime = "#deebf7", interface = "grey90", metric = "#fee6ce"),
                       guide = "none") +
     scale_x_continuous(expand = expansion(0.02)) +
@@ -45,7 +52,8 @@ panel_landscape <- function(datasets) {
     geom_text_repel(aes(label = dataset), size = 1.9, min.segment.length = 0, max.overlaps = Inf,
                     force = 12, box.padding = 0.45, point.padding = 0.25, seed = 1,
                     segment.size = 0.2, segment.colour = "grey50") +
-    scale_x_log10() + scale_size_area(max_size = 5, breaks = c(10, 100, 700)) +
+    scale_x_log10(expand = expansion(0.09)) + scale_y_continuous(expand = expansion(0.09)) +
+    scale_size_area(max_size = 5, breaks = c(10, 100, 700)) +
     scale_colour_manual(values = c(yes = "#2c7fb8", no = "#d95f0e"),
                         labels = c(yes = "evaluation", no = "calibration")) +
     labs(x = "samples (log scale)", y = "batches", size = "features",
@@ -53,8 +61,10 @@ panel_landscape <- function(datasets) {
     guides(shape = guide_legend(order = 1), colour = guide_legend(order = 2),
            size = guide_legend(order = 3)) +
     theme_bench() +
+    # the three legends sit on one line, so they need a gap wide enough that "metagenome" and the
+    # next legend's title do not read as one phrase
     theme(legend.position = "bottom", legend.box = "horizontal", legend.title = element_text(size = 6),
-          legend.spacing.x = unit(1, "mm"))
+          legend.spacing.x = unit(6, "mm"))
 }
 
 panel_confounding <- function(datasets, confounding, simulated_levels) {
@@ -73,7 +83,7 @@ panel_confounding <- function(datasets, confounding, simulated_levels) {
     # declared so the numeric y of the two annotations does not type the axis as continuous first
     scale_y_discrete(expand = expansion(add = c(0.6, 3.2))) +
     scale_x_continuous(limits = c(0, 1.02), expand = expansion(0.01)) +
-    labs(x = "batch-phenotype confounding (Cramer's V)", y = NULL, colour = NULL,
+    labs(x = "batch-phenotype confounding (Cramér's V)", y = NULL, colour = NULL,
          title = "Where the real datasets sit on the confounding axis") +
     theme_bench() + theme(panel.grid.major.y = element_blank())
 }
@@ -90,11 +100,11 @@ panel_simulation_space <- function(scenarios) {
   ggplot(sampled, aes(value, 1)) +
     geom_point(size = 0.5, alpha = 0.25, position = position_jitter(height = 0.3)) +
     facet_wrap(~ parameter, ncol = 4, scales = "free_x") +
-    scale_x_continuous(n.breaks = 4) +
+    scale_x_continuous(n.breaks = 3) +
     labs(x = NULL, y = NULL, title = "Simulation parameter space sampled (213 scenarios)") +
     theme_bench() +
     theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(),
-          panel.grid.major.y = element_blank())
+          panel.grid.major.y = element_blank(), panel.spacing.x = unit(2.5, "mm"))
 }
 
 panel_inventory <- function(methods) {

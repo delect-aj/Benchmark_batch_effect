@@ -22,25 +22,54 @@ scored_by_scenario <- function(scored) {
   left_join(families, parameters, by = "dataset", suffix = c("", "_scenario"))
 }
 
+# Eighteen curves in one palette are eighteen shades nobody can tell apart, so only a few are drawn
+# in colour: the two baselines, which bound the panel, and the methods whose score actually moves
+# across the gradient. The rest stay as grey context -- still visible as a band, no longer claiming
+# to be identifiable.
+gradient_highlight <- function(curves, n = 4) {
+  swing <- curves %>%
+    group_by(method, family, conf) %>%
+    summarise(score = mean(score, na.rm = TRUE), .groups = "drop") %>%
+    group_by(method, family) %>%
+    summarise(swing = abs(score[which.max(conf)] - score[which.min(conf)]), .groups = "drop") %>%
+    group_by(method) %>%
+    summarise(swing = max(swing), .groups = "drop")
+  c("raw", "oracle", setdiff(swing$method[order(-swing$swing)], c("raw", "oracle"))[seq_len(n)])
+}
+
+gradient_colours <- function(highlight, methods_table = method_table())
+  setNames(c("grey35", "black", RColorBrewer::brewer.pal(max(3, length(highlight) - 2), "Dark2")),
+           methods_table$label[match(highlight, methods_table$method)])
+
+# Marks each curve with its own label where it is highlighted and with one shared level otherwise,
+# so a single colour scale carries both the named methods and the grey background.
+by_highlight <- function(curves, highlight, named)
+  transform(curves, shown = factor(ifelse(curves$method %in% highlight, as.character(curves$label),
+                                          "other methods"), c(named, "other methods")))
+
 # The gradient is indexed by the designed confounding level, not by each replicate's realised
 # Cramer's V: with 20 replicates per level the realised values scatter around the design point and
 # would turn five points into a hundred.
-panel_gradient <- function(sweep_scores, methods_table = method_table()) {
+panel_gradient <- function(sweep_scores, highlight, colours, methods_table = method_table()) {
   curves <- sweep_scores %>%
     group_by(method, family, template, conf) %>%
     summarise(spread = sd(score, na.rm = TRUE), score = mean(score, na.rm = TRUE), .groups = "drop")
-  ggplot(label_methods(curves, methods_table), aes(conf, score, colour = label, group = label)) +
-    geom_errorbar(aes(ymin = score - spread, ymax = score + spread), width = 0, linewidth = 0.25,
-                  alpha = 0.5) +
-    geom_line(linewidth = 0.4) + geom_point(size = 0.7) +
+  curves <- by_highlight(label_methods(curves, methods_table), highlight, names(colours))
+  ggplot(curves, aes(conf, score, colour = shown, group = label)) +
+    geom_line(data = ~ subset(.x, shown == "other methods"), linewidth = 0.25, alpha = 0.6) +
+    geom_errorbar(data = ~ subset(.x, shown != "other methods"),
+                  aes(ymin = score - spread, ymax = score + spread), width = 0, linewidth = 0.25,
+                  alpha = 0.6) +
+    geom_line(data = ~ subset(.x, shown != "other methods"), linewidth = 0.5) +
+    geom_point(data = ~ subset(.x, shown != "other methods"), size = 0.8) +
     facet_grid(family ~ template, labeller = as_labeller(
       c(batch = "batch removal", bio = "signal retention", `16s.tsv` = "16S", `mgx.tsv` = "metagenome",
         `16s` = "16S", mgx = "metagenome"))) +
-    scale_colour_viridis_d(option = "turbo", name = NULL) +
-    guides(colour = guide_legend(ncol = 2, keyheight = unit(2.6, "mm"))) +
+    scale_colour_manual(values = c(colours, `other methods` = "grey75"), name = NULL) +
+    guides(colour = guide_legend(nrow = 1, override.aes = list(linewidth = 0.8, size = 0.9))) +
     labs(x = "designed batch-phenotype confounding", y = "scaled score (mean +- sd over replicates)",
          title = "Performance along the confounding gradient") +
-    theme_bench() + theme(legend.position = "right")
+    theme_bench() + theme(legend.position = "bottom")
 }
 
 # How much biological signal a method gives up for each unit of batch signal it removes, as a median
@@ -50,7 +79,7 @@ panel_gradient <- function(sweep_scores, methods_table = method_table()) {
 # than an artefact: a negative index means the apparent phenotype signal *grew* while the batch term
 # shrank, which is batch structure being moved onto the phenotype axis rather than removed. A log
 # axis would silently drop every one of those points.
-panel_overcorrection <- function(simulated, methods_table = method_table()) {
+panel_overcorrection <- function(simulated, highlight, colours, methods_table = method_table()) {
   reference <- simulated[simulated$method == "raw", c("dataset", "R2_batch_ait", "R2_pheno_ait")]
   names(reference)[2:3] <- c("raw_batch", "raw_pheno")
   # oracle has no batch term to remove, so the ratio is not defined for it
@@ -60,16 +89,19 @@ panel_overcorrection <- function(simulated, methods_table = method_table()) {
   summarised <- corrected %>%
     group_by(method, conf) %>%
     summarise(index = median(index, na.rm = TRUE), .groups = "drop")
-  ggplot(label_methods(summarised, methods_table), aes(conf, index, colour = label)) +
+  marked <- by_highlight(label_methods(summarised, methods_table), highlight, names(colours))
+  ggplot(marked, aes(conf, index, colour = shown, group = label)) +
     geom_hline(yintercept = c(0, 1), linetype = c("solid", "22"), linewidth = 0.3,
                colour = c("grey70", "grey50")) +
-    geom_line(linewidth = 0.4) + geom_point(size = 0.7) +
-    scale_colour_viridis_d(option = "turbo", guide = "none") +
+    geom_line(data = ~ subset(.x, shown == "other methods"), linewidth = 0.25, alpha = 0.6) +
+    geom_line(data = ~ subset(.x, shown != "other methods"), linewidth = 0.5) +
+    geom_point(data = ~ subset(.x, shown != "other methods"), size = 0.8) +
+    scale_colour_manual(values = c(colours, `other methods` = "grey75"), guide = "none") +
     scale_y_continuous(trans = scales::pseudo_log_trans(sigma = 0.01),
                        breaks = c(-10, -1, -0.1, 0, 0.1, 1, 10), labels = scales::label_number()) +
     labs(x = "designed confounding", y = "signal lost / batch removed",
-         title = "Overcorrection index") +
-    theme_bench()
+         title = "Overcorrection index", subtitle = "colours as in a") +
+    theme_bench() + theme(plot.subtitle = element_text(size = 5, colour = "grey30"))
 }
 
 panel_invented_signal <- function(null_scores, methods_table = method_table()) {
@@ -92,13 +124,14 @@ panel_real_anchors <- function(real_scores, confounding, methods_table = method_
   summarised <- anchored %>%
     group_by(method, family, end) %>%
     summarise(score = mean(score, na.rm = TRUE), .groups = "drop")
-  ggplot(label_methods(summarised, methods_table), aes(label, score, fill = family)) +
-    geom_col(position = position_dodge(0.8), width = 0.75) +
+  ggplot(label_methods(summarised, methods_table), aes(score, label, fill = family)) +
+    geom_col(position = position_dodge(0.8), width = 0.75, orientation = "y") +
     facet_wrap(~ end, nrow = 1) +
     scale_fill_brewer(palette = "Set2", name = NULL,
                       labels = c(batch = "batch removal", bio = "signal retention")) +
-    labs(x = NULL, y = "scaled score", title = "The same measures on real data") +
-    theme_bench() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+    scale_y_discrete(limits = rev) +
+    labs(x = "scaled score", y = NULL, title = "The same measures on real data") +
+    theme_bench() + theme(legend.position = "bottom")
 }
 
 # The point on the gradient where a method keeps less than half of the signal the oracle still shows.
@@ -138,8 +171,12 @@ main <- function(args) {
   confounding <- dataset_confounding(results_dir, unique(scored$dataset[scored$regime == "real"]))
   names(confounding) <- sub("^real/", "", unique(scored$dataset[scored$regime == "real"]))
 
-  figure <- (panel_gradient(by_scenario[by_scenario$family_scenario == "sweep", ]) /
-             (panel_overcorrection(simulated[simulated$family == "sweep", ]) |
+  sweep_scores <- by_scenario[by_scenario$family_scenario == "sweep", ]
+  highlight <- gradient_highlight(sweep_scores)
+  colours <- gradient_colours(highlight)
+
+  figure <- (panel_gradient(sweep_scores, highlight, colours) /
+             (panel_overcorrection(simulated[simulated$family == "sweep", ], highlight, colours) |
               panel_breakpoint(simulated[simulated$family == "sweep", ])) /
              panel_invented_signal(simulated[simulated$family == "null" & simulated$method != "oracle", ]) /
              panel_real_anchors(real_by_dataset, confounding)) +

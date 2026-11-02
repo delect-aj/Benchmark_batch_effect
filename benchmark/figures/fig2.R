@@ -31,13 +31,23 @@ panel_ordination <- function(results_dir, dataset, methods, methods_table = meth
   spread <- function(values) { f <- factor(values); (as.integer(f) - 1) / max(1, nlevels(f) - 1) }
   coloured <- bind_rows(transform(points, colour = spread(batch), facet = "batch"),
                         transform(points, colour = spread(phenotype), facet = "phenotype"))
+  # Drawn in a shuffled order: plotted in file order the second phenotype group lands entirely on top
+  # of the first and the panel would show only one colour.
+  set.seed(1)
+  coloured <- coloured[sample.int(nrow(coloured)), ]
+  # A key for 17 batches would not fit, so the two scales are named in the subtitle instead; turbo
+  # runs dark blue (first level) to dark red (last).
+  levels_of <- function(v) paste(levels(factor(v)), collapse = " / ")
   ggplot(coloured, aes(dim1, dim2, colour = colour)) +
     geom_point(size = 0.35, alpha = 0.7) +
     facet_grid(facet ~ label, scales = "free") +
     scale_colour_viridis_c(guide = "none", option = "turbo") +
-    labs(x = "PCo 1", y = "PCo 2", title = paste("Ordination of", sub(".*/", "", dataset))) +
+    labs(x = "PCo 1", y = "PCo 2", title = paste("Ordination of", sub(".*/", "", dataset)),
+         subtitle = sprintf("colour runs dark blue to dark red over the %d batches (top) and over %s (bottom)",
+                            nlevels(factor(meta$batch)), levels_of(meta$phenotype))) +
     theme_bench() +
-    theme(axis.text = element_blank(), axis.ticks = element_blank())
+    theme(axis.text = element_blank(), axis.ticks = element_blank(),
+          plot.subtitle = element_text(size = 5.5, colour = "grey30"))
 }
 
 panel_global <- function(scored, methods_table = method_table()) {
@@ -70,12 +80,15 @@ panel_flip <- function(scored, methods_table = method_table()) {
   ggplot(label_methods(orders, methods_table), aes(distance, rank, group = label, colour = track)) +
     geom_line(linewidth = 0.4) +
     geom_point(size = 1) +
+    # Sixteen labels on one end: they need room outside the data range and enough iterations to use
+    # it, or repel drops the ones it cannot place and half the lines end up unlabelled.
     ggrepel::geom_text_repel(data = ~ subset(.x, distance == tail(levels(distance), 1)),
-                             aes(label = label), size = 1.7, direction = "y", hjust = 0,
+                             aes(label = label), size = 1.6, direction = "y", hjust = 0,
                              nudge_x = 0.25, segment.size = 0.2, segment.colour = "grey60",
-                             max.overlaps = Inf, box.padding = 0.08, point.padding = 0.05,
-                             force = 3, min.segment.length = 0, seed = 1) +
-    scale_y_reverse(breaks = seq(2, 18, 2)) +
+                             max.overlaps = Inf, box.padding = 0.04, point.padding = 0.05,
+                             force = 1, force_pull = 0.4, max.iter = 50000,
+                             min.segment.length = 0, seed = 1) +
+    scale_y_reverse(breaks = seq(2, 18, 2), expand = expansion(mult = 0.12)) +
     scale_colour_manual(values = track_colours(), guide = "none") +
     scale_x_discrete(expand = expansion(add = c(0.15, 2.2))) +
     labs(x = NULL, y = "mean rank", title = "Does the ranking survive the distance?") +

@@ -28,6 +28,9 @@ change_from_raw <- function(scored, metric) {
 
 panel_taxon_bias <- function(per_taxon, dataset, methods_table = method_table()) {
   shown <- per_taxon[per_taxon$dataset == dataset & !is.na(per_taxon$log2_ratio), ]
+  # "Bifidobacterium longum subsp. infantis" spelled out costs a quarter of the figure's height, and
+  # the genus is never ambiguous inside one mock community.
+  shown$taxon <- sub("^([A-Z])[a-z]+ ", "\\1. ", shown$taxon)
   shown$taxon <- factor(shown$taxon, unique(shown$taxon[order(shown$log2_ratio[shown$method == "raw"])]))
   ggplot(label_methods(shown, methods_table), aes(taxon, label, fill = log2_ratio)) +
     geom_tile(colour = "white", linewidth = 0.3) +
@@ -37,7 +40,8 @@ panel_taxon_bias <- function(per_taxon, dataset, methods_table = method_table())
     labs(x = NULL, y = NULL, title = paste("Per-taxon bias,", sub(".*/", "", dataset),
                                            "(taxa ordered by the bias before correction)")) +
     theme_bench() +
-    theme(axis.text.x = element_text(angle = 50, hjust = 1, size = 4.5), panel.grid = element_blank())
+    theme(axis.text.x = element_text(angle = 50, hjust = 1, size = 4.5, face = "italic"),
+          panel.grid = element_blank())
 }
 
 panel_distance_to_truth <- function(truth_summary, methods_table = method_table()) {
@@ -48,8 +52,10 @@ panel_distance_to_truth <- function(truth_summary, methods_table = method_table(
     facet_wrap(~ dataset, nrow = 1, scales = "free_x") +
     scale_fill_manual(values = track_colours(), guide = "none") +
     scale_y_discrete(limits = rev) + scale_x_continuous(n.breaks = 3) +
-    labs(x = "Aitchison distance to truth", y = NULL, title = "Accuracy against the pipetted truth") +
-    theme_bench() + theme(axis.text.x = element_text(size = 5.5))
+    labs(x = "Aitchison distance to truth", y = NULL, title = "Accuracy against the pipetted truth",
+         subtitle = "shorter is better; a missing bar is a method that returned nothing on that dataset") +
+    theme_bench() + theme(axis.text.x = element_text(size = 5.5),
+                          plot.subtitle = element_text(size = 5, colour = "grey30"))
 }
 
 panel_false_structure <- function(truth_summary, methods_table = method_table()) {
@@ -64,10 +70,12 @@ panel_false_structure <- function(truth_summary, methods_table = method_table())
     scale_fill_manual(values = track_colours(), guide = "none") +
     scale_y_discrete(limits = rev) + scale_x_continuous(breaks = c(0, 1)) +
     labs(x = "batch R2 among identical material", y = NULL,
-         title = "False structure between protocols") +
+         title = "False structure between protocols",
+         subtitle = "bar: batch R2; circle: fraction of taxa called different between batches") +
     theme_bench() +
     theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(),
-          axis.text.x = element_text(size = 5.5))
+          axis.text.x = element_text(size = 5.5),
+          plot.subtitle = element_text(size = 5, colour = "grey30"))
 }
 
 panel_oracle_fidelity <- function(simulated, methods_table = method_table()) {
