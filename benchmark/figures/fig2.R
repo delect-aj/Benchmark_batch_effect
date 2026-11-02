@@ -94,7 +94,7 @@ panel_flip <- function(scored, methods_table = method_table()) {
     scale_colour_manual(values = track_colours(), guide = "none") +
     scale_x_discrete(expand = expansion(add = c(0.15, 2.2))) +
     labs(x = NULL, y = "mean rank", title = "Does the ranking survive the distance?",
-         subtitle = sprintf("%d methods whose output carries no presence/absence structure cannot be ranked under Jaccard",
+         subtitle = sprintf("%d methods have no presence/absence structure to rank under Jaccard",
                             sum(!comparable$ranked_everywhere))) +
     theme_bench() + theme(axis.text.x = element_text(angle = 25, hjust = 1),
                           plot.subtitle = element_text(size = 5, colour = "grey30"))

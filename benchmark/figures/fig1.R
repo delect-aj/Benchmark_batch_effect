@@ -50,10 +50,13 @@ panel_landscape <- function(datasets) {
   ggplot(datasets, aes(samples, n_batch)) +
     geom_point(aes(size = features, shape = assay, colour = evaluated), alpha = 0.85) +
     geom_text_repel(aes(label = dataset), size = 1.9, min.segment.length = 0, max.overlaps = Inf,
-                    force = 12, force_pull = 0.4, box.padding = 0.5, point.padding = 0.25,
-                    max.iter = 50000, seed = 1,
+                    force = 25, force_pull = 0.3, box.padding = 0.6, point.padding = 0.3,
+                    max.iter = 100000, seed = 3,
                     segment.size = 0.2, segment.colour = "grey50") +
-    scale_x_log10(expand = expansion(0.09)) + scale_y_continuous(expand = expansion(0.09)) +
+    scale_x_log10(expand = expansion(0.09)) +
+    # extra room below: four of the datasets sit in one cluster near the bottom of the panel and
+    # their labels have nowhere else to go
+    scale_y_continuous(expand = expansion(mult = c(0.2, 0.09))) +
     scale_size_area(max_size = 5, breaks = c(10, 100, 700)) +
     scale_colour_manual(values = c(yes = "#2c7fb8", no = "#d95f0e"),
                         labels = c(yes = "evaluation", no = "calibration")) +
