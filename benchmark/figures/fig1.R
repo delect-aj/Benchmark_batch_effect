@@ -20,7 +20,7 @@ panel_design <- function() {
     text = c("curated real data\n10 sets, 7,115 samples\nproxy metrics only",
              "designed protocol runs\n4 sets, known composition\nor repeated specimens",
              "simulation\n213 scenarios\nfull ground truth",
-             "one wrapper interface\ncounts + batch + phenotype  →  corrected table or embedding",
+             "one wrapper interface\ncounts + batch + phenotype  ->  corrected table or embedding",
              "batch removal\nR2, ASW, LISI", "signal retention\nR2, cLISI, oracle",
              "downstream\nDA, cross-study", "practicality\ntime, memory, failures"))
   boxes$width <- ifelse(boxes$fill == "interface", 2.94, 0.92)
@@ -50,7 +50,8 @@ panel_landscape <- function(datasets) {
   ggplot(datasets, aes(samples, n_batch)) +
     geom_point(aes(size = features, shape = assay, colour = evaluated), alpha = 0.85) +
     geom_text_repel(aes(label = dataset), size = 1.9, min.segment.length = 0, max.overlaps = Inf,
-                    force = 12, box.padding = 0.45, point.padding = 0.25, seed = 1,
+                    force = 12, force_pull = 0.4, box.padding = 0.5, point.padding = 0.25,
+                    max.iter = 50000, seed = 1,
                     segment.size = 0.2, segment.colour = "grey50") +
     scale_x_log10(expand = expansion(0.09)) + scale_y_continuous(expand = expansion(0.09)) +
     scale_size_area(max_size = 5, breaks = c(10, 100, 700)) +
@@ -83,7 +84,7 @@ panel_confounding <- function(datasets, confounding, simulated_levels) {
     # declared so the numeric y of the two annotations does not type the axis as continuous first
     scale_y_discrete(expand = expansion(add = c(0.6, 3.2))) +
     scale_x_continuous(limits = c(0, 1.02), expand = expansion(0.01)) +
-    labs(x = "batch-phenotype confounding (Cramér's V)", y = NULL, colour = NULL,
+    labs(x = "batch-phenotype confounding (Cramer's V)", y = NULL, colour = NULL,
          title = "Where the real datasets sit on the confounding axis") +
     theme_bench() + theme(panel.grid.major.y = element_blank())
 }
@@ -100,11 +101,11 @@ panel_simulation_space <- function(scenarios) {
   ggplot(sampled, aes(value, 1)) +
     geom_point(size = 0.5, alpha = 0.25, position = position_jitter(height = 0.3)) +
     facet_wrap(~ parameter, ncol = 4, scales = "free_x") +
-    scale_x_continuous(n.breaks = 3) +
+    scale_x_continuous(n.breaks = 4) +
     labs(x = NULL, y = NULL, title = "Simulation parameter space sampled (213 scenarios)") +
     theme_bench() +
     theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(),
-          panel.grid.major.y = element_blank(), panel.spacing.x = unit(2.5, "mm"))
+          panel.grid.major.y = element_blank(), panel.spacing.x = unit(3, "mm"))
 }
 
 panel_inventory <- function(methods) {

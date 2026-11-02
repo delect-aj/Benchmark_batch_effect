@@ -37,14 +37,13 @@ panel_ordination <- function(results_dir, dataset, methods, methods_table = meth
   coloured <- coloured[sample.int(nrow(coloured)), ]
   # A key for 17 batches would not fit, so the two scales are named in the subtitle instead; turbo
   # runs dark blue (first level) to dark red (last).
-  levels_of <- function(v) paste(levels(factor(v)), collapse = " / ")
   ggplot(coloured, aes(dim1, dim2, colour = colour)) +
     geom_point(size = 0.35, alpha = 0.7) +
     facet_grid(facet ~ label, scales = "free") +
     scale_colour_viridis_c(guide = "none", option = "turbo") +
     labs(x = "PCo 1", y = "PCo 2", title = paste("Ordination of", sub(".*/", "", dataset)),
-         subtitle = sprintf("colour runs dark blue to dark red over the %d batches (top) and over %s (bottom)",
-                            nlevels(factor(meta$batch)), levels_of(meta$phenotype))) +
+         subtitle = sprintf("colour runs dark blue to dark red, over the %d batches (top row) and the %d phenotype groups (bottom)",
+                            nlevels(factor(meta$batch)), nlevels(factor(meta$phenotype)))) +
     theme_bench() +
     theme(axis.text = element_blank(), axis.ticks = element_blank(),
           plot.subtitle = element_text(size = 5.5, colour = "grey30"))
@@ -73,26 +72,32 @@ panel_global <- function(scored, methods_table = method_table()) {
 
 panel_flip <- function(scored, methods_table = method_table()) {
   distances <- c(R2_batch_bc = "Bray-Curtis", R2_batch_ait = "Aitchison", R2_batch_jac = "Jaccard")
-  orders <- bind_rows(lapply(names(distances), function(m) ranked(scored, m))) %>%
+  # Jaccard needs presence/absence, which a clr table, a percentile table and an embedding do not
+  # carry: eight of the sixteen methods have no Jaccard score at all. Ranking the rest against them
+  # would compare two different sets, and their lines would stop in mid-panel with no label.
+  comparable <- scored %>% group_by(method) %>%
+    summarise(ranked_everywhere = !all(is.na(R2_batch_jac)), .groups = "drop")
+  shared <- scored[scored$method %in% comparable$method[comparable$ranked_everywhere], ]
+  orders <- bind_rows(lapply(names(distances), function(m) ranked(shared, m))) %>%
     group_by(method, metric) %>%
     summarise(rank = mean(rank, na.rm = TRUE), .groups = "drop")
   orders$distance <- factor(distances[orders$metric], distances)
   ggplot(label_methods(orders, methods_table), aes(distance, rank, group = label, colour = track)) +
     geom_line(linewidth = 0.4) +
     geom_point(size = 1) +
-    # Sixteen labels on one end: they need room outside the data range and enough iterations to use
-    # it, or repel drops the ones it cannot place and half the lines end up unlabelled.
     ggrepel::geom_text_repel(data = ~ subset(.x, distance == tail(levels(distance), 1)),
-                             aes(label = label), size = 1.6, direction = "y", hjust = 0,
+                             aes(label = label), size = 1.7, direction = "y", hjust = 0,
                              nudge_x = 0.25, segment.size = 0.2, segment.colour = "grey60",
-                             max.overlaps = Inf, box.padding = 0.04, point.padding = 0.05,
-                             force = 1, force_pull = 0.4, max.iter = 50000,
-                             min.segment.length = 0, seed = 1) +
+                             max.overlaps = Inf, box.padding = 0.08, point.padding = 0.05,
+                             force = 2, max.iter = 50000, min.segment.length = 0, seed = 1) +
     scale_y_reverse(breaks = seq(2, 18, 2), expand = expansion(mult = 0.12)) +
     scale_colour_manual(values = track_colours(), guide = "none") +
     scale_x_discrete(expand = expansion(add = c(0.15, 2.2))) +
-    labs(x = NULL, y = "mean rank", title = "Does the ranking survive the distance?") +
-    theme_bench() + theme(axis.text.x = element_text(angle = 25, hjust = 1))
+    labs(x = NULL, y = "mean rank", title = "Does the ranking survive the distance?",
+         subtitle = sprintf("%d methods whose output carries no presence/absence structure cannot be ranked under Jaccard",
+                            sum(!comparable$ranked_everywhere))) +
+    theme_bench() + theme(axis.text.x = element_text(angle = 25, hjust = 1),
+                          plot.subtitle = element_text(size = 5, colour = "grey30"))
 }
 
 panel_metric_agreement <- function(scored) {

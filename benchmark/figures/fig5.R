@@ -125,7 +125,7 @@ panel_cost <- function(scored, methods_table = method_table()) {
               failures = mean(status != "ok"), .groups = "drop")
   ggplot(label_methods(cost, methods_table), aes(seconds, memory)) +
     geom_point(aes(size = failures, colour = track)) +
-    ggrepel::geom_text_repel(aes(label = label), size = 1.7, segment.size = 0.2,
+    ggrepel::geom_text_repel(aes(label = label), size = 1.6, segment.size = 0.2,
                              segment.colour = "grey60", max.overlaps = Inf, force = 30,
                              force_pull = 0.3, box.padding = 0.5, point.padding = 0.3,
                              min.segment.length = 0, max.iter = 50000, seed = 1) +
@@ -180,7 +180,8 @@ main <- function(args) {
   figure <- (panel_da(simulated[simulated$da_prop > 0, ]) /
              (panel_null_da(simulated[simulated$da_prop == 0 & simulated$method != "oracle", ]) |
               panel_loso(loso)) /
-             (panel_consistency(ranking_table(scored, loso)) | panel_cost(scored)) /
+             ((panel_consistency(ranking_table(scored, loso)) | panel_cost(scored)) +
+              plot_layout(widths = c(1, 1.3))) /
              panel_recommendation(scored, loso, confounding)) +
     plot_layout(heights = c(1.3, 1.2, 1.2, 1)) +
     plot_annotation(tag_levels = "a") &

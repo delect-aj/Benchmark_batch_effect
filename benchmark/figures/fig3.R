@@ -53,9 +53,9 @@ panel_distance_to_truth <- function(truth_summary, methods_table = method_table(
     scale_fill_manual(values = track_colours(), guide = "none") +
     scale_y_discrete(limits = rev) + scale_x_continuous(n.breaks = 3) +
     labs(x = "Aitchison distance to truth", y = NULL, title = "Accuracy against the pipetted truth",
-         subtitle = "shorter is better; a missing bar is a method that returned nothing on that dataset") +
+         subtitle = "shorter is better; a missing bar means no result") +
     theme_bench() + theme(axis.text.x = element_text(size = 5.5),
-                          plot.subtitle = element_text(size = 5, colour = "grey30"))
+                          plot.subtitle = element_text(size = 4.8, colour = "grey30"))
 }
 
 panel_false_structure <- function(truth_summary, methods_table = method_table()) {
@@ -71,11 +71,11 @@ panel_false_structure <- function(truth_summary, methods_table = method_table())
     scale_y_discrete(limits = rev) + scale_x_continuous(breaks = c(0, 1)) +
     labs(x = "batch R2 among identical material", y = NULL,
          title = "False structure between protocols",
-         subtitle = "bar: batch R2; circle: fraction of taxa called different between batches") +
+         subtitle = "bar: batch R2; circle: fraction of taxa called different") +
     theme_bench() +
     theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(),
           axis.text.x = element_text(size = 5.5),
-          plot.subtitle = element_text(size = 5, colour = "grey30"))
+          plot.subtitle = element_text(size = 4.8, colour = "grey30"))
 }
 
 panel_oracle_fidelity <- function(simulated, methods_table = method_table()) {
