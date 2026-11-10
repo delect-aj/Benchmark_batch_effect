@@ -139,7 +139,7 @@ f 底部整宽（~180×45 mm）。总高约 180 mm。
 |---|---|---|
 | LOSO（转导式上界） | Fig 5c、5d | **已实现**（`metrics/loso.R`，全量校正一次 + 按 study 分折重训分类器），冒烟跑通，两个分类器都给出合理分布 |
 | 已知组成打分（mock 偏倚、null 假结构） | Fig 3a/3b/3c | **已实现**（`metrics/truth.R`），4 个 mock 数据集全部跑通 |
-| 五张主图的绘图代码 | 全部 | **已实现**（`figures/fig1.R` … `fig5.R`），一条 `snakemake` 规则产出 |
+| 五张主图的绘图代码 | 全部 | **已实现**（`figures/fig1.ipynb` … `fig5.ipynb`），一条 `snakemake` 规则产出 |
 | **DA 真值定义** | Fig 5a 的 FDR 基线 | **诊断清楚，待定**：见下 |
 | **LOSO 归纳式模式**：wrapper 只在训练批次上 fit | Fig 5c 的第二种设定 | 未实现（当前只报上界，并在图题中标注） |
 | Track C（MaAsLin2 / ANCOM-BC2 / SVA / BDMMA 作为"不校正、建模批次"的 DA 参照） | Fig 5a 的对照组 | 未实现；ANCOM-BC2 还缺 CVXR<1.0 |

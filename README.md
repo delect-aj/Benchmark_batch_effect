@@ -65,7 +65,7 @@ Snakefile 直接用绝对路径调用。重建环境：`bash benchmark/envs/buil
 | `methods/` | 每个批次校正方法一个 wrapper |
 | `metrics/` | 打分脚本 |
 | `report/` | 汇总脚本 |
-| `figures/` | 五张主图：`.R` 脚本出成图，`.ipynb` 按子图逐个跑 |
+| `figures/` | 五张主图，每张一个 notebook：子图逐个画，最后一格拼成组图 |
 | `pilot/` | 冒烟测试（跑通性检查） |
 | `envs/` | 环境构建 |
 | `paper/` | 论文草稿和图规划 |
@@ -152,11 +152,11 @@ Track B（输出嵌入）：`harmony` `fastmnn` `scanvi`
 ### 其他
 
 - `report/aggregate.R` — 把几万个 `.score` 拼成 `scores.tsv`
-- `figures/fig1.R` … `fig5.R` — 五张主图，`_panels.R` 是共享的配色/排序/主题
-- `figures/fig1.ipynb` … `fig5.ipynb` — 同样五张图的 notebook 版：**每个子图一个单元格，可以单独跑单独看**，
-  最后一个单元格把它们拼成投稿用的组图并写 PDF。notebook 只 `source()` 对应的 `.R`，面板代码仍然只有一份，
-  所以在 notebook 里调好的效果和 `snakemake` 出的图是同一个。
-  `.R` 脚本末尾的 `main()` 加了守卫（`length(commandArgs(TRUE)) >= 2`），source 时不会触发出图
+- `figures/fig1.ipynb` … `fig5.ipynb` — **五张主图的全部代码**。每个子图自己一个单元格：函数定义 +
+  画出来，改完重跑那一格就能看效果；最后一格把它们拼成投稿用的组图并写 PDF。
+  文件里存着渲染好的图片，所以不开 kernel、不碰 13 G 结果也能直接翻
+- `figures/_panels.R` — 五张图共享的东西：方法清单与排序、指标目录、打分归一化、主题、`save_figure()`
+- `figures/run_notebook.py` — 执行一个 notebook 并把图片存回文件里，`snakemake` 的 `rule figures` 用它
 - `pilot/run_pilot.sh` + `pilot/check.R` — 冒烟测试：造玩具数据，把每个 wrapper 跑一遍，报 ok / FAIL
 
 ---
@@ -227,9 +227,9 @@ bash ~/stop_run.sh
 ~/software/miniconda3/envs/metagenome_humann3/bin/jupyter lab --no-browser --port 8888
 # 本地再开一条隧道转发 8888，浏览器打开给出的 token 链接
 
-# 只重画图（最常用，几分钟）
+# 只重画图（最常用，几分钟）。会把渲染好的子图一并存回 .ipynb
 for i in 1 2 3 4 5; do
-  ~/software/miniconda3/envs/bench-r/bin/Rscript figures/fig$i.R results results/figures/fig$i.pdf
+  ~/software/miniconda3/envs/bench-py/bin/python figures/run_notebook.py figures/fig$i.ipynb
 done
 
 # 只准备数据，不跑方法

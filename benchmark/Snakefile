@@ -178,10 +178,13 @@ rule collect:  # the three tidy tables the figures read
             pd.concat([pd.read_csv(p, sep="\t") for p in paths]).to_csv(out, sep="\t", index=False)
 
 rule figures:
+    # The notebooks are the figure code: one cell per panel, assembled in the last cell. Executing
+    # them writes the PDFs and leaves the rendered panels inside the .ipynb, so the committed
+    # notebook shows every panel without a kernel. Needs the `ir` kernel -- see the README.
     input: "results/scores.tsv", "results/truth_summary.tsv", "results/truth_taxon.tsv", "results/loso.tsv"
     output: [f"results/figures/fig{i}.pdf" for i in range(1, 6)]
     log: "results/logs/figures.log"
-    shell: "for i in 1 2 3 4 5; do {R} figures/fig$i.R results results/figures/fig$i.pdf; done > {log} 2>&1"
+    shell: "for i in 1 2 3 4 5; do {PY} figures/run_notebook.py figures/fig$i.ipynb; done > {log} 2>&1"
 
 
 rule aggregate:
