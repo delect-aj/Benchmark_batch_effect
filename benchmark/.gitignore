@@ -8,3 +8,7 @@ results/data/*
 !results/data/real/
 !results/data/mock/
 data/templates/
+
+# Written into the working directory by a run, not by us
+adjust_batch_diagnostic.pdf
+.ipynb_checkpoints/
