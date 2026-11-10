@@ -149,6 +149,17 @@ track_colours <- function() c(baseline = "grey40", A = "#2c7fb8", B = "#d95f0e")
 # "track A" and "track B" mean nothing to a reader; say what the method returns.
 track_labels <- function() c(baseline = "baseline", A = "corrected table", B = "embedding")
 
+# Show one panel on its own in a notebook cell, at the size and shape that suit it alone rather than
+# the slot it occupies in the assembled figure. `scale` enlarges the canvas without touching the
+# font sizes, so what you see is the submission styling, just bigger on screen; the composite built
+# at the end of each notebook is the one that goes to the journal.
+show_panel <- function(panel, width_mm, height_mm, scale = 1.6, dpi = 150) {
+  options(repr.plot.width = width_mm / 25.4 * scale,
+          repr.plot.height = height_mm / 25.4 * scale,
+          repr.plot.res = dpi)
+  panel
+}
+
 # Nature-style double column is 180 mm; single column 88 mm.
 save_figure <- function(figure, path, width_mm, height_mm) {
   ggsave(path, figure, width = width_mm, height = height_mm, units = "mm", device = "pdf")

@@ -140,4 +140,6 @@ main <- function(args) {
   save_figure(figure, out, 180, 235)
 }
 
-main(commandArgs(TRUE))
+# Guarded so the file can be sourced: a notebook sources it for the panel functions and gets
+# no side effect, while the Snakefile's `Rscript figures/fig3.R results out.pdf` still runs main().
+if (length(commandArgs(TRUE)) >= 2) main(commandArgs(TRUE))
