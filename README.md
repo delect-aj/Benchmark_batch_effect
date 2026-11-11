@@ -293,7 +293,7 @@ benchmark 环境没被改过。
 ## 7. 当前状态
 
 - 完整一轮已经跑完，四张汇总表和五张图都在 `results/` 里
-- 五张图已调到投稿质量：180 mm 宽，225–240 mm 高，单页，矢量 PDF
+- 五张图已调到投稿质量：180 mm 宽，205–225 mm 高，单页，矢量 PDF
 - 论文的 Introduction / Methods 草稿在 `benchmark/paper/`，**参考文献里有 4 条标了 ⚠️ 需要核对**
 - 还没做：Track C（MaAsLin2 / ANCOM-BC2 / SVA / BDMMA，输出的是差异丰度结果而非表，需要另一套契约）、
   metacal wrapper、kBET 和 PCR-batch 指标、inductive 版本的 LOSO（目前只有 transductive 上界）

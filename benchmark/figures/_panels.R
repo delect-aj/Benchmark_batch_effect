@@ -1,8 +1,8 @@
 # Shared pieces for the five main figures: the method inventory, the metric catalogue, the two
 # normalisations used for ranking, and one place where figure size and type are set.
 #
-# Every figure script sources this file, defines one function per panel and assembles them in main();
-# nothing here depends on state defined by the caller.
+# Every figure notebook sources this file, defines one function per panel and assembles them in its
+# last cell; nothing here depends on state defined by the caller.
 suppressMessages({ library(ggplot2); library(patchwork); library(dplyr) })
 
 # --- Inventories ---------------------------------------------------------------------------------
@@ -130,24 +130,67 @@ dataset_confounding <- function(results_dir, datasets) {
   }, 0)
 }
 
-# --- Output --------------------------------------------------------------------------------------
+# --- Appearance ----------------------------------------------------------------------------------
+#
+# One visual system for all five figures, so a colour means the same thing on every page:
+#   track_colours()   what kind of method it is      grey / blue / orange
+#   pair_colours()    a two-way contrast             teal / purple
+#   level_colours()   ordered levels of one factor   light to dark red
+#   scale_fill_score()      a 0-1 scaled score       white to dark blue
+#   scale_fill_diverging()  signed around zero       blue - white - red
 
+# Open axes instead of a box around every panel, a grid faint enough to sit behind the data, and the
+# title flush with the left edge of the plot so it lines up with the panel letter.
 theme_bench <- function(base_size = 7) {
-  theme_bw(base_size = base_size) +
-    theme(panel.grid.minor = element_blank(),
-          strip.background = element_rect(fill = "grey95", colour = NA),
-          strip.text = element_text(size = base_size - 0.5,
-                                    margin = margin(1.2, 1.2, 1.2, 1.2, "mm")),
-          legend.key.size = unit(3, "mm"), legend.margin = margin(0, 0, 0, 0),
-          plot.tag = element_text(size = base_size + 2, face = "bold"),
-          plot.title = element_text(size = base_size, face = "bold"),
-          axis.text = element_text(colour = "black"))
+  theme_classic(base_size = base_size) +
+    theme(axis.line = element_line(linewidth = 0.25, colour = "grey25"),
+          axis.ticks = element_line(linewidth = 0.25, colour = "grey25"),
+          axis.ticks.length = unit(0.7, "mm"),
+          axis.text = element_text(size = base_size - 1.2, colour = "grey15"),
+          axis.title = element_text(size = base_size - 0.5),
+          panel.grid.major = element_line(colour = "grey93", linewidth = 0.2),
+          panel.spacing = unit(2.5, "mm"),
+          strip.background = element_blank(),
+          strip.text = element_text(size = base_size - 0.5, colour = "grey15",
+                                    margin = margin(1, 1, 1, 1, "mm")),
+          legend.key.size = unit(2.6, "mm"), legend.margin = margin(0, 0, 0, 0),
+          legend.box.spacing = unit(1.5, "mm"),
+          legend.text = element_text(size = base_size - 1.2),
+          legend.title = element_text(size = base_size - 1),
+          plot.title = element_text(size = base_size + 0.5, face = "bold"),
+          plot.subtitle = element_text(size = base_size - 1.5, colour = "grey35"),
+          plot.title.position = "plot",
+          plot.margin = margin(2, 2, 2, 2, "mm"))
 }
 
-track_colours <- function() c(baseline = "grey40", A = "#2c7fb8", B = "#d95f0e")
+# For heatmaps and dot matrices, where the tiles are the axes.
+theme_tiles <- function()
+  theme(axis.line = element_blank(), axis.ticks = element_blank(),
+        panel.grid.major = element_blank())
+
+track_colours <- function() c(baseline = "grey35", A = "#2c7fb8", B = "#d95f0e")
 
 # "track A" and "track B" mean nothing to a reader; say what the method returns.
 track_labels <- function() c(baseline = "baseline", A = "corrected table", B = "embedding")
+
+pair_colours <- function() c("#1b9e77", "#7570b3")
+
+level_colours <- function() c("#fdbb84", "#ef6548", "#990000")
+
+scale_fill_score <- function(...)
+  scale_fill_distiller(palette = "Blues", direction = 1, limits = c(0, 1), na.value = "grey90",
+                       breaks = c(0, 0.5, 1), ...)
+
+scale_fill_diverging <- function(limits, ...)
+  scale_fill_gradient2(low = "#2166ac", mid = "white", high = "#b2182b", limits = limits,
+                       oob = scales::squish, ...)
+
+# A slim colour bar; the default one is as wide as a heatmap column.
+slim_bar <- function(length_mm = 16)
+  guide_colourbar(barwidth = unit(1.8, "mm"), barheight = unit(length_mm, "mm"),
+                  ticks.colour = "white", frame.colour = NA)
+
+# --- Output --------------------------------------------------------------------------------------
 
 # Show one panel on its own in a notebook cell, at the size and shape that suit it alone rather than
 # the slot it occupies in the assembled figure. `scale` enlarges the canvas without touching the
@@ -158,6 +201,17 @@ show_panel <- function(panel, width_mm, height_mm, scale = 1.6, dpi = 150) {
           repr.plot.height = height_mm / 25.4 * scale,
           repr.plot.res = dpi)
   panel
+}
+
+# Letter the panels of an assembled figure. The letter is pinned to the top-left corner of its panel
+# and the title is indented to sit beside it on the same line, instead of the letter taking a row
+# and a column of its own and pushing every title down and to the right.
+assemble <- function(figure) {
+  figure + plot_annotation(tag_levels = "a") &
+    theme(plot.tag = element_text(size = 9, face = "bold", hjust = 0, vjust = 1),
+          plot.tag.position = c(0, 1),
+          plot.title = element_text(margin = margin(0, 0, 1.2, 4.5, "mm")),
+          plot.subtitle = element_text(margin = margin(0, 0, 1.2, 4.5, "mm")))
 }
 
 # Nature-style double column is 180 mm; single column 88 mm.
